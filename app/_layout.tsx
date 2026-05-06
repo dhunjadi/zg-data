@@ -45,6 +45,7 @@ const RootLayout = () => {
     >
       <StatusBar style="auto" />
       <Stack>
+        <Stack.Screen name="(protected)" options={{ headerShown: false }} />
         <Stack.Screen name="login" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
