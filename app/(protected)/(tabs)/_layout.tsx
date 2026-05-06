@@ -1,7 +1,5 @@
-import Entypo from "@expo/vector-icons/Entypo";
-import Fontisto from "@expo/vector-icons/Fontisto";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Tabs } from "expo-router";
+import { CircleUserRound, Database, House } from "lucide-react-native";
 import React from "react";
 
 const TabsLayout = () => {
@@ -16,9 +14,7 @@ const TabsLayout = () => {
           title: "Otvoreni podaci Zagreb",
           headerShown: true,
           tabBarLabel: "Početna",
-          tabBarIcon: ({ color, size }) => (
-            <Fontisto name="home" size={size} color={color} />
-          ),
+          tabBarIcon: ({ color, size }) => <House size={size} color={color} />,
         }}
       />
 
@@ -30,7 +26,7 @@ const TabsLayout = () => {
           popToTopOnBlur: true,
           tabBarLabel: "Skupovi podataka",
           tabBarIcon: ({ color, size }) => (
-            <Entypo name="database" size={size} color={color} />
+            <Database size={size} color={color} />
           ),
         }}
       />
@@ -43,7 +39,7 @@ const TabsLayout = () => {
           popToTopOnBlur: true,
           tabBarLabel: "Profil",
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="account-circle" size={size} color={color} />
+            <CircleUserRound size={size} color={color} />
           ),
         }}
       />
