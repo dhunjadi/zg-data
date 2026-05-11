@@ -28,8 +28,8 @@ const TabsLayout = () => {
       <Tabs.Screen
         name="dataSets"
         options={{
-          title: "DataSets",
-          headerShown: false,
+          title: "Skupovi podataka",
+          headerShown: true,
           popToTopOnBlur: true,
           tabBarLabel: "Skupovi podataka",
           tabBarIcon: ({ color, size }) => (

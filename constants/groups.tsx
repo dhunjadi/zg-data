@@ -12,7 +12,7 @@ import {
   Wallet,
 } from "lucide-react-native";
 
-export const groups = [
+export const GROUPS = [
   {
     label: "Obrazovanje, kultura i sport",
     description: "Velit cursus magna fringilla natoque.",
