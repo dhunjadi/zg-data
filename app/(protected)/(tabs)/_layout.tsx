@@ -1,11 +1,18 @@
 import { Tabs } from "expo-router";
 import { CircleUserRound, Database, House } from "lucide-react-native";
 import React from "react";
+import { Image } from "react-native";
+import ZagrebCoA from "../../../assets/images/zagreb-grb.png";
 
 const TabsLayout = () => {
   return (
     <Tabs
-      screenOptions={{ tabBarActiveTintColor: "#005793" }}
+      screenOptions={{
+        tabBarActiveTintColor: "#005793",
+        headerRight: () => (
+          <Image source={ZagrebCoA} className="w-8 h-8 right-5" />
+        ),
+      }}
       backBehavior="order"
     >
       <Tabs.Screen
