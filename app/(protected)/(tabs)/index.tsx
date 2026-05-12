@@ -1,10 +1,17 @@
 import GroupCard from "@/components/GroupCard";
 import { GROUPS } from "@/constants/groups";
-import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { Search } from "lucide-react-native";
+import React, { useState } from "react";
+import { ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Home = () => {
+  const [filterText, setFilterText] = useState("");
+
+  const filteredData = GROUPS.filter((item) =>
+    item.label.toLowerCase().includes(filterText.toLowerCase()),
+  );
+
   return (
     <SafeAreaView className="flex-1 bg-neutral-100">
       <ScrollView className="px-4" showsVerticalScrollIndicator={false}>
@@ -18,7 +25,19 @@ const Home = () => {
             upravljanje gradom.
           </Text>
 
-          {GROUPS.map((item) => (
+          <View className="flex-row items-center bg-white border border-neutral-300 rounded-md px-3 mb-6">
+            <Search size={20} color="#737373" />
+            <TextInput
+              placeholder="Pretraži skupove podataka"
+              value={filterText}
+              onChangeText={(val) => setFilterText(val)}
+              autoCorrect={false}
+              placeholderTextColor="#9ca3af"
+              className="flex-1 p-4 text-base text-neutral-700"
+            />
+          </View>
+
+          {filteredData.map((item) => (
             <GroupCard
               key={item.label}
               {...item}
