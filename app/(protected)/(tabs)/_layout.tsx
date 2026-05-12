@@ -16,10 +16,10 @@ const TabsLayout = () => {
       backBehavior="order"
     >
       <Tabs.Screen
-        name="index"
+        name="(home)"
         options={{
           title: "Otvoreni podaci Zagreb",
-          headerShown: true,
+          headerShown: false,
           tabBarLabel: "Početna",
           tabBarIcon: ({ color, size }) => <House size={size} color={color} />,
         }}

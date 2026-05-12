@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { FlatList, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const DataSets = () => {
+const DataSetsScreen = () => {
   const [filterText, setFilterText] = useState("");
 
   const filteredData = DATASETS.filter((item) =>
@@ -50,4 +50,4 @@ const DataSets = () => {
   );
 };
 
-export default DataSets;
+export default DataSetsScreen;

@@ -15,6 +15,7 @@ import {
 
 export const GROUPS = [
   {
+    id: "education",
     label: "Obrazovanje, kultura i sport",
     description: "Velit cursus magna fringilla natoque.",
     icon: GraduationCap,
@@ -82,6 +83,7 @@ export const GROUPS = [
     ],
   },
   {
+    id: "economy",
     label: "Ekonomije i financije",
     description: "Quisque himenaeos tempor pharetra.",
     icon: Wallet,
@@ -99,6 +101,7 @@ export const GROUPS = [
     ],
   },
   {
+    id: "public-sector",
     label: "Javni sektor i ustanove",
     description: "Aenean lobortis gravida finibus torquent accumsan.",
     icon: Landmark,
@@ -156,6 +159,7 @@ export const GROUPS = [
     ],
   },
   {
+    id: "environment",
     label: "Okoliš",
     description:
       "Porttitor eleifend montes curabitur aptent risus ullamcorper.",
@@ -214,6 +218,7 @@ export const GROUPS = [
     ],
   },
   {
+    id: "agriculture",
     label: "Poljoprivreda, ribarstvo, šumarstvo i hrana",
     description: "Bibendum tristique congue maximus litora sem vulputate.",
     icon: Sprout,
@@ -241,6 +246,7 @@ export const GROUPS = [
     ],
   },
   {
+    id: "judiciary",
     label: "Pravosuđe, pravni sustav i javna sigurnost",
     description: "Pulvinar maecenas placerat faucibus per senectus ligula.",
     icon: Gavel,
@@ -263,6 +269,7 @@ export const GROUPS = [
     ],
   },
   {
+    id: "traffic",
     label: "Promet",
     description: "Efficitur ridiculus iaculis parturient morbi netus aliquam.",
     icon: Road,
@@ -340,6 +347,7 @@ export const GROUPS = [
     ],
   },
   {
+    id: "society",
     label: "Stanovništvo i društvo",
     description: "Convallis sapien molestie cubilia pretium orci hendrerit.",
     icon: PersonStanding,
@@ -467,6 +475,7 @@ export const GROUPS = [
     ],
   },
   {
+    id: "health-care",
     label: "Zdravstvo",
     description: "Nascetur vehicula platea condimentum rutrum eros donec.",
     icon: HeartPulse,
@@ -489,6 +498,7 @@ export const GROUPS = [
     ],
   },
   {
+    id: "science",
     label: "Znanost i tehnologija",
     description: "Sollicitudin feugiat penatibus tincidunt mauris.",
     icon: Microscope,

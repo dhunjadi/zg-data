@@ -1,11 +1,12 @@
 import GroupCard from "@/components/GroupCard";
 import { GROUPS } from "@/constants/groups";
+import { Link } from "expo-router";
 import { Search } from "lucide-react-native";
 import React, { useState } from "react";
-import { ScrollView, Text, TextInput, View } from "react-native";
+import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const Home = () => {
+const HomeScreen = () => {
   const [filterText, setFilterText] = useState("");
 
   const filteredData = GROUPS.filter((item) =>
@@ -38,12 +39,15 @@ const Home = () => {
           </View>
 
           {filteredData.map((item) => (
-            <GroupCard
-              key={item.label}
-              {...item}
-              description={`${item.dataSets?.length.toString()} skupova podataka`}
-              icon={(props) => <item.icon {...props} />}
-            />
+            <Link key={item.id} href={`/(home)/${item.id}`} asChild>
+              <Pressable>
+                <GroupCard
+                  {...item}
+                  description={`${item.dataSets?.length.toString()} skupova podataka`}
+                  icon={(props) => <item.icon {...props} />}
+                />
+              </Pressable>
+            </Link>
           ))}
         </View>
       </ScrollView>
@@ -51,4 +55,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeScreen;
