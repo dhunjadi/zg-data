@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
 type GroupCardIconProps = {
   size: number;
@@ -14,11 +15,15 @@ type GroupCardProps = {
 
 const GroupCard = ({ icon, label, description }: GroupCardProps) => {
   return (
-    <View className="relative w-full p-8 flex-col gap-2 bg-primaryLight rounded-xl overflow-hidden mb-4">
+    <Animated.View
+      key="groupCard"
+      entering={FadeInDown.duration(500)}
+      className="relative w-full p-8 flex-col gap-2 bg-primaryLight rounded-xl overflow-hidden mb-4"
+    >
       {icon({ size: 48, color: "white" })}
       <Text className="text-white font-bold text-xl">{label}</Text>
       <Text className="text-white text-xl">{description}</Text>
-    </View>
+    </Animated.View>
   );
 };
 

@@ -128,7 +128,7 @@ export const CATEGORIES = [
   },
   {
     id: "economy",
-    label: "Ekonomije i financije",
+    label: "Ekonomija i financije",
     description: "Quisque himenaeos tempor pharetra.",
     icon: Wallet,
     dataSets: [

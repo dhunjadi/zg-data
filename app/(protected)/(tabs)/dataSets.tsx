@@ -1,5 +1,5 @@
 import DataSetItem from "@/components/DataSetItem";
-import { DATASETS } from "@/constants/dataSets";
+import { CATEGORIES } from "@/constants/categories";
 import { Search } from "lucide-react-native";
 import React, { useState } from "react";
 import { FlatList, Text, TextInput, View } from "react-native";
@@ -8,7 +8,14 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const DataSetsScreen = () => {
   const [filterText, setFilterText] = useState("");
 
-  const filteredData = DATASETS.filter((item) =>
+  const flatDataSets = CATEGORIES.flatMap((category) =>
+    category.dataSets.map((dataSet, index) => ({
+      ...dataSet,
+      id: `${category.id}-${index}`,
+    })),
+  );
+
+  const filteredData = flatDataSets.filter((item) =>
     item.label.toLowerCase().includes(filterText.toLowerCase()),
   );
 
@@ -17,7 +24,7 @@ const DataSetsScreen = () => {
       <View>
         <FlatList
           data={filteredData}
-          keyExtractor={(item) => item.label}
+          keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <DataSetItem {...item} icon={(props) => <item.icon {...props} />} />
           )}

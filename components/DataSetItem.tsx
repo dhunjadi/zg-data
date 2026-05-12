@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 import Divider from "./Divider";
 
 type GroupCardIconProps = {
@@ -17,7 +18,11 @@ const DataSetItem = ({ icon, label, description }: DataSetItemProps) => {
   return (
     <>
       <Divider />
-      <View className="flex-row">
+      <Animated.View
+        key="dataSetItem"
+        entering={FadeInDown.duration(500)}
+        className="flex-row"
+      >
         <View className="bg-blue-100 p-4 rounded-xl">
           {icon({ size: 32, color: "#005793" })}
         </View>
@@ -26,7 +31,7 @@ const DataSetItem = ({ icon, label, description }: DataSetItemProps) => {
           <Text className="text-primaryDark font-bold text-xl">{label}</Text>
           <Text>{description}</Text>
         </View>
-      </View>
+      </Animated.View>
     </>
   );
 };
