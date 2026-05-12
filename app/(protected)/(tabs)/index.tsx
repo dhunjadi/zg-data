@@ -22,6 +22,7 @@ const Home = () => {
             <GroupCard
               key={item.label}
               {...item}
+              description={`${item.dataSets?.length.toString()} skupova podataka`}
               icon={(props) => <item.icon {...props} />}
             />
           ))}
