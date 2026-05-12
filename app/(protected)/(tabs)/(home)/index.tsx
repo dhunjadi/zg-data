@@ -1,5 +1,5 @@
 import GroupCard from "@/components/GroupCard";
-import { GROUPS } from "@/constants/groups";
+import { CATEGORIES } from "@/constants/categories";
 import { Link } from "expo-router";
 import { Search } from "lucide-react-native";
 import React, { useState } from "react";
@@ -9,9 +9,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const HomeScreen = () => {
   const [filterText, setFilterText] = useState("");
 
-  const filteredData = GROUPS.filter((item) =>
+  const filteredData = CATEGORIES.filter((item) =>
     item.label.toLowerCase().includes(filterText.toLowerCase()),
   );
+
+  const getCardDescription = (dataSetLenght: number) => {
+    if (dataSetLenght === 1) return `${dataSetLenght} skup podataka`;
+    if (dataSetLenght > 1 && dataSetLenght < 5)
+      return `${dataSetLenght} skupa podataka`;
+    return `${dataSetLenght} skupova podataka`;
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-neutral-100">
@@ -43,7 +50,7 @@ const HomeScreen = () => {
               <Pressable>
                 <GroupCard
                   {...item}
-                  description={`${item.dataSets?.length.toString()} skupova podataka`}
+                  description={getCardDescription(item.dataSets?.length)}
                   icon={(props) => <item.icon {...props} />}
                 />
               </Pressable>

@@ -1,4 +1,4 @@
-import { GROUPS } from "@/constants/groups";
+import { CATEGORIES } from "@/constants/categories";
 import { Stack, useGlobalSearchParams } from "expo-router";
 import React from "react";
 import { Image } from "react-native";
@@ -6,7 +6,7 @@ import ZagrebCoA from "../../../../assets/images/zagreb-grb.png";
 
 const HomeLayout = () => {
   const { id } = useGlobalSearchParams();
-  const groupTitle = GROUPS.find((item) => item.id === id)?.label;
+  const groupTitle = CATEGORIES.find((item) => item.id === id)?.label;
   return (
     <Stack>
       <Stack.Screen
