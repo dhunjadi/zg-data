@@ -1,15 +1,22 @@
 import DataSetItem from "@/components/DataSetItem";
 import { DATASETS } from "@/constants/dataSets";
-import React from "react";
-import { FlatList, Text, View } from "react-native";
+import { Search } from "lucide-react-native";
+import React, { useState } from "react";
+import { FlatList, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const DataSets = () => {
+  const [filterText, setFilterText] = useState("");
+
+  const filteredData = DATASETS.filter((item) =>
+    item.label.toLowerCase().includes(filterText.toLowerCase()),
+  );
+
   return (
     <SafeAreaView className="flex-1 px-4 bg-neutral-100">
       <View>
         <FlatList
-          data={DATASETS}
+          data={filteredData}
           keyExtractor={(item) => item.label}
           renderItem={({ item }) => (
             <DataSetItem {...item} icon={(props) => <item.icon {...props} />} />
@@ -23,6 +30,18 @@ const DataSets = () => {
               <Text className="text-md text-neutral-700 mb-8">
                 Pregledajte dostupne skupove podataka Grada Zagreba.
               </Text>
+
+              <View className="flex-row items-center bg-white border border-neutral-300 rounded-md px-3 mb-6">
+                <Search size={20} color="#737373" />
+                <TextInput
+                  placeholder="Pretraži skupove podataka"
+                  value={filterText}
+                  onChangeText={(val) => setFilterText(val)}
+                  autoCorrect={false}
+                  placeholderTextColor="#9ca3af"
+                  className="flex-1 p-4 text-base text-neutral-700"
+                />
+              </View>
             </>
           }
         />
