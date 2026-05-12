@@ -1,4 +1,4 @@
-import GroupCard from "@/components/GroupCard";
+import DataSetItem from "@/components/DataSetItem";
 import { DATASETS } from "@/constants/dataSets";
 import React from "react";
 import { FlatList, Text, View } from "react-native";
@@ -12,11 +12,7 @@ const DataSets = () => {
           data={DATASETS}
           keyExtractor={(item) => item.label}
           renderItem={({ item }) => (
-            <GroupCard
-              {...item}
-              varient="white"
-              icon={(props) => <item.icon {...props} />}
-            />
+            <DataSetItem {...item} icon={(props) => <item.icon {...props} />} />
           )}
           ListHeaderComponent={
             <>

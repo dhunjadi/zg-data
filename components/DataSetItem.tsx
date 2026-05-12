@@ -1,0 +1,34 @@
+import React from "react";
+import { Text, View } from "react-native";
+import Divider from "./Divider";
+
+type GroupCardIconProps = {
+  size: number;
+  color: string;
+};
+
+type DataSetItemProps = {
+  icon: (props: GroupCardIconProps) => React.ReactNode;
+  label: string;
+  description: string;
+};
+
+const DataSetItem = ({ icon, label, description }: DataSetItemProps) => {
+  return (
+    <>
+      <Divider />
+      <View className="flex-row">
+        <View className="bg-blue-100 p-4 rounded-xl">
+          {icon({ size: 32, color: "#005793" })}
+        </View>
+
+        <View className="flex-col justify-center ml-4">
+          <Text className="text-primaryDark font-bold text-xl">{label}</Text>
+          <Text>{description}</Text>
+        </View>
+      </View>
+    </>
+  );
+};
+
+export default DataSetItem;
