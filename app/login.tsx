@@ -1,4 +1,5 @@
 import Divider from "@/components/Divider";
+import { useAuth } from "@/context/AuthContext";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useRouter } from "expo-router";
@@ -18,6 +19,7 @@ const MOCK_USERNAME = "admin";
 const MOCK_PASSWORD = "admin";
 
 const LoginScreen = () => {
+  const { setIsLoggedIn } = useAuth();
   const router = useRouter();
 
   const [user, setUser] = useState({
@@ -28,6 +30,7 @@ const LoginScreen = () => {
 
   const handleLogin = () => {
     if (user.username === MOCK_USERNAME && user.password === MOCK_PASSWORD) {
+      setIsLoggedIn(true);
       router.replace("/");
     } else {
       setUser({ ...user, isError: true });

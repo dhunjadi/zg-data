@@ -1,6 +1,7 @@
 import { Redirect, Stack } from "expo-router";
 
 export default function ProtectedLayout() {
+  /* const { isLoggedIn } = useAuth(); */
   const isLoggedIn = true;
 
   if (!isLoggedIn) {

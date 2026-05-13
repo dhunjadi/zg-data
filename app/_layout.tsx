@@ -1,3 +1,4 @@
+import { AuthProvider } from "@/context/AuthContext";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
@@ -8,10 +9,12 @@ const RootLayout = () => {
   return (
     <>
       <StatusBar style="auto" />
-      <Stack>
-        <Stack.Screen name="(protected)" options={{ headerShown: false }} />
-        <Stack.Screen name="login" options={{ headerShown: false }} />
-      </Stack>
+      <AuthProvider>
+        <Stack>
+          <Stack.Screen name="(protected)" options={{ headerShown: false }} />
+          <Stack.Screen name="login" options={{ headerShown: false }} />
+        </Stack>
+      </AuthProvider>
     </>
   );
 };
