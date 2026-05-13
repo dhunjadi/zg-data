@@ -2,9 +2,10 @@ import Divider from "@/components/Divider";
 import { useAuth } from "@/context/AuthContext";
 import { auth } from "@/FirebaseConfig";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Redirect } from "expo-router";
+import { FirebaseError } from "firebase/app";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { LogIn } from "lucide-react-native";
 import React, { useState } from "react";
 import {
   Image,
@@ -39,10 +40,11 @@ const LoginScreen = () => {
         loginData.password,
       );
       setLoginData({ ...loginData, isError: !user });
-    } catch (error: any) {
-      console.log(error);
-      alert("Sign in failed: " + error.message);
-      setLoginData({ ...loginData, isError: true });
+    } catch (error: unknown) {
+      if (error instanceof FirebaseError) {
+        console.log(error.message);
+        setLoginData({ ...loginData, isError: true });
+      }
     }
   };
 
@@ -99,7 +101,7 @@ const LoginScreen = () => {
           className="w-full flex-row gap-2 bg-primaryDark p-4 rounded-md justify-center items-center"
         >
           <Text className="text-white font-bold">Prijavi se</Text>
-          <MaterialIcons name="login" size={20} color="white" />
+          <LogIn color="white" />
         </Pressable>
 
         <Divider text="ili nastavite s" />
