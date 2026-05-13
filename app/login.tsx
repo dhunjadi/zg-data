@@ -1,8 +1,10 @@
 import Divider from "@/components/Divider";
 import { useAuth } from "@/context/AuthContext";
+import { auth } from "@/FirebaseConfig";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { useRouter } from "expo-router";
+import { Redirect } from "expo-router";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import {
   Image,
@@ -15,27 +17,42 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import ZagrebCoA from "../assets/images/zagreb-grb.png";
 
-const MOCK_USERNAME = "admin";
-const MOCK_PASSWORD = "admin";
+/* 
+  email: admin@zg-data.hr
+  password: admin123!
+*/
 
 const LoginScreen = () => {
-  const { setIsLoggedIn } = useAuth();
-  const router = useRouter();
+  const { isLoggedIn, isLoading } = useAuth();
 
-  const [user, setUser] = useState({
-    username: "",
+  const [loginData, setLoginData] = useState({
+    email: "",
     password: "",
     isError: false,
   });
 
-  const handleLogin = () => {
-    if (user.username === MOCK_USERNAME && user.password === MOCK_PASSWORD) {
-      setIsLoggedIn(true);
-      router.replace("/");
-    } else {
-      setUser({ ...user, isError: true });
+  const signIn = async () => {
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        loginData.email,
+        loginData.password,
+      );
+      setLoginData({ ...loginData, isError: !user });
+    } catch (error: any) {
+      console.log(error);
+      alert("Sign in failed: " + error.message);
+      setLoginData({ ...loginData, isError: true });
     }
   };
+
+  if (isLoading) {
+    return null;
+  }
+
+  if (isLoggedIn) {
+    return <Redirect href="/" />;
+  }
 
   return (
     <SafeAreaView className="bg-white flex-1">
@@ -54,8 +71,8 @@ const LoginScreen = () => {
 
         <TextInput
           placeholder="vas@email.hr"
-          value={user.username}
-          onChangeText={(val) => setUser({ ...user, username: val })}
+          value={loginData.email}
+          onChangeText={(val) => setLoginData({ ...loginData, email: val })}
           autoCorrect={false}
           placeholderTextColor="#9ca3af"
           className="p-4 rounded-md text-base w-full mb-4 border text-neutral-700 border-neutral-300"
@@ -64,21 +81,21 @@ const LoginScreen = () => {
         <TextInput
           placeholder="******"
           secureTextEntry={true}
-          value={user.password}
-          onChangeText={(val) => setUser({ ...user, password: val })}
+          value={loginData.password}
+          onChangeText={(val) => setLoginData({ ...loginData, password: val })}
           autoCorrect={false}
           placeholderTextColor="#9ca3af"
           className="p-4 rounded-md text-base w-full mb-4 border text-neutral-700 border-neutral-300"
         />
 
-        {user.isError && (
+        {loginData.isError && (
           <Text className="font-bold text-red-500 mb-4">
             Pogrešni email ili lozinka
           </Text>
         )}
 
         <Pressable
-          onPress={handleLogin}
+          onPress={signIn}
           className="w-full flex-row gap-2 bg-primaryDark p-4 rounded-md justify-center items-center"
         >
           <Text className="text-white font-bold">Prijavi se</Text>
