@@ -7,7 +7,7 @@ import { Pressable, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const AccountScreen = () => {
-  const handleSignOut = async () => {
+  const handleLogout = async () => {
     try {
       await signOut(auth);
     } catch (error: unknown) {
@@ -21,7 +21,7 @@ const AccountScreen = () => {
   return (
     <SafeAreaView className="bg-white flex-1 p-4">
       <Pressable
-        onPress={handleSignOut}
+        onPress={handleLogout}
         className="w-full flex-row gap-2 bg-primaryDark p-4 rounded-md justify-center items-center"
       >
         <Text className="text-white font-bold">Odjavi se</Text>

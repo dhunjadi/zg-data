@@ -32,7 +32,7 @@ const LoginScreen = () => {
     isError: false,
   });
 
-  const signIn = async () => {
+  const handleLogin = async () => {
     try {
       const user = await signInWithEmailAndPassword(
         auth,
@@ -97,7 +97,7 @@ const LoginScreen = () => {
         )}
 
         <Pressable
-          onPress={signIn}
+          onPress={handleLogin}
           className="w-full flex-row gap-2 bg-primaryDark p-4 rounded-md justify-center items-center"
         >
           <Text className="text-white font-bold">Prijavi se</Text>
