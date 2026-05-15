@@ -93,11 +93,14 @@ const LoginScreen = () => {
             <TextInput
               placeholder="vas@email.hr"
               value={value}
-              onChangeText={onChange}
+              onChangeText={(text) => {
+                setIsLoginError(false);
+                onChange(text);
+              }}
               onBlur={onBlur}
               autoCorrect={false}
               placeholderTextColor="#9ca3af"
-              className="p-4 rounded-md text-base w-full mb-4 border text-neutral-700 border-neutral-300"
+              className={`p-4 rounded-md text-base w-full mb-4 border text-neutral-700 ${!isLoginError && !errors.email ? "border-neutral-300" : "border-red-400"}`}
             />
           )}
         />
@@ -115,11 +118,14 @@ const LoginScreen = () => {
               placeholder="******"
               secureTextEntry={true}
               value={value}
-              onChangeText={onChange}
+              onChangeText={(text) => {
+                setIsLoginError(false);
+                onChange(text);
+              }}
               onBlur={onBlur}
               autoCorrect={false}
               placeholderTextColor="#9ca3af"
-              className="p-4 rounded-md text-base w-full mb-4 border text-neutral-700 border-neutral-300"
+              className={`p-4 rounded-md text-base w-full mb-4 border text-neutral-700 ${!isLoginError && !errors.password ? "border-neutral-300" : "border-red-400"}`}
             />
           )}
         />
