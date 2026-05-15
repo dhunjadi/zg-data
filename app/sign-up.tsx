@@ -84,7 +84,7 @@ const SignUpScreen = () => {
               onBlur={onBlur}
               autoCorrect={false}
               placeholderTextColor="#9ca3af"
-              className="p-4 rounded-md text-base w-full mb-4 border text-neutral-700 border-neutral-300"
+              className={`p-4 rounded-md text-base w-full mb-4 border text-neutral-700 ${!errors.email ? "border-neutral-300" : "border-red-400"}`}
             />
           )}
         />
@@ -106,7 +106,7 @@ const SignUpScreen = () => {
               onBlur={onBlur}
               autoCorrect={false}
               placeholderTextColor="#9ca3af"
-              className="p-4 rounded-md text-base w-full mb-4 border text-neutral-700 border-neutral-300"
+              className={`p-4 rounded-md text-base w-full mb-4 border text-neutral-700 ${!errors.password ? "border-neutral-300" : "border-red-400"}`}
             />
           )}
         />
