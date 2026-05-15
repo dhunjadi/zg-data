@@ -1,50 +1,59 @@
-# Welcome to your Expo app 👋
+# ZG Data
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+ZG Data is a React Native / Expo application for browsing open datasets from the City of Zagreb. The app organizes datasets into categories, lets users search through available groups and datasets, and opens a map view for location-based data.
 
-## Get started
+The project uses data from the official City of Zagreb open data portal: [data.zagreb.hr](https://data.zagreb.hr/).
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
-   ```
+- Firebase email/password authentication
+- Protected app routes for authenticated users
+- Dataset categories for education, traffic, public services, environment, health care, agriculture, society, and more
+- Searchable category and dataset lists
+- Map screen powered by `react-native-maps`
+- GeoJSON fetching with Axios and TanStack Query
+- Form validation with React Hook Form and Yup
+- Styling with NativeWind / Tailwind CSS
 
-2. Start the app
+## Test Account
 
-   ```bash
-   npx expo start
-   ```
+Use this account to try the authenticated part of the app:
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```txt
+email: test@test.hr
+password: 123456
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Data Source
 
-## Learn more
+The app is built around public datasets from the City of Zagreb Open Data Portal:
 
-To learn more about developing your project with Expo, look at the following resources:
+- Website: [https://data.zagreb.hr/](https://data.zagreb.hr/)
+- Example GeoJSON endpoint used in the app: `https://data.zagreb.hr/dataset/8b4ab584-5b5a-4d70-9cf3-24897645ad6b/resource/e1caf1d1-ecdf-4d5c-8020-6798c45a188d/download/data.geojson`
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Tech Stack
 
-## Join the community
+- [Expo](https://expo.dev/)
+- [Expo Router](https://docs.expo.dev/router/introduction/)
+- [React Native](https://reactnative.dev/)
+- [Firebase Authentication](https://firebase.google.com/docs/auth)
+- [TanStack Query](https://tanstack.com/query/latest)
+- [Axios](https://axios-http.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Yup](https://github.com/jquense/yup)
+- [NativeWind](https://www.nativewind.dev/)
+- [react-native-maps](https://github.com/react-native-maps/react-native-maps)
 
-Join our community of developers creating universal apps.
+## Getting Started
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the Expo development server:
+
+```bash
+npx expo start
+```

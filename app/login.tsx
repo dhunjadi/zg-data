@@ -79,11 +79,11 @@ const LoginScreen = () => {
       >
         <Image source={ZagrebCoA} className="w-32 h-32 mb-8" />
         <Text className="text-3xl font-bold text-primaryDark mb-4">
-          Open Data Zagreb
+          Zagreb Data
         </Text>
 
         <Text className="text-md text-neutral-700 mb-8">
-          Pristupite javnim informacijama Grada Zagreba
+          Pristupite podacima Grada Zagreba
         </Text>
 
         <Controller
