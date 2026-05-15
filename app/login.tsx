@@ -1,21 +1,21 @@
-import Divider from "@/components/Divider";
 import { useAuth } from "@/context/AuthContext";
 import { auth } from "@/FirebaseConfig";
-import AntDesign from "@expo/vector-icons/AntDesign";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Redirect } from "expo-router";
 import { FirebaseError } from "firebase/app";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { LogIn } from "lucide-react-native";
 import React, { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import {
   Image,
   KeyboardAvoidingView,
   Pressable,
   Text,
   TextInput,
-  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import * as yup from "yup";
 import ZagrebCoA from "../assets/images/zagreb-grb.png";
 
 /* 
@@ -23,27 +23,42 @@ import ZagrebCoA from "../assets/images/zagreb-grb.png";
   password: admin123!
 */
 
+type LoginForm = {
+  email: string;
+  password: string;
+};
+
+const loginSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Neispravan email format")
+    .required("Email je obavezno polje"),
+  password: yup.string().required("Lozinka je obavezno polje"),
+});
+
 const LoginScreen = () => {
   const { isLoggedIn, isLoading } = useAuth();
+  const [isLoginError, setIsLoginError] = useState(false);
 
-  const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
-    isError: false,
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginForm>({
+    resolver: yupResolver(loginSchema),
+    defaultValues: { email: "", password: "" },
+    mode: "onTouched",
   });
 
-  const handleLogin = async () => {
+  const handleLogin = async (data: LoginForm) => {
+    const { email, password } = data;
+
     try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginData.email,
-        loginData.password,
-      );
-      setLoginData({ ...loginData, isError: !user });
+      await signInWithEmailAndPassword(auth, email, password);
     } catch (error: unknown) {
       if (error instanceof FirebaseError) {
         console.log(error.message);
-        setLoginData({ ...loginData, isError: true });
+        setIsLoginError(true);
       }
     }
   };
@@ -71,40 +86,64 @@ const LoginScreen = () => {
           Pristupite javnim informacijama Grada Zagreba
         </Text>
 
-        <TextInput
-          placeholder="vas@email.hr"
-          value={loginData.email}
-          onChangeText={(val) => setLoginData({ ...loginData, email: val })}
-          autoCorrect={false}
-          placeholderTextColor="#9ca3af"
-          className="p-4 rounded-md text-base w-full mb-4 border text-neutral-700 border-neutral-300"
+        <Controller
+          control={control}
+          name="email"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              placeholder="vas@email.hr"
+              value={value}
+              onChangeText={onChange}
+              onBlur={onBlur}
+              autoCorrect={false}
+              placeholderTextColor="#9ca3af"
+              className="p-4 rounded-md text-base w-full mb-4 border text-neutral-700 border-neutral-300"
+            />
+          )}
         />
+        {errors.email && (
+          <Text className="font-bold text-red-500 mb-4">
+            {errors.email?.message}
+          </Text>
+        )}
 
-        <TextInput
-          placeholder="******"
-          secureTextEntry={true}
-          value={loginData.password}
-          onChangeText={(val) => setLoginData({ ...loginData, password: val })}
-          autoCorrect={false}
-          placeholderTextColor="#9ca3af"
-          className="p-4 rounded-md text-base w-full mb-4 border text-neutral-700 border-neutral-300"
+        <Controller
+          control={control}
+          name="password"
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              placeholder="******"
+              secureTextEntry={true}
+              value={value}
+              onChangeText={onChange}
+              onBlur={onBlur}
+              autoCorrect={false}
+              placeholderTextColor="#9ca3af"
+              className="p-4 rounded-md text-base w-full mb-4 border text-neutral-700 border-neutral-300"
+            />
+          )}
         />
+        {errors.password && (
+          <Text className="font-bold text-red-500 mb-4">
+            {errors.password?.message}
+          </Text>
+        )}
 
-        {loginData.isError && (
+        {isLoginError && (
           <Text className="font-bold text-red-500 mb-4">
             Pogrešni email ili lozinka
           </Text>
         )}
 
         <Pressable
-          onPress={handleLogin}
+          onPress={handleSubmit(handleLogin)}
           className="w-full flex-row gap-2 bg-primaryDark p-4 rounded-md justify-center items-center"
         >
           <Text className="text-white font-bold">Prijavi se</Text>
           <LogIn color="white" />
         </Pressable>
 
-        <Divider text="ili nastavite s" />
+        {/* <Divider text="ili nastavite s" />
 
         <Pressable
           onPress={() => {}}
@@ -117,7 +156,7 @@ const LoginScreen = () => {
               Prijava putem Google-a
             </Text>
           </View>
-        </Pressable>
+        </Pressable> */}
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
