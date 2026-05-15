@@ -1,5 +1,6 @@
+import { router } from "expo-router";
 import React from "react";
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import Divider from "./Divider";
 
@@ -16,7 +17,7 @@ type DataSetItemProps = {
 
 const DataSetItem = ({ icon, label, description }: DataSetItemProps) => {
   return (
-    <>
+    <Pressable onPress={() => router.push("/map")}>
       <Divider />
       <Animated.View
         key="dataSetItem"
@@ -32,7 +33,7 @@ const DataSetItem = ({ icon, label, description }: DataSetItemProps) => {
           <Text>{description}</Text>
         </View>
       </Animated.View>
-    </>
+    </Pressable>
   );
 };
 
