@@ -1,11 +1,10 @@
-import { useAuth } from "@/context/AuthContext";
 import { auth } from "@/FirebaseConfig";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Redirect, router } from "expo-router";
+import { router } from "expo-router";
 import { FirebaseError } from "firebase/app";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { LogIn } from "lucide-react-native";
-import React, { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { ArrowLeft } from "lucide-react-native";
+import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import {
   Image,
@@ -18,58 +17,46 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import * as yup from "yup";
 import ZagrebCoA from "../assets/images/zagreb-grb.png";
 
-/* 
-  email: admin@zg-data.hr
-  password: admin123!
-*/
-
-type LoginForm = {
+type SignUpForm = {
   email: string;
   password: string;
 };
 
-const loginSchema = yup.object().shape({
+const signUpSchema = yup.object().shape({
   email: yup
     .string()
     .email("Neispravan email format")
     .required("Email je obavezno polje"),
-  password: yup.string().required("Lozinka je obavezno polje"),
+  password: yup
+    .string()
+    .min(6, "Lozinka mora sadržavati barem 6 znakova")
+    .required("Lozinka je obavezno polje"),
 });
 
-const LoginScreen = () => {
-  const { isLoggedIn, isLoading } = useAuth();
-  const [isLoginError, setIsLoginError] = useState(false);
-
+const SignUpScreen = () => {
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginForm>({
-    resolver: yupResolver(loginSchema),
+  } = useForm<SignUpForm>({
+    resolver: yupResolver(signUpSchema),
     defaultValues: { email: "", password: "" },
     mode: "onTouched",
   });
 
-  const handleLogin = async (data: LoginForm) => {
+  const handleSignUp = async (data: SignUpForm) => {
     const { email, password } = data;
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, email, password);
+      router.replace("/");
     } catch (error: unknown) {
       if (error instanceof FirebaseError) {
         console.log(error.message);
-        setIsLoginError(true);
+        alert("Došlo je do pogreške!");
       }
     }
   };
-
-  if (isLoading) {
-    return null;
-  }
-
-  if (isLoggedIn) {
-    return <Redirect href="/" />;
-  }
 
   return (
     <SafeAreaView className="bg-white flex-1">
@@ -79,11 +66,11 @@ const LoginScreen = () => {
       >
         <Image source={ZagrebCoA} className="w-32 h-32 mb-8" />
         <Text className="text-3xl font-bold text-primaryDark mb-4">
-          Open Data Zagreb
+          Registracija
         </Text>
 
         <Text className="text-md text-neutral-700 mb-8">
-          Pristupite javnim informacijama Grada Zagreba
+          Napravite korisnički račun
         </Text>
 
         <Controller
@@ -129,44 +116,23 @@ const LoginScreen = () => {
           </Text>
         )}
 
-        {isLoginError && (
-          <Text className="font-bold text-red-500 mb-4">
-            Pogrešni email ili lozinka
-          </Text>
-        )}
-
         <Pressable
-          onPress={handleSubmit(handleLogin)}
+          onPress={handleSubmit(handleSignUp)}
           className="w-full flex-row gap-2 bg-primaryDark p-4 rounded-md justify-center items-center"
-        >
-          <Text className="text-white font-bold">Prijavi se</Text>
-          <LogIn color="white" />
-        </Pressable>
-
-        <Pressable
-          onPress={() => router.push("/sign-up")}
-          className="w-full flex-row gap-2 bg-primaryLight p-4 rounded-md justify-center items-center mt-4"
         >
           <Text className="text-white font-bold">Registriraj se</Text>
         </Pressable>
 
-        {/* <Divider text="ili nastavite s" />
-
         <Pressable
-          onPress={() => {}}
-          className="w-full flex-row items-center justify-center bg-white border border-neutral-300 p-4 rounded-md active:bg-neutral-50"
+          onPress={() => router.push("/login")}
+          className="w-full flex-row gap-2 bg-primaryLight p-4 rounded-md justify-center items-center mt-4"
         >
-          <View className="flex-row items-center justify-center gap-3">
-            <AntDesign name="google" size={20} color="black" />
-
-            <Text className="text-neutral-800 font-bold text-base uppercase tracking-wider">
-              Prijava putem Google-a
-            </Text>
-          </View>
-        </Pressable> */}
+          <ArrowLeft color="white" />
+          <Text className="text-white font-bold">Vrati se na prijavu</Text>
+        </Pressable>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
 
-export default LoginScreen;
+export default SignUpScreen;
