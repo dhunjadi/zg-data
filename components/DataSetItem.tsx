@@ -39,12 +39,13 @@ const DataSetItem = ({
         entering={FadeInDown.duration(500)}
         className="flex-row"
       >
-        <View className="bg-blue-100 p-4 rounded-xl">
+        <View className="bg-blue-100 p-4 rounded-xl justify-center">
           {icon({ size: 32, color: "#005793" })}
         </View>
 
-        <View className="flex-col justify-center ml-4">
+        <View className="flex-1 justify-center ml-4">
           <Text className="text-primaryDark font-bold text-xl">{label}</Text>
+
           <Text>{description}</Text>
         </View>
       </Animated.View>
