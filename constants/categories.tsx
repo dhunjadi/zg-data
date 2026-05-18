@@ -66,84 +66,86 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "Studentski restoran",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije studentskih restorana.",
         icon: CookingPot,
         fetchUrl:
           "https://data.zagreb.hr/dataset/8b4ab584-5b5a-4d70-9cf3-24897645ad6b/resource/e1caf1d1-ecdf-4d5c-8020-6798c45a188d/download/data.geojson",
       },
       {
         label: "Studentsko naselje",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije studentskih naselja.",
         icon: Hotel,
         fetchUrl:
           "https://data.zagreb.hr/dataset/cd0afdae-2ef7-44f8-96bb-b96f119aa59b/resource/306ebc37-e4ee-4715-b9e1-8f67418e36e7/download/data.geojson",
       },
       {
         label: "Kulturne ustanove",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije kulturnih ustanova grada Zagreba.",
         icon: Landmark,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/83db22aeb39441ec84911ee94f26e746_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Osnovne škole",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacija osnovnih škola na području grada Zagreba.",
         icon: School,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/08ff18612cea48a1b1bdb921a83974bc_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Odmorko",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije besplatnih sportskih aktivnosti sa osnovnim kontakt informacijama.",
         icon: TreePalm,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/0a671e4943634d42930ba9c0648a9ddb_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Kultura",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Kulturne ustanove na području Grada Zagreba.",
         icon: Drama,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/83db22aeb39441ec84911ee94f26e746_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Javna sportska igrališta",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije javnih sportskih igrališta.",
         icon: Volleyball,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/8e2abb22194b4595965d2056f31ff66e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Visokoškolske ustanove",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacija, naziv visokoškolske ustanove, adresa, telefon, email, web.",
         icon: GraduationCap,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3f6954c6679f4b299f738304542a4837_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Sportski objekti",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Sportski objekati grada Zagreba.",
         icon: Volleyball,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/c2dd015f24f84bdb9e367b7eafce6762_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Učenički domovi",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije učeničkih domova u gradu Zagrebu.",
         icon: Building,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/25bdb57e84e443b38ecf47a912b5c2d1_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Srednje škole",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Srednje škole na području grada Zagreba.",
         icon: School,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/1095aeca947440bda0317834daa48c6a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Studentska naselja",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Studentska naselja na području grada Zagreba.",
         icon: Hotel,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/f4e333057dd24bdaa1cb033680dc1b96_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -158,14 +160,16 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "Kapitalna ulaganja 2024.",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Program radova kapitalnih ulaganja u objekte za društvene djelatnosti i u obnovu objekata oštećenih potresom u Gradu Zagrebu u 2024.",
         icon: Banknote,
         fetchUrl:
           "https://hub.arcgis.com/api/v3/datasets/f1871e3fd952438e99dcccd63d37e81b_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Kapitalna ulaganja 2023",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Program radova kapitalnih ulaganja u objekte za društvene djelatnosti i u obnovu objekata oštećenih potresom u Gradu Zagrebu u 2023.",
         icon: Banknote,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/e898521c36224b05b7bc0778632cd91d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -180,70 +184,76 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "Područni odsjeci",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Područni odsjeci komunalnog i prometnog redarstva.",
         icon: Landmark,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/PO/FeatureServer/replicafilescache/PO_-7066151195297644305.geojson",
       },
       {
         label: "Gradska trgovačka društva", // imported the fetched geojson to geojson.io and it doesn't work
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Popis gradskih trgovačkih društva i podružnica Zagrebačkog Holdinga.",
         icon: Landmark,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_gradska_trgovacka_drustva/FeatureServer/replicafilescache/Geoportal_gradska_trgovacka_drustva_-4659600723509782750.geojson",
       },
       {
         label: "Druge javne ustanove",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Ustanove na području Grada Zagreba u nadležnosti Gradskog ureda za strategijsko planiranje i razvoj Grada.",
         icon: Landmark,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/29edc0bf8d604e759bc641fcfd9fec3a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Zdravstvene ustanove",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacija, naziv zdravstvene ustanove, adresa, telefon, fax, e-mail adresa, web stranica.",
         icon: Hospital,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/fcadb80196684cc09f8c8a76852a4aa9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Sjedišta gradskih četvrti",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije sjedišta gradskih četvrti grada Zagreba.",
         icon: Landmark,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3cabb747881e44b39b561626dcd8b89a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Mjesna samouprava",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije Mjesnih samouprava u gradu Zagrebu.",
         icon: Landmark,
         fetchUrl:
           " https://opendata.arcgis.com/api/v3/datasets/f8f6eaeae11b408eaadf20474809a1b3_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Crkve (Rimokatoličke Župe)",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Popis crkva na području Grada Zagreba sa podacima: naziv, adresa, telefon, fax, email, web, nadležan.",
         icon: Church,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/97dd39a14cdf4ce38bc3cb8ef484728a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Područni uredi",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije područnih ureda Gradske uprave Grada Zagreba.",
         icon: BookMarked,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/ab488f0b14b54acaaa0b29d35c9af626_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Visokoškolske ustanove",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacija, naziv visokoškolske ustanove, adresa, telefon, email, web.",
         icon: GraduationCap,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3f6954c6679f4b299f738304542a4837_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Tijela državne uprave",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije tijela državne uprave.",
         icon: Landmark,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/5c237e0b5c84441e80a4c46ffcb30522_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -259,70 +269,73 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "Polupodzemni spremnik",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Lokacije polupodzemnih spremnika u Gradu Zagrebu.",
         icon: Trash2,
         fetchUrl:
           "https://data.zagreb.hr/dataset/a48f972b-9639-4719-9470-9d398049dbf9/resource/c04a1f0c-ac8a-4156-ba1f-707b1564d2f8/download/data.geojson",
       },
       {
         label: "Podzemni spremnik",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Lokacije podzemnih spremnika u Gradu Zagrebu.",
         icon: Trash2,
         fetchUrl:
           "https://data.zagreb.hr/dataset/1c02bf11-26a8-40dd-9a7d-0635dc065325/resource/980478d5-97a8-4b7d-8e92-f404bd0d3a24/download/data.geojson",
       },
       {
         label: "Pojilice sa pitkom vodom",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Lokacije pojilica s pitkom vodom na području Grada Zagreba.",
         icon: Droplet,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/pitka_voda/FeatureServer/replicafilescache/pitka_voda_-1391343346496493938.geojson",
       },
       {
         label: "Topografska osnova 2018. Vegetacija i vrste zemljišta", // Check at geojson.io
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Podaci o tematskoj cjelini, vegetaciji / vrsti zemljišta.",
         icon: Map,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Topografska_osnova_2018_Vegetacija_i_vrste_zemlji%C5%A1ta/FeatureServer/replicafilescache/Topografska_osnova_2018_Vegetacija_i_vrste_zemlji%C5%A1ta_-351063888473117085.geojson",
       },
       {
         label: "Topografska osnova 2018. Vode", // Check at geojson.io
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Podac o tematskoj cjelini, vode tip, izvorniku.",
         icon: Map,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Vodene_povrsine/FeatureServer/replicafilescache/Vodene_povrsine_-7160223387066445382.geojson",
       },
       {
         label: "Gradski vrt",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Popis gradskih vrtova Grada Zagreba.",
         icon: Rose,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/9858b1819a914c6ba0fedd0069f2d861_1/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Gradski vrt Point",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Lokacije gradskih vrtova Grada Zagreba.",
         icon: Rose,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3df175d45719402fa2526013a897e43e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Reciklažna dvorišta grada Zagreba",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije reciklažnih dvorišta grada Zagreba.",
         icon: Recycle,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/249fa384ccf9481abf4fd2de73a822f5_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Kvaliteta zraka",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Gradske mjerne postaje za trajno praćenje kvalitete zraka gradske mreže grada Zagreba.",
         icon: Wind,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/ed9898e63ec94770a8fb37713c36f8ca_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Brownfield površine",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Brownfield površine na području Grada Zagreba.",
         icon: Blocks,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/6a86bf7404fe4cbc88a15ac86856da19_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -337,27 +350,32 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "Granice dopuštenog držanja domaćih životinja",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Prikaz granice dopuštenog držanja domaćih životinja.",
         icon: Cat,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/7e93637c72ac4c278c69ad5260611c39_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Gradske tržnice",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Popis tržnica grada Zagreba s pripadajućim lokacijama.",
         icon: Store,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/55461536a14e46a69c81a0a67e56c53f_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Zajednička lovišta",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Popis zajedničkih lovišta sa podacima status, area ha i naziv lovišta.",
         icon: BowArrow,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/d87e492a5c994e04b47b1eaa7a06699d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Program zaštite divljači",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Naziv područja i površina u ha.",
         icon: Rabbit,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/96a059b8909a4d70b81bbbae9d883a25_5/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
     ],
   },
@@ -369,21 +387,25 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "Nadzorne kamere",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije nadzornih kamera.",
         icon: Cctv,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Policija",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Lokacija, naziv, adresa, telefon, web adresa, nadležnost.",
         icon: Siren,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/30d4d80d445a46d99f2f802814d70833_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Vatrogasci",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije vatrogasaca grada Zagreba.",
         icon: FireExtinguisher,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/11ac9ebf240e4d2382ef7fd0b16ef9ac_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
     ],
   },
@@ -395,87 +417,108 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "Autobusna stajališta ZET",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Popis autobusnih stajališta ZET-a.",
         icon: Bus,
-        fetchUrl: "",
+        fetchUrl:
+          "https://data.zagreb.hr/dataset/cc7e45ae-4bad-4a07-bca2-25e82f1e082c/resource/3b12a182-afa3-4b07-833f-17d8bcf80ea9/download/data.geojson",
       },
       {
         label: "Željeznička stajališta HŽ",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Nazivi željezničkih stajališta s koordinatama, šiframa, stacionažom, opisom te vrstom.",
         icon: TrainFront,
-        fetchUrl: "",
+        fetchUrl:
+          "https://data.zagreb.hr/dataset/d0886c88-cdc8-43fa-ac94-67a8d128d0c2/resource/af3dbe3e-68fd-4862-bb6a-e39790f76dce/download/data.geojson",
       },
       {
-        label: "Pješačka zona",
+        label: "Pješačka zona", // Multipolygon
         description: "Velit cursus magna fringilla natoque.",
         icon: Footprints,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/3aabf37d1d8b497c970dcddc21ed9612_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Topografska osnova 2018. Promet",
         description: "Velit cursus magna fringilla natoque.",
         icon: Map,
-        fetchUrl: "",
+        fetchUrl:
+          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Promet/FeatureServer/replicafilescache/Promet_5602162737547094296.geojson",
       },
       {
         label: "Zone rezerviranih parkirališnih mjesta",
         description: "Velit cursus magna fringilla natoque.",
         icon: SquareParking,
-        fetchUrl: "",
+        fetchUrl:
+          " https://opendata.arcgis.com/api/v3/datasets/04e3d79e90b04167a6efa8d277e5a482_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Javne garaže",
         description: "Velit cursus magna fringilla natoque.",
         icon: Rows4,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/3e3484aca5284b16b4a1c41bd6594711_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Javna parkirališta za bicikle",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije sa podacima o broju stalaka, broju bicikala te ostalim podacima.",
         icon: SquareParking,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/04012b0e4968447c978a6ee494d76495_2/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Sustav javnih bicikala",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije sustava javnih bicikala sa sljedećim podacima: naziv, adresa, oznaka, lokacija, broj stalaka.",
         icon: Bike,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/95f8892f77eb45968b65469b9063f8b9_3/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
-        label: "Biciklističke staze",
-        description: "Velit cursus magna fringilla natoque.",
+        label: "Biciklističke staze", // Multiipolygon / MultiLineString / Point
+        description: "Geolokacije biciklističkih staza grada Zagreba.",
         icon: Road,
-        fetchUrl: "",
+        fetchUrl:
+          " https://opendata.arcgis.com/api/v3/datasets/b10db2ae3a5b4e4b8dbee85a89d4b5b1_4/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Nadzorne kamere",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije nadzornih kamera.",
         icon: Cctv,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Taxi stajališta",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Prikaz točne lokacije taxi stajališta u Zagrebu te nadležan gradski ured",
         icon: CarTaxiFront,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/c2a3ae87380b472d9b7e72f31cd296da_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Električne punionice",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije električnih punionica na području Grada Zagreba sa brojem i tipom utičnice.",
         icon: Cable,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/4a4fc728724b4d319c27a9f647a0bb62_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Tramvajska stajališta ZET",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije tramvajskih stajališta ZET sa sljedećim podacima: naziv, stajalište, linije, opis, smjer.",
         icon: TramFront,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/8f84d42e684141eaa7ceb26d9c9b8f5a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Benzinske postaje",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Lokacije svih benzinskih postaja na području Grada Zagreba.",
         icon: Fuel,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/05fa1c92366e415c8ce813b9e28da8c5_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
     ],
   },
@@ -487,147 +530,194 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "Javni zdenci",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Javni zdenci Grada Zagreba.",
         icon: Droplets,
-        fetchUrl: "",
+        fetchUrl:
+          "https://data.zagreb.hr/dataset/0d1c65b5-6e8f-4b6a-be90-cc9ecb6fa374/resource/2010797b-3e1e-4a43-9a5a-b1619722d2ac/download/data.geojson",
       },
       {
         label: "Domovi za djecu",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Popis domova za djecu bez odgovarajuće roditeljske skrbi sa kontakt podacima te ostalim informacijama.",
         icon: HouseHeart,
-        fetchUrl: "",
+        fetchUrl:
+          "https://data.zagreb.hr/dataset/65e1cb89-9cc7-43d2-a94d-3305e2917224/resource/e0f7e07d-73e1-4c9e-a81b-30369204b201/download/data.geojson",
       },
       {
         label: "Ustanove za osobe s invaliditetom",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Geolokacije ustanova za osobe s invaliditetom.",
         icon: Accessibility,
-        fetchUrl: "",
+        fetchUrl:
+          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanove_TUR_i_OSI/FeatureServer/replicafilescache/Geoportal_ustanove_TUR_i_OSI_-7182187914465045449.geojson",
       },
       {
         label: "Zborna mjesta civilne zaštite Grada Zagreba",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Zborna mjesta civilne zaštite Grada Zagreba.",
         icon: Landmark,
-        fetchUrl: "",
+        fetchUrl:
+          "https://data.zagreb.hr/dataset/d736c146-6497-4915-894b-41bdf51267b0/resource/d30eb215-3ce2-48f8-88b2-6ffac82d46b5/download/zborna_mjesta_civilne_zatite_grada_zagreba-1.geojson",
       },
       {
         label: "Evakuacijske površine Grada Zagreba",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Evakuacijske površine Grada Zagreba.",
         icon: Map,
-        fetchUrl: "",
+        fetchUrl:
+          "https://data.zagreb.hr/dataset/b3c27d0f-b9b5-4140-b0cf-670e5cc1c19b/resource/479205c7-f75a-46a6-ac38-1499fcdca3d3/download/evakuacijske_povrsine.geojson",
       },
       {
         label: "Hrvatski zavod za socijalni rad",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Lokacije Hrvatskog zavoda za socijalni rad na području Grada Zagreba.",
         icon: Landmark,
-        fetchUrl: "",
+        fetchUrl:
+          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_centar_za_socijalnu_skrb/FeatureServer/replicafilescache/Geoportal_centar_za_socijalnu_skrb_-2638481923376160763.geojson",
       },
       {
         label: "Nadležne institucije socijalne zaštite",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Nadležne institucije socijalne zaštite sa osnovnim kontakt informacijama te informacijom o nadležnosti.",
         icon: Landmark,
-        fetchUrl: "",
+        fetchUrl:
+          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_nadlezna_institucija/FeatureServer/replicafilescache/Geoportal_nadlezna_institucija_2079182892719747966.geojson",
       },
       {
         label: "Ostale djelatnosti socijalne skrbi",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije ostalih djelatnosti socijalne skrbi na području Grada Zagreba, sa kontakt i ostalim informacijama.",
         icon: Landmark,
-        fetchUrl: "",
+        fetchUrl:
+          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ostale_djelatnosti_socijalne_skrbi/FeatureServer/replicafilescache/Geoportal_ostale_djelatnosti_socijalne_skrbi_-2781268371483281578.geojson",
       },
       {
         label: "Ustanove za branitelje",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije ustanova za branitelje sa sljedećim podacima: naziv, vrsta, adresa, telefon, fax, nadležnost, gradska četvrt, osnivač.",
         icon: Shield,
-        fetchUrl: "",
+        fetchUrl:
+          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanova_za_branitelje/FeatureServer/replicafilescache/Geoportal_ustanova_za_branitelje_-3924332151953522156.geojson",
       },
       {
         label: "Ustanove za beskućnike",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije ustanova za beskućnike sa sljedećim podacima: naziv, vrsta, adresa, telefon, fax, email, web, kapacitet, podružnica, vlasništvo, nadležnost.",
         icon: Landmark,
-        fetchUrl: "",
+        fetchUrl:
+          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanova_za_beskucnike/FeatureServer/replicafilescache/Geoportal_ustanova_za_beskucnike_-235981892016937521.geojson",
       },
       {
         label: "Domovi za starije osobe",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije domova za starije osobe na području Grada Zagreba sa kontakt podacima te ostalim informacijama (kapacitet, podruznica, nadležan).",
         icon: House,
-        fetchUrl: "",
+        fetchUrl:
+          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_domovi_za_starije_osobe/FeatureServer/replicafilescache/Geoportal_domovi_za_starije_osobe_8327597670917525104.geojson",
       },
       {
         label: "Javni WC-i",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Podaci o nazivu, adresi, naplati, tko je nadležan.",
         icon: Toilet,
-        fetchUrl: "",
+        fetchUrl:
+          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/javni_wc/FeatureServer/replicafilescache/javni_wc_-4667436749754589776.geojson",
       },
       {
         label: "Besplatna WiFi mreža",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Besplatna WiFi mreža na području Grada Zagreba.",
         icon: Wifi,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/59efced0d006469fa858ab07764735b0_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Dječji vrtići",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Popis dječjih vrtića na području Grada Zagreba.",
         icon: Balloon,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/49bb07d4efc34bd5bacc1d330dc28a07_0/downloads/data?format=fgdb&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Gradski vrt",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Popis gradskih vrtova Grada Zagreba sa geolokacijama, kontakt informacijama.",
         icon: Rose,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/9858b1819a914c6ba0fedd0069f2d861_1/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Sjedišta gradskih četvrti",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije sjedišta gradskih četvrti s informacijama: naziv, adresa, telefon, radno vrijeme, područni ured.",
         icon: Landmark,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/3cabb747881e44b39b561626dcd8b89a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+      },
+      {
+        label: "Crkve (Rimokatoličke Župe)",
+        description:
+          "Popis crkva na području Grada Zagreba sa podacima: naziv, adresa, telefon, fax, email, web, nadležan.",
+        icon: Church,
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/97dd39a14cdf4ce38bc3cb8ef484728a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Gradske tržnice",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Naziv tržnice s adresom, kontakt podacima - telefon, email, web, te radno vrijeme nadležna podružnica ZGH-a.",
         icon: Store,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/55461536a14e46a69c81a0a67e56c53f_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Gradski vrt Point",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Prikazane X i Y koordinate, objectid, naziv gradskog vrta, adresa, gradska četvrt, telefon, kontakt, godina otvaranja, br.vr.parcela, br.korisnika, nadlezan gradski ured, izvor, izradio.",
         icon: Rose,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/3df175d45719402fa2526013a897e43e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Kapitalna ulaganja 2023",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Kapitalna ulaganja sadrže: točnu lokaciju (X,Y koordinate), objectid,redni broj, vrstu objekta, adresu, opis radova, obveza, broj i Plan 2023. te br.ekon.klas.",
         icon: Banknote,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/e898521c36224b05b7bc0778632cd91d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Javne površine za pse",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Lokacija sa opisnim podacima o javnim površinama za pse.",
         icon: Dog,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/78e1786ccdd544cfb8465b73051f22c9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Javna sportska igrališta",
-        description: "Velit cursus magna fringilla natoque.",
+        description: "Lokacije javnih igrališta.",
         icon: Volleyball,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/8e2abb22194b4595965d2056f31ff66e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Nadležna institucija",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Prikazane su X i Y koordinate, naziv institucije, adresa, telefon, fax, email, web, osnivac, nadlezni gradski ured, izvor, izradio.",
         icon: Landmark,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Vjerske zajednice",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacija, naziv vjerske zajednice, adresa, telefon, email, web.",
         icon: Church,
-        fetchUrl: "",
+        fetchUrl:
+          "hhttps://opendata.arcgis.com/api/v3/datasets/26e9553b2fb34513ac2f8e4468d6b652_0/downloads/data?format=shp&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Vatrogasci",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije vatrogasaca sa sljedećim podacima: naziv, vrsta, adresa, telefon, fax, web, nadležnost, gradska četvrt.",
         icon: FireExtinguisher,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/11ac9ebf240e4d2382ef7fd0b16ef9ac_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
     ],
   },
@@ -639,21 +729,27 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "Zdravstvene ustanove",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "geolokacija, naziv zdravstvene ustanove, adresa, telefon, fax, e-mail adresa, web stranica.",
         icon: Cross,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/fcadb80196684cc09f8c8a76852a4aa9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Domovi zdravlja",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije domova zdravlja na području Grada Zagreba sa kontakt podacima i ostalim informacijama.",
         icon: Cross,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/ddc03fc26c6145e7a4a84b35a41d68d1_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "Ljekarne",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Geolokacije ljekarni na području Grada Zagreba sa pripadajućim kontakt informacijama.",
         icon: Cross,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/861f84594b034965b4c0ac96cf4083b0_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
     ],
   },
@@ -665,9 +761,11 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "Telekomunikacijski razvodni ormarići",
-        description: "Velit cursus magna fringilla natoque.",
+        description:
+          "Prikazani su podaci o tipu ormara, točnoj lokaciji, katastarskoj čestici i općini, operateru, tipu površine, datumu izdavanja suglasnosti i datumu rješenja.",
         icon: Zap,
-        fetchUrl: "",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/f72999526a9b4105b2af4f6f036a16fa_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
     ],
   },
