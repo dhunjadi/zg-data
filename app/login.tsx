@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { LogIn } from "lucide-react-native";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import {
   Image,
   KeyboardAvoidingView,
@@ -37,6 +38,7 @@ const loginSchema = yup.object().shape({
 });
 
 const LoginScreen = () => {
+  const { t } = useTranslation();
   const { isLoggedIn, isLoading } = useAuth();
   const [isLoginError, setIsLoginError] = useState(false);
 
@@ -79,11 +81,11 @@ const LoginScreen = () => {
       >
         <Image source={ZagrebCoA} className="w-32 h-32 mb-8" />
         <Text className="text-3xl font-bold text-primaryDark mb-4">
-          Zagreb Data
+          {t("screens.login.appTitle")}
         </Text>
 
         <Text className="text-md text-neutral-700 mb-8">
-          Pristupite podacima Grada Zagreba
+          {t("screens.login.description")}
         </Text>
 
         <Controller
@@ -91,7 +93,7 @@ const LoginScreen = () => {
           name="email"
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-              placeholder="vas@email.hr"
+              placeholder={t("screens.login.emailPlaceholder")}
               value={value}
               onChangeText={(text) => {
                 setIsLoginError(false);
@@ -115,7 +117,7 @@ const LoginScreen = () => {
           name="password"
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-              placeholder="******"
+              placeholder={t("screens.login.passwordPlaceholder")}
               secureTextEntry={true}
               value={value}
               onChangeText={(text) => {
@@ -137,7 +139,7 @@ const LoginScreen = () => {
 
         {isLoginError && (
           <Text className="font-bold text-red-500 mb-4">
-            Pogrešni email ili lozinka
+            {t("screens.login.signInError")}
           </Text>
         )}
 
@@ -145,7 +147,9 @@ const LoginScreen = () => {
           onPress={handleSubmit(handleLogin)}
           className="w-full flex-row gap-2 bg-primaryDark p-4 rounded-md justify-center items-center"
         >
-          <Text className="text-white font-bold">Prijavi se</Text>
+          <Text className="text-white font-bold">
+            {t("screens.login.signIn")}
+          </Text>
           <LogIn color="white" />
         </Pressable>
 
@@ -153,7 +157,9 @@ const LoginScreen = () => {
           onPress={() => router.push("/sign-up")}
           className="w-full flex-row gap-2 bg-primaryLight p-4 rounded-md justify-center items-center mt-4"
         >
-          <Text className="text-white font-bold">Registriraj se</Text>
+          <Text className="text-white font-bold">
+            {t("screens.login.signUp")}
+          </Text>
         </Pressable>
 
         {/* <Divider text="ili nastavite s" />

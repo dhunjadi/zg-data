@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ArrowLeft } from "lucide-react-native";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import {
   Image,
   KeyboardAvoidingView,
@@ -34,6 +35,8 @@ const signUpSchema = yup.object().shape({
 });
 
 const SignUpScreen = () => {
+  const { t } = useTranslation();
+
   const {
     control,
     handleSubmit,
@@ -66,11 +69,11 @@ const SignUpScreen = () => {
       >
         <Image source={ZagrebCoA} className="w-32 h-32 mb-8" />
         <Text className="text-3xl font-bold text-primaryDark mb-4">
-          Registracija
+          {t("screens.signUp.title")}
         </Text>
 
         <Text className="text-md text-neutral-700 mb-8">
-          Napravite korisnički račun
+          {t("screens.signUp.description")}
         </Text>
 
         <Controller
@@ -78,7 +81,7 @@ const SignUpScreen = () => {
           name="email"
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-              placeholder="vas@email.hr"
+              placeholder={t("screens.signUp.emailPlaceholder")}
               value={value}
               onChangeText={onChange}
               onBlur={onBlur}
@@ -99,7 +102,7 @@ const SignUpScreen = () => {
           name="password"
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-              placeholder="******"
+              placeholder={t("screens.signUp.passwordPlaceholder")}
               secureTextEntry={true}
               value={value}
               onChangeText={onChange}
@@ -120,7 +123,9 @@ const SignUpScreen = () => {
           onPress={handleSubmit(handleSignUp)}
           className="w-full flex-row gap-2 bg-primaryDark p-4 rounded-md justify-center items-center"
         >
-          <Text className="text-white font-bold">Registriraj se</Text>
+          <Text className="text-white font-bold">
+            {t("screens.signUp.signUp")}
+          </Text>
         </Pressable>
 
         <Pressable
@@ -128,7 +133,9 @@ const SignUpScreen = () => {
           className="w-full flex-row gap-2 bg-primaryLight p-4 rounded-md justify-center items-center mt-4"
         >
           <ArrowLeft color="white" />
-          <Text className="text-white font-bold">Vrati se na prijavu</Text>
+          <Text className="text-white font-bold">
+            {t("screens.signUp.backToSignIn")}
+          </Text>
         </Pressable>
       </KeyboardAvoidingView>
     </SafeAreaView>

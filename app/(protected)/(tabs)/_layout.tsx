@@ -1,10 +1,12 @@
 import { Tabs } from "expo-router";
 import { CircleUserRound, Database, House } from "lucide-react-native";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Image } from "react-native";
 import ZagrebCoA from "../../../assets/images/zagreb-grb.png";
 
 const TabsLayout = () => {
+  const { t } = useTranslation();
   return (
     <Tabs
       screenOptions={{
@@ -20,7 +22,7 @@ const TabsLayout = () => {
         options={{
           title: "Otvoreni podaci Zagreb",
           headerShown: false,
-          tabBarLabel: "Početna",
+          tabBarLabel: t("tabs.home"),
           tabBarIcon: ({ color, size }) => <House size={size} color={color} />,
         }}
       />
@@ -28,10 +30,10 @@ const TabsLayout = () => {
       <Tabs.Screen
         name="dataSets"
         options={{
-          title: "Skupovi podataka",
+          title: t("tabs.dataSets"),
           headerShown: true,
           popToTopOnBlur: true,
-          tabBarLabel: "Skupovi podataka",
+          tabBarLabel: t("tabs.dataSets"),
           tabBarIcon: ({ color, size }) => (
             <Database size={size} color={color} />
           ),
@@ -41,10 +43,10 @@ const TabsLayout = () => {
       <Tabs.Screen
         name="account"
         options={{
-          title: "Account",
+          title: t("tabs.account"),
           headerShown: false,
           popToTopOnBlur: true,
-          tabBarLabel: "Profil",
+          tabBarLabel: t("tabs.account"),
           tabBarIcon: ({ color, size }) => (
             <CircleUserRound size={size} color={color} />
           ),

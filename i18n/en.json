@@ -1,0 +1,26 @@
+{
+  "screens": {
+    "login": {
+      "appTitle": "Zagreb Data",
+      "description": "Pristupite podacima Grada Zagreba",
+      "emailPlaceholder": "vas@emial.hr",
+      "passwordPlaceholder": "******",
+      "signInError": "Wrong email or password",
+      "signIn": "Prijavi se",
+      "signUp": "Registriraj se"
+    },
+    "signUp": {
+      "title": "Registracija",
+      "description": "Napravite korisnički račun",
+      "emailPlaceholder": "vas@emial.hr",
+      "passwordPlaceholder": "******",
+      "signUp": "Registriraj se",
+      "backToSignIn": "Vrati se na prijavu"
+    }
+  },
+  "tabs": {
+    "home": "Home",
+    "dataSets": "Datasets",
+    "account": "Account"
+  }
+}
