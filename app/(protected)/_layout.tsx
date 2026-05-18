@@ -15,7 +15,10 @@ export default function ProtectedLayout() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="map" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="map"
+        options={{ headerShown: true, title: "Karta" }}
+      />
     </Stack>
   );
 }
