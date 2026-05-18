@@ -1,4 +1,5 @@
 import { useFetchGeoJson } from "@/hooks/useFetchGeoJson";
+import { useLocalSearchParams } from "expo-router";
 import React, { useMemo, useRef, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE, Region } from "react-native-maps";
@@ -30,11 +31,11 @@ type Properties = {
 };
 
 const MapScreen = () => {
+  const { fetchUrl } = useLocalSearchParams();
+  const geoJsonUrl = Array.isArray(fetchUrl) ? fetchUrl[0] : fetchUrl;
   const ref = useRef<MapView | null>(null);
   const [region, setRegion] = useState<Region>(INITIAL_REGION);
-  const { data: parkingData } = useFetchGeoJson(
-    "https://data.zagreb.hr/dataset/8b4ab584-5b5a-4d70-9cf3-24897645ad6b/resource/e1caf1d1-ecdf-4d5c-8020-6798c45a188d/download/data.geojson",
-  );
+  const { data: parkingData } = useFetchGeoJson(geoJsonUrl ?? "");
 
   const visibleFeatures = useMemo(() => {
     if (!parkingData) return [];

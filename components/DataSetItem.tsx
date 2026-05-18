@@ -13,11 +13,26 @@ type DataSetItemProps = {
   icon: (props: GroupCardIconProps) => React.ReactNode;
   label: string;
   description: string;
+  fetchUrl?: string;
 };
 
-const DataSetItem = ({ icon, label, description }: DataSetItemProps) => {
+const DataSetItem = ({
+  icon,
+  label,
+  description,
+  fetchUrl,
+}: DataSetItemProps) => {
+  const handlePress = () => {
+    if (!fetchUrl) return;
+
+    router.push({
+      pathname: "/map",
+      params: { fetchUrl },
+    });
+  };
+
   return (
-    <Pressable onPress={() => router.push("/map")}>
+    <Pressable disabled={!fetchUrl} onPress={handlePress}>
       <Divider />
       <Animated.View
         key="dataSetItem"
