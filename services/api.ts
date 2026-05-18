@@ -7,3 +7,8 @@ export const getStudentRestaurants = async (): Promise<any> => {
 
   return response.data;
 };
+
+export const fetchGeoJsonData = async (url: string) => {
+  const response = await axios.get(url);
+  return response.data;
+};
