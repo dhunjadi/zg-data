@@ -16,6 +16,10 @@
       "passwordPlaceholder": "******",
       "signUp": "Registriraj se",
       "backToSignIn": "Vrati se na prijavu"
+    },
+    "account": {
+      "language": "Language",
+      "signOut": "Sign out"
     }
   },
   "tabs": {
