@@ -56,6 +56,10 @@ import {
   Wind,
   Zap,
 } from "lucide-react-native";
+import {
+  STUDENT_RESTAURANT_DATA_SET,
+  STUDENT_RESTAURANT_DATA_SET_ID,
+} from "./dataSets";
 
 export const CATEGORIES = [
   {
@@ -68,8 +72,8 @@ export const CATEGORIES = [
         label: "Studentski restoran",
         description: "Geolokacije studentskih restorana.",
         icon: CookingPot,
-        fetchUrl:
-          "https://data.zagreb.hr/dataset/8b4ab584-5b5a-4d70-9cf3-24897645ad6b/resource/e1caf1d1-ecdf-4d5c-8020-6798c45a188d/download/data.geojson",
+        datasetId: STUDENT_RESTAURANT_DATA_SET_ID,
+        fetchUrl: STUDENT_RESTAURANT_DATA_SET.fetchUrl,
       },
       {
         label: "Studentsko naselje",
