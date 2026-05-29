@@ -25,12 +25,25 @@ export type DataSetDetail = {
   value?: string | number | null;
 };
 
+export type DataSetDisplay = {
+  title: string;
+  details: DataSetDetail[];
+};
+
 export type DataSetConfig<TProperties> = {
   id: string;
   label: string;
   fetchUrl: string;
-  getTitle: (properties: BaseProperties & TProperties) => string;
-  getDetails: (properties: BaseProperties & TProperties) => DataSetDetail[];
+  getDisplayData: (feature: Feature<TProperties>) => DataSetDisplay;
+};
+
+export type AnyDataSetConfig = {
+  id: string;
+  label: string;
+  fetchUrl: string;
+  getDisplayData: (
+    feature: Feature<Record<string, unknown>>,
+  ) => DataSetDisplay;
 };
 
 // Data specific properties
@@ -46,5 +59,22 @@ export type StudentRestaurantProperties = {
   nadlezan: string;
 };
 
+export type CulturalInstitutionProperties = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  radno_vrijeme: string;
+  osnivac: string;
+  energetski_razred: string;
+  nadlezan: string;
+  ustanove: string;
+};
+
 export type StudentRestaurantCollection =
   FeatureCollection<StudentRestaurantProperties>;
+
+export type CulturalInstitutionCollection =
+  FeatureCollection<CulturalInstitutionProperties>;

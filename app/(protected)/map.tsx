@@ -1,6 +1,6 @@
 import { getDataSetConfig } from "@/constants/dataSets";
 import { useFetchGeoJson } from "@/hooks/useFetchGeoJson";
-import { Feature, StudentRestaurantProperties } from "@/types";
+import { Feature } from "@/types";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { useLocalSearchParams } from "expo-router";
 import React, { useMemo, useRef, useState } from "react";
@@ -25,9 +25,10 @@ const MapScreen = () => {
   const dataSet = getDataSetConfig(selectedDatasetId);
   const ref = useRef<MapView | null>(null);
   const [region, setRegion] = useState<Region>(INITIAL_REGION);
-  const [selectedFeature, setSelectedFeature] =
-    useState<Feature<StudentRestaurantProperties> | null>(null);
-  const { data: geoData } = useFetchGeoJson<StudentRestaurantProperties>(
+  const [selectedFeature, setSelectedFeature] = useState<Feature<
+    Record<string, unknown>
+  > | null>(null);
+  const { data: geoData } = useFetchGeoJson<Record<string, unknown>>(
     dataSet?.fetchUrl ?? geoJsonUrl ?? "",
   );
 
@@ -45,10 +46,11 @@ const MapScreen = () => {
     });
   }, [geoData, region]);
 
-  const selectedFeatureDetails =
+  const selectedFeatureData =
     selectedFeature && dataSet
-      ? dataSet.getDetails(selectedFeature.properties)
-      : [];
+      ? dataSet.getDisplayData(selectedFeature)
+      : undefined;
+
   const snapPoints = useMemo(() => ["25%", "50%", "70%"], []);
 
   return (
@@ -76,12 +78,10 @@ const MapScreen = () => {
         <BottomSheet snapPoints={snapPoints}>
           <BottomSheetView className="p-4">
             <Text className="text-xl font-bold text-primaryDark">
-              {selectedFeature && dataSet
-                ? dataSet.getTitle(selectedFeature.properties)
-                : "Odaberite lokaciju"}
+              {selectedFeatureData?.title || "Odaberite lokaciju"}
             </Text>
 
-            {selectedFeatureDetails.map((detail) =>
+            {selectedFeatureData?.details.map((detail) =>
               detail.value ? (
                 <View key={detail.label} className="mt-3">
                   <Text className="text-xs font-bold uppercase text-black">

@@ -57,6 +57,8 @@ import {
   Zap,
 } from "lucide-react-native";
 import {
+  CULTURAL_INSTITUTION_DATA_SET,
+  CULTURAL_INSTITUTION_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET,
   STUDENT_RESTAURANT_DATA_SET_ID,
 } from "./dataSets";
@@ -86,8 +88,8 @@ export const CATEGORIES = [
         label: "Kulturne ustanove",
         description: "Geolokacije kulturnih ustanova grada Zagreba.",
         icon: Landmark,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/83db22aeb39441ec84911ee94f26e746_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: CULTURAL_INSTITUTION_DATA_SET_ID,
+        fetchUrl: CULTURAL_INSTITUTION_DATA_SET.fetchUrl,
       },
       {
         label: "Osnovne škole",

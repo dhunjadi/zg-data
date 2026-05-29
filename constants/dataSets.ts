@@ -1,4 +1,9 @@
-import { DataSetConfig, StudentRestaurantProperties } from "@/types";
+import {
+  AnyDataSetConfig,
+  CulturalInstitutionProperties,
+  DataSetConfig,
+  StudentRestaurantProperties,
+} from "@/types";
 import {
   Baby,
   BookMarked,
@@ -60,6 +65,7 @@ export const DATASETS = [
 ];
 
 export const STUDENT_RESTAURANT_DATA_SET_ID = "student-restaurants";
+export const CULTURAL_INSTITUTION_DATA_SET_ID = "cultural-institution";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -67,16 +73,44 @@ export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantPropert
     label: "Studentski restoran",
     fetchUrl:
       "https://data.zagreb.hr/dataset/8b4ab584-5b5a-4d70-9cf3-24897645ad6b/resource/e1caf1d1-ecdf-4d5c-8020-6798c45a188d/download/data.geojson",
-    getTitle: (properties) => properties.naziv,
-    getDetails: (properties) => [
-      { label: "Adresa", value: properties.adresa },
-      { label: "Email", value: properties.email },
-      { label: "Web", value: properties.web },
-    ],
+    getDisplayData: (feature) => ({
+      title: feature.properties.naziv,
+      details: [
+        { label: "Adresa", value: feature.properties.adresa },
+        { label: "Email", value: feature.properties.email },
+        { label: "Web", value: feature.properties.web },
+      ],
+    }),
   };
 
+export const CULTURAL_INSTITUTION_DATA_SET: DataSetConfig<CulturalInstitutionProperties> =
+  {
+    id: CULTURAL_INSTITUTION_DATA_SET_ID,
+    label: "Kulturne ustanove",
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/83db22aeb39441ec84911ee94f26e746_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.naziv,
+      details: [
+        { label: "Adresa", value: feature.properties.adresa },
+        { label: "Radno vrijeme", value: feature.properties.radno_vrijeme },
+        { label: "Email", value: feature.properties.email },
+        { label: "Web", value: feature.properties.web },
+      ],
+    }),
+  };
+
+const defineDataSetConfig = <TProperties>(
+  config: DataSetConfig<TProperties>,
+): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
+
 export const DATA_SET_CONFIGS = {
-  [STUDENT_RESTAURANT_DATA_SET_ID]: STUDENT_RESTAURANT_DATA_SET,
+  [STUDENT_RESTAURANT_DATA_SET_ID]: defineDataSetConfig(
+    STUDENT_RESTAURANT_DATA_SET,
+  ),
+  [CULTURAL_INSTITUTION_DATA_SET_ID]: defineDataSetConfig(
+    CULTURAL_INSTITUTION_DATA_SET,
+  ),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;
