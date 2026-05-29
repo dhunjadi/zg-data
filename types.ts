@@ -41,9 +41,7 @@ export type AnyDataSetConfig = {
   id: string;
   label: string;
   fetchUrl: string;
-  getDisplayData: (
-    feature: Feature<Record<string, unknown>>,
-  ) => DataSetDisplay;
+  getDisplayData: (feature: Feature<Record<string, unknown>>) => DataSetDisplay;
 };
 
 // Data specific properties
@@ -59,6 +57,23 @@ export type StudentRestaurantProperties = {
   nadlezan: string;
 };
 
+export type StudentRestaurantCollection =
+  FeatureCollection<StudentRestaurantProperties>;
+
+export type StudentDormProperties = {
+  gc: string;
+  web: string;
+  email: null;
+  izvor: string;
+  naziv: string;
+  adresa: string;
+  izradio: string;
+  GlobalID: string;
+  nadlezan: string;
+};
+
+export type StudentDormCollection = FeatureCollection<StudentDormProperties>;
+
 export type CulturalInstitutionProperties = {
   naziv: string;
   adresa: string;
@@ -72,9 +87,6 @@ export type CulturalInstitutionProperties = {
   nadlezan: string;
   ustanove: string;
 };
-
-export type StudentRestaurantCollection =
-  FeatureCollection<StudentRestaurantProperties>;
 
 export type CulturalInstitutionCollection =
   FeatureCollection<CulturalInstitutionProperties>;

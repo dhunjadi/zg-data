@@ -59,6 +59,8 @@ import {
 import {
   CULTURAL_INSTITUTION_DATA_SET,
   CULTURAL_INSTITUTION_DATA_SET_ID,
+  STUDENT_DORM_DATA_SET,
+  STUDENT_DORM_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET,
   STUDENT_RESTAURANT_DATA_SET_ID,
 } from "./dataSets";
@@ -81,8 +83,8 @@ export const CATEGORIES = [
         label: "Studentsko naselje",
         description: "Geolokacije studentskih naselja.",
         icon: Hotel,
-        fetchUrl:
-          "https://data.zagreb.hr/dataset/cd0afdae-2ef7-44f8-96bb-b96f119aa59b/resource/306ebc37-e4ee-4715-b9e1-8f67418e36e7/download/data.geojson",
+        datasetId: STUDENT_DORM_DATA_SET_ID,
+        fetchUrl: STUDENT_DORM_DATA_SET.fetchUrl,
       },
       {
         label: "Kulturne ustanove",

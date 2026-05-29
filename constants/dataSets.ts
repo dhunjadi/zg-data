@@ -2,6 +2,7 @@ import {
   AnyDataSetConfig,
   CulturalInstitutionProperties,
   DataSetConfig,
+  StudentDormProperties,
   StudentRestaurantProperties,
 } from "@/types";
 import {
@@ -65,6 +66,7 @@ export const DATASETS = [
 ];
 
 export const STUDENT_RESTAURANT_DATA_SET_ID = "student-restaurants";
+export const STUDENT_DORM_DATA_SET_ID = "student-dorm";
 export const CULTURAL_INSTITUTION_DATA_SET_ID = "cultural-institution";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
@@ -82,6 +84,21 @@ export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantPropert
       ],
     }),
   };
+
+export const STUDENT_DORM_DATA_SET: DataSetConfig<StudentDormProperties> = {
+  id: STUDENT_RESTAURANT_DATA_SET_ID,
+  label: "Studentski restoran",
+  fetchUrl:
+    "https://data.zagreb.hr/dataset/cd0afdae-2ef7-44f8-96bb-b96f119aa59b/resource/306ebc37-e4ee-4715-b9e1-8f67418e36e7/download/data.geojson",
+  getDisplayData: (feature) => ({
+    title: feature.properties.naziv,
+    details: [
+      { label: "Adresa", value: feature.properties.adresa },
+      { label: "Email", value: feature.properties.email },
+      { label: "Web", value: feature.properties.web },
+    ],
+  }),
+};
 
 export const CULTURAL_INSTITUTION_DATA_SET: DataSetConfig<CulturalInstitutionProperties> =
   {
@@ -111,6 +128,7 @@ export const DATA_SET_CONFIGS = {
   [CULTURAL_INSTITUTION_DATA_SET_ID]: defineDataSetConfig(
     CULTURAL_INSTITUTION_DATA_SET,
   ),
+  [STUDENT_DORM_DATA_SET_ID]: defineDataSetConfig(STUDENT_DORM_DATA_SET),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;

@@ -20,14 +20,18 @@ const MapScreen = () => {
     datasetId?: string;
     fetchUrl?: string;
   }>();
+
   const selectedDatasetId = Array.isArray(datasetId) ? datasetId[0] : datasetId;
   const geoJsonUrl = Array.isArray(fetchUrl) ? fetchUrl[0] : fetchUrl;
   const dataSet = getDataSetConfig(selectedDatasetId);
+
   const ref = useRef<MapView | null>(null);
+
   const [region, setRegion] = useState<Region>(INITIAL_REGION);
   const [selectedFeature, setSelectedFeature] = useState<Feature<
     Record<string, unknown>
   > | null>(null);
+
   const { data: geoData } = useFetchGeoJson<Record<string, unknown>>(
     dataSet?.fetchUrl ?? geoJsonUrl ?? "",
   );
