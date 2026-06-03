@@ -122,3 +122,23 @@ export type ElementarySchoolProperties = {
 
 export type ElementarySchoolCollection =
   FeatureCollection<ElementarySchoolProperties>;
+
+export type OdmorkoProperties = {
+  lokacija: string;
+  sport: string;
+  adresa: string;
+  tel: string;
+  web: string;
+  radno_vrijeme: string;
+  grupa: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+  Napomena: string;
+  Prijava: string;
+  Naziv: string;
+  Geoportal: string;
+  Školska_godina: string;
+};
+
+export type OdmorkoCollection = FeatureCollection<OdmorkoProperties>;

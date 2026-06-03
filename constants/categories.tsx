@@ -61,6 +61,8 @@ import {
   CULTURAL_INSTITUTION_DATA_SET_ID,
   ELEMENTARY_SCHOOL_DATA_SET,
   ELEMENTARY_SCHOOL_DATA_SET_ID,
+  ODMORKO_DATA_SET,
+  ODMORKO_DATA_SET_ID,
   STUDENT_DORM_DATA_SET,
   STUDENT_DORM_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET,
@@ -108,8 +110,8 @@ export const CATEGORIES = [
         description:
           "Geolokacije besplatnih sportskih aktivnosti sa osnovnim kontakt informacijama.",
         icon: TreePalm,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/0a671e4943634d42930ba9c0648a9ddb_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: ODMORKO_DATA_SET_ID,
+        fetchUrl: ODMORKO_DATA_SET.fetchUrl,
       },
       {
         label: "Kultura",

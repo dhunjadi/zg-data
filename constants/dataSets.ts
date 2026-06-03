@@ -3,6 +3,7 @@ import {
   CulturalInstitutionProperties,
   DataSetConfig,
   ElementarySchoolProperties,
+  OdmorkoProperties,
   StudentDormProperties,
   StudentRestaurantProperties,
 } from "@/types";
@@ -70,6 +71,7 @@ export const STUDENT_RESTAURANT_DATA_SET_ID = "student-restaurants";
 export const STUDENT_DORM_DATA_SET_ID = "student-dorm";
 export const CULTURAL_INSTITUTION_DATA_SET_ID = "cultural-institution";
 export const ELEMENTARY_SCHOOL_DATA_SET_ID = "elementary-school";
+export const ODMORKO_DATA_SET_ID = "odmorko-school";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -122,7 +124,7 @@ export const CULTURAL_INSTITUTION_DATA_SET: DataSetConfig<CulturalInstitutionPro
 export const ELEMENTARY_SCHOOL_DATA_SET: DataSetConfig<ElementarySchoolProperties> =
   {
     id: ELEMENTARY_SCHOOL_DATA_SET_ID,
-    label: "Kulturne ustanove",
+    label: "Osnovne škole",
     fetchUrl:
       "https://opendata.arcgis.com/api/v3/datasets/08ff18612cea48a1b1bdb921a83974bc_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
     getDisplayData: (feature) => ({
@@ -135,6 +137,21 @@ export const ELEMENTARY_SCHOOL_DATA_SET: DataSetConfig<ElementarySchoolPropertie
       ],
     }),
   };
+
+export const ODMORKO_DATA_SET: DataSetConfig<OdmorkoProperties> = {
+  id: ODMORKO_DATA_SET_ID,
+  label: "Odmorko",
+  fetchUrl:
+    "https://opendata.arcgis.com/api/v3/datasets/0a671e4943634d42930ba9c0648a9ddb_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+  getDisplayData: (feature) => ({
+    title: feature.properties.lokacija,
+    details: [
+      { label: "Adresa", value: feature.properties.adresa },
+      { label: "Telefon", value: feature.properties.tel },
+      { label: "Web", value: feature.properties.web },
+    ],
+  }),
+};
 
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
@@ -151,6 +168,7 @@ export const DATA_SET_CONFIGS = {
   [ELEMENTARY_SCHOOL_DATA_SET_ID]: defineDataSetConfig(
     ELEMENTARY_SCHOOL_DATA_SET,
   ),
+  [ODMORKO_DATA_SET_ID]: defineDataSetConfig(ODMORKO_DATA_SET),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;
