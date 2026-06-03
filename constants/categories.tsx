@@ -59,6 +59,8 @@ import {
 import {
   CULTURAL_INSTITUTION_DATA_SET,
   CULTURAL_INSTITUTION_DATA_SET_ID,
+  ELEMENTARY_SCHOOL_DATA_SET,
+  ELEMENTARY_SCHOOL_DATA_SET_ID,
   STUDENT_DORM_DATA_SET,
   STUDENT_DORM_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET,
@@ -93,12 +95,13 @@ export const CATEGORIES = [
         datasetId: CULTURAL_INSTITUTION_DATA_SET_ID,
         fetchUrl: CULTURAL_INSTITUTION_DATA_SET.fetchUrl,
       },
+
       {
         label: "Osnovne škole",
         description: "Geolokacija osnovnih škola na području grada Zagreba.",
         icon: School,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/08ff18612cea48a1b1bdb921a83974bc_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: ELEMENTARY_SCHOOL_DATA_SET_ID,
+        fetchUrl: ELEMENTARY_SCHOOL_DATA_SET.fetchUrl,
       },
       {
         label: "Odmorko",

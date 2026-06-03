@@ -90,3 +90,35 @@ export type CulturalInstitutionProperties = {
 
 export type CulturalInstitutionCollection =
   FeatureCollection<CulturalInstitutionProperties>;
+
+export type ElementarySchoolProperties = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  maticna_podrucna: string;
+  smjenski_rad: string;
+  produzeni_boravak: string;
+  vrsta_odg_ust: string;
+  vrsta_obr_prog: string;
+  tip_obr_prog: string;
+  nadlezan: string;
+  br_uc: string;
+  br_raz: string;
+  god_izgradnje: string;
+  dogradnja_nadogradnja: string;
+  kuhinja: string;
+  sport_dvor: string;
+  sport_teren: string;
+  gradjevina: string;
+  oznaka: string;
+  strani_jezik: string;
+  klasicni_jezik: string;
+  ENCERTIFIKAT: string;
+  GRAD_CETVRT: string;
+};
+
+export type ElementarySchoolCollection =
+  FeatureCollection<ElementarySchoolProperties>;

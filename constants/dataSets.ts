@@ -2,6 +2,7 @@ import {
   AnyDataSetConfig,
   CulturalInstitutionProperties,
   DataSetConfig,
+  ElementarySchoolProperties,
   StudentDormProperties,
   StudentRestaurantProperties,
 } from "@/types";
@@ -68,6 +69,7 @@ export const DATASETS = [
 export const STUDENT_RESTAURANT_DATA_SET_ID = "student-restaurants";
 export const STUDENT_DORM_DATA_SET_ID = "student-dorm";
 export const CULTURAL_INSTITUTION_DATA_SET_ID = "cultural-institution";
+export const ELEMENTARY_SCHOOL_DATA_SET_ID = "elementary-school";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -117,6 +119,23 @@ export const CULTURAL_INSTITUTION_DATA_SET: DataSetConfig<CulturalInstitutionPro
     }),
   };
 
+export const ELEMENTARY_SCHOOL_DATA_SET: DataSetConfig<ElementarySchoolProperties> =
+  {
+    id: ELEMENTARY_SCHOOL_DATA_SET_ID,
+    label: "Kulturne ustanove",
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/08ff18612cea48a1b1bdb921a83974bc_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.naziv,
+      details: [
+        { label: "Adresa", value: feature.properties.adresa },
+        { label: "Telefon", value: feature.properties.telefon },
+        { label: "Email", value: feature.properties.email },
+        { label: "Web", value: feature.properties.web },
+      ],
+    }),
+  };
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -129,6 +148,9 @@ export const DATA_SET_CONFIGS = {
     CULTURAL_INSTITUTION_DATA_SET,
   ),
   [STUDENT_DORM_DATA_SET_ID]: defineDataSetConfig(STUDENT_DORM_DATA_SET),
+  [ELEMENTARY_SCHOOL_DATA_SET_ID]: defineDataSetConfig(
+    ELEMENTARY_SCHOOL_DATA_SET,
+  ),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;
