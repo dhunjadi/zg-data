@@ -142,3 +142,15 @@ export type OdmorkoProperties = {
 };
 
 export type OdmorkoCollection = FeatureCollection<OdmorkoProperties>;
+
+export type PublicPlaygroundProperties = {
+  rb: number;
+  Gradska_cetvrt: string;
+  Mjesni_odbor: string;
+  lokacija: string;
+  Vrsta_objekta: string;
+  Izvor: string;
+  Izradio: string;
+};
+
+export type PublicPlaygroundCollection = FeatureCollection<OdmorkoProperties>;

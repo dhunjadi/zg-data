@@ -63,6 +63,8 @@ import {
   ELEMENTARY_SCHOOL_DATA_SET_ID,
   ODMORKO_DATA_SET,
   ODMORKO_DATA_SET_ID,
+  PUBLIC_PLAYGROUND_DATA_SET,
+  PUBLIC_PLAYGROUND_DATA_SET_ID,
   STUDENT_DORM_DATA_SET,
   STUDENT_DORM_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET,
@@ -93,7 +95,7 @@ export const CATEGORIES = [
       {
         label: "Kulturne ustanove",
         description: "Geolokacije kulturnih ustanova grada Zagreba.",
-        icon: Landmark,
+        icon: Drama,
         datasetId: CULTURAL_INSTITUTION_DATA_SET_ID,
         fetchUrl: CULTURAL_INSTITUTION_DATA_SET.fetchUrl,
       },
@@ -114,18 +116,11 @@ export const CATEGORIES = [
         fetchUrl: ODMORKO_DATA_SET.fetchUrl,
       },
       {
-        label: "Kultura",
-        description: "Kulturne ustanove na području Grada Zagreba.",
-        icon: Drama,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/83db22aeb39441ec84911ee94f26e746_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      },
-      {
         label: "Javna sportska igrališta",
         description: "Geolokacije javnih sportskih igrališta.",
         icon: Volleyball,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/8e2abb22194b4595965d2056f31ff66e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: PUBLIC_PLAYGROUND_DATA_SET_ID,
+        fetchUrl: PUBLIC_PLAYGROUND_DATA_SET.fetchUrl,
       },
       {
         label: "Visokoškolske ustanove",

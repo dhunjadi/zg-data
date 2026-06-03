@@ -4,6 +4,7 @@ import {
   DataSetConfig,
   ElementarySchoolProperties,
   OdmorkoProperties,
+  PublicPlaygroundProperties,
   StudentDormProperties,
   StudentRestaurantProperties,
 } from "@/types";
@@ -72,6 +73,7 @@ export const STUDENT_DORM_DATA_SET_ID = "student-dorm";
 export const CULTURAL_INSTITUTION_DATA_SET_ID = "cultural-institution";
 export const ELEMENTARY_SCHOOL_DATA_SET_ID = "elementary-school";
 export const ODMORKO_DATA_SET_ID = "odmorko-school";
+export const PUBLIC_PLAYGROUND_DATA_SET_ID = "public-playground";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -153,6 +155,18 @@ export const ODMORKO_DATA_SET: DataSetConfig<OdmorkoProperties> = {
   }),
 };
 
+export const PUBLIC_PLAYGROUND_DATA_SET: DataSetConfig<PublicPlaygroundProperties> =
+  {
+    id: PUBLIC_PLAYGROUND_DATA_SET_ID,
+    label: "Javna igrališta",
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/8e2abb22194b4595965d2056f31ff66e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.lokacija,
+      details: [{ label: "Vrsta", value: feature.properties.Vrsta_objekta }],
+    }),
+  };
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -169,6 +183,9 @@ export const DATA_SET_CONFIGS = {
     ELEMENTARY_SCHOOL_DATA_SET,
   ),
   [ODMORKO_DATA_SET_ID]: defineDataSetConfig(ODMORKO_DATA_SET),
+  [PUBLIC_PLAYGROUND_DATA_SET_ID]: defineDataSetConfig(
+    PUBLIC_PLAYGROUND_DATA_SET,
+  ),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;
