@@ -6,6 +6,7 @@ import {
   HigherEducationInstitutionProperties,
   OdmorkoProperties,
   PublicPlaygroundProperties,
+  PupilDormProperties,
   SportFacilitiesProperties,
   StudentDormProperties,
   StudentRestaurantProperties,
@@ -79,6 +80,7 @@ export const PUBLIC_PLAYGROUND_DATA_SET_ID = "public-playground";
 export const HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID =
   "higher-education-institution";
 export const SPORT_FACILITIES_DATA_SET_ID = "sport-facilities";
+export const PUPIL_DORM_DATA_SET_ID = "pupil-dorm";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -210,6 +212,26 @@ export const SPORT_FACILITIES_DATA_SET: DataSetConfig<SportFacilitiesProperties>
     }),
   };
 
+export const PUPIL_DORM_DATA_SET: DataSetConfig<PupilDormProperties> = {
+  id: PUPIL_DORM_DATA_SET_ID,
+  label: "Učenički domovi",
+  fetchUrl:
+    "https://opendata.arcgis.com/api/v3/datasets/25bdb57e84e443b38ecf47a912b5c2d1_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+  getDisplayData: (feature) => ({
+    title: feature.properties.naziv,
+    details: [
+      { label: "Struktura", value: feature.properties.poSTRUKTURI },
+      { label: "Adresa", value: feature.properties.adresa },
+      { label: "Telefon", value: feature.properties.telefon },
+      { label: "Email", value: feature.properties.email },
+      { label: "Web", value: feature.properties.web },
+      { label: "Broj korisnika", value: feature.properties.Broj_koris },
+      { label: "Sportski tereni", value: feature.properties.sport_tere },
+      { label: "Sportska dvorana", value: feature.properties.sport_dvor },
+    ],
+  }),
+};
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -235,6 +257,7 @@ export const DATA_SET_CONFIGS = {
   [SPORT_FACILITIES_DATA_SET_ID]: defineDataSetConfig(
     SPORT_FACILITIES_DATA_SET,
   ),
+  [PUPIL_DORM_DATA_SET_ID]: defineDataSetConfig(PUPIL_DORM_DATA_SET),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;

@@ -186,5 +186,27 @@ export type SportFacilitiesProperties = {
   opremljenost: string;
 };
 
-export type SsportFacilitiesCollection =
+export type SportFacilitiesCollection =
   FeatureCollection<SportFacilitiesProperties>;
+
+export type PupilDormProperties = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  vr_odg_us: string;
+  vr_ob_pr: string;
+  tip_ob_pr: string;
+  nadlezan: string;
+  Broj_koris: number;
+  God_izgrad: string;
+  sport_tere: string;
+  gradevina: string;
+  sport_dvor: string;
+  poSTRUKTURI: string;
+  GRAD_CETVRT: string;
+};
+
+export type PupilDormCollection = FeatureCollection<PupilDormProperties>;

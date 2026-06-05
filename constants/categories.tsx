@@ -67,6 +67,8 @@ import {
   ODMORKO_DATA_SET_ID,
   PUBLIC_PLAYGROUND_DATA_SET,
   PUBLIC_PLAYGROUND_DATA_SET_ID,
+  PUPIL_DORM_DATA_SET,
+  PUPIL_DORM_DATA_SET_ID,
   SPORT_FACILITIES_DATA_SET,
   SPORT_FACILITIES_DATA_SET_ID,
   STUDENT_DORM_DATA_SET,
@@ -145,8 +147,8 @@ export const CATEGORIES = [
         label: "Učenički domovi",
         description: "Geolokacije učeničkih domova u gradu Zagrebu.",
         icon: Building,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/25bdb57e84e443b38ecf47a912b5c2d1_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: PUPIL_DORM_DATA_SET_ID,
+        fetchUrl: PUPIL_DORM_DATA_SET.fetchUrl,
       },
       {
         label: "Srednje škole",
