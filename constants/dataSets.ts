@@ -3,6 +3,7 @@ import {
   CulturalInstitutionProperties,
   DataSetConfig,
   ElementarySchoolProperties,
+  HigherEducationInstitutionProperties,
   OdmorkoProperties,
   PublicPlaygroundProperties,
   StudentDormProperties,
@@ -74,6 +75,8 @@ export const CULTURAL_INSTITUTION_DATA_SET_ID = "cultural-institution";
 export const ELEMENTARY_SCHOOL_DATA_SET_ID = "elementary-school";
 export const ODMORKO_DATA_SET_ID = "odmorko-school";
 export const PUBLIC_PLAYGROUND_DATA_SET_ID = "public-playground";
+export const HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID =
+  "higher-education-institution";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -167,6 +170,24 @@ export const PUBLIC_PLAYGROUND_DATA_SET: DataSetConfig<PublicPlaygroundPropertie
     }),
   };
 
+export const HIGHER_EDUCATION_INSTITUTION_DATA_SET: DataSetConfig<HigherEducationInstitutionProperties> =
+  {
+    id: HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
+    label: "Visokoškoleske ustanove",
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/3f6954c6679f4b299f738304542a4837_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.naziv,
+      details: [
+        { label: "Vrsta", value: feature.properties.vrsta },
+        { label: "Adresa", value: feature.properties.adresa },
+        { label: "Telefon", value: feature.properties.telefon },
+        { label: "Email", value: feature.properties.email },
+        { label: "Web", value: feature.properties.web },
+      ],
+    }),
+  };
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -185,6 +206,9 @@ export const DATA_SET_CONFIGS = {
   [ODMORKO_DATA_SET_ID]: defineDataSetConfig(ODMORKO_DATA_SET),
   [PUBLIC_PLAYGROUND_DATA_SET_ID]: defineDataSetConfig(
     PUBLIC_PLAYGROUND_DATA_SET,
+  ),
+  [HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID]: defineDataSetConfig(
+    HIGHER_EDUCATION_INSTITUTION_DATA_SET,
   ),
 } as const;
 

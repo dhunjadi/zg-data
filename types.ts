@@ -154,3 +154,20 @@ export type PublicPlaygroundProperties = {
 };
 
 export type PublicPlaygroundCollection = FeatureCollection<OdmorkoProperties>;
+
+export type HigherEducationInstitutionProperties = {
+  naziv: string;
+  vrsta: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  osnivac: string;
+  kampus: string;
+  sjediste: string;
+  nadlezan: string;
+};
+
+export type HigherEducationInstitutionCollection =
+  FeatureCollection<HigherEducationInstitutionProperties>;

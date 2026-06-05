@@ -61,6 +61,8 @@ import {
   CULTURAL_INSTITUTION_DATA_SET_ID,
   ELEMENTARY_SCHOOL_DATA_SET,
   ELEMENTARY_SCHOOL_DATA_SET_ID,
+  HIGHER_EDUCATION_INSTITUTION_DATA_SET,
+  HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
   ODMORKO_DATA_SET,
   ODMORKO_DATA_SET_ID,
   PUBLIC_PLAYGROUND_DATA_SET,
@@ -127,8 +129,8 @@ export const CATEGORIES = [
         description:
           "Geolokacija, naziv visokoškolske ustanove, adresa, telefon, email, web.",
         icon: GraduationCap,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/3f6954c6679f4b299f738304542a4837_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
+        fetchUrl: HIGHER_EDUCATION_INSTITUTION_DATA_SET.fetchUrl,
       },
       {
         label: "Sportski objekti",
