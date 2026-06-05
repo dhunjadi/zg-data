@@ -67,6 +67,8 @@ import {
   ODMORKO_DATA_SET_ID,
   PUBLIC_PLAYGROUND_DATA_SET,
   PUBLIC_PLAYGROUND_DATA_SET_ID,
+  SPORT_FACILITIES_DATA_SET,
+  SPORT_FACILITIES_DATA_SET_ID,
   STUDENT_DORM_DATA_SET,
   STUDENT_DORM_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET,
@@ -136,8 +138,8 @@ export const CATEGORIES = [
         label: "Sportski objekti",
         description: "Sportski objekati grada Zagreba.",
         icon: Volleyball,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/c2dd015f24f84bdb9e367b7eafce6762_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: SPORT_FACILITIES_DATA_SET_ID,
+        fetchUrl: SPORT_FACILITIES_DATA_SET.fetchUrl,
       },
       {
         label: "Učenički domovi",

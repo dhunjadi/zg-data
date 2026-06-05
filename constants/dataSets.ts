@@ -6,6 +6,7 @@ import {
   HigherEducationInstitutionProperties,
   OdmorkoProperties,
   PublicPlaygroundProperties,
+  SportFacilitiesProperties,
   StudentDormProperties,
   StudentRestaurantProperties,
 } from "@/types";
@@ -77,6 +78,7 @@ export const ODMORKO_DATA_SET_ID = "odmorko-school";
 export const PUBLIC_PLAYGROUND_DATA_SET_ID = "public-playground";
 export const HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID =
   "higher-education-institution";
+export const SPORT_FACILITIES_DATA_SET_ID = "sport-facilities";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -188,6 +190,26 @@ export const HIGHER_EDUCATION_INSTITUTION_DATA_SET: DataSetConfig<HigherEducatio
     }),
   };
 
+export const SPORT_FACILITIES_DATA_SET: DataSetConfig<SportFacilitiesProperties> =
+  {
+    id: SPORT_FACILITIES_DATA_SET_ID,
+    label: "Sportski objekti",
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/c2dd015f24f84bdb9e367b7eafce6762_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.naziv,
+      details: [
+        { label: "Objekt", value: feature.properties.objekt },
+        { label: "Sportovi", value: feature.properties.sportovi },
+        { label: "Opremljenost", value: feature.properties.opremljenost },
+        { label: "Adresa", value: feature.properties.adresa },
+        { label: "Telefon", value: feature.properties.telefon },
+        { label: "Email", value: feature.properties.email },
+        { label: "Web", value: feature.properties.web },
+      ],
+    }),
+  };
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -209,6 +231,9 @@ export const DATA_SET_CONFIGS = {
   ),
   [HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID]: defineDataSetConfig(
     HIGHER_EDUCATION_INSTITUTION_DATA_SET,
+  ),
+  [SPORT_FACILITIES_DATA_SET_ID]: defineDataSetConfig(
+    SPORT_FACILITIES_DATA_SET,
   ),
 } as const;
 

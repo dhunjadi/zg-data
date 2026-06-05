@@ -171,3 +171,20 @@ export type HigherEducationInstitutionProperties = {
 
 export type HigherEducationInstitutionCollection =
   FeatureCollection<HigherEducationInstitutionProperties>;
+
+export type SportFacilitiesProperties = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  kategorija: string;
+  upravljac: string;
+  sportovi: string;
+  objekt: string;
+  opremljenost: string;
+};
+
+export type SsportFacilitiesCollection =
+  FeatureCollection<SportFacilitiesProperties>;
