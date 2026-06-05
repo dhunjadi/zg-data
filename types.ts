@@ -235,3 +235,18 @@ export type HighSchoolProperties = {
 };
 
 export type HighSchoolCollection = FeatureCollection<HighSchoolProperties>;
+
+export type StudentNeighborhoodProperties = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  web: string;
+  br_kreveta: number;
+  br_paviljona: number;
+  popratni_sadrzaji: string;
+  nadlezan: string;
+};
+
+export type StudentNeighborhoodCollection =
+  FeatureCollection<StudentNeighborhoodProperties>;
