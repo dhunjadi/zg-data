@@ -4,6 +4,11 @@ type Geometry = {
 };
 
 export type BaseProperties = {
+  naziv: string;
+  adresa: string;
+  nadlezan: string;
+  web?: string;
+  email?: string;
   OBJECTID?: number;
   GlobalID?: string;
 };
@@ -48,63 +53,34 @@ export type AnyDataSetConfig = {
 
 export type StudentRestaurantProperties = {
   gc: string;
-  web: string;
-  email: string;
   izvor: string;
-  naziv: string;
-  adresa: string;
   izradio: string;
-  nadlezan: string;
 };
-
-export type StudentRestaurantCollection =
-  FeatureCollection<StudentRestaurantProperties>;
 
 export type StudentDormProperties = {
   gc: string;
-  web: string;
-  email: null;
   izvor: string;
-  naziv: string;
-  adresa: string;
   izradio: string;
-  GlobalID: string;
-  nadlezan: string;
 };
 
-export type StudentDormCollection = FeatureCollection<StudentDormProperties>;
-
 export type CulturalInstitutionProperties = {
-  naziv: string;
-  adresa: string;
   telefon: string;
   fax: string;
-  email: string;
-  web: string;
   radno_vrijeme: string;
   osnivac: string;
   energetski_razred: string;
-  nadlezan: string;
   ustanove: string;
 };
 
-export type CulturalInstitutionCollection =
-  FeatureCollection<CulturalInstitutionProperties>;
-
 export type ElementarySchoolProperties = {
-  naziv: string;
-  adresa: string;
   telefon: string;
   fax: string;
-  email: string;
-  web: string;
   maticna_podrucna: string;
   smjenski_rad: string;
   produzeni_boravak: string;
   vrsta_odg_ust: string;
   vrsta_obr_prog: string;
   tip_obr_prog: string;
-  nadlezan: string;
   br_uc: string;
   br_raz: string;
   god_izgradnje: string;
@@ -120,18 +96,13 @@ export type ElementarySchoolProperties = {
   GRAD_CETVRT: string;
 };
 
-export type ElementarySchoolCollection =
-  FeatureCollection<ElementarySchoolProperties>;
-
 export type OdmorkoProperties = {
   lokacija: string;
   sport: string;
-  adresa: string;
   tel: string;
   web: string;
   radno_vrijeme: string;
   grupa: string;
-  nadlezan: string;
   izvor: string;
   izradio: string;
   Napomena: string;
@@ -140,8 +111,6 @@ export type OdmorkoProperties = {
   Geoportal: string;
   Školska_godina: string;
 };
-
-export type OdmorkoCollection = FeatureCollection<OdmorkoProperties>;
 
 export type PublicPlaygroundProperties = {
   rb: number;
@@ -153,32 +122,18 @@ export type PublicPlaygroundProperties = {
   Izradio: string;
 };
 
-export type PublicPlaygroundCollection = FeatureCollection<OdmorkoProperties>;
-
 export type HigherEducationInstitutionProperties = {
-  naziv: string;
   vrsta: string;
-  adresa: string;
   telefon: string;
   fax: string;
-  email: string;
-  web: string;
   osnivac: string;
   kampus: string;
   sjediste: string;
-  nadlezan: string;
 };
 
-export type HigherEducationInstitutionCollection =
-  FeatureCollection<HigherEducationInstitutionProperties>;
-
 export type SportFacilitiesProperties = {
-  naziv: string;
-  adresa: string;
   telefon: string;
   fax: string;
-  email: string;
-  web: string;
   kategorija: string;
   upravljac: string;
   sportovi: string;
@@ -186,20 +141,12 @@ export type SportFacilitiesProperties = {
   opremljenost: string;
 };
 
-export type SportFacilitiesCollection =
-  FeatureCollection<SportFacilitiesProperties>;
-
 export type PupilDormProperties = {
-  naziv: string;
-  adresa: string;
   telefon: string;
   fax: string;
-  email: string;
-  web: string;
   vr_odg_us: string;
   vr_ob_pr: string;
   tip_ob_pr: string;
-  nadlezan: string;
   Broj_koris: number;
   God_izgrad: string;
   sport_tere: string;
@@ -209,20 +156,13 @@ export type PupilDormProperties = {
   GRAD_CETVRT: string;
 };
 
-export type PupilDormCollection = FeatureCollection<PupilDormProperties>;
-
 export type HighSchoolProperties = {
-  naziv: string;
-  adresa: string;
   telefon: string;
   fax: string;
-  email: string;
-  web: string;
   vr_odg_us: string;
   vr_ob_pr: string;
   tip_ob_pr: string;
   smjenski_r: string;
-  nadlezan: string;
   Broj_uceni: number;
   God_izgrad: string;
   Sport_tere: string;
@@ -233,20 +173,3 @@ export type HighSchoolProperties = {
   ENCERTIFIKAT: string;
   GRAD_CETVRT: string;
 };
-
-export type HighSchoolCollection = FeatureCollection<HighSchoolProperties>;
-
-export type StudentNeighborhoodProperties = {
-  naziv: string;
-  adresa: string;
-  telefon: string;
-  fax: string;
-  web: string;
-  br_kreveta: number;
-  br_paviljona: number;
-  popratni_sadrzaji: string;
-  nadlezan: string;
-};
-
-export type StudentNeighborhoodCollection =
-  FeatureCollection<StudentNeighborhoodProperties>;

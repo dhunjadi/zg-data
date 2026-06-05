@@ -10,7 +10,6 @@ import {
   PupilDormProperties,
   SportFacilitiesProperties,
   StudentDormProperties,
-  StudentNeighborhoodProperties,
   StudentRestaurantProperties,
 } from "@/types";
 import {
@@ -104,7 +103,7 @@ export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantPropert
 
 export const STUDENT_DORM_DATA_SET: DataSetConfig<StudentDormProperties> = {
   id: STUDENT_RESTAURANT_DATA_SET_ID,
-  label: "Studentski restoran",
+  label: "Studentsko naselje",
   fetchUrl:
     "https://data.zagreb.hr/dataset/cd0afdae-2ef7-44f8-96bb-b96f119aa59b/resource/306ebc37-e4ee-4715-b9e1-8f67418e36e7/download/data.geojson",
   getDisplayData: (feature) => ({
@@ -257,28 +256,6 @@ export const HIGH_SCHOOL_DATA_SET: DataSetConfig<HighSchoolProperties> = {
   }),
 };
 
-export const STUDENT_NEIGHBORHOOD_DATA_SET: DataSetConfig<StudentNeighborhoodProperties> =
-  {
-    id: STUDENT_NEIGHBORHOOD_DATA_SET_ID,
-    label: "Studentska naselja",
-    fetchUrl:
-      "https://opendata.arcgis.com/api/v3/datasets/f4e333057dd24bdaa1cb033680dc1b96_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-    getDisplayData: (feature) => ({
-      title: feature.properties.naziv,
-      details: [
-        { label: "Adresa", value: feature.properties.adresa },
-        { label: "Telefon", value: feature.properties.telefon },
-        { label: "Web", value: feature.properties.web },
-        { label: "Broj kreveta", value: feature.properties.br_kreveta },
-        { label: "Broj paviljona", value: feature.properties.br_paviljona },
-        {
-          label: "Popratni sadržaji",
-          value: feature.properties.popratni_sadrzaji,
-        },
-      ],
-    }),
-  };
-
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -306,9 +283,6 @@ export const DATA_SET_CONFIGS = {
   ),
   [PUPIL_DORM_DATA_SET_ID]: defineDataSetConfig(PUPIL_DORM_DATA_SET),
   [HIGH_SCHOOL_DATA_SET_ID]: defineDataSetConfig(HIGH_SCHOOL_DATA_SET),
-  [STUDENT_NEIGHBORHOOD_DATA_SET_ID]: defineDataSetConfig(
-    STUDENT_NEIGHBORHOOD_DATA_SET,
-  ),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;

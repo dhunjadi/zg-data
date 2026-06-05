@@ -75,8 +75,6 @@ import {
   SPORT_FACILITIES_DATA_SET_ID,
   STUDENT_DORM_DATA_SET,
   STUDENT_DORM_DATA_SET_ID,
-  STUDENT_NEIGHBORHOOD_DATA_SET,
-  STUDENT_NEIGHBORHOOD_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET,
   STUDENT_RESTAURANT_DATA_SET_ID,
 } from "./dataSets";
@@ -160,13 +158,6 @@ export const CATEGORIES = [
         icon: School,
         datasetId: HIGH_SCHOOL_DATA_SET_ID,
         fetchUrl: HIGH_SCHOOL_DATA_SET.fetchUrl,
-      },
-      {
-        label: "Studentska naselja",
-        description: "Studentska naselja na području grada Zagreba.",
-        icon: Hotel,
-        datasetId: STUDENT_NEIGHBORHOOD_DATA_SET_ID,
-        fetchUrl: STUDENT_NEIGHBORHOOD_DATA_SET.fetchUrl,
       },
     ],
   },
