@@ -210,3 +210,28 @@ export type PupilDormProperties = {
 };
 
 export type PupilDormCollection = FeatureCollection<PupilDormProperties>;
+
+export type HighSchoolProperties = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  vr_odg_us: string;
+  vr_ob_pr: string;
+  tip_ob_pr: string;
+  smjenski_r: string;
+  nadlezan: string;
+  Broj_uceni: number;
+  God_izgrad: string;
+  Sport_tere: string;
+  sport_dvor: string;
+  gradevina: string;
+  strani_jezik: string;
+  klasicni_jezik: string;
+  ENCERTIFIKAT: string;
+  GRAD_CETVRT: string;
+};
+
+export type HighSchoolCollection = FeatureCollection<HighSchoolProperties>;

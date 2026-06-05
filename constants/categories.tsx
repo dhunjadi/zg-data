@@ -61,6 +61,8 @@ import {
   CULTURAL_INSTITUTION_DATA_SET_ID,
   ELEMENTARY_SCHOOL_DATA_SET,
   ELEMENTARY_SCHOOL_DATA_SET_ID,
+  HIGH_SCHOOL_DATA_SET,
+  HIGH_SCHOOL_DATA_SET_ID,
   HIGHER_EDUCATION_INSTITUTION_DATA_SET,
   HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
   ODMORKO_DATA_SET,
@@ -154,8 +156,8 @@ export const CATEGORIES = [
         label: "Srednje škole",
         description: "Srednje škole na području grada Zagreba.",
         icon: School,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/1095aeca947440bda0317834daa48c6a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: HIGH_SCHOOL_DATA_SET_ID,
+        fetchUrl: HIGH_SCHOOL_DATA_SET.fetchUrl,
       },
       {
         label: "Studentska naselja",

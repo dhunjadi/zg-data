@@ -4,6 +4,7 @@ import {
   DataSetConfig,
   ElementarySchoolProperties,
   HigherEducationInstitutionProperties,
+  HighSchoolProperties,
   OdmorkoProperties,
   PublicPlaygroundProperties,
   PupilDormProperties,
@@ -81,6 +82,7 @@ export const HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID =
   "higher-education-institution";
 export const SPORT_FACILITIES_DATA_SET_ID = "sport-facilities";
 export const PUPIL_DORM_DATA_SET_ID = "pupil-dorm";
+export const HIGH_SCHOOL_DATA_SET_ID = "high-school";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -232,6 +234,27 @@ export const PUPIL_DORM_DATA_SET: DataSetConfig<PupilDormProperties> = {
   }),
 };
 
+export const HIGH_SCHOOL_DATA_SET: DataSetConfig<HighSchoolProperties> = {
+  id: HIGH_SCHOOL_DATA_SET_ID,
+  label: "Srednje škole",
+  fetchUrl:
+    "https://opendata.arcgis.com/api/v3/datasets/1095aeca947440bda0317834daa48c6a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+  getDisplayData: (feature) => ({
+    title: feature.properties.naziv,
+    details: [
+      { label: "Vrsta odgojne ustanove", value: feature.properties.vr_odg_us },
+      { label: "Smjesnki rad", value: feature.properties.smjenski_r },
+      { label: "Adresa", value: feature.properties.adresa },
+      { label: "Telefon", value: feature.properties.telefon },
+      { label: "Email", value: feature.properties.email },
+      { label: "Web", value: feature.properties.web },
+      { label: "Broj Učenika", value: feature.properties.Broj_uceni },
+      { label: "Sportski tereni", value: feature.properties.Sport_tere },
+      { label: "Sportska dvorana", value: feature.properties.sport_dvor },
+    ],
+  }),
+};
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -258,6 +281,7 @@ export const DATA_SET_CONFIGS = {
     SPORT_FACILITIES_DATA_SET,
   ),
   [PUPIL_DORM_DATA_SET_ID]: defineDataSetConfig(PUPIL_DORM_DATA_SET),
+  [HIGH_SCHOOL_DATA_SET_ID]: defineDataSetConfig(HIGH_SCHOOL_DATA_SET),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;
