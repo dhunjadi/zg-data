@@ -1,7 +1,14 @@
-type Geometry = {
+export type PointGeometry = {
   type: "Point";
   coordinates: [number, number];
 };
+
+export type MultiPolygonGeometry = {
+  type: "MultiPolygon";
+  coordinates: number[][][][];
+};
+
+export type Geometry = PointGeometry | MultiPolygonGeometry;
 
 export type BaseProperties = {
   naziv: string;
