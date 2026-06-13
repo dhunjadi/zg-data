@@ -31,7 +31,8 @@ const MapScreen = () => {
   const geoJsonUrl = Array.isArray(fetchUrl) ? fetchUrl[0] : fetchUrl;
   const dataSet = getDataSetConfig(selectedDatasetId);
 
-  const ref = useRef<MapView | null>(null);
+  const mapViewRef = useRef<MapView | null>(null);
+  const bottomSheetRef = useRef<BottomSheet>(null);
 
   const [region, setRegion] = useState<Region>(INITIAL_REGION);
   const [selectedFeature, setSelectedFeature] = useState<Feature<
@@ -86,7 +87,7 @@ const MapScreen = () => {
     <GestureHandlerRootView className="flex-1">
       <View className="flex-1">
         <MapView
-          ref={ref}
+          ref={mapViewRef}
           style={styles.map}
           provider={PROVIDER_GOOGLE}
           region={region}
@@ -106,7 +107,10 @@ const MapScreen = () => {
                     latitude: lat,
                     longitude: lng,
                   }}
-                  onPress={() => setSelectedFeature(feature)}
+                  onPress={() => {
+                    setSelectedFeature(feature);
+                    bottomSheetRef.current?.snapToIndex(0);
+                  }}
                 />
               );
             }
@@ -128,10 +132,10 @@ const MapScreen = () => {
             return null;
           })}
         </MapView>
-        <BottomSheet snapPoints={snapPoints}>
+        <BottomSheet index={-1} snapPoints={snapPoints} ref={bottomSheetRef}>
           <BottomSheetView className="p-4">
             <Text className="text-xl font-bold text-primaryDark">
-              {selectedFeatureData?.title || "Odaberite lokaciju"}
+              {selectedFeatureData?.title || ""}
             </Text>
 
             {selectedFeatureData?.details.map((detail) =>
