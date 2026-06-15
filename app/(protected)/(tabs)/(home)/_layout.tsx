@@ -1,10 +1,12 @@
 import { CATEGORIES } from "@/constants/categories";
 import { Stack, useGlobalSearchParams } from "expo-router";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Image } from "react-native";
 import ZagrebCoA from "../../../../assets/images/zagreb-grb.png";
 
 const HomeLayout = () => {
+  const { t } = useTranslation();
   const { id } = useGlobalSearchParams();
   const groupTitle = CATEGORIES.find((item) => item.id === id)?.label;
   return (
@@ -13,7 +15,7 @@ const HomeLayout = () => {
         name="index"
         options={{
           headerShown: true, // Show it ONLY on the index
-          title: "Otvoreni podaci Zagreb",
+          title: t("screens.home.headerTitle"),
           headerRight: () => (
             <Image
               source={ZagrebCoA}
@@ -26,7 +28,7 @@ const HomeLayout = () => {
       <Stack.Screen
         name="[id]"
         options={{
-          title: groupTitle || "",
+          title: groupTitle ? t(groupTitle) : "",
           headerShown: true,
           headerBackTitle: "Natrag",
         }}

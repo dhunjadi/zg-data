@@ -3,14 +3,16 @@ import { CATEGORIES } from "@/constants/categories";
 import { Link } from "expo-router";
 import { ArrowRight, Search } from "lucide-react-native";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const HomeScreen = () => {
+  const { t } = useTranslation();
   const [filterText, setFilterText] = useState("");
 
   const filteredData = CATEGORIES.filter((item) =>
-    item.label.toLowerCase().includes(filterText.toLowerCase()),
+    t(item.label).toLowerCase().includes(filterText.toLowerCase()),
   );
 
   const getCardDescription = (dataSetLenght: number) => {
@@ -25,18 +27,17 @@ const HomeScreen = () => {
       <ScrollView className="px-4" showsVerticalScrollIndicator={false}>
         <View className="pt-4">
           <Text className="text-3xl text-primaryDark font-bold mb-2">
-            Otvoreni podaci Grada Zagreba
+            {t("screens.home.title")}
           </Text>
 
           <Text className="text-md text-neutral-700 mb-8">
-            Pristupite otvorenim bazama podataka za transparentnije i pametnije
-            upravljanje gradom.
+            {t("screens.home.description")}
           </Text>
 
           <View className="flex-row items-center bg-white border border-neutral-300 rounded-md px-3 mb-6">
             <Search size={20} color="#737373" />
             <TextInput
-              placeholder="Pretraži kategorije"
+              placeholder={t("screens.home.searchInputPlaceholder")}
               value={filterText}
               onChangeText={(val) => setFilterText(val)}
               autoCorrect={false}
@@ -48,7 +49,7 @@ const HomeScreen = () => {
           <Link href="../dataSets" className="mb-4" asChild>
             <Pressable className="flex-row items-center justify-end ">
               <Text className="text-lg text-primaryDark font-bold">
-                Prikaži sve skupove podataka
+                {t("screens.home.showAllDatasets")}
               </Text>
               <ArrowRight className="" color="#005793" />
             </Pressable>
@@ -59,6 +60,7 @@ const HomeScreen = () => {
               <Pressable>
                 <GroupCard
                   {...item}
+                  label={t(item.label)}
                   description={getCardDescription(item.dataSets?.length)}
                   icon={(props) => <item.icon {...props} />}
                 />

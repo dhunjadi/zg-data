@@ -2,29 +2,415 @@
   "screens": {
     "login": {
       "appTitle": "Zagreb Data",
-      "description": "Pristupite podacima Grada Zagreba",
-      "emailPlaceholder": "vas@emial.hr",
+      "description": "Access open data from the City of Zagreb",
+      "emailPlaceholder": "your@email.com",
       "passwordPlaceholder": "******",
       "signInError": "Wrong email or password",
-      "signIn": "Prijavi se",
-      "signUp": "Registriraj se"
+      "signIn": "Sign In",
+      "signUp": "Sign Up"
+    },
+    "home": {
+      "headerTitle": "Zagreb Open Data",
+      "title": "Open Data of the City of Zagreb",
+      "description": "Access open data for more transparent and smarter city management",
+      "searchInputPlaceholder": "Search categories",
+      "showAllDatasets": "Show all datasets"
     },
     "signUp": {
-      "title": "Registracija",
-      "description": "Napravite korisnički račun",
-      "emailPlaceholder": "vas@emial.hr",
+      "title": "Registration",
+      "description": "Create a user account",
+      "emailPlaceholder": "your@email.com",
       "passwordPlaceholder": "******",
-      "signUp": "Registriraj se",
-      "backToSignIn": "Vrati se na prijavu"
+      "signUp": "Sign Up",
+      "backToSignIn": "Back to Sign In"
     },
     "account": {
       "language": "Language",
-      "signOut": "Sign out"
+      "signOut": "Sign Out"
     }
   },
   "tabs": {
     "home": "Home",
-    "dataSets": "Datasets",
     "account": "Account"
+  },
+  "categories": {
+    "education": {
+      "label": "Education, Culture and Sport",
+      "dataSets": {
+        "studentRestaurant": {
+          "label": "Student restaurant",
+          "description": "Geolocations of student restaurants."
+        },
+        "studentDorms": {
+          "label": "Student dormitory",
+          "description": "Geolocations of student dormitories."
+        },
+        "culturalInstitutions": {
+          "label": "Cultural institutions",
+          "description": "Geolocations of cultural institutions in the City of Zagreb."
+        },
+        "elementarySchools": {
+          "label": "Elementary schools",
+          "description": "Geolocation of elementary schools in the City of Zagreb area."
+        },
+        "odmorko": {
+          "label": "Odmorko",
+          "description": "Geolocations of free sports activities with basic contact information."
+        },
+        "publicSportsPlaygrounds": {
+          "label": "Public sports playgrounds",
+          "description": "Geolocations of public sports playgrounds."
+        },
+        "higherEducationInstitutions": {
+          "label": "Higher education institutions",
+          "description": "Geolocation, name of higher education institution, address, phone, email, and website."
+        },
+        "sportsFacilities": {
+          "label": "Sports facilities",
+          "description": "Sports facilities of the City of Zagreb."
+        },
+        "pupilDorms": {
+          "label": "Pupil dormitories",
+          "description": "Geolocations of pupil dormitories in the City of Zagreb."
+        },
+        "highSchools": {
+          "label": "High schools",
+          "description": "High schools in the City of Zagreb area."
+        }
+      }
+    },
+    "economy": {
+      "label": "Economy and Finance",
+      "dataSets": {
+        "capitalInvestments2024": {
+          "label": "Capital investments 2024",
+          "description": "Program of capital investment works on facilities for social activities and reconstruction of earthquake-damaged facilities in the City of Zagreb in 2024."
+        },
+        "capitalInvestments2023": {
+          "label": "Capital investments 2023",
+          "description": "Program of capital investment works on facilities for social activities and reconstruction of earthquake-damaged facilities in the City of Zagreb in 2023."
+        }
+      }
+    },
+    "public-sector": {
+      "label": "Public Sector and Institutions",
+      "dataSets": {
+        "localDepartments": {
+          "label": "Local branch offices",
+          "description": "Local departments of municipal and traffic enforcement."
+        },
+        "cityOwnedCompanies": {
+          "label": "City-owned companies",
+          "description": "List of city-owned companies and branches of Zagreb Holding."
+        },
+        "otherPublicInstitutions": {
+          "label": "Other public institutions",
+          "description": "Institutions in the City of Zagreb under the authority of the City Office for Strategic Planning and City Development."
+        },
+        "healthcareInstitutions": {
+          "label": "Healthcare institutions",
+          "description": "Geolocation, healthcare institution name, address, phone, fax, email address, and website."
+        },
+        "cityDistrictOffices": {
+          "label": "City district offices",
+          "description": "Geolocations of city district offices in the City of Zagreb."
+        },
+        "localSelfGovernment": {
+          "label": "Local self-government",
+          "description": "Geolocations of local self-government offices in the City of Zagreb."
+        },
+        "romanCatholicParishes": {
+          "label": "Churches (Roman Catholic Parishes)",
+          "description": "List of churches in the City of Zagreb with name, address, phone, fax, email, website, and responsible authority."
+        },
+        "localOffices": {
+          "label": "Local offices",
+          "description": "Geolocations of local offices of the Zagreb City Administration."
+        },
+        "higherEducationInstitutions": {
+          "label": "Higher education institutions",
+          "description": "Geolocation, name of higher education institution, address, phone, email, and website."
+        },
+        "stateAdministrationBodies": {
+          "label": "State administration bodies",
+          "description": "Geolocations of state administration bodies."
+        }
+      }
+    },
+    "environment": {
+      "label": "Environment",
+      "dataSets": {
+        "semiUndergroundContainers": {
+          "label": "Semi-underground containers",
+          "description": "Locations of semi-underground containers in the City of Zagreb."
+        },
+        "undergroundContainers": {
+          "label": "Underground containers",
+          "description": "Locations of underground containers in the City of Zagreb."
+        },
+        "drinkingWaterFountains": {
+          "label": "Drinking water fountains",
+          "description": "Locations of drinking water fountains in the City of Zagreb area."
+        },
+        "topographicBaseVegetationLandTypes2018": {
+          "label": "Topographic base 2018: Vegetation and land types",
+          "description": "Data on the thematic unit, vegetation / land type."
+        },
+        "topographicBaseWaters2018": {
+          "label": "Topographic base 2018: Waters",
+          "description": "Data on the thematic unit, water type, and source."
+        },
+        "cityGardens": {
+          "label": "City gardens",
+          "description": "List of city gardens of the City of Zagreb."
+        },
+        "cityGardenPoints": {
+          "label": "City gardens points",
+          "description": "Locations of city gardens of the City of Zagreb."
+        },
+        "recyclingYards": {
+          "label": "Recycling yards of the City of Zagreb",
+          "description": "Geolocations of recycling yards in the City of Zagreb."
+        },
+        "airQuality": {
+          "label": "Air quality",
+          "description": "City measuring stations for continuous monitoring of air quality in the City of Zagreb network."
+        },
+        "brownfieldAreas": {
+          "label": "Brownfield areas",
+          "description": "Brownfield areas in the City of Zagreb area."
+        }
+      }
+    },
+    "agriculture": {
+      "label": "Agriculture, Fisheries, Forestry and Food",
+      "dataSets": {
+        "domesticAnimalKeepingBoundaries": {
+          "label": "Permitted areas for keeping domestic animals",
+          "description": "Display of the boundary where keeping domestic animals is permitted."
+        },
+        "cityMarkets": {
+          "label": "City markets",
+          "description": "List of markets in the City of Zagreb with their locations."
+        },
+        "sharedHuntingGrounds": {
+          "label": "Shared hunting grounds",
+          "description": "List of shared hunting grounds with status, area in hectares, and hunting ground name."
+        },
+        "wildlifeProtectionProgram": {
+          "label": "Wildlife protection program",
+          "description": "Area name and surface area in hectares."
+        }
+      }
+    },
+    "judiciary": {
+      "label": "Judiciary, Legal System and Public Safety",
+      "dataSets": {
+        "surveillanceCameras": {
+          "label": "Surveillance cameras",
+          "description": "Geolocations of surveillance cameras."
+        },
+        "police": {
+          "label": "Police",
+          "description": "Location, name, address, phone, website address, and jurisdiction."
+        },
+        "firefighters": {
+          "label": "Firefighters",
+          "description": "Geolocations of firefighters in the City of Zagreb."
+        }
+      }
+    },
+    "traffic": {
+      "label": "Traffic",
+      "dataSets": {
+        "zetBusStops": {
+          "label": "ZET bus stops",
+          "description": "List of ZET bus stops."
+        },
+        "hzRailwayStops": {
+          "label": "HŽ railway stops",
+          "description": "Names of railway stops with coordinates, codes, chainage, description, and type."
+        },
+        "pedestrianZone": {
+          "label": "Pedestrian zone",
+          "description": "Velit cursus magna fringilla natoque."
+        },
+        "topographicBaseTraffic2018": {
+          "label": "Topographic base 2018: Traffic",
+          "description": "Velit cursus magna fringilla natoque."
+        },
+        "reservedParkingZones": {
+          "label": "Reserved parking space zones",
+          "description": "Velit cursus magna fringilla natoque."
+        },
+        "publicGarages": {
+          "label": "Public garages",
+          "description": "Velit cursus magna fringilla natoque."
+        },
+        "publicBicycleParking": {
+          "label": "Public bicycle parking",
+          "description": "Geolocations with data on the number of racks, number of bicycles, and other data."
+        },
+        "publicBicycleSystem": {
+          "label": "Public bicycle system",
+          "description": "Geolocations of the public bicycle system with the following data: name, address, code, location, and number of racks."
+        },
+        "bicycleLanes": {
+          "label": "Bicycle lanes",
+          "description": "Geolocations of bicycle lanes in the City of Zagreb."
+        },
+        "surveillanceCameras": {
+          "label": "Surveillance cameras",
+          "description": "Geolocations of surveillance cameras."
+        },
+        "taxiStands": {
+          "label": "Taxi stands",
+          "description": "Display of the exact location of taxi stands in Zagreb and the responsible city office."
+        },
+        "electricChargingStations": {
+          "label": "EV charging stations",
+          "description": "Geolocations of electric charging stations in the City of Zagreb area with number and type of socket."
+        },
+        "zetTramStops": {
+          "label": "ZET tram stops",
+          "description": "Geolocations of ZET tram stops with the following data: name, stop, lines, description, and direction."
+        },
+        "gasStations": {
+          "label": "Gas stations",
+          "description": "Locations of all gas stations in the City of Zagreb area."
+        }
+      }
+    },
+    "society": {
+      "label": "Population and Society",
+      "dataSets": {
+        "publicWells": {
+          "label": "Public wells",
+          "description": "Public wells of the City of Zagreb."
+        },
+        "childrenHomes": {
+          "label": "Children's homes",
+          "description": "List of homes for children without adequate parental care with contact details and other information."
+        },
+        "disabilityInstitutions": {
+          "label": "Institutions for persons with disabilities",
+          "description": "Geolocations of institutions for persons with disabilities."
+        },
+        "civilProtectionAssemblyPoints": {
+          "label": "Civil protection assembly points of the City of Zagreb",
+          "description": "Civil protection assembly points of the City of Zagreb."
+        },
+        "evacuationAreas": {
+          "label": "Evacuation areas of the City of Zagreb",
+          "description": "Evacuation areas of the City of Zagreb."
+        },
+        "croatianInstituteForSocialWork": {
+          "label": "Croatian Institute for Social Work",
+          "description": "Locations of the Croatian Institute for Social Work in the City of Zagreb area."
+        },
+        "socialProtectionInstitutions": {
+          "label": "Competent social protection institutions",
+          "description": "Competent social protection institutions with basic contact information and jurisdiction information."
+        },
+        "otherSocialWelfareActivities": {
+          "label": "Other social welfare activities",
+          "description": "Geolocations of other social welfare activities in the City of Zagreb area, with contact and other information."
+        },
+        "veteransInstitutions": {
+          "label": "Institutions for veterans",
+          "description": "Geolocations of institutions for veterans with the following data: name, type, address, phone, fax, jurisdiction, city district, and founder."
+        },
+        "homelessInstitutions": {
+          "label": "Institutions for homeless people",
+          "description": "Geolocations of institutions for homeless people with the following data: name, type, address, phone, fax, email, website, capacity, branch, ownership, and jurisdiction."
+        },
+        "elderlyHomes": {
+          "label": "Homes for older adults",
+          "description": "Geolocations of homes for older adults in the City of Zagreb area with contact details and other information (capacity, branch, responsible authority)."
+        },
+        "publicToilets": {
+          "label": "Public toilets",
+          "description": "Data on name, address, payment, and responsible authority."
+        },
+        "freeWifiNetwork": {
+          "label": "Free WiFi network",
+          "description": "Free WiFi network in the City of Zagreb area."
+        },
+        "kindergartens": {
+          "label": "Kindergartens",
+          "description": "List of kindergartens in the City of Zagreb area."
+        },
+        "cityGardens": {
+          "label": "City gardens",
+          "description": "List of city gardens of the City of Zagreb with geolocations and contact information."
+        },
+        "cityDistrictOffices": {
+          "label": "City district offices",
+          "description": "Geolocations of city district offices with information: name, address, phone, working hours, and local office."
+        },
+        "romanCatholicParishes": {
+          "label": "Churches (Roman Catholic Parishes)",
+          "description": "List of churches in the City of Zagreb with name, address, phone, fax, email, website, and responsible authority."
+        },
+        "cityMarkets": {
+          "label": "City markets",
+          "description": "Market name with address, contact details - phone, email, website, working hours, and responsible ZGH branch."
+        },
+        "cityGardenPoints": {
+          "label": "City gardens points",
+          "description": "Displayed X and Y coordinates, object ID, city garden name, address, city district, phone, contact, opening year, number/type of plots, number of users, responsible city office, source, and creator."
+        },
+        "capitalInvestments2023": {
+          "label": "Capital investments 2023",
+          "description": "Capital investments include: exact location (X,Y coordinates), object ID, ordinal number, facility type, address, work description, obligation, number and 2023 Plan, and economic classification number."
+        },
+        "publicDogAreas": {
+          "label": "Public dog areas",
+          "description": "Location with descriptive data on public dog areas."
+        },
+        "publicSportsPlaygrounds": {
+          "label": "Public sports playgrounds",
+          "description": "Locations of public playgrounds."
+        },
+        "competentInstitution": {
+          "label": "Competent institution",
+          "description": "Displayed X and Y coordinates, institution name, address, phone, fax, email, website, founder, responsible city office, source, and creator."
+        },
+        "religiousCommunities": {
+          "label": "Religious communities",
+          "description": "Geolocation, religious community name, address, phone, email, and website."
+        },
+        "firefighters": {
+          "label": "Firefighters",
+          "description": "Geolocations of firefighters with the following data: name, type, address, phone, fax, website, jurisdiction, and city district."
+        }
+      }
+    },
+    "health-care": {
+      "label": "Healthcare",
+      "dataSets": {
+        "healthcareInstitutions": {
+          "label": "Healthcare institutions",
+          "description": "Geolocation, healthcare institution name, address, phone, fax, email address, and website."
+        },
+        "healthCenters": {
+          "label": "Health centers",
+          "description": "Geolocations of health centers in the City of Zagreb area with contact details and other information."
+        },
+        "pharmacies": {
+          "label": "Pharmacies",
+          "description": "Geolocations of pharmacies in the City of Zagreb area with corresponding contact information."
+        }
+      }
+    },
+    "science": {
+      "label": "Science and Technology",
+      "dataSets": {
+        "telecommunicationDistributionCabinets": {
+          "label": "Telecommunication distribution cabinets",
+          "description": "Displayed data on cabinet type, exact location, cadastral parcel and municipality, operator, surface type, consent issue date, and decision date."
+        }
+      }
+    }
   }
 }

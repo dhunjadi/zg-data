@@ -2,10 +2,12 @@ import DataSetItem from "@/components/DataSetItem";
 import { CATEGORIES } from "@/constants/categories";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { FlatList, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const DataSetGroupScreen = () => {
+  const { t } = useTranslation();
   const { id } = useLocalSearchParams();
 
   const category = CATEGORIES.find((item) => item.id === id);
@@ -16,7 +18,12 @@ const DataSetGroupScreen = () => {
         data={category?.dataSets}
         keyExtractor={(item) => item.label}
         renderItem={({ item }) => (
-          <DataSetItem {...item} icon={(props) => <item.icon {...props} />} />
+          <DataSetItem
+            {...item}
+            label={t(item.label)}
+            description={t(item.description)}
+            icon={(props) => <item.icon {...props} />}
+          />
         )}
         ListHeaderComponent={
           <>
@@ -26,7 +33,7 @@ const DataSetGroupScreen = () => {
 
             <Text className="text-md text-neutral-700 mb-8">
               Pregledajte dostupne skupove podataka iz kategorije:{" "}
-              {category?.label}.
+              {category ? t(category.label) : ""}.
             </Text>
           </>
         }

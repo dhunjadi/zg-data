@@ -2,12 +2,19 @@
   "screens": {
     "login": {
       "appTitle": "Zagreb Data",
-      "description": "Pristupite podacima Grada Zagreba",
+      "description": "Pristupite otvorenim podacima Grada Zagreba",
       "emailPlaceholder": "vas@emial.hr",
       "passwordPlaceholder": "******",
       "signInError": "Pogrešan email ili lozinka",
       "signIn": "Prijavi se",
       "signUp": "Registriraj se"
+    },
+    "home": {
+      "headerTitle": "Otvoreni podaci Zagreb",
+      "title": "Otvoreni podaci Grada Zagreba",
+      "description": "Pristupite otvorenim podacima za transparentnije i pametnije upravljanje gradom",
+      "searchInputPlaceholder": "Pretraži kategorije",
+      "showAllDatasets": "Prikaži sve skupove podataka"
     },
     "signUp": {
       "title": "Registracija",
@@ -24,7 +31,386 @@
   },
   "tabs": {
     "home": "Početna",
-    "dataSets": "Skupovi podataka",
     "account": "Račun"
+  },
+  "categories": {
+    "education": {
+      "label": "Obrazovanje, kultura i sport",
+      "dataSets": {
+        "studentRestaurant": {
+          "label": "Studentski restoran",
+          "description": "Geolokacije studentskih restorana."
+        },
+        "studentDorms": {
+          "label": "Studentsko naselje",
+          "description": "Geolokacije studentskih naselja."
+        },
+        "culturalInstitutions": {
+          "label": "Kulturne ustanove",
+          "description": "Geolokacije kulturnih ustanova grada Zagreba."
+        },
+        "elementarySchools": {
+          "label": "Osnovne škole",
+          "description": "Geolokacija osnovnih škola na području grada Zagreba."
+        },
+        "odmorko": {
+          "label": "Odmorko",
+          "description": "Geolokacije besplatnih sportskih aktivnosti sa osnovnim kontakt informacijama."
+        },
+        "publicSportsPlaygrounds": {
+          "label": "Javna sportska igrališta",
+          "description": "Geolokacije javnih sportskih igrališta."
+        },
+        "higherEducationInstitutions": {
+          "label": "Visokoškolske ustanove",
+          "description": "Geolokacija, naziv visokoškolske ustanove, adresa, telefon, email, web."
+        },
+        "sportsFacilities": {
+          "label": "Sportski objekti",
+          "description": "Sportski objekati grada Zagreba."
+        },
+        "pupilDorms": {
+          "label": "Učenički domovi",
+          "description": "Geolokacije učeničkih domova u gradu Zagrebu."
+        },
+        "highSchools": {
+          "label": "Srednje škole",
+          "description": "Srednje škole na području grada Zagreba."
+        }
+      }
+    },
+    "economy": {
+      "label": "Ekonomija i financije",
+      "dataSets": {
+        "capitalInvestments2024": {
+          "label": "Kapitalna ulaganja 2024.",
+          "description": "Program radova kapitalnih ulaganja u objekte za društvene djelatnosti i u obnovu objekata oštećenih potresom u Gradu Zagrebu u 2024."
+        },
+        "capitalInvestments2023": {
+          "label": "Kapitalna ulaganja 2023",
+          "description": "Program radova kapitalnih ulaganja u objekte za društvene djelatnosti i u obnovu objekata oštećenih potresom u Gradu Zagrebu u 2023."
+        }
+      }
+    },
+    "public-sector": {
+      "label": "Javni sektor i ustanove",
+      "dataSets": {
+        "localDepartments": {
+          "label": "Područni odsjeci",
+          "description": "Područni odsjeci komunalnog i prometnog redarstva."
+        },
+        "cityOwnedCompanies": {
+          "label": "Gradska trgovačka društva",
+          "description": "Popis gradskih trgovačkih društva i podružnica Zagrebačkog Holdinga."
+        },
+        "otherPublicInstitutions": {
+          "label": "Druge javne ustanove",
+          "description": "Ustanove na području Grada Zagreba u nadležnosti Gradskog ureda za strategijsko planiranje i razvoj Grada."
+        },
+        "healthcareInstitutions": {
+          "label": "Zdravstvene ustanove",
+          "description": "Geolokacija, naziv zdravstvene ustanove, adresa, telefon, fax, e-mail adresa, web stranica."
+        },
+        "cityDistrictOffices": {
+          "label": "Sjedišta gradskih četvrti",
+          "description": "Geolokacije sjedišta gradskih četvrti grada Zagreba."
+        },
+        "localSelfGovernment": {
+          "label": "Mjesna samouprava",
+          "description": "Geolokacije Mjesnih samouprava u gradu Zagrebu."
+        },
+        "romanCatholicParishes": {
+          "label": "Crkve (Rimokatoličke Župe)",
+          "description": "Popis crkva na području Grada Zagreba sa podacima: naziv, adresa, telefon, fax, email, web, nadležan."
+        },
+        "localOffices": {
+          "label": "Područni uredi",
+          "description": "Geolokacije područnih ureda Gradske uprave Grada Zagreba."
+        },
+        "higherEducationInstitutions": {
+          "label": "Visokoškolske ustanove",
+          "description": "Geolokacija, naziv visokoškolske ustanove, adresa, telefon, email, web."
+        },
+        "stateAdministrationBodies": {
+          "label": "Tijela državne uprave",
+          "description": "Geolokacije tijela državne uprave."
+        }
+      }
+    },
+    "environment": {
+      "label": "Okoliš",
+      "dataSets": {
+        "semiUndergroundContainers": {
+          "label": "Polupodzemni spremnik",
+          "description": "Lokacije polupodzemnih spremnika u Gradu Zagrebu."
+        },
+        "undergroundContainers": {
+          "label": "Podzemni spremnik",
+          "description": "Lokacije podzemnih spremnika u Gradu Zagrebu."
+        },
+        "drinkingWaterFountains": {
+          "label": "Pojilice sa pitkom vodom",
+          "description": "Lokacije pojilica s pitkom vodom na području Grada Zagreba."
+        },
+        "topographicBaseVegetationLandTypes2018": {
+          "label": "Topografska osnova 2018. Vegetacija i vrste zemljišta",
+          "description": "Podaci o tematskoj cjelini, vegetaciji / vrsti zemljišta."
+        },
+        "topographicBaseWaters2018": {
+          "label": "Topografska osnova 2018. Vode",
+          "description": "Podac o tematskoj cjelini, vode tip, izvorniku."
+        },
+        "cityGardens": {
+          "label": "Gradski vrt",
+          "description": "Popis gradskih vrtova Grada Zagreba."
+        },
+        "cityGardenPoints": {
+          "label": "Gradski vrt Point",
+          "description": "Lokacije gradskih vrtova Grada Zagreba."
+        },
+        "recyclingYards": {
+          "label": "Reciklažna dvorišta grada Zagreba",
+          "description": "Geolokacije reciklažnih dvorišta grada Zagreba."
+        },
+        "airQuality": {
+          "label": "Kvaliteta zraka",
+          "description": "Gradske mjerne postaje za trajno praćenje kvalitete zraka gradske mreže grada Zagreba."
+        },
+        "brownfieldAreas": {
+          "label": "Brownfield površine",
+          "description": "Brownfield površine na području Grada Zagreba."
+        }
+      }
+    },
+    "agriculture": {
+      "label": "Poljoprivreda, ribarstvo, šumarstvo i hrana",
+      "dataSets": {
+        "domesticAnimalKeepingBoundaries": {
+          "label": "Granice dopuštenog držanja domaćih životinja",
+          "description": "Prikaz granice dopuštenog držanja domaćih životinja."
+        },
+        "cityMarkets": {
+          "label": "Gradske tržnice",
+          "description": "Popis tržnica grada Zagreba s pripadajućim lokacijama."
+        },
+        "sharedHuntingGrounds": {
+          "label": "Zajednička lovišta",
+          "description": "Popis zajedničkih lovišta sa podacima status, area ha i naziv lovišta."
+        },
+        "wildlifeProtectionProgram": {
+          "label": "Program zaštite divljači",
+          "description": "Naziv područja i površina u ha."
+        }
+      }
+    },
+    "judiciary": {
+      "label": "Pravosuđe, pravni sustav i javna sigurnost",
+      "dataSets": {
+        "surveillanceCameras": {
+          "label": "Nadzorne kamere",
+          "description": "Geolokacije nadzornih kamera."
+        },
+        "police": {
+          "label": "Policija",
+          "description": "Lokacija, naziv, adresa, telefon, web adresa, nadležnost."
+        },
+        "firefighters": {
+          "label": "Vatrogasci",
+          "description": "Geolokacije vatrogasaca grada Zagreba."
+        }
+      }
+    },
+    "traffic": {
+      "label": "Promet",
+      "dataSets": {
+        "zetBusStops": {
+          "label": "Autobusna stajališta ZET",
+          "description": "Popis autobusnih stajališta ZET-a."
+        },
+        "hzRailwayStops": {
+          "label": "Željeznička stajališta HŽ",
+          "description": "Nazivi željezničkih stajališta s koordinatama, šiframa, stacionažom, opisom te vrstom."
+        },
+        "pedestrianZone": {
+          "label": "Pješačka zona",
+          "description": "Velit cursus magna fringilla natoque."
+        },
+        "topographicBaseTraffic2018": {
+          "label": "Topografska osnova 2018. Promet",
+          "description": "Velit cursus magna fringilla natoque."
+        },
+        "reservedParkingZones": {
+          "label": "Zone rezerviranih parkirališnih mjesta",
+          "description": "Velit cursus magna fringilla natoque."
+        },
+        "publicGarages": {
+          "label": "Javne garaže",
+          "description": "Velit cursus magna fringilla natoque."
+        },
+        "publicBicycleParking": {
+          "label": "Javna parkirališta za bicikle",
+          "description": "Geolokacije sa podacima o broju stalaka, broju bicikala te ostalim podacima."
+        },
+        "publicBicycleSystem": {
+          "label": "Sustav javnih bicikala",
+          "description": "Geolokacije sustava javnih bicikala sa sljedećim podacima: naziv, adresa, oznaka, lokacija, broj stalaka."
+        },
+        "bicycleLanes": {
+          "label": "Biciklističke staze",
+          "description": "Geolokacije biciklističkih staza grada Zagreba."
+        },
+        "surveillanceCameras": {
+          "label": "Nadzorne kamere",
+          "description": "Geolokacije nadzornih kamera."
+        },
+        "taxiStands": {
+          "label": "Taxi stajališta",
+          "description": "Prikaz točne lokacije taxi stajališta u Zagrebu te nadležan gradski ured"
+        },
+        "electricChargingStations": {
+          "label": "Električne punionice",
+          "description": "Geolokacije električnih punionica na području Grada Zagreba sa brojem i tipom utičnice."
+        },
+        "zetTramStops": {
+          "label": "Tramvajska stajališta ZET",
+          "description": "Geolokacije tramvajskih stajališta ZET sa sljedećim podacima: naziv, stajalište, linije, opis, smjer."
+        },
+        "gasStations": {
+          "label": "Benzinske postaje",
+          "description": "Lokacije svih benzinskih postaja na području Grada Zagreba."
+        }
+      }
+    },
+    "society": {
+      "label": "Stanovništvo i društvo",
+      "dataSets": {
+        "publicWells": {
+          "label": "Javni zdenci",
+          "description": "Javni zdenci Grada Zagreba."
+        },
+        "childrenHomes": {
+          "label": "Domovi za djecu",
+          "description": "Popis domova za djecu bez odgovarajuće roditeljske skrbi sa kontakt podacima te ostalim informacijama."
+        },
+        "disabilityInstitutions": {
+          "label": "Ustanove za osobe s invaliditetom",
+          "description": "Geolokacije ustanova za osobe s invaliditetom."
+        },
+        "civilProtectionAssemblyPoints": {
+          "label": "Zborna mjesta civilne zaštite Grada Zagreba",
+          "description": "Zborna mjesta civilne zaštite Grada Zagreba."
+        },
+        "evacuationAreas": {
+          "label": "Evakuacijske površine Grada Zagreba",
+          "description": "Evakuacijske površine Grada Zagreba."
+        },
+        "croatianInstituteForSocialWork": {
+          "label": "Hrvatski zavod za socijalni rad",
+          "description": "Lokacije Hrvatskog zavoda za socijalni rad na području Grada Zagreba."
+        },
+        "socialProtectionInstitutions": {
+          "label": "Nadležne institucije socijalne zaštite",
+          "description": "Nadležne institucije socijalne zaštite sa osnovnim kontakt informacijama te informacijom o nadležnosti."
+        },
+        "otherSocialWelfareActivities": {
+          "label": "Ostale djelatnosti socijalne skrbi",
+          "description": "Geolokacije ostalih djelatnosti socijalne skrbi na području Grada Zagreba, sa kontakt i ostalim informacijama."
+        },
+        "veteransInstitutions": {
+          "label": "Ustanove za branitelje",
+          "description": "Geolokacije ustanova za branitelje sa sljedećim podacima: naziv, vrsta, adresa, telefon, fax, nadležnost, gradska četvrt, osnivač."
+        },
+        "homelessInstitutions": {
+          "label": "Ustanove za beskućnike",
+          "description": "Geolokacije ustanova za beskućnike sa sljedećim podacima: naziv, vrsta, adresa, telefon, fax, email, web, kapacitet, podružnica, vlasništvo, nadležnost."
+        },
+        "elderlyHomes": {
+          "label": "Domovi za starije osobe",
+          "description": "Geolokacije domova za starije osobe na području Grada Zagreba sa kontakt podacima te ostalim informacijama (kapacitet, podruznica, nadležan)."
+        },
+        "publicToilets": {
+          "label": "Javni WC-i",
+          "description": "Podaci o nazivu, adresi, naplati, tko je nadležan."
+        },
+        "freeWifiNetwork": {
+          "label": "Besplatna WiFi mreža",
+          "description": "Besplatna WiFi mreža na području Grada Zagreba."
+        },
+        "kindergartens": {
+          "label": "Dječji vrtići",
+          "description": "Popis dječjih vrtića na području Grada Zagreba."
+        },
+        "cityGardens": {
+          "label": "Gradski vrt",
+          "description": "Popis gradskih vrtova Grada Zagreba sa geolokacijama, kontakt informacijama."
+        },
+        "cityDistrictOffices": {
+          "label": "Sjedišta gradskih četvrti",
+          "description": "Geolokacije sjedišta gradskih četvrti s informacijama: naziv, adresa, telefon, radno vrijeme, područni ured."
+        },
+        "romanCatholicParishes": {
+          "label": "Crkve (Rimokatoličke Župe)",
+          "description": "Popis crkva na području Grada Zagreba sa podacima: naziv, adresa, telefon, fax, email, web, nadležan."
+        },
+        "cityMarkets": {
+          "label": "Gradske tržnice",
+          "description": "Naziv tržnice s adresom, kontakt podacima - telefon, email, web, te radno vrijeme nadležna podružnica ZGH-a."
+        },
+        "cityGardenPoints": {
+          "label": "Gradski vrt Point",
+          "description": "Prikazane X i Y koordinate, objectid, naziv gradskog vrta, adresa, gradska četvrt, telefon, kontakt, godina otvaranja, br.vr.parcela, br.korisnika, nadlezan gradski ured, izvor, izradio."
+        },
+        "capitalInvestments2023": {
+          "label": "Kapitalna ulaganja 2023",
+          "description": "Kapitalna ulaganja sadrže: točnu lokaciju (X,Y koordinate), objectid,redni broj, vrstu objekta, adresu, opis radova, obveza, broj i Plan 2023. te br.ekon.klas."
+        },
+        "publicDogAreas": {
+          "label": "Javne površine za pse",
+          "description": "Lokacija sa opisnim podacima o javnim površinama za pse."
+        },
+        "publicSportsPlaygrounds": {
+          "label": "Javna sportska igrališta",
+          "description": "Lokacije javnih igrališta."
+        },
+        "competentInstitution": {
+          "label": "Nadležna institucija",
+          "description": "Prikazane su X i Y koordinate, naziv institucije, adresa, telefon, fax, email, web, osnivac, nadlezni gradski ured, izvor, izradio."
+        },
+        "religiousCommunities": {
+          "label": "Vjerske zajednice",
+          "description": "Geolokacija, naziv vjerske zajednice, adresa, telefon, email, web."
+        },
+        "firefighters": {
+          "label": "Vatrogasci",
+          "description": "Geolokacije vatrogasaca sa sljedećim podacima: naziv, vrsta, adresa, telefon, fax, web, nadležnost, gradska četvrt."
+        }
+      }
+    },
+    "health-care": {
+      "label": "Zdravstvo",
+      "dataSets": {
+        "healthcareInstitutions": {
+          "label": "Zdravstvene ustanove",
+          "description": "geolokacija, naziv zdravstvene ustanove, adresa, telefon, fax, e-mail adresa, web stranica."
+        },
+        "healthCenters": {
+          "label": "Domovi zdravlja",
+          "description": "Geolokacije domova zdravlja na području Grada Zagreba sa kontakt podacima i ostalim informacijama."
+        },
+        "pharmacies": {
+          "label": "Ljekarne",
+          "description": "Geolokacije ljekarni na području Grada Zagreba sa pripadajućim kontakt informacijama."
+        }
+      }
+    },
+    "science": {
+      "label": "Znanost i tehnologija",
+      "dataSets": {
+        "telecommunicationDistributionCabinets": {
+          "label": "Telekomunikacijski razvodni ormarići",
+          "description": "Prikazani su podaci o tipu ormara, točnoj lokaciji, katastarskoj čestici i općini, operateru, tipu površine, datumu izdavanja suglasnosti i datumu rješenja."
+        }
+      }
+    }
   }
 }

@@ -2,10 +2,12 @@ import DataSetItem from "@/components/DataSetItem";
 import { CATEGORIES } from "@/constants/categories";
 import { Search } from "lucide-react-native";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FlatList, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const DataSetsScreen = () => {
+  const { t } = useTranslation();
   const [filterText, setFilterText] = useState("");
 
   const flatDataSets = CATEGORIES.flatMap((category) =>
@@ -16,7 +18,7 @@ const DataSetsScreen = () => {
   );
 
   const filteredData = flatDataSets.filter((item) =>
-    item.label.toLowerCase().includes(filterText.toLowerCase()),
+    t(item.label).toLowerCase().includes(filterText.toLowerCase()),
   );
 
   return (
@@ -26,7 +28,12 @@ const DataSetsScreen = () => {
           data={filteredData}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <DataSetItem {...item} icon={(props) => <item.icon {...props} />} />
+            <DataSetItem
+              {...item}
+              label={t(item.label)}
+              description={t(item.description)}
+              icon={(props) => <item.icon {...props} />}
+            />
           )}
           ListHeaderComponent={
             <>
