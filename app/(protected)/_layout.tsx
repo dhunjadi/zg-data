@@ -19,6 +19,11 @@ export default function ProtectedLayout() {
         name="map"
         options={{ headerShown: true, title: "Karta" }}
       />
+
+      <Stack.Screen
+        name="dataSets"
+        options={{ headerShown: true, title: "Skupovi podataka" }}
+      />
     </Stack>
   );
 }

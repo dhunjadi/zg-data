@@ -1,7 +1,7 @@
 import GroupCard from "@/components/GroupCard";
 import { CATEGORIES } from "@/constants/categories";
 import { Link } from "expo-router";
-import { Search } from "lucide-react-native";
+import { ArrowRight, Search } from "lucide-react-native";
 import React, { useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -36,7 +36,7 @@ const HomeScreen = () => {
           <View className="flex-row items-center bg-white border border-neutral-300 rounded-md px-3 mb-6">
             <Search size={20} color="#737373" />
             <TextInput
-              placeholder="Pretraži skupove podataka"
+              placeholder="Pretraži kategorije"
               value={filterText}
               onChangeText={(val) => setFilterText(val)}
               autoCorrect={false}
@@ -44,6 +44,15 @@ const HomeScreen = () => {
               className="flex-1 p-4 text-base text-neutral-700"
             />
           </View>
+
+          <Link href="../dataSets" className="mb-4" asChild>
+            <Pressable className="flex-row items-center justify-end ">
+              <Text className="text-lg text-primaryDark font-bold">
+                Prikaži sve skupove podataka
+              </Text>
+              <ArrowRight className="" color="#005793" />
+            </Pressable>
+          </Link>
 
           {filteredData.map((item) => (
             <Link key={item.id} href={`/(home)/${item.id}`} asChild>
