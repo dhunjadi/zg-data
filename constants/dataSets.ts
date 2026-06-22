@@ -1,6 +1,7 @@
 import {
   AnyDataSetConfig,
   CapitalInvestmentProperties,
+  CityDistrictOffice,
   CulturalInstitutionProperties,
   DataSetConfig,
   ElementarySchoolProperties,
@@ -96,6 +97,7 @@ export const CAPITAL_INVESTMENTS_2023_DATA_SET_ID = "capital-investments-2023";
 export const OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID =
   "other-public-institutions";
 export const HEALTH_CARE_INSTITUTIONS_DATA_SET_ID = "health-care-institutions";
+export const CITY_DISTRICT_OFFICES_DATA_SET_ID = "city-district-offices";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -321,6 +323,27 @@ export const HEALTH_CARE_INSTITUTIONS_DATA_SET: DataSetConfig<HealthCareInstitut
     }),
   };
 
+export const CITY_DISTRICT_OFFICES_DATA_SET: DataSetConfig<CityDistrictOffice> =
+  {
+    id: CITY_DISTRICT_OFFICES_DATA_SET_ID,
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/3cabb747881e44b39b561626dcd8b89a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.naziv,
+      details: [
+        { label: "Sjedište", value: feature.properties.sjediste },
+        { label: "Adresa", value: feature.properties.adresa },
+        { label: "Telefon", value: feature.properties.telefon },
+        { label: "Email", value: feature.properties.email },
+        { label: "Web", value: feature.properties.web },
+        {
+          label: "Primanje stranaka",
+          value: feature.properties.primanje_stranaka,
+        },
+      ],
+    }),
+  };
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -359,6 +382,9 @@ export const DATA_SET_CONFIGS = {
   ),
   [HEALTH_CARE_INSTITUTIONS_DATA_SET_ID]: defineDataSetConfig(
     HEALTH_CARE_INSTITUTIONS_DATA_SET,
+  ),
+  [CITY_DISTRICT_OFFICES_DATA_SET_ID]: defineDataSetConfig(
+    CITY_DISTRICT_OFFICES_DATA_SET,
   ),
 } as const;
 

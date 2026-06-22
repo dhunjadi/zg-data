@@ -61,6 +61,8 @@ import {
   CAPITAL_INVESTMENTS_2023_DATA_SET_ID,
   CAPITAL_INVESTMENTS_2024_DATA_SET,
   CAPITAL_INVESTMENTS_2024_DATA_SET_ID,
+  CITY_DISTRICT_OFFICES_DATA_SET,
+  CITY_DISTRICT_OFFICES_DATA_SET_ID,
   CULTURAL_INSTITUTION_DATA_SET,
   CULTURAL_INSTITUTION_DATA_SET_ID,
   ELEMENTARY_SCHOOL_DATA_SET,
@@ -242,8 +244,8 @@ export const CATEGORIES = [
         description:
           "categories.public-sector.dataSets.cityDistrictOffices.description",
         icon: Landmark,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/3cabb747881e44b39b561626dcd8b89a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: CITY_DISTRICT_OFFICES_DATA_SET_ID,
+        fetchUrl: CITY_DISTRICT_OFFICES_DATA_SET.fetchUrl,
       },
       {
         label: "categories.public-sector.dataSets.localSelfGovernment.label",

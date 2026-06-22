@@ -209,3 +209,14 @@ export type HealthCareInstitution = {
   email: string;
   web: string;
 };
+
+export type CityDistrictOffice = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  primanje_stranaka: string;
+  sjediste: string;
+};
