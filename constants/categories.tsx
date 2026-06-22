@@ -57,8 +57,10 @@ import {
   Zap,
 } from "lucide-react-native";
 import {
-  CAPITAL_INVESTMENTS_DATA_SET,
-  CAPITAL_INVESTMENTS_DATA_SET_ID,
+  CAPITAL_INVESTMENTS_2023_DATA_SET,
+  CAPITAL_INVESTMENTS_2023_DATA_SET_ID,
+  CAPITAL_INVESTMENTS_2024_DATA_SET,
+  CAPITAL_INVESTMENTS_2024_DATA_SET_ID,
   CULTURAL_INSTITUTION_DATA_SET,
   CULTURAL_INSTITUTION_DATA_SET_ID,
   ELEMENTARY_SCHOOL_DATA_SET,
@@ -179,16 +181,16 @@ export const CATEGORIES = [
         description:
           "categories.economy.dataSets.capitalInvestments2024.description",
         icon: Banknote,
-        datasetId: CAPITAL_INVESTMENTS_DATA_SET_ID,
-        fetchUrl: CAPITAL_INVESTMENTS_DATA_SET.fetchUrl,
+        datasetId: CAPITAL_INVESTMENTS_2024_DATA_SET_ID,
+        fetchUrl: CAPITAL_INVESTMENTS_2024_DATA_SET.fetchUrl,
       },
       {
         label: "categories.economy.dataSets.capitalInvestments2023.label",
         description:
           "categories.economy.dataSets.capitalInvestments2023.description",
         icon: Banknote,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/e898521c36224b05b7bc0778632cd91d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: CAPITAL_INVESTMENTS_2023_DATA_SET_ID,
+        fetchUrl: CAPITAL_INVESTMENTS_2023_DATA_SET.fetchUrl,
       },
     ],
   },

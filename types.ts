@@ -190,5 +190,4 @@ export type CapitalInvestmentProperties = {
   Opis_radova: string;
   Obveza: string;
   Broj: number;
-  plan24: number;
 };
