@@ -180,3 +180,15 @@ export type HighSchoolProperties = {
   ENCERTIFIKAT: string;
   GRAD_CETVRT: string;
 };
+
+export type CapitalInvestmentProperties = {
+  Rb: string;
+  Vrsta_objekta: string;
+  Br_ekon_klas: number;
+  naziv: string;
+  Adresa: string;
+  Opis_radova: string;
+  Obveza: string;
+  Broj: number;
+  plan24: number;
+};

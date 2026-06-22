@@ -57,6 +57,8 @@ import {
   Zap,
 } from "lucide-react-native";
 import {
+  CAPITAL_INVESTMENTS_DATA_SET,
+  CAPITAL_INVESTMENTS_DATA_SET_ID,
   CULTURAL_INSTITUTION_DATA_SET,
   CULTURAL_INSTITUTION_DATA_SET_ID,
   ELEMENTARY_SCHOOL_DATA_SET,
@@ -88,7 +90,8 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "categories.education.dataSets.studentRestaurant.label",
-        description: "categories.education.dataSets.studentRestaurant.description",
+        description:
+          "categories.education.dataSets.studentRestaurant.description",
         icon: CookingPot,
         datasetId: STUDENT_RESTAURANT_DATA_SET_ID,
         fetchUrl: STUDENT_RESTAURANT_DATA_SET.fetchUrl,
@@ -102,7 +105,8 @@ export const CATEGORIES = [
       },
       {
         label: "categories.education.dataSets.culturalInstitutions.label",
-        description: "categories.education.dataSets.culturalInstitutions.description",
+        description:
+          "categories.education.dataSets.culturalInstitutions.description",
         icon: Drama,
         datasetId: CULTURAL_INSTITUTION_DATA_SET_ID,
         fetchUrl: CULTURAL_INSTITUTION_DATA_SET.fetchUrl,
@@ -110,7 +114,8 @@ export const CATEGORIES = [
 
       {
         label: "categories.education.dataSets.elementarySchools.label",
-        description: "categories.education.dataSets.elementarySchools.description",
+        description:
+          "categories.education.dataSets.elementarySchools.description",
         icon: School,
         datasetId: ELEMENTARY_SCHOOL_DATA_SET_ID,
         fetchUrl: ELEMENTARY_SCHOOL_DATA_SET.fetchUrl,
@@ -124,21 +129,25 @@ export const CATEGORIES = [
       },
       {
         label: "categories.education.dataSets.publicSportsPlaygrounds.label",
-        description: "categories.education.dataSets.publicSportsPlaygrounds.description",
+        description:
+          "categories.education.dataSets.publicSportsPlaygrounds.description",
         icon: Volleyball,
         datasetId: PUBLIC_PLAYGROUND_DATA_SET_ID,
         fetchUrl: PUBLIC_PLAYGROUND_DATA_SET.fetchUrl,
       },
       {
-        label: "categories.education.dataSets.higherEducationInstitutions.label",
-        description: "categories.education.dataSets.higherEducationInstitutions.description",
+        label:
+          "categories.education.dataSets.higherEducationInstitutions.label",
+        description:
+          "categories.education.dataSets.higherEducationInstitutions.description",
         icon: GraduationCap,
         datasetId: HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
         fetchUrl: HIGHER_EDUCATION_INSTITUTION_DATA_SET.fetchUrl,
       },
       {
         label: "categories.education.dataSets.sportsFacilities.label",
-        description: "categories.education.dataSets.sportsFacilities.description",
+        description:
+          "categories.education.dataSets.sportsFacilities.description",
         icon: Volleyball,
         datasetId: SPORT_FACILITIES_DATA_SET_ID,
         fetchUrl: SPORT_FACILITIES_DATA_SET.fetchUrl,
@@ -167,14 +176,16 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "categories.economy.dataSets.capitalInvestments2024.label",
-        description: "categories.economy.dataSets.capitalInvestments2024.description",
+        description:
+          "categories.economy.dataSets.capitalInvestments2024.description",
         icon: Banknote,
-        fetchUrl:
-          "https://hub.arcgis.com/api/v3/datasets/f1871e3fd952438e99dcccd63d37e81b_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: CAPITAL_INVESTMENTS_DATA_SET_ID,
+        fetchUrl: CAPITAL_INVESTMENTS_DATA_SET.fetchUrl,
       },
       {
         label: "categories.economy.dataSets.capitalInvestments2023.label",
-        description: "categories.economy.dataSets.capitalInvestments2023.description",
+        description:
+          "categories.economy.dataSets.capitalInvestments2023.description",
         icon: Banknote,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/e898521c36224b05b7bc0778632cd91d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -189,7 +200,8 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "categories.public-sector.dataSets.localDepartments.label",
-        description: "categories.public-sector.dataSets.localDepartments.description",
+        description:
+          "categories.public-sector.dataSets.localDepartments.description",
         icon: Landmark,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/PO/FeatureServer/replicafilescache/PO_-7066151195297644305.geojson",
@@ -203,57 +215,68 @@ export const CATEGORIES = [
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_gradska_trgovacka_drustva/FeatureServer/replicafilescache/Geoportal_gradska_trgovacka_drustva_-4659600723509782750.geojson",
       },
       {
-        label: "categories.public-sector.dataSets.otherPublicInstitutions.label",
-        description: "categories.public-sector.dataSets.otherPublicInstitutions.description",
+        label:
+          "categories.public-sector.dataSets.otherPublicInstitutions.label",
+        description:
+          "categories.public-sector.dataSets.otherPublicInstitutions.description",
         icon: Landmark,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/29edc0bf8d604e759bc641fcfd9fec3a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "categories.public-sector.dataSets.healthcareInstitutions.label",
-        description: "categories.public-sector.dataSets.healthcareInstitutions.description",
+        description:
+          "categories.public-sector.dataSets.healthcareInstitutions.description",
         icon: Hospital,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/fcadb80196684cc09f8c8a76852a4aa9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "categories.public-sector.dataSets.cityDistrictOffices.label",
-        description: "categories.public-sector.dataSets.cityDistrictOffices.description",
+        description:
+          "categories.public-sector.dataSets.cityDistrictOffices.description",
         icon: Landmark,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3cabb747881e44b39b561626dcd8b89a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "categories.public-sector.dataSets.localSelfGovernment.label",
-        description: "categories.public-sector.dataSets.localSelfGovernment.description",
+        description:
+          "categories.public-sector.dataSets.localSelfGovernment.description",
         icon: Landmark,
         fetchUrl:
           " https://opendata.arcgis.com/api/v3/datasets/f8f6eaeae11b408eaadf20474809a1b3_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "categories.public-sector.dataSets.romanCatholicParishes.label",
-        description: "categories.public-sector.dataSets.romanCatholicParishes.description",
+        description:
+          "categories.public-sector.dataSets.romanCatholicParishes.description",
         icon: Church,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/97dd39a14cdf4ce38bc3cb8ef484728a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "categories.public-sector.dataSets.localOffices.label",
-        description: "categories.public-sector.dataSets.localOffices.description",
+        description:
+          "categories.public-sector.dataSets.localOffices.description",
         icon: BookMarked,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/ab488f0b14b54acaaa0b29d35c9af626_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
-        label: "categories.public-sector.dataSets.higherEducationInstitutions.label",
-        description: "categories.public-sector.dataSets.higherEducationInstitutions.description",
+        label:
+          "categories.public-sector.dataSets.higherEducationInstitutions.label",
+        description:
+          "categories.public-sector.dataSets.higherEducationInstitutions.description",
         icon: GraduationCap,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3f6954c6679f4b299f738304542a4837_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
-        label: "categories.public-sector.dataSets.stateAdministrationBodies.label",
-        description: "categories.public-sector.dataSets.stateAdministrationBodies.description",
+        label:
+          "categories.public-sector.dataSets.stateAdministrationBodies.label",
+        description:
+          "categories.public-sector.dataSets.stateAdministrationBodies.description",
         icon: Landmark,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/5c237e0b5c84441e80a4c46ffcb30522_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -268,28 +291,33 @@ export const CATEGORIES = [
     icon: TreePine,
     dataSets: [
       {
-        label: "categories.environment.dataSets.semiUndergroundContainers.label",
-        description: "categories.environment.dataSets.semiUndergroundContainers.description",
+        label:
+          "categories.environment.dataSets.semiUndergroundContainers.label",
+        description:
+          "categories.environment.dataSets.semiUndergroundContainers.description",
         icon: Trash2,
         fetchUrl:
           "https://data.zagreb.hr/dataset/a48f972b-9639-4719-9470-9d398049dbf9/resource/c04a1f0c-ac8a-4156-ba1f-707b1564d2f8/download/data.geojson",
       },
       {
         label: "categories.environment.dataSets.undergroundContainers.label",
-        description: "categories.environment.dataSets.undergroundContainers.description",
+        description:
+          "categories.environment.dataSets.undergroundContainers.description",
         icon: Trash2,
         fetchUrl:
           "https://data.zagreb.hr/dataset/1c02bf11-26a8-40dd-9a7d-0635dc065325/resource/980478d5-97a8-4b7d-8e92-f404bd0d3a24/download/data.geojson",
       },
       {
         label: "categories.environment.dataSets.drinkingWaterFountains.label",
-        description: "categories.environment.dataSets.drinkingWaterFountains.description",
+        description:
+          "categories.environment.dataSets.drinkingWaterFountains.description",
         icon: Droplet,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/pitka_voda/FeatureServer/replicafilescache/pitka_voda_-1391343346496493938.geojson",
       },
       {
-        label: "categories.environment.dataSets.topographicBaseVegetationLandTypes2018.label", // Check at geojson.io
+        label:
+          "categories.environment.dataSets.topographicBaseVegetationLandTypes2018.label", // Check at geojson.io
         description:
           "categories.environment.dataSets.topographicBaseVegetationLandTypes2018.description",
         icon: Map,
@@ -297,7 +325,8 @@ export const CATEGORIES = [
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Topografska_osnova_2018_Vegetacija_i_vrste_zemlji%C5%A1ta/FeatureServer/replicafilescache/Topografska_osnova_2018_Vegetacija_i_vrste_zemlji%C5%A1ta_-351063888473117085.geojson",
       },
       {
-        label: "categories.environment.dataSets.topographicBaseWaters2018.label", // Check at geojson.io
+        label:
+          "categories.environment.dataSets.topographicBaseWaters2018.label", // Check at geojson.io
         description:
           "categories.environment.dataSets.topographicBaseWaters2018.description",
         icon: Map,
@@ -313,14 +342,16 @@ export const CATEGORIES = [
       },
       {
         label: "categories.environment.dataSets.cityGardenPoints.label",
-        description: "categories.environment.dataSets.cityGardenPoints.description",
+        description:
+          "categories.environment.dataSets.cityGardenPoints.description",
         icon: Rose,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3df175d45719402fa2526013a897e43e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "categories.environment.dataSets.recyclingYards.label",
-        description: "categories.environment.dataSets.recyclingYards.description",
+        description:
+          "categories.environment.dataSets.recyclingYards.description",
         icon: Recycle,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/249fa384ccf9481abf4fd2de73a822f5_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -334,7 +365,8 @@ export const CATEGORIES = [
       },
       {
         label: "categories.environment.dataSets.brownfieldAreas.label",
-        description: "categories.environment.dataSets.brownfieldAreas.description",
+        description:
+          "categories.environment.dataSets.brownfieldAreas.description",
         icon: Blocks,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/6a86bf7404fe4cbc88a15ac86856da19_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -348,8 +380,10 @@ export const CATEGORIES = [
     icon: Sprout,
     dataSets: [
       {
-        label: "categories.agriculture.dataSets.domesticAnimalKeepingBoundaries.label",
-        description: "categories.agriculture.dataSets.domesticAnimalKeepingBoundaries.description",
+        label:
+          "categories.agriculture.dataSets.domesticAnimalKeepingBoundaries.label",
+        description:
+          "categories.agriculture.dataSets.domesticAnimalKeepingBoundaries.description",
         icon: Cat,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/7e93637c72ac4c278c69ad5260611c39_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -363,14 +397,17 @@ export const CATEGORIES = [
       },
       {
         label: "categories.agriculture.dataSets.sharedHuntingGrounds.label",
-        description: "categories.agriculture.dataSets.sharedHuntingGrounds.description",
+        description:
+          "categories.agriculture.dataSets.sharedHuntingGrounds.description",
         icon: BowArrow,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/d87e492a5c994e04b47b1eaa7a06699d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
-        label: "categories.agriculture.dataSets.wildlifeProtectionProgram.label",
-        description: "categories.agriculture.dataSets.wildlifeProtectionProgram.description",
+        label:
+          "categories.agriculture.dataSets.wildlifeProtectionProgram.label",
+        description:
+          "categories.agriculture.dataSets.wildlifeProtectionProgram.description",
         icon: Rabbit,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/96a059b8909a4d70b81bbbae9d883a25_5/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -385,7 +422,8 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "categories.judiciary.dataSets.surveillanceCameras.label",
-        description: "categories.judiciary.dataSets.surveillanceCameras.description",
+        description:
+          "categories.judiciary.dataSets.surveillanceCameras.description",
         icon: Cctv,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -435,14 +473,16 @@ export const CATEGORIES = [
       },
       {
         label: "categories.traffic.dataSets.topographicBaseTraffic2018.label",
-        description: "categories.traffic.dataSets.topographicBaseTraffic2018.description",
+        description:
+          "categories.traffic.dataSets.topographicBaseTraffic2018.description",
         icon: Map,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Promet/FeatureServer/replicafilescache/Promet_5602162737547094296.geojson",
       },
       {
         label: "categories.traffic.dataSets.reservedParkingZones.label",
-        description: "categories.traffic.dataSets.reservedParkingZones.description",
+        description:
+          "categories.traffic.dataSets.reservedParkingZones.description",
         icon: SquareParking,
         fetchUrl:
           " https://opendata.arcgis.com/api/v3/datasets/04e3d79e90b04167a6efa8d277e5a482_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -456,14 +496,16 @@ export const CATEGORIES = [
       },
       {
         label: "categories.traffic.dataSets.publicBicycleParking.label",
-        description: "categories.traffic.dataSets.publicBicycleParking.description",
+        description:
+          "categories.traffic.dataSets.publicBicycleParking.description",
         icon: SquareParking,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/04012b0e4968447c978a6ee494d76495_2/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "categories.traffic.dataSets.publicBicycleSystem.label",
-        description: "categories.traffic.dataSets.publicBicycleSystem.description",
+        description:
+          "categories.traffic.dataSets.publicBicycleSystem.description",
         icon: Bike,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/95f8892f77eb45968b65469b9063f8b9_3/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -477,7 +519,8 @@ export const CATEGORIES = [
       },
       {
         label: "categories.traffic.dataSets.surveillanceCameras.label",
-        description: "categories.traffic.dataSets.surveillanceCameras.description",
+        description:
+          "categories.traffic.dataSets.surveillanceCameras.description",
         icon: Cctv,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -491,7 +534,8 @@ export const CATEGORIES = [
       },
       {
         label: "categories.traffic.dataSets.electricChargingStations.label",
-        description: "categories.traffic.dataSets.electricChargingStations.description",
+        description:
+          "categories.traffic.dataSets.electricChargingStations.description",
         icon: Cable,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/4a4fc728724b4d319c27a9f647a0bb62_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -534,14 +578,17 @@ export const CATEGORIES = [
       },
       {
         label: "categories.society.dataSets.disabilityInstitutions.label",
-        description: "categories.society.dataSets.disabilityInstitutions.description",
+        description:
+          "categories.society.dataSets.disabilityInstitutions.description",
         icon: Accessibility,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanove_TUR_i_OSI/FeatureServer/replicafilescache/Geoportal_ustanove_TUR_i_OSI_-7182187914465045449.geojson",
       },
       {
-        label: "categories.society.dataSets.civilProtectionAssemblyPoints.label",
-        description: "categories.society.dataSets.civilProtectionAssemblyPoints.description",
+        label:
+          "categories.society.dataSets.civilProtectionAssemblyPoints.label",
+        description:
+          "categories.society.dataSets.civilProtectionAssemblyPoints.description",
         icon: Landmark,
         fetchUrl:
           "https://data.zagreb.hr/dataset/d736c146-6497-4915-894b-41bdf51267b0/resource/d30eb215-3ce2-48f8-88b2-6ffac82d46b5/download/zborna_mjesta_civilne_zatite_grada_zagreba-1.geojson",
@@ -554,36 +601,42 @@ export const CATEGORIES = [
           "https://data.zagreb.hr/dataset/b3c27d0f-b9b5-4140-b0cf-670e5cc1c19b/resource/479205c7-f75a-46a6-ac38-1499fcdca3d3/download/evakuacijske_povrsine.geojson",
       },
       {
-        label: "categories.society.dataSets.croatianInstituteForSocialWork.label",
-        description: "categories.society.dataSets.croatianInstituteForSocialWork.description",
+        label:
+          "categories.society.dataSets.croatianInstituteForSocialWork.label",
+        description:
+          "categories.society.dataSets.croatianInstituteForSocialWork.description",
         icon: Landmark,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_centar_za_socijalnu_skrb/FeatureServer/replicafilescache/Geoportal_centar_za_socijalnu_skrb_-2638481923376160763.geojson",
       },
       {
         label: "categories.society.dataSets.socialProtectionInstitutions.label",
-        description: "categories.society.dataSets.socialProtectionInstitutions.description",
+        description:
+          "categories.society.dataSets.socialProtectionInstitutions.description",
         icon: Landmark,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_nadlezna_institucija/FeatureServer/replicafilescache/Geoportal_nadlezna_institucija_2079182892719747966.geojson",
       },
       {
         label: "categories.society.dataSets.otherSocialWelfareActivities.label",
-        description: "categories.society.dataSets.otherSocialWelfareActivities.description",
+        description:
+          "categories.society.dataSets.otherSocialWelfareActivities.description",
         icon: Landmark,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ostale_djelatnosti_socijalne_skrbi/FeatureServer/replicafilescache/Geoportal_ostale_djelatnosti_socijalne_skrbi_-2781268371483281578.geojson",
       },
       {
         label: "categories.society.dataSets.veteransInstitutions.label",
-        description: "categories.society.dataSets.veteransInstitutions.description",
+        description:
+          "categories.society.dataSets.veteransInstitutions.description",
         icon: Shield,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanova_za_branitelje/FeatureServer/replicafilescache/Geoportal_ustanova_za_branitelje_-3924332151953522156.geojson",
       },
       {
         label: "categories.society.dataSets.homelessInstitutions.label",
-        description: "categories.society.dataSets.homelessInstitutions.description",
+        description:
+          "categories.society.dataSets.homelessInstitutions.description",
         icon: Landmark,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanova_za_beskucnike/FeatureServer/replicafilescache/Geoportal_ustanova_za_beskucnike_-235981892016937521.geojson",
@@ -625,14 +678,16 @@ export const CATEGORIES = [
       },
       {
         label: "categories.society.dataSets.cityDistrictOffices.label",
-        description: "categories.society.dataSets.cityDistrictOffices.description",
+        description:
+          "categories.society.dataSets.cityDistrictOffices.description",
         icon: Landmark,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3cabb747881e44b39b561626dcd8b89a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "categories.society.dataSets.romanCatholicParishes.label",
-        description: "categories.society.dataSets.romanCatholicParishes.description",
+        description:
+          "categories.society.dataSets.romanCatholicParishes.description",
         icon: Church,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/97dd39a14cdf4ce38bc3cb8ef484728a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -653,7 +708,8 @@ export const CATEGORIES = [
       },
       {
         label: "categories.society.dataSets.capitalInvestments2023.label",
-        description: "categories.society.dataSets.capitalInvestments2023.description",
+        description:
+          "categories.society.dataSets.capitalInvestments2023.description",
         icon: Banknote,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/e898521c36224b05b7bc0778632cd91d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -667,21 +723,24 @@ export const CATEGORIES = [
       },
       {
         label: "categories.society.dataSets.publicSportsPlaygrounds.label",
-        description: "categories.society.dataSets.publicSportsPlaygrounds.description",
+        description:
+          "categories.society.dataSets.publicSportsPlaygrounds.description",
         icon: Volleyball,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/8e2abb22194b4595965d2056f31ff66e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "categories.society.dataSets.competentInstitution.label",
-        description: "categories.society.dataSets.competentInstitution.description",
+        description:
+          "categories.society.dataSets.competentInstitution.description",
         icon: Landmark,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "categories.society.dataSets.religiousCommunities.label",
-        description: "categories.society.dataSets.religiousCommunities.description",
+        description:
+          "categories.society.dataSets.religiousCommunities.description",
         icon: Church,
         fetchUrl:
           "hhttps://opendata.arcgis.com/api/v3/datasets/26e9553b2fb34513ac2f8e4468d6b652_0/downloads/data?format=shp&spatialRefId=4326&where=1%3D1",
@@ -703,14 +762,16 @@ export const CATEGORIES = [
     dataSets: [
       {
         label: "categories.health-care.dataSets.healthcareInstitutions.label",
-        description: "categories.health-care.dataSets.healthcareInstitutions.description",
+        description:
+          "categories.health-care.dataSets.healthcareInstitutions.description",
         icon: Cross,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/fcadb80196684cc09f8c8a76852a4aa9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
       {
         label: "categories.health-care.dataSets.healthCenters.label",
-        description: "categories.health-care.dataSets.healthCenters.description",
+        description:
+          "categories.health-care.dataSets.healthCenters.description",
         icon: Cross,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/ddc03fc26c6145e7a4a84b35a41d68d1_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
@@ -731,8 +792,10 @@ export const CATEGORIES = [
     icon: Microscope,
     dataSets: [
       {
-        label: "categories.science.dataSets.telecommunicationDistributionCabinets.label",
-        description: "categories.science.dataSets.telecommunicationDistributionCabinets.description",
+        label:
+          "categories.science.dataSets.telecommunicationDistributionCabinets.label",
+        description:
+          "categories.science.dataSets.telecommunicationDistributionCabinets.description",
         icon: Zap,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/f72999526a9b4105b2af4f6f036a16fa_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",

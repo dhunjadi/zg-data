@@ -1,5 +1,6 @@
 import {
   AnyDataSetConfig,
+  CapitalInvestmentProperties,
   CulturalInstitutionProperties,
   DataSetConfig,
   ElementarySchoolProperties,
@@ -84,6 +85,8 @@ export const SPORT_FACILITIES_DATA_SET_ID = "sport-facilities";
 export const PUPIL_DORM_DATA_SET_ID = "pupil-dorm";
 export const HIGH_SCHOOL_DATA_SET_ID = "high-school";
 export const STUDENT_NEIGHBORHOOD_DATA_SET_ID = "student-neighborhood";
+
+export const CAPITAL_INVESTMENTS_DATA_SET_ID = "student-neighborhood";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -256,6 +259,23 @@ export const HIGH_SCHOOL_DATA_SET: DataSetConfig<HighSchoolProperties> = {
   }),
 };
 
+export const CAPITAL_INVESTMENTS_DATA_SET: DataSetConfig<CapitalInvestmentProperties> =
+  {
+    id: CAPITAL_INVESTMENTS_DATA_SET_ID,
+    label: "Kapitalna ulaganja 2024",
+    fetchUrl:
+      "https://hub.arcgis.com/api/v3/datasets/f1871e3fd952438e99dcccd63d37e81b_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.naziv,
+      details: [
+        { label: "Vrsta objekta", value: feature.properties.Vrsta_objekta },
+        { label: "Adresa", value: feature.properties.adresa },
+        { label: "Opis radova", value: feature.properties.Opis_radova },
+        { label: "Email", value: feature.properties.email },
+      ],
+    }),
+  };
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -283,6 +303,9 @@ export const DATA_SET_CONFIGS = {
   ),
   [PUPIL_DORM_DATA_SET_ID]: defineDataSetConfig(PUPIL_DORM_DATA_SET),
   [HIGH_SCHOOL_DATA_SET_ID]: defineDataSetConfig(HIGH_SCHOOL_DATA_SET),
+  [CAPITAL_INVESTMENTS_DATA_SET_ID]: defineDataSetConfig(
+    CAPITAL_INVESTMENTS_DATA_SET,
+  ),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;

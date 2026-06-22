@@ -47,6 +47,8 @@ const MapScreen = () => {
     if (!geoData) return [];
 
     return geoData.features.filter((feature) => {
+      if (!feature.geometry) return false;
+
       if (feature.geometry.type === "Point") {
         const [lng, lat] = feature.geometry.coordinates;
 
