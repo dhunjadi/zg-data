@@ -8,6 +8,7 @@ import {
   HealthCareInstitution,
   HigherEducationInstitutionProperties,
   HighSchoolProperties,
+  LocalOffice,
   LocalSelfGovernment,
   OdmorkoProperties,
   OtherPublicInstitution,
@@ -19,89 +20,25 @@ import {
   StudentRestaurantProperties,
 } from "@/types";
 import {
-  Baby,
-  BookMarked,
-  Bus,
-  CookingPot,
-  Droplets,
-  Landmark,
-  TrainFront,
-  Trash,
-  Trash2,
-} from "lucide-react-native";
-
-export const DATASETS = [
-  {
-    label: "Javni zdenci",
-    description: "Velit cursus magna fringilla natoque.",
-    icon: Droplets,
-  },
-  {
-    label: "Autobusna stajališta ZET",
-    description: "Velit cursus magna fringilla natoque.",
-    icon: Bus,
-  },
-  {
-    label: "Željeznička stajališta HŽ",
-    description: "Velit cursus magna fringilla natoque.",
-    icon: TrainFront,
-  },
-  {
-    label: "Studentski restoran",
-    description: "Velit cursus magna fringilla natoque.",
-    icon: CookingPot,
-  },
-  {
-    label: "Studentsko naselje",
-    description: "Velit cursus magna fringilla natoque.",
-    icon: BookMarked,
-  },
-  {
-    label: "Polupodzemni spremnik",
-    description: "Velit cursus magna fringilla natoque.",
-    icon: Trash2,
-  },
-  {
-    label: "Podzemni spremnik",
-    description: "Velit cursus magna fringilla natoque.",
-    icon: Trash,
-  },
-  {
-    label: "Područni odsjeci",
-    description: "Velit cursus magna fringilla natoque.",
-    icon: Landmark,
-  },
-  {
-    label: "Domovi za djecu",
-    description: "Velit cursus magna fringilla natoque.",
-    icon: Baby,
-  },
-];
-
-export const STUDENT_RESTAURANT_DATA_SET_ID = "student-restaurants";
-export const STUDENT_DORM_DATA_SET_ID = "student-dorm";
-export const CULTURAL_INSTITUTION_DATA_SET_ID = "cultural-institution";
-export const ELEMENTARY_SCHOOL_DATA_SET_ID = "elementary-school";
-export const ODMORKO_DATA_SET_ID = "odmorko-school";
-export const PUBLIC_PLAYGROUND_DATA_SET_ID = "public-playground";
-export const HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID =
-  "higher-education-institution";
-export const SPORT_FACILITIES_DATA_SET_ID = "sport-facilities";
-export const PUPIL_DORM_DATA_SET_ID = "pupil-dorm";
-export const HIGH_SCHOOL_DATA_SET_ID = "high-school";
-export const STUDENT_NEIGHBORHOOD_DATA_SET_ID = "student-neighborhood";
-
-// ECONOMY
-export const CAPITAL_INVESTMENTS_2024_DATA_SET_ID = "capital-investments-2024";
-export const CAPITAL_INVESTMENTS_2023_DATA_SET_ID = "capital-investments-2023";
-
-// PUBLIC SECTOR
-export const OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID =
-  "other-public-institutions";
-export const HEALTH_CARE_INSTITUTIONS_DATA_SET_ID = "health-care-institutions";
-export const CITY_DISTRICT_OFFICES_DATA_SET_ID = "city-district-offices";
-export const LOCAL_SELF_GOVERNMENT_DATA_SET_ID = "local-self-government";
-export const ROMAN_CATHOLIC_PARISHES_DATA_SET_ID = "roman-catholic-parishes";
+  CAPITAL_INVESTMENTS_2023_DATA_SET_ID,
+  CAPITAL_INVESTMENTS_2024_DATA_SET_ID,
+  CITY_DISTRICT_OFFICES_DATA_SET_ID,
+  CULTURAL_INSTITUTION_DATA_SET_ID,
+  ELEMENTARY_SCHOOL_DATA_SET_ID,
+  HEALTH_CARE_INSTITUTIONS_DATA_SET_ID,
+  HIGH_SCHOOL_DATA_SET_ID,
+  HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
+  LOCAL_OFFICES_DATA_SET_ID,
+  LOCAL_SELF_GOVERNMENT_DATA_SET_ID,
+  ODMORKO_DATA_SET_ID,
+  OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID,
+  PUBLIC_PLAYGROUND_DATA_SET_ID,
+  PUPIL_DORM_DATA_SET_ID,
+  ROMAN_CATHOLIC_PARISHES_DATA_SET_ID,
+  SPORT_FACILITIES_DATA_SET_ID,
+  STUDENT_DORM_DATA_SET_ID,
+  STUDENT_RESTAURANT_DATA_SET_ID,
+} from "./dataSetIds";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -384,6 +321,22 @@ export const ROMAN_CATHOLIC_PARISHES_DATA_SET: DataSetConfig<RomanCatholicParish
     }),
   };
 
+export const LOCAL_OFFICES_DATA_SET: DataSetConfig<LocalOffice> = {
+  id: LOCAL_OFFICES_DATA_SET_ID,
+  fetchUrl:
+    "https://opendata.arcgis.com/api/v3/datasets/ab488f0b14b54acaaa0b29d35c9af626_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+  getDisplayData: (feature) => ({
+    title: feature.properties.naziv,
+    details: [
+      { label: "Adresa", value: feature.properties.adresa },
+      { label: "Telefon", value: feature.properties.telefon },
+      { label: "Email", value: feature.properties.email },
+      { label: "Web", value: feature.properties.web },
+      { label: "Radno vrijeme", value: feature.properties.radno_vrijeme },
+    ],
+  }),
+};
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -432,6 +385,7 @@ export const DATA_SET_CONFIGS = {
   [ROMAN_CATHOLIC_PARISHES_DATA_SET_ID]: defineDataSetConfig(
     ROMAN_CATHOLIC_PARISHES_DATA_SET,
   ),
+  [LOCAL_OFFICES_DATA_SET_ID]: defineDataSetConfig(LOCAL_OFFICES_DATA_SET),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;

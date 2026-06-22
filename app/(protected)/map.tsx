@@ -137,7 +137,12 @@ const MapScreen = () => {
             return null;
           })}
         </MapView>
-        <BottomSheet index={-1} snapPoints={snapPoints} ref={bottomSheetRef}>
+        <BottomSheet
+          index={-1}
+          snapPoints={snapPoints}
+          ref={bottomSheetRef}
+          enablePanDownToClose
+        >
           <BottomSheetView className="p-4">
             <Text className="text-xl font-bold text-primaryDark">
               {selectedFeatureData?.title || ""}

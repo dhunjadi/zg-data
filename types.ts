@@ -240,3 +240,11 @@ export type RomanCatholicParish = {
   web: string;
   nadlezan: string;
 };
+
+export type LocalOffice = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  web: string;
+  radno_vrijeme: string;
+};
