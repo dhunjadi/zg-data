@@ -73,6 +73,8 @@ import {
   HIGH_SCHOOL_DATA_SET_ID,
   HIGHER_EDUCATION_INSTITUTION_DATA_SET,
   HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
+  LOCAL_SELF_GOVERNMENT_DATA_SET,
+  LOCAL_SELF_GOVERNMENT_DATA_SET_ID,
   ODMORKO_DATA_SET,
   ODMORKO_DATA_SET_ID,
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET,
@@ -252,8 +254,8 @@ export const CATEGORIES = [
         description:
           "categories.public-sector.dataSets.localSelfGovernment.description",
         icon: Landmark,
-        fetchUrl:
-          " https://opendata.arcgis.com/api/v3/datasets/f8f6eaeae11b408eaadf20474809a1b3_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: LOCAL_SELF_GOVERNMENT_DATA_SET_ID,
+        fetchUrl: LOCAL_SELF_GOVERNMENT_DATA_SET.fetchUrl,
       },
       {
         label: "categories.public-sector.dataSets.romanCatholicParishes.label",

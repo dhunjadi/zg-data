@@ -8,6 +8,7 @@ import {
   HealthCareInstitution,
   HigherEducationInstitutionProperties,
   HighSchoolProperties,
+  LocalSelfGovernment,
   OdmorkoProperties,
   OtherPublicInstitution,
   PublicPlaygroundProperties,
@@ -98,6 +99,7 @@ export const OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID =
   "other-public-institutions";
 export const HEALTH_CARE_INSTITUTIONS_DATA_SET_ID = "health-care-institutions";
 export const CITY_DISTRICT_OFFICES_DATA_SET_ID = "city-district-offices";
+export const LOCAL_SELF_GOVERNMENT_DATA_SET_ID = " local-self-government";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -344,6 +346,26 @@ export const CITY_DISTRICT_OFFICES_DATA_SET: DataSetConfig<CityDistrictOffice> =
     }),
   };
 
+export const LOCAL_SELF_GOVERNMENT_DATA_SET: DataSetConfig<LocalSelfGovernment> =
+  {
+    id: LOCAL_SELF_GOVERNMENT_DATA_SET_ID,
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/f8f6eaeae11b408eaadf20474809a1b3_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.MO,
+      details: [
+        { label: "Adresa", value: feature.properties.adresa_sjedista_MO },
+        { label: "Telefon", value: feature.properties.telefon },
+        { label: "Email", value: feature.properties.email },
+        { label: "Web", value: feature.properties.web },
+        {
+          label: "Primanje stranaka",
+          value: feature.properties.primanje_stranaka,
+        },
+      ],
+    }),
+  };
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -385,6 +407,9 @@ export const DATA_SET_CONFIGS = {
   ),
   [CITY_DISTRICT_OFFICES_DATA_SET_ID]: defineDataSetConfig(
     CITY_DISTRICT_OFFICES_DATA_SET,
+  ),
+  [LOCAL_SELF_GOVERNMENT_DATA_SET_ID]: defineDataSetConfig(
+    LOCAL_SELF_GOVERNMENT_DATA_SET,
   ),
 } as const;
 

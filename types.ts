@@ -220,3 +220,12 @@ export type CityDistrictOffice = {
   primanje_stranaka: string;
   sjediste: string;
 };
+
+export type LocalSelfGovernment = {
+  MO: string;
+  adresa_sjedista_MO: string;
+  telefon: string;
+  email: string;
+  primanje_stranaka: string;
+  web: string;
+};
