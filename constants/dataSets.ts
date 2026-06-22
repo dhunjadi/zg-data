@@ -4,6 +4,7 @@ import {
   CulturalInstitutionProperties,
   DataSetConfig,
   ElementarySchoolProperties,
+  HealthCareInstitution,
   HigherEducationInstitutionProperties,
   HighSchoolProperties,
   OdmorkoProperties,
@@ -94,6 +95,7 @@ export const CAPITAL_INVESTMENTS_2023_DATA_SET_ID = "capital-investments-2023";
 // PUBLIC SECTOR
 export const OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID =
   "other-public-institutions";
+export const HEALTH_CARE_INSTITUTIONS_DATA_SET_ID = "health-care-institutions";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -303,6 +305,22 @@ export const OTHER_PUBLIC_INSTITUTIONS_DATA_SET: DataSetConfig<OtherPublicInstit
     }),
   };
 
+export const HEALTH_CARE_INSTITUTIONS_DATA_SET: DataSetConfig<HealthCareInstitution> =
+  {
+    id: HEALTH_CARE_INSTITUTIONS_DATA_SET_ID,
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/fcadb80196684cc09f8c8a76852a4aa9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.naziv,
+      details: [
+        { label: "Adresa", value: feature.properties.adresa },
+        { label: "Telefon", value: feature.properties.telefon },
+        { label: "Email", value: feature.properties.email },
+        { label: "Web", value: feature.properties.web },
+      ],
+    }),
+  };
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -338,6 +356,9 @@ export const DATA_SET_CONFIGS = {
   ),
   [OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID]: defineDataSetConfig(
     OTHER_PUBLIC_INSTITUTIONS_DATA_SET,
+  ),
+  [HEALTH_CARE_INSTITUTIONS_DATA_SET_ID]: defineDataSetConfig(
+    HEALTH_CARE_INSTITUTIONS_DATA_SET,
   ),
 } as const;
 

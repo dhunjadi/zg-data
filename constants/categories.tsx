@@ -65,6 +65,8 @@ import {
   CULTURAL_INSTITUTION_DATA_SET_ID,
   ELEMENTARY_SCHOOL_DATA_SET,
   ELEMENTARY_SCHOOL_DATA_SET_ID,
+  HEALTH_CARE_INSTITUTIONS_DATA_SET,
+  HEALTH_CARE_INSTITUTIONS_DATA_SET_ID,
   HIGH_SCHOOL_DATA_SET,
   HIGH_SCHOOL_DATA_SET_ID,
   HIGHER_EDUCATION_INSTITUTION_DATA_SET,
@@ -232,8 +234,8 @@ export const CATEGORIES = [
         description:
           "categories.public-sector.dataSets.healthcareInstitutions.description",
         icon: Hospital,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/fcadb80196684cc09f8c8a76852a4aa9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: HEALTH_CARE_INSTITUTIONS_DATA_SET_ID,
+        fetchUrl: HEALTH_CARE_INSTITUTIONS_DATA_SET.fetchUrl,
       },
       {
         label: "categories.public-sector.dataSets.cityDistrictOffices.label",

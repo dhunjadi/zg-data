@@ -200,3 +200,12 @@ export type OtherPublicInstitution = {
   izvor: string;
   izradio: string;
 };
+
+export type HealthCareInstitution = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+};
