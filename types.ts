@@ -17,6 +17,7 @@ export type BaseProperties = {
   web?: string;
   email?: string;
   OBJECTID?: number;
+  OBJECTID_1?: number; // Check Roman catholic parishes geojson
   GlobalID?: string;
 };
 
@@ -228,4 +229,14 @@ export type LocalSelfGovernment = {
   email: string;
   primanje_stranaka: string;
   web: string;
+};
+
+export type RomanCatholicParish = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  nadlezan: string;
 };

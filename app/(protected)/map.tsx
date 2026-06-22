@@ -97,7 +97,10 @@ const MapScreen = () => {
           className="w-full h-full"
         >
           {visibleFeatures.map((feature) => {
-            const key = feature.properties.OBJECTID ?? feature.id;
+            // OBJECTID_1 --> Check Roman catholic parishes geojson
+            const key =
+              (feature.properties.OBJECTID || feature.properties.OBJECTID_1) ??
+              feature.id;
 
             if (feature.geometry.type === "Point") {
               const [lng, lat] = feature.geometry.coordinates;

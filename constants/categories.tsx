@@ -83,6 +83,8 @@ import {
   PUBLIC_PLAYGROUND_DATA_SET_ID,
   PUPIL_DORM_DATA_SET,
   PUPIL_DORM_DATA_SET_ID,
+  ROMAN_CATHOLIC_PARISHES_DATA_SET,
+  ROMAN_CATHOLIC_PARISHES_DATA_SET_ID,
   SPORT_FACILITIES_DATA_SET,
   SPORT_FACILITIES_DATA_SET_ID,
   STUDENT_DORM_DATA_SET,
@@ -262,8 +264,8 @@ export const CATEGORIES = [
         description:
           "categories.public-sector.dataSets.romanCatholicParishes.description",
         icon: Church,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/97dd39a14cdf4ce38bc3cb8ef484728a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: ROMAN_CATHOLIC_PARISHES_DATA_SET_ID,
+        fetchUrl: ROMAN_CATHOLIC_PARISHES_DATA_SET.fetchUrl,
       },
       {
         label: "categories.public-sector.dataSets.localOffices.label",

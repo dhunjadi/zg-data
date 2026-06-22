@@ -13,6 +13,7 @@ import {
   OtherPublicInstitution,
   PublicPlaygroundProperties,
   PupilDormProperties,
+  RomanCatholicParish,
   SportFacilitiesProperties,
   StudentDormProperties,
   StudentRestaurantProperties,
@@ -99,7 +100,8 @@ export const OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID =
   "other-public-institutions";
 export const HEALTH_CARE_INSTITUTIONS_DATA_SET_ID = "health-care-institutions";
 export const CITY_DISTRICT_OFFICES_DATA_SET_ID = "city-district-offices";
-export const LOCAL_SELF_GOVERNMENT_DATA_SET_ID = " local-self-government";
+export const LOCAL_SELF_GOVERNMENT_DATA_SET_ID = "local-self-government";
+export const ROMAN_CATHOLIC_PARISHES_DATA_SET_ID = "roman-catholic-parishes";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
@@ -366,6 +368,22 @@ export const LOCAL_SELF_GOVERNMENT_DATA_SET: DataSetConfig<LocalSelfGovernment> 
     }),
   };
 
+export const ROMAN_CATHOLIC_PARISHES_DATA_SET: DataSetConfig<RomanCatholicParish> =
+  {
+    id: ROMAN_CATHOLIC_PARISHES_DATA_SET_ID,
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/97dd39a14cdf4ce38bc3cb8ef484728a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.naziv,
+      details: [
+        { label: "Adresa", value: feature.properties.adresa },
+        { label: "Telefon", value: feature.properties.telefon },
+        { label: "Email", value: feature.properties.email },
+        { label: "Web", value: feature.properties.web },
+      ],
+    }),
+  };
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -410,6 +428,9 @@ export const DATA_SET_CONFIGS = {
   ),
   [LOCAL_SELF_GOVERNMENT_DATA_SET_ID]: defineDataSetConfig(
     LOCAL_SELF_GOVERNMENT_DATA_SET,
+  ),
+  [ROMAN_CATHOLIC_PARISHES_DATA_SET_ID]: defineDataSetConfig(
+    ROMAN_CATHOLIC_PARISHES_DATA_SET,
   ),
 } as const;
 
