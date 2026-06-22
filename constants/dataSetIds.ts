@@ -24,3 +24,5 @@ export const CITY_DISTRICT_OFFICES_DATA_SET_ID = "city-district-offices";
 export const LOCAL_SELF_GOVERNMENT_DATA_SET_ID = "local-self-government";
 export const ROMAN_CATHOLIC_PARISHES_DATA_SET_ID = "roman-catholic-parishes";
 export const LOCAL_OFFICES_DATA_SET_ID = "local-offices";
+export const STATE_ADMINISTRATION_BODIES_DATA_SET_ID =
+  "state-administartion-bodies";

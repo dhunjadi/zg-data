@@ -72,6 +72,7 @@ import {
   PUPIL_DORM_DATA_SET_ID,
   ROMAN_CATHOLIC_PARISHES_DATA_SET_ID,
   SPORT_FACILITIES_DATA_SET_ID,
+  STATE_ADMINISTRATION_BODIES_DATA_SET_ID,
   STUDENT_DORM_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET_ID,
 } from "./dataSetIds";
@@ -91,6 +92,7 @@ import {
   PUPIL_DORM_DATA_SET,
   ROMAN_CATHOLIC_PARISHES_DATA_SET,
   SPORT_FACILITIES_DATA_SET,
+  STATE_ADMINISTRATION_BODIES_DATA_SET,
   STUDENT_DORM_DATA_SET,
   STUDENT_RESTAURANT_DATA_SET,
 } from "./dataSets";
@@ -283,8 +285,8 @@ export const CATEGORIES = [
         description:
           "categories.public-sector.dataSets.higherEducationInstitutions.description",
         icon: GraduationCap,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/3f6954c6679f4b299f738304542a4837_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
+        fetchUrl: HIGHER_EDUCATION_INSTITUTION_DATA_SET.fetchUrl,
       },
       {
         label:
@@ -292,8 +294,8 @@ export const CATEGORIES = [
         description:
           "categories.public-sector.dataSets.stateAdministrationBodies.description",
         icon: Landmark,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/5c237e0b5c84441e80a4c46ffcb30522_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: STATE_ADMINISTRATION_BODIES_DATA_SET_ID,
+        fetchUrl: STATE_ADMINISTRATION_BODIES_DATA_SET.fetchUrl,
       },
     ],
   },

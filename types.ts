@@ -248,3 +248,8 @@ export type LocalOffice = {
   web: string;
   radno_vrijeme: string;
 };
+
+export type StateAdministrationBody = {
+  tdu: string;
+  adresa: string;
+};

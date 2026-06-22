@@ -16,6 +16,7 @@ import {
   PupilDormProperties,
   RomanCatholicParish,
   SportFacilitiesProperties,
+  StateAdministrationBody,
   StudentDormProperties,
   StudentRestaurantProperties,
 } from "@/types";
@@ -36,6 +37,7 @@ import {
   PUPIL_DORM_DATA_SET_ID,
   ROMAN_CATHOLIC_PARISHES_DATA_SET_ID,
   SPORT_FACILITIES_DATA_SET_ID,
+  STATE_ADMINISTRATION_BODIES_DATA_SET_ID,
   STUDENT_DORM_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET_ID,
 } from "./dataSetIds";
@@ -56,7 +58,7 @@ export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantPropert
   };
 
 export const STUDENT_DORM_DATA_SET: DataSetConfig<StudentDormProperties> = {
-  id: STUDENT_RESTAURANT_DATA_SET_ID,
+  id: STUDENT_DORM_DATA_SET_ID,
   fetchUrl:
     "https://data.zagreb.hr/dataset/cd0afdae-2ef7-44f8-96bb-b96f119aa59b/resource/306ebc37-e4ee-4715-b9e1-8f67418e36e7/download/data.geojson",
   getDisplayData: (feature) => ({
@@ -337,6 +339,17 @@ export const LOCAL_OFFICES_DATA_SET: DataSetConfig<LocalOffice> = {
   }),
 };
 
+export const STATE_ADMINISTRATION_BODIES_DATA_SET: DataSetConfig<StateAdministrationBody> =
+  {
+    id: STATE_ADMINISTRATION_BODIES_DATA_SET_ID,
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/5c237e0b5c84441e80a4c46ffcb30522_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.tdu,
+      details: [{ label: "Adresa", value: feature.properties.adresa }],
+    }),
+  };
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -386,6 +399,9 @@ export const DATA_SET_CONFIGS = {
     ROMAN_CATHOLIC_PARISHES_DATA_SET,
   ),
   [LOCAL_OFFICES_DATA_SET_ID]: defineDataSetConfig(LOCAL_OFFICES_DATA_SET),
+  [STATE_ADMINISTRATION_BODIES_DATA_SET_ID]: defineDataSetConfig(
+    STATE_ADMINISTRATION_BODIES_DATA_SET,
+  ),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;
