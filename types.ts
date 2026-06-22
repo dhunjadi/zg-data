@@ -44,7 +44,6 @@ export type DataSetDisplay = {
 
 export type DataSetConfig<TProperties> = {
   id: string;
-  label: string;
   fetchUrl: string;
   getDisplayData: (feature: Feature<TProperties>) => DataSetDisplay;
 };
@@ -190,4 +189,14 @@ export type CapitalInvestmentProperties = {
   Opis_radova: string;
   Obveza: string;
   Broj: number;
+};
+
+export type OtherPublicInstitution = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  email: string;
+  web: string;
+  izvor: string;
+  izradio: string;
 };

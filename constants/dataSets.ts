@@ -7,6 +7,7 @@ import {
   HigherEducationInstitutionProperties,
   HighSchoolProperties,
   OdmorkoProperties,
+  OtherPublicInstitution,
   PublicPlaygroundProperties,
   PupilDormProperties,
   SportFacilitiesProperties,
@@ -90,10 +91,13 @@ export const STUDENT_NEIGHBORHOOD_DATA_SET_ID = "student-neighborhood";
 export const CAPITAL_INVESTMENTS_2024_DATA_SET_ID = "capital-investments-2024";
 export const CAPITAL_INVESTMENTS_2023_DATA_SET_ID = "capital-investments-2023";
 
+// PUBLIC SECTOR
+export const OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID =
+  "other-public-institutions";
+
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
   {
     id: STUDENT_RESTAURANT_DATA_SET_ID,
-    label: "Studentski restoran",
     fetchUrl:
       "https://data.zagreb.hr/dataset/8b4ab584-5b5a-4d70-9cf3-24897645ad6b/resource/e1caf1d1-ecdf-4d5c-8020-6798c45a188d/download/data.geojson",
     getDisplayData: (feature) => ({
@@ -108,7 +112,6 @@ export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantPropert
 
 export const STUDENT_DORM_DATA_SET: DataSetConfig<StudentDormProperties> = {
   id: STUDENT_RESTAURANT_DATA_SET_ID,
-  label: "Studentsko naselje",
   fetchUrl:
     "https://data.zagreb.hr/dataset/cd0afdae-2ef7-44f8-96bb-b96f119aa59b/resource/306ebc37-e4ee-4715-b9e1-8f67418e36e7/download/data.geojson",
   getDisplayData: (feature) => ({
@@ -124,7 +127,6 @@ export const STUDENT_DORM_DATA_SET: DataSetConfig<StudentDormProperties> = {
 export const CULTURAL_INSTITUTION_DATA_SET: DataSetConfig<CulturalInstitutionProperties> =
   {
     id: CULTURAL_INSTITUTION_DATA_SET_ID,
-    label: "Kulturne ustanove",
     fetchUrl:
       "https://opendata.arcgis.com/api/v3/datasets/83db22aeb39441ec84911ee94f26e746_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
     getDisplayData: (feature) => ({
@@ -141,7 +143,7 @@ export const CULTURAL_INSTITUTION_DATA_SET: DataSetConfig<CulturalInstitutionPro
 export const ELEMENTARY_SCHOOL_DATA_SET: DataSetConfig<ElementarySchoolProperties> =
   {
     id: ELEMENTARY_SCHOOL_DATA_SET_ID,
-    label: "Osnovne škole",
+
     fetchUrl:
       "https://opendata.arcgis.com/api/v3/datasets/08ff18612cea48a1b1bdb921a83974bc_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
     getDisplayData: (feature) => ({
@@ -157,7 +159,6 @@ export const ELEMENTARY_SCHOOL_DATA_SET: DataSetConfig<ElementarySchoolPropertie
 
 export const ODMORKO_DATA_SET: DataSetConfig<OdmorkoProperties> = {
   id: ODMORKO_DATA_SET_ID,
-  label: "Odmorko",
   fetchUrl:
     "https://opendata.arcgis.com/api/v3/datasets/0a671e4943634d42930ba9c0648a9ddb_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
   getDisplayData: (feature) => ({
@@ -173,7 +174,6 @@ export const ODMORKO_DATA_SET: DataSetConfig<OdmorkoProperties> = {
 export const PUBLIC_PLAYGROUND_DATA_SET: DataSetConfig<PublicPlaygroundProperties> =
   {
     id: PUBLIC_PLAYGROUND_DATA_SET_ID,
-    label: "Javna igrališta",
     fetchUrl:
       "https://opendata.arcgis.com/api/v3/datasets/8e2abb22194b4595965d2056f31ff66e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
     getDisplayData: (feature) => ({
@@ -185,7 +185,6 @@ export const PUBLIC_PLAYGROUND_DATA_SET: DataSetConfig<PublicPlaygroundPropertie
 export const HIGHER_EDUCATION_INSTITUTION_DATA_SET: DataSetConfig<HigherEducationInstitutionProperties> =
   {
     id: HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
-    label: "Visokoškoleske ustanove",
     fetchUrl:
       "https://opendata.arcgis.com/api/v3/datasets/3f6954c6679f4b299f738304542a4837_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
     getDisplayData: (feature) => ({
@@ -203,7 +202,6 @@ export const HIGHER_EDUCATION_INSTITUTION_DATA_SET: DataSetConfig<HigherEducatio
 export const SPORT_FACILITIES_DATA_SET: DataSetConfig<SportFacilitiesProperties> =
   {
     id: SPORT_FACILITIES_DATA_SET_ID,
-    label: "Sportski objekti",
     fetchUrl:
       "https://opendata.arcgis.com/api/v3/datasets/c2dd015f24f84bdb9e367b7eafce6762_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
     getDisplayData: (feature) => ({
@@ -222,7 +220,6 @@ export const SPORT_FACILITIES_DATA_SET: DataSetConfig<SportFacilitiesProperties>
 
 export const PUPIL_DORM_DATA_SET: DataSetConfig<PupilDormProperties> = {
   id: PUPIL_DORM_DATA_SET_ID,
-  label: "Učenički domovi",
   fetchUrl:
     "https://opendata.arcgis.com/api/v3/datasets/25bdb57e84e443b38ecf47a912b5c2d1_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
   getDisplayData: (feature) => ({
@@ -242,7 +239,6 @@ export const PUPIL_DORM_DATA_SET: DataSetConfig<PupilDormProperties> = {
 
 export const HIGH_SCHOOL_DATA_SET: DataSetConfig<HighSchoolProperties> = {
   id: HIGH_SCHOOL_DATA_SET_ID,
-  label: "Srednje škole",
   fetchUrl:
     "https://opendata.arcgis.com/api/v3/datasets/1095aeca947440bda0317834daa48c6a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
   getDisplayData: (feature) => ({
@@ -264,7 +260,6 @@ export const HIGH_SCHOOL_DATA_SET: DataSetConfig<HighSchoolProperties> = {
 export const CAPITAL_INVESTMENTS_2024_DATA_SET: DataSetConfig<CapitalInvestmentProperties> =
   {
     id: CAPITAL_INVESTMENTS_2024_DATA_SET_ID,
-    label: "Kapitalna ulaganja 2024",
     fetchUrl:
       "https://hub.arcgis.com/api/v3/datasets/f1871e3fd952438e99dcccd63d37e81b_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
     getDisplayData: (feature) => ({
@@ -280,7 +275,6 @@ export const CAPITAL_INVESTMENTS_2024_DATA_SET: DataSetConfig<CapitalInvestmentP
 export const CAPITAL_INVESTMENTS_2023_DATA_SET: DataSetConfig<CapitalInvestmentProperties> =
   {
     id: CAPITAL_INVESTMENTS_2023_DATA_SET_ID,
-    label: "Kapitalna ulaganja 2023",
     fetchUrl:
       "https://opendata.arcgis.com/api/v3/datasets/e898521c36224b05b7bc0778632cd91d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
     getDisplayData: (feature) => ({
@@ -289,6 +283,22 @@ export const CAPITAL_INVESTMENTS_2023_DATA_SET: DataSetConfig<CapitalInvestmentP
         { label: "Vrsta objekta", value: feature.properties.Vrsta_objekta },
         { label: "Adresa", value: feature.properties.adresa },
         { label: "Opis radova", value: feature.properties.Opis_radova },
+      ],
+    }),
+  };
+
+export const OTHER_PUBLIC_INSTITUTIONS_DATA_SET: DataSetConfig<OtherPublicInstitution> =
+  {
+    id: OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID,
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/29edc0bf8d604e759bc641fcfd9fec3a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.naziv,
+      details: [
+        { label: "Adresa", value: feature.properties.adresa },
+        { label: "Telefon", value: feature.properties.telefon },
+        { label: "Email", value: feature.properties.email },
+        { label: "Web", value: feature.properties.web },
       ],
     }),
   };
@@ -325,6 +335,9 @@ export const DATA_SET_CONFIGS = {
   ),
   [CAPITAL_INVESTMENTS_2023_DATA_SET_ID]: defineDataSetConfig(
     CAPITAL_INVESTMENTS_2023_DATA_SET,
+  ),
+  [OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID]: defineDataSetConfig(
+    OTHER_PUBLIC_INSTITUTIONS_DATA_SET,
   ),
 } as const;
 

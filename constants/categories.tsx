@@ -71,6 +71,8 @@ import {
   HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
   ODMORKO_DATA_SET,
   ODMORKO_DATA_SET_ID,
+  OTHER_PUBLIC_INSTITUTIONS_DATA_SET,
+  OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID,
   PUBLIC_PLAYGROUND_DATA_SET,
   PUBLIC_PLAYGROUND_DATA_SET_ID,
   PUPIL_DORM_DATA_SET,
@@ -200,30 +202,30 @@ export const CATEGORIES = [
     description: "Aenean lobortis gravida finibus torquent accumsan.",
     icon: Landmark,
     dataSets: [
-      {
-        label: "categories.public-sector.dataSets.localDepartments.label",
+      /* {
+        label: "categories.public-sector.dataSets.localDepartments.label", // imported the fetched geojson to geojson.io and it doesn't work
         description:
           "categories.public-sector.dataSets.localDepartments.description",
         icon: Landmark,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/PO/FeatureServer/replicafilescache/PO_-7066151195297644305.geojson",
-      },
-      {
+      }, */
+      /* {
         label: "categories.public-sector.dataSets.cityOwnedCompanies.label", // imported the fetched geojson to geojson.io and it doesn't work
         description:
           "categories.public-sector.dataSets.cityOwnedCompanies.description",
         icon: Landmark,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_gradska_trgovacka_drustva/FeatureServer/replicafilescache/Geoportal_gradska_trgovacka_drustva_-4659600723509782750.geojson",
-      },
+      }, */
       {
         label:
           "categories.public-sector.dataSets.otherPublicInstitutions.label",
         description:
           "categories.public-sector.dataSets.otherPublicInstitutions.description",
         icon: Landmark,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/29edc0bf8d604e759bc641fcfd9fec3a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID,
+        fetchUrl: OTHER_PUBLIC_INSTITUTIONS_DATA_SET.fetchUrl,
       },
       {
         label: "categories.public-sector.dataSets.healthcareInstitutions.label",
