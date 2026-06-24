@@ -1,6 +1,10 @@
 import { getDataSetConfig } from "@/constants/dataSets";
 import { useFetchGeoJson } from "@/hooks/useFetchGeoJson";
-import { Feature, MultiPolygonGeometry } from "@/types";
+import {
+  Feature,
+  MultiLineStringGeometry,
+  MultiPolygonGeometry,
+} from "@/types";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { useLocalSearchParams } from "expo-router";
 import React, { useMemo, useRef, useState } from "react";
@@ -10,6 +14,7 @@ import MapView, {
   LatLng,
   Marker,
   Polygon,
+  Polyline,
   PROVIDER_GOOGLE,
   Region,
 } from "react-native-maps";
@@ -46,21 +51,28 @@ const MapScreen = () => {
   const visibleFeatures = useMemo(() => {
     if (!geoData) return [];
 
+    const minLat = region.latitude - region.latitudeDelta / 2;
+    const maxLat = region.latitude + region.latitudeDelta / 2;
+    const minLng = region.longitude - region.longitudeDelta / 2;
+    const maxLng = region.longitude + region.longitudeDelta / 2;
+
     return geoData.features.filter((feature) => {
       if (!feature.geometry) return false;
 
       if (feature.geometry.type === "Point") {
         const [lng, lat] = feature.geometry.coordinates;
-
-        const minLat = region.latitude - region.latitudeDelta / 2;
-        const maxLat = region.latitude + region.latitudeDelta / 2;
-        const minLng = region.longitude - region.longitudeDelta / 2;
-        const maxLng = region.longitude + region.longitudeDelta / 2;
-
         return lat >= minLat && lat <= maxLat && lng >= minLng && lng <= maxLng;
       }
 
-      // No viewport filtering for feature.geometry.type === "Multipolygon"
+      if (feature.geometry.type === "MultiLineString") {
+        return feature.geometry.coordinates.some((line) =>
+          line.some(
+            ([lng, lat]) =>
+              lat >= minLat && lat <= maxLat && lng >= minLng && lng <= maxLng,
+          ),
+        );
+      }
+
       return true;
     });
   }, [geoData, region]);
@@ -83,6 +95,17 @@ const MapScreen = () => {
         longitude: lng,
       }));
     });
+  };
+
+  const multiLineToCoordinates = (
+    geometry: MultiLineStringGeometry,
+  ): LatLng[][] => {
+    return geometry.coordinates.map((line) =>
+      line.map(([lng, lat]) => ({
+        latitude: lat,
+        longitude: lng,
+      })),
+    );
   };
 
   return (
@@ -125,6 +148,20 @@ const MapScreen = () => {
 
               return polygons.map((coordinates, index) => (
                 <Polygon
+                  key={`${key}-${index}`}
+                  coordinates={coordinates}
+                  fillColor="rgba(0, 112, 187, 0.5)"
+                  strokeColor="#005793"
+                  strokeWidth={2}
+                />
+              ));
+            }
+
+            if (feature.geometry.type === "MultiLineString") {
+              const polygons = multiLineToCoordinates(feature.geometry);
+
+              return polygons.map((coordinates, index) => (
+                <Polyline
                   key={`${key}-${index}`}
                   coordinates={coordinates}
                   fillColor="rgba(0, 112, 187, 0.5)"

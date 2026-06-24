@@ -7,8 +7,15 @@ export type MultiPolygonGeometry = {
   type: "MultiPolygon";
   coordinates: number[][][][];
 };
+export type MultiLineStringGeometry = {
+  type: "MultiLineString";
+  coordinates: number[][][];
+};
 
-export type Geometry = PointGeometry | MultiPolygonGeometry;
+export type Geometry =
+  | PointGeometry
+  | MultiPolygonGeometry
+  | MultiLineStringGeometry;
 
 export type BaseProperties = {
   naziv: string;

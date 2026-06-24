@@ -5,6 +5,7 @@ import {
   Church,
   CookingPot,
   Drama,
+  Footprints,
   Gavel,
   GraduationCap,
   HeartPulse,
@@ -445,13 +446,13 @@ export const CATEGORIES = [
         fetchUrl:
           "https://data.zagreb.hr/dataset/d0886c88-cdc8-43fa-ac94-67a8d128d0c2/resource/af3dbe3e-68fd-4862-bb6a-e39790f76dce/download/data.geojson",
       }, */
-      /* {
+      {
         label: "categories.traffic.dataSets.pedestrianZone.label", // Multipolygon
         description: "categories.traffic.dataSets.pedestrianZone.description",
         icon: Footprints,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3aabf37d1d8b497c970dcddc21ed9612_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+      },
       /* {
         label: "categories.traffic.dataSets.topographicBaseTraffic2018.label",
         description:
@@ -491,13 +492,13 @@ export const CATEGORIES = [
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/95f8892f77eb45968b65469b9063f8b9_3/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       }, */
-      /* {
+      {
         label: "categories.traffic.dataSets.bicycleLanes.label", // Multiipolygon / MultiLineString / Point
         description: "categories.traffic.dataSets.bicycleLanes.description",
         icon: Road,
         fetchUrl:
           " https://opendata.arcgis.com/api/v3/datasets/b10db2ae3a5b4e4b8dbee85a89d4b5b1_4/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+      },
       /* {
         label: "categories.traffic.dataSets.surveillanceCameras.label",
         description:
