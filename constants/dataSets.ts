@@ -8,17 +8,20 @@ import {
   HealthCareInstitution,
   HigherEducationInstitutionProperties,
   HighSchoolProperties,
+  HzRailwayStop,
   LocalOffice,
   LocalSelfGovernment,
   OdmorkoProperties,
   OtherPublicInstitution,
   PublicPlaygroundProperties,
   PupilDormProperties,
+  ReservedParkingZone,
   RomanCatholicParish,
   SportFacilitiesProperties,
   StateAdministrationBody,
   StudentDormProperties,
   StudentRestaurantProperties,
+  ZetBusStop,
 } from "@/types";
 import {
   CAPITAL_INVESTMENTS_2023_DATA_SET_ID,
@@ -29,17 +32,21 @@ import {
   HEALTH_CARE_INSTITUTIONS_DATA_SET_ID,
   HIGH_SCHOOL_DATA_SET_ID,
   HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
+  HZ_RAILWAY_STOPS_DATA_SET_ID,
   LOCAL_OFFICES_DATA_SET_ID,
   LOCAL_SELF_GOVERNMENT_DATA_SET_ID,
   ODMORKO_DATA_SET_ID,
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID,
+  PEDESTRIAN_ZONES_DATA_SET_ID,
   PUBLIC_PLAYGROUND_DATA_SET_ID,
   PUPIL_DORM_DATA_SET_ID,
+  RESERVED_PARKING_ZONES_DATA_SET_ID,
   ROMAN_CATHOLIC_PARISHES_DATA_SET_ID,
   SPORT_FACILITIES_DATA_SET_ID,
   STATE_ADMINISTRATION_BODIES_DATA_SET_ID,
   STUDENT_DORM_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET_ID,
+  ZET_BUS_STOPS_DATA_SET_ID,
 } from "./dataSetIds";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
@@ -350,6 +357,58 @@ export const STATE_ADMINISTRATION_BODIES_DATA_SET: DataSetConfig<StateAdministra
     }),
   };
 
+// TRAFFIC
+export const ZET_BUS_STOPS_DATA_SET: DataSetConfig<ZetBusStop> = {
+  id: ZET_BUS_STOPS_DATA_SET_ID,
+  fetchUrl:
+    "https://data.zagreb.hr/dataset/cc7e45ae-4bad-4a07-bca2-25e82f1e082c/resource/3b12a182-afa3-4b07-833f-17d8bcf80ea9/download/data.geojson",
+  getDisplayData: (feature) => ({
+    title: feature.properties.Naziv_stajališta,
+    details: [
+      { label: "Opis", value: feature.properties.Opis },
+      { label: "Linije", value: feature.properties.Linije },
+      { label: "Displej", value: feature.properties.Displej },
+      { label: "Nadstrešnica", value: feature.properties.Nadstresnica },
+    ],
+  }),
+};
+
+export const HZ_TRAIN_STOPS_DATA_SET: DataSetConfig<HzRailwayStop> = {
+  id: HZ_RAILWAY_STOPS_DATA_SET_ID,
+  fetchUrl:
+    "https://data.zagreb.hr/dataset/d0886c88-cdc8-43fa-ac94-67a8d128d0c2/resource/af3dbe3e-68fd-4862-bb6a-e39790f76dce/download/data.geojson",
+  getDisplayData: (feature) => ({
+    title: feature.properties.Naziv,
+    details: [
+      { label: "Opis", value: feature.properties.Opis },
+      { label: "Vrsta", value: feature.properties.Vrsta },
+      { label: "Peron", value: feature.properties.Peron },
+      { label: "Stacionaža", value: feature.properties.Stacionaza },
+    ],
+  }),
+};
+
+export const PEDESTRIAN_ZONES_DATA_SET: DataSetConfig<ReservedParkingZone> = {
+  id: PEDESTRIAN_ZONES_DATA_SET_ID,
+  fetchUrl:
+    "https://opendata.arcgis.com/api/v3/datasets/3aabf37d1d8b497c970dcddc21ed9612_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+  getDisplayData: () => ({
+    title: "Pješačke zone",
+    details: [{ label: "", value: null }],
+  }),
+};
+
+export const RESERVED_PARKING_ZONES_DATA_SET: DataSetConfig<ReservedParkingZone> =
+  {
+    id: RESERVED_PARKING_ZONES_DATA_SET_ID,
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/04e3d79e90b04167a6efa8d277e5a482_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.Naziv,
+      details: [{ label: "Opis", value: feature.properties.Opis }],
+    }),
+  };
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -401,6 +460,14 @@ export const DATA_SET_CONFIGS = {
   [LOCAL_OFFICES_DATA_SET_ID]: defineDataSetConfig(LOCAL_OFFICES_DATA_SET),
   [STATE_ADMINISTRATION_BODIES_DATA_SET_ID]: defineDataSetConfig(
     STATE_ADMINISTRATION_BODIES_DATA_SET,
+  ),
+  [ZET_BUS_STOPS_DATA_SET_ID]: defineDataSetConfig(ZET_BUS_STOPS_DATA_SET),
+  [HZ_RAILWAY_STOPS_DATA_SET_ID]: defineDataSetConfig(HZ_TRAIN_STOPS_DATA_SET),
+  [PEDESTRIAN_ZONES_DATA_SET_ID]: defineDataSetConfig(
+    PEDESTRIAN_ZONES_DATA_SET,
+  ),
+  [RESERVED_PARKING_ZONES_DATA_SET_ID]: defineDataSetConfig(
+    RESERVED_PARKING_ZONES_DATA_SET,
   ),
 } as const;
 

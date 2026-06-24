@@ -2,6 +2,7 @@ import {
   Banknote,
   BookMarked,
   Building,
+  Bus,
   Church,
   CookingPot,
   Drama,
@@ -17,6 +18,8 @@ import {
   Road,
   School,
   Sprout,
+  SquareParking,
+  TrainFront,
   TreePalm,
   TreePine,
   Volleyball,
@@ -31,16 +34,20 @@ import {
   HEALTH_CARE_INSTITUTIONS_DATA_SET_ID,
   HIGH_SCHOOL_DATA_SET_ID,
   HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
+  HZ_RAILWAY_STOPS_DATA_SET_ID,
   LOCAL_SELF_GOVERNMENT_DATA_SET_ID,
   ODMORKO_DATA_SET_ID,
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID,
+  PEDESTRIAN_ZONES_DATA_SET_ID,
   PUBLIC_PLAYGROUND_DATA_SET_ID,
   PUPIL_DORM_DATA_SET_ID,
+  RESERVED_PARKING_ZONES_DATA_SET_ID,
   ROMAN_CATHOLIC_PARISHES_DATA_SET_ID,
   SPORT_FACILITIES_DATA_SET_ID,
   STATE_ADMINISTRATION_BODIES_DATA_SET_ID,
   STUDENT_DORM_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET_ID,
+  ZET_BUS_STOPS_DATA_SET_ID,
 } from "./dataSetIds";
 import {
   CAPITAL_INVESTMENTS_2023_DATA_SET,
@@ -51,16 +58,20 @@ import {
   HEALTH_CARE_INSTITUTIONS_DATA_SET,
   HIGH_SCHOOL_DATA_SET,
   HIGHER_EDUCATION_INSTITUTION_DATA_SET,
+  HZ_TRAIN_STOPS_DATA_SET,
   LOCAL_SELF_GOVERNMENT_DATA_SET,
   ODMORKO_DATA_SET,
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET,
+  PEDESTRIAN_ZONES_DATA_SET,
   PUBLIC_PLAYGROUND_DATA_SET,
   PUPIL_DORM_DATA_SET,
+  RESERVED_PARKING_ZONES_DATA_SET,
   ROMAN_CATHOLIC_PARISHES_DATA_SET,
   SPORT_FACILITIES_DATA_SET,
   STATE_ADMINISTRATION_BODIES_DATA_SET,
   STUDENT_DORM_DATA_SET,
   STUDENT_RESTAURANT_DATA_SET,
+  ZET_BUS_STOPS_DATA_SET,
 } from "./dataSets";
 
 export const CATEGORIES = [
@@ -432,43 +443,35 @@ export const CATEGORIES = [
     description: "Efficitur ridiculus iaculis parturient morbi netus aliquam.",
     icon: Road,
     dataSets: [
-      /* {
+      {
         label: "categories.traffic.dataSets.zetBusStops.label",
         description: "categories.traffic.dataSets.zetBusStops.description",
         icon: Bus,
-        fetchUrl:
-          "https://data.zagreb.hr/dataset/cc7e45ae-4bad-4a07-bca2-25e82f1e082c/resource/3b12a182-afa3-4b07-833f-17d8bcf80ea9/download/data.geojson",
-      }, */
-      /* {
+        datasetId: ZET_BUS_STOPS_DATA_SET_ID,
+        fetchUrl: ZET_BUS_STOPS_DATA_SET.fetchUrl,
+      },
+      {
         label: "categories.traffic.dataSets.hzRailwayStops.label",
         description: "categories.traffic.dataSets.hzRailwayStops.description",
         icon: TrainFront,
-        fetchUrl:
-          "https://data.zagreb.hr/dataset/d0886c88-cdc8-43fa-ac94-67a8d128d0c2/resource/af3dbe3e-68fd-4862-bb6a-e39790f76dce/download/data.geojson",
-      }, */
+        datasetId: HZ_RAILWAY_STOPS_DATA_SET_ID,
+        fetchUrl: HZ_TRAIN_STOPS_DATA_SET.fetchUrl,
+      },
       {
         label: "categories.traffic.dataSets.pedestrianZone.label", // Multipolygon
         description: "categories.traffic.dataSets.pedestrianZone.description",
         icon: Footprints,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/3aabf37d1d8b497c970dcddc21ed9612_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        datasetId: PEDESTRIAN_ZONES_DATA_SET_ID,
+        fetchUrl: PEDESTRIAN_ZONES_DATA_SET.fetchUrl,
       },
-      /* {
-        label: "categories.traffic.dataSets.topographicBaseTraffic2018.label",
-        description:
-          "categories.traffic.dataSets.topographicBaseTraffic2018.description",
-        icon: Map,
-        fetchUrl:
-          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Promet/FeatureServer/replicafilescache/Promet_5602162737547094296.geojson",
-      }, */
-      /* {
+      {
         label: "categories.traffic.dataSets.reservedParkingZones.label",
         description:
           "categories.traffic.dataSets.reservedParkingZones.description",
         icon: SquareParking,
-        fetchUrl:
-          " https://opendata.arcgis.com/api/v3/datasets/04e3d79e90b04167a6efa8d277e5a482_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+        datasetId: RESERVED_PARKING_ZONES_DATA_SET_ID,
+        fetchUrl: RESERVED_PARKING_ZONES_DATA_SET.fetchUrl,
+      },
       /* {
         label: "categories.traffic.dataSets.publicGarages.label",
         description: "categories.traffic.dataSets.publicGarages.description",
@@ -493,7 +496,7 @@ export const CATEGORIES = [
           "https://opendata.arcgis.com/api/v3/datasets/95f8892f77eb45968b65469b9063f8b9_3/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       }, */
       {
-        label: "categories.traffic.dataSets.bicycleLanes.label", // Multiipolygon / MultiLineString / Point
+        label: "categories.traffic.dataSets.bicycleLanes.label",
         description: "categories.traffic.dataSets.bicycleLanes.description",
         icon: Road,
         fetchUrl:

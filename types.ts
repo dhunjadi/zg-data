@@ -260,3 +260,26 @@ export type StateAdministrationBody = {
   tdu: string;
   adresa: string;
 };
+
+// TRAFFIC
+export type ZetBusStop = {
+  Opis: string;
+  Linije: string;
+  Displej: string;
+  Nadstresnica: string;
+  Naziv_stajališta: string;
+};
+
+export type HzRailwayStop = {
+  Opis: string;
+  Naziv: string;
+  Peron: string;
+  Sifra: number;
+  Vrsta: string;
+  Stacionaza: string;
+};
+
+export type ReservedParkingZone = {
+  Naziv: string;
+  Opis: string;
+};

@@ -108,6 +108,14 @@ const MapScreen = () => {
     );
   };
 
+  const getPolygonZIndex = (feature: Feature<Record<string, unknown>>) => {
+    if (feature.properties.Naziv === "I. ZONA") return 30;
+    if (feature.properties.Naziv === "II. ZONA") return 20;
+    if (feature.properties.Naziv === "III. ZONA") return 10;
+
+    return 0;
+  };
+
   return (
     <GestureHandlerRootView className="flex-1">
       <View className="flex-1">
@@ -145,14 +153,28 @@ const MapScreen = () => {
 
             if (feature.geometry.type === "MultiPolygon") {
               const polygons = multiPolygonToCoordinates(feature.geometry);
+              const isSelected = selectedFeature === feature;
+              const isInnerZone =
+                feature.properties.Naziv === "I. ZONA" ||
+                feature.properties.Naziv === "II. ZONA";
 
               return polygons.map((coordinates, index) => (
                 <Polygon
                   key={`${key}-${index}`}
                   coordinates={coordinates}
-                  fillColor="rgba(0, 112, 187, 0.5)"
+                  fillColor={
+                    isSelected
+                      ? "rgba(0, 112, 187, 0.5)"
+                      : "rgba(0, 112, 187, 0.02)"
+                  }
                   strokeColor="#005793"
                   strokeWidth={2}
+                  tappable
+                  zIndex={isInnerZone ? 20 : 10}
+                  onPress={() => {
+                    setSelectedFeature(feature);
+                    bottomSheetRef.current?.snapToIndex(0);
+                  }}
                 />
               ));
             }
