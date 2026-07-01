@@ -40,6 +40,7 @@ import {
   ODMORKO_DATA_SET_ID,
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID,
   PEDESTRIAN_ZONES_DATA_SET_ID,
+  PUBLIC_BICYCLE_PARKING_DATA_SET_ID,
   PUBLIC_GARAGES_DATA_SET_ID,
   PUBLIC_PLAYGROUND_DATA_SET_ID,
   PUPIL_DORM_DATA_SET_ID,
@@ -65,6 +66,7 @@ import {
   ODMORKO_DATA_SET,
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET,
   PEDESTRIAN_ZONES_DATA_SET,
+  PUBLIC_BICYCLE_PARKING,
   PUBLIC_GARAGES_DATA_SET,
   PUBLIC_PLAYGROUND_DATA_SET,
   PUPIL_DORM_DATA_SET,
@@ -482,14 +484,14 @@ export const CATEGORIES = [
         datasetId: PUBLIC_GARAGES_DATA_SET_ID,
         fetchUrl: PUBLIC_GARAGES_DATA_SET.fetchUrl,
       },
-      /* {
+      {
         label: "categories.traffic.dataSets.publicBicycleParking.label",
         description:
           "categories.traffic.dataSets.publicBicycleParking.description",
         icon: SquareParking,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/04012b0e4968447c978a6ee494d76495_2/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+        datasetId: PUBLIC_BICYCLE_PARKING_DATA_SET_ID,
+        fetchUrl: PUBLIC_BICYCLE_PARKING.fetchUrl,
+      },
       /* {
         label: "categories.traffic.dataSets.publicBicycleSystem.label",
         description:

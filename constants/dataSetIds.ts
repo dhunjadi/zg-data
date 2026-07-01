@@ -33,3 +33,4 @@ export const HZ_RAILWAY_STOPS_DATA_SET_ID = "hz-railway-stops";
 export const PEDESTRIAN_ZONES_DATA_SET_ID = "pedestrian-zones";
 export const RESERVED_PARKING_ZONES_DATA_SET_ID = "reserved-parking-zones";
 export const PUBLIC_GARAGES_DATA_SET_ID = "public-garages";
+export const PUBLIC_BICYCLE_PARKING_DATA_SET_ID = "public-bicycle-parking";

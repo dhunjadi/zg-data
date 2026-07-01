@@ -303,3 +303,14 @@ export type PublicGarage = {
   izvor: string;
   izradio: string;
 };
+
+export type PublicBicycleParking = {
+  vrsta: string;
+  naziv: string;
+  lokacija: string;
+  broj_stalaka: number;
+  broj_bicikala: number;
+  godina_postavljanja: number;
+  MJESNI_ODBOR: string;
+  GRADSKA_CETVRT: string;
+};

@@ -13,6 +13,7 @@ import {
   LocalSelfGovernment,
   OdmorkoProperties,
   OtherPublicInstitution,
+  PublicBicycleParking,
   PublicGarage,
   PublicPlaygroundProperties,
   PupilDormProperties,
@@ -39,6 +40,7 @@ import {
   ODMORKO_DATA_SET_ID,
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID,
   PEDESTRIAN_ZONES_DATA_SET_ID,
+  PUBLIC_BICYCLE_PARKING_DATA_SET_ID,
   PUBLIC_GARAGES_DATA_SET_ID,
   PUBLIC_PLAYGROUND_DATA_SET_ID,
   PUPIL_DORM_DATA_SET_ID,
@@ -433,6 +435,21 @@ export const PUBLIC_GARAGES_DATA_SET: DataSetConfig<PublicGarage> = {
   }),
 };
 
+export const PUBLIC_BICYCLE_PARKING: DataSetConfig<PublicBicycleParking> = {
+  id: PUBLIC_GARAGES_DATA_SET_ID,
+  fetchUrl:
+    "https://opendata.arcgis.com/api/v3/datasets/04012b0e4968447c978a6ee494d76495_2/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+  getDisplayData: (feature) => ({
+    title: feature.properties.naziv,
+    details: [
+      { label: "Lokacija", value: feature.properties.lokacija },
+      { label: "Vrsta", value: feature.properties.vrsta },
+      { label: "Broj stalaka", value: feature.properties.broj_stalaka },
+      { label: "Broj bicikala", value: feature.properties.broj_bicikala },
+    ],
+  }),
+};
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -494,6 +511,9 @@ export const DATA_SET_CONFIGS = {
     RESERVED_PARKING_ZONES_DATA_SET,
   ),
   [PUBLIC_GARAGES_DATA_SET_ID]: defineDataSetConfig(PUBLIC_GARAGES_DATA_SET),
+  [PUBLIC_BICYCLE_PARKING_DATA_SET_ID]: defineDataSetConfig(
+    PUBLIC_BICYCLE_PARKING,
+  ),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;
