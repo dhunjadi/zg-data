@@ -16,6 +16,7 @@ import {
   Microscope,
   PersonStanding,
   Road,
+  Rows4,
   School,
   Sprout,
   SquareParking,
@@ -39,6 +40,7 @@ import {
   ODMORKO_DATA_SET_ID,
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID,
   PEDESTRIAN_ZONES_DATA_SET_ID,
+  PUBLIC_GARAGES_DATA_SET_ID,
   PUBLIC_PLAYGROUND_DATA_SET_ID,
   PUPIL_DORM_DATA_SET_ID,
   RESERVED_PARKING_ZONES_DATA_SET_ID,
@@ -63,6 +65,7 @@ import {
   ODMORKO_DATA_SET,
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET,
   PEDESTRIAN_ZONES_DATA_SET,
+  PUBLIC_GARAGES_DATA_SET,
   PUBLIC_PLAYGROUND_DATA_SET,
   PUPIL_DORM_DATA_SET,
   RESERVED_PARKING_ZONES_DATA_SET,
@@ -472,13 +475,13 @@ export const CATEGORIES = [
         datasetId: RESERVED_PARKING_ZONES_DATA_SET_ID,
         fetchUrl: RESERVED_PARKING_ZONES_DATA_SET.fetchUrl,
       },
-      /* {
+      {
         label: "categories.traffic.dataSets.publicGarages.label",
         description: "categories.traffic.dataSets.publicGarages.description",
         icon: Rows4,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/3e3484aca5284b16b4a1c41bd6594711_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+        datasetId: PUBLIC_GARAGES_DATA_SET_ID,
+        fetchUrl: PUBLIC_GARAGES_DATA_SET.fetchUrl,
+      },
       /* {
         label: "categories.traffic.dataSets.publicBicycleParking.label",
         description:

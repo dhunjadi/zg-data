@@ -13,6 +13,7 @@ import {
   LocalSelfGovernment,
   OdmorkoProperties,
   OtherPublicInstitution,
+  PublicGarage,
   PublicPlaygroundProperties,
   PupilDormProperties,
   ReservedParkingZone,
@@ -38,6 +39,7 @@ import {
   ODMORKO_DATA_SET_ID,
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID,
   PEDESTRIAN_ZONES_DATA_SET_ID,
+  PUBLIC_GARAGES_DATA_SET_ID,
   PUBLIC_PLAYGROUND_DATA_SET_ID,
   PUPIL_DORM_DATA_SET_ID,
   RESERVED_PARKING_ZONES_DATA_SET_ID,
@@ -409,6 +411,28 @@ export const RESERVED_PARKING_ZONES_DATA_SET: DataSetConfig<ReservedParkingZone>
     }),
   };
 
+export const PUBLIC_GARAGES_DATA_SET: DataSetConfig<PublicGarage> = {
+  id: PUBLIC_GARAGES_DATA_SET_ID,
+  fetchUrl:
+    "https://opendata.arcgis.com/api/v3/datasets/3e3484aca5284b16b4a1c41bd6594711_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+  getDisplayData: (feature) => ({
+    title: feature.properties.naziv,
+    details: [
+      { label: "Adresa", value: feature.properties.adresa },
+      { label: "Telefon", value: feature.properties.telefon },
+      { label: "Kapacitet", value: feature.properties.kapacitet },
+      { label: "Invalidska mjesta", value: feature.properties.invalidska_mj },
+      { label: "Punionica za EV", value: feature.properties.punionica_za_EV },
+      {
+        label: "Parkirališta za bicikle",
+        value: feature.properties.parkiraliste_za_bic,
+      },
+      { label: "Obiteljska mjesta", value: feature.properties.obiteljska_mj },
+      { label: "Broj etaža", value: feature.properties.br_etaza },
+    ],
+  }),
+};
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -469,6 +493,7 @@ export const DATA_SET_CONFIGS = {
   [RESERVED_PARKING_ZONES_DATA_SET_ID]: defineDataSetConfig(
     RESERVED_PARKING_ZONES_DATA_SET,
   ),
+  [PUBLIC_GARAGES_DATA_SET_ID]: defineDataSetConfig(PUBLIC_GARAGES_DATA_SET),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;

@@ -283,3 +283,23 @@ export type ReservedParkingZone = {
   Naziv: string;
   Opis: string;
 };
+
+export type PublicGarage = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  kapacitet: number;
+  invalidska_mj: number;
+  punionica_za_EV: number;
+  mj_za_hibrid_voz: number;
+  parkiraliste_za_bic: number;
+  obiteljska_mj: number;
+  br_etaza: number;
+  uk_povr_m2: number;
+  preuzete_garaze_god: string;
+  korisnici: string;
+  vlasnistvo: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+};
