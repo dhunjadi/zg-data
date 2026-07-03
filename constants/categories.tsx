@@ -1,12 +1,17 @@
 import {
   Banknote,
+  Bike,
   BookMarked,
   Building,
   Bus,
+  Cable,
+  CarTaxiFront,
+  Cctv,
   Church,
   CookingPot,
   Drama,
   Footprints,
+  Fuel,
   Gavel,
   GraduationCap,
   HeartPulse,
@@ -21,6 +26,7 @@ import {
   Sprout,
   SquareParking,
   TrainFront,
+  TramFront,
   TreePalm,
   TreePine,
   Volleyball,
@@ -31,7 +37,9 @@ import {
   CAPITAL_INVESTMENTS_2024_DATA_SET_ID,
   CITY_DISTRICT_OFFICES_DATA_SET_ID,
   CULTURAL_INSTITUTION_DATA_SET_ID,
+  ELECTRIC_CHARGING_STATIONS_DATA_SET_ID,
   ELEMENTARY_SCHOOL_DATA_SET_ID,
+  GAS_STATIONS_DATA_SET_ID,
   HEALTH_CARE_INSTITUTIONS_DATA_SET_ID,
   HIGH_SCHOOL_DATA_SET_ID,
   HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
@@ -41,6 +49,7 @@ import {
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID,
   PEDESTRIAN_ZONES_DATA_SET_ID,
   PUBLIC_BICYCLE_PARKING_DATA_SET_ID,
+  PUBLIC_BICYCLE_SYSTEM_DATA_SET_ID,
   PUBLIC_GARAGES_DATA_SET_ID,
   PUBLIC_PLAYGROUND_DATA_SET_ID,
   PUPIL_DORM_DATA_SET_ID,
@@ -50,14 +59,19 @@ import {
   STATE_ADMINISTRATION_BODIES_DATA_SET_ID,
   STUDENT_DORM_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET_ID,
+  SURVEILLANCE_CAMERAS_DATA_SET_ID,
+  TAXI_STANDS_DATA_SET_ID,
   ZET_BUS_STOPS_DATA_SET_ID,
+  ZET_TRAM_STOPS_DATA_SET_ID,
 } from "./dataSetIds";
 import {
   CAPITAL_INVESTMENTS_2023_DATA_SET,
   CAPITAL_INVESTMENTS_2024_DATA_SET,
   CITY_DISTRICT_OFFICES_DATA_SET,
   CULTURAL_INSTITUTION_DATA_SET,
+  ELECTRIC_CHARGING_STATIONS_DATA_SET,
   ELEMENTARY_SCHOOL_DATA_SET,
+  GAS_STATIONS_DATA_SET,
   HEALTH_CARE_INSTITUTIONS_DATA_SET,
   HIGH_SCHOOL_DATA_SET,
   HIGHER_EDUCATION_INSTITUTION_DATA_SET,
@@ -67,6 +81,7 @@ import {
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET,
   PEDESTRIAN_ZONES_DATA_SET,
   PUBLIC_BICYCLE_PARKING,
+  PUBLIC_BICYCLE_SYSTEM_DATA_SET,
   PUBLIC_GARAGES_DATA_SET,
   PUBLIC_PLAYGROUND_DATA_SET,
   PUPIL_DORM_DATA_SET,
@@ -76,7 +91,10 @@ import {
   STATE_ADMINISTRATION_BODIES_DATA_SET,
   STUDENT_DORM_DATA_SET,
   STUDENT_RESTAURANT_DATA_SET,
+  SURVEILLANCE_CAMERAS_DATA_SET,
+  TAXI_STANDS_DATA_SET,
   ZET_BUS_STOPS_DATA_SET,
+  ZET_TRAM_STOPS_DATA_SET,
 } from "./dataSets";
 
 export const CATEGORIES = [
@@ -492,14 +510,14 @@ export const CATEGORIES = [
         datasetId: PUBLIC_BICYCLE_PARKING_DATA_SET_ID,
         fetchUrl: PUBLIC_BICYCLE_PARKING.fetchUrl,
       },
-      /* {
+      {
         label: "categories.traffic.dataSets.publicBicycleSystem.label",
         description:
           "categories.traffic.dataSets.publicBicycleSystem.description",
         icon: Bike,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/95f8892f77eb45968b65469b9063f8b9_3/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+        datasetId: PUBLIC_BICYCLE_SYSTEM_DATA_SET_ID,
+        fetchUrl: PUBLIC_BICYCLE_SYSTEM_DATA_SET.fetchUrl,
+      },
       {
         label: "categories.traffic.dataSets.bicycleLanes.label",
         description: "categories.traffic.dataSets.bicycleLanes.description",
@@ -507,43 +525,43 @@ export const CATEGORIES = [
         fetchUrl:
           " https://opendata.arcgis.com/api/v3/datasets/b10db2ae3a5b4e4b8dbee85a89d4b5b1_4/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
       },
-      /* {
+      {
         label: "categories.traffic.dataSets.surveillanceCameras.label",
         description:
           "categories.traffic.dataSets.surveillanceCameras.description",
         icon: Cctv,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        datasetId: SURVEILLANCE_CAMERAS_DATA_SET_ID,
+        fetchUrl: SURVEILLANCE_CAMERAS_DATA_SET.fetchUrl,
+      },
+      {
         label: "categories.traffic.dataSets.taxiStands.label",
         description: "categories.traffic.dataSets.taxiStands.description",
         icon: CarTaxiFront,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/c2a3ae87380b472d9b7e72f31cd296da_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        datasetId: TAXI_STANDS_DATA_SET_ID,
+        fetchUrl: TAXI_STANDS_DATA_SET.fetchUrl,
+      },
+      {
         label: "categories.traffic.dataSets.electricChargingStations.label",
         description:
           "categories.traffic.dataSets.electricChargingStations.description",
         icon: Cable,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/4a4fc728724b4d319c27a9f647a0bb62_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        datasetId: ELECTRIC_CHARGING_STATIONS_DATA_SET_ID,
+        fetchUrl: ELECTRIC_CHARGING_STATIONS_DATA_SET.fetchUrl,
+      },
+      {
         label: "categories.traffic.dataSets.zetTramStops.label",
         description: "categories.traffic.dataSets.zetTramStops.description",
         icon: TramFront,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/8f84d42e684141eaa7ceb26d9c9b8f5a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        datasetId: ZET_TRAM_STOPS_DATA_SET_ID,
+        fetchUrl: ZET_TRAM_STOPS_DATA_SET.fetchUrl,
+      },
+      {
         label: "categories.traffic.dataSets.gasStations.label",
         description: "categories.traffic.dataSets.gasStations.description",
         icon: Fuel,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/05fa1c92366e415c8ce813b9e28da8c5_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+        datasetId: GAS_STATIONS_DATA_SET_ID,
+        fetchUrl: GAS_STATIONS_DATA_SET.fetchUrl,
+      },
     ],
   },
   {

@@ -314,3 +314,46 @@ export type PublicBicycleParking = {
   MJESNI_ODBOR: string;
   GRADSKA_CETVRT: string;
 };
+
+export type PublicBicycleSystem = {
+  naziv: string;
+  lokacija: string;
+  broj_stalaka: number;
+};
+
+export type SurveillanceCamera = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  osnivac: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+};
+
+export type TaxiStand = {
+  lokacija: string;
+  nadlezan: string;
+};
+
+export type ElectricChargingStation = {
+  NAZIV: string;
+  ADRESA: string;
+  BROJ_UTICNICA: number;
+  TIP_UTICNICE: string;
+};
+
+export type ZetTramStop = {
+  Naziv_stajališta: string;
+  Linije: string;
+  Opis: string;
+  Napomena: string;
+};
+
+export type GasStation = {
+  NAZIV: string;
+  ADRESA: string;
+};

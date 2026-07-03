@@ -34,3 +34,10 @@ export const PEDESTRIAN_ZONES_DATA_SET_ID = "pedestrian-zones";
 export const RESERVED_PARKING_ZONES_DATA_SET_ID = "reserved-parking-zones";
 export const PUBLIC_GARAGES_DATA_SET_ID = "public-garages";
 export const PUBLIC_BICYCLE_PARKING_DATA_SET_ID = "public-bicycle-parking";
+export const PUBLIC_BICYCLE_SYSTEM_DATA_SET_ID = "public-bicycle-system";
+export const SURVEILLANCE_CAMERAS_DATA_SET_ID = "surveillance-cameras";
+export const TAXI_STANDS_DATA_SET_ID = "taxi-stands";
+export const ELECTRIC_CHARGING_STATIONS_DATA_SET_ID =
+  "electric-charging-stations";
+export const ZET_TRAM_STOPS_DATA_SET_ID = "zet-tram-stops";
+export const GAS_STATIONS_DATA_SET_ID = "gas-stations";

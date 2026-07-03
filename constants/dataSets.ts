@@ -4,7 +4,9 @@ import {
   CityDistrictOffice,
   CulturalInstitutionProperties,
   DataSetConfig,
+  ElectricChargingStation,
   ElementarySchoolProperties,
+  GasStation,
   HealthCareInstitution,
   HigherEducationInstitutionProperties,
   HighSchoolProperties,
@@ -14,6 +16,7 @@ import {
   OdmorkoProperties,
   OtherPublicInstitution,
   PublicBicycleParking,
+  PublicBicycleSystem,
   PublicGarage,
   PublicPlaygroundProperties,
   PupilDormProperties,
@@ -23,14 +26,19 @@ import {
   StateAdministrationBody,
   StudentDormProperties,
   StudentRestaurantProperties,
+  SurveillanceCamera,
+  TaxiStand,
   ZetBusStop,
+  ZetTramStop,
 } from "@/types";
 import {
   CAPITAL_INVESTMENTS_2023_DATA_SET_ID,
   CAPITAL_INVESTMENTS_2024_DATA_SET_ID,
   CITY_DISTRICT_OFFICES_DATA_SET_ID,
   CULTURAL_INSTITUTION_DATA_SET_ID,
+  ELECTRIC_CHARGING_STATIONS_DATA_SET_ID,
   ELEMENTARY_SCHOOL_DATA_SET_ID,
+  GAS_STATIONS_DATA_SET_ID,
   HEALTH_CARE_INSTITUTIONS_DATA_SET_ID,
   HIGH_SCHOOL_DATA_SET_ID,
   HIGHER_EDUCATION_INSTITUTION_DATA_SET_ID,
@@ -41,6 +49,7 @@ import {
   OTHER_PUBLIC_INSTITUTIONS_DATA_SET_ID,
   PEDESTRIAN_ZONES_DATA_SET_ID,
   PUBLIC_BICYCLE_PARKING_DATA_SET_ID,
+  PUBLIC_BICYCLE_SYSTEM_DATA_SET_ID,
   PUBLIC_GARAGES_DATA_SET_ID,
   PUBLIC_PLAYGROUND_DATA_SET_ID,
   PUPIL_DORM_DATA_SET_ID,
@@ -50,7 +59,10 @@ import {
   STATE_ADMINISTRATION_BODIES_DATA_SET_ID,
   STUDENT_DORM_DATA_SET_ID,
   STUDENT_RESTAURANT_DATA_SET_ID,
+  SURVEILLANCE_CAMERAS_DATA_SET_ID,
+  TAXI_STANDS_DATA_SET_ID,
   ZET_BUS_STOPS_DATA_SET_ID,
+  ZET_TRAM_STOPS_DATA_SET_ID,
 } from "./dataSetIds";
 
 export const STUDENT_RESTAURANT_DATA_SET: DataSetConfig<StudentRestaurantProperties> =
@@ -450,6 +462,79 @@ export const PUBLIC_BICYCLE_PARKING: DataSetConfig<PublicBicycleParking> = {
   }),
 };
 
+export const PUBLIC_BICYCLE_SYSTEM_DATA_SET: DataSetConfig<PublicBicycleSystem> =
+  {
+    id: PUBLIC_BICYCLE_SYSTEM_DATA_SET_ID,
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/95f8892f77eb45968b65469b9063f8b9_3/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.naziv,
+      details: [
+        { label: "Lokacija", value: feature.properties.lokacija },
+        { label: "Broj stalaka", value: feature.properties.broj_stalaka },
+      ],
+    }),
+  };
+
+export const SURVEILLANCE_CAMERAS_DATA_SET: DataSetConfig<SurveillanceCamera> =
+  {
+    id: SURVEILLANCE_CAMERAS_DATA_SET_ID,
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.naziv,
+      details: [{ label: "Adresa", value: feature.properties.adresa }],
+    }),
+  };
+
+export const TAXI_STANDS_DATA_SET: DataSetConfig<TaxiStand> = {
+  id: TAXI_STANDS_DATA_SET_ID,
+  fetchUrl:
+    "https://opendata.arcgis.com/api/v3/datasets/c2a3ae87380b472d9b7e72f31cd296da_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+  getDisplayData: (feature) => ({
+    title: feature.properties.lokacija,
+    details: [{ label: "Nadležan", value: feature.properties.nadlezan }],
+  }),
+};
+
+export const ELECTRIC_CHARGING_STATIONS_DATA_SET: DataSetConfig<ElectricChargingStation> =
+  {
+    id: ELECTRIC_CHARGING_STATIONS_DATA_SET_ID,
+    fetchUrl:
+      "https://opendata.arcgis.com/api/v3/datasets/4a4fc728724b4d319c27a9f647a0bb62_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+    getDisplayData: (feature) => ({
+      title: feature.properties.NAZIV,
+      details: [
+        { label: "Adresa", value: feature.properties.adresa },
+        { label: "Broj utičnica", value: feature.properties.BROJ_UTICNICA },
+        { label: "Tip utičnice", value: feature.properties.TIP_UTICNICE },
+      ],
+    }),
+  };
+export const ZET_TRAM_STOPS_DATA_SET: DataSetConfig<ZetTramStop> = {
+  id: ZET_TRAM_STOPS_DATA_SET_ID,
+  fetchUrl:
+    "https://opendata.arcgis.com/api/v3/datasets/8f84d42e684141eaa7ceb26d9c9b8f5a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+  getDisplayData: (feature) => ({
+    title: feature.properties.Naziv_stajališta,
+    details: [
+      { label: "Linije", value: feature.properties.Linije },
+      { label: "Opis", value: feature.properties.Opis },
+      { label: "Napomena", value: feature.properties.Napomena },
+    ],
+  }),
+};
+
+export const GAS_STATIONS_DATA_SET: DataSetConfig<GasStation> = {
+  id: GAS_STATIONS_DATA_SET_ID,
+  fetchUrl:
+    "https://opendata.arcgis.com/api/v3/datasets/05fa1c92366e415c8ce813b9e28da8c5_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+  getDisplayData: (feature) => ({
+    title: feature.properties.NAZIV,
+    details: [{ label: "Adresa", value: feature.properties.ADRESA }],
+  }),
+};
+
 const defineDataSetConfig = <TProperties>(
   config: DataSetConfig<TProperties>,
 ): AnyDataSetConfig => config as unknown as AnyDataSetConfig;
@@ -514,6 +599,18 @@ export const DATA_SET_CONFIGS = {
   [PUBLIC_BICYCLE_PARKING_DATA_SET_ID]: defineDataSetConfig(
     PUBLIC_BICYCLE_PARKING,
   ),
+  [PUBLIC_BICYCLE_SYSTEM_DATA_SET_ID]: defineDataSetConfig(
+    PUBLIC_BICYCLE_SYSTEM_DATA_SET,
+  ),
+  [SURVEILLANCE_CAMERAS_DATA_SET_ID]: defineDataSetConfig(
+    SURVEILLANCE_CAMERAS_DATA_SET,
+  ),
+  [TAXI_STANDS_DATA_SET_ID]: defineDataSetConfig(TAXI_STANDS_DATA_SET),
+  [ELECTRIC_CHARGING_STATIONS_DATA_SET_ID]: defineDataSetConfig(
+    ELECTRIC_CHARGING_STATIONS_DATA_SET,
+  ),
+  [ZET_TRAM_STOPS_DATA_SET_ID]: defineDataSetConfig(ZET_TRAM_STOPS_DATA_SET),
+  [GAS_STATIONS_DATA_SET_ID]: defineDataSetConfig(GAS_STATIONS_DATA_SET),
 } as const;
 
 export type DataSetId = keyof typeof DATA_SET_CONFIGS;
