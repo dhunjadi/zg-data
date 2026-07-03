@@ -58,7 +58,6 @@ export type DataSetConfig<TProperties> = {
 
 export type AnyDataSetConfig = {
   id: string;
-  label: string;
   fetchUrl: string;
   getDisplayData: (feature: Feature<Record<string, unknown>>) => DataSetDisplay;
 };

@@ -448,7 +448,7 @@ export const PUBLIC_GARAGES_DATA_SET: DataSetConfig<PublicGarage> = {
 };
 
 export const PUBLIC_BICYCLE_PARKING: DataSetConfig<PublicBicycleParking> = {
-  id: PUBLIC_GARAGES_DATA_SET_ID,
+  id: PUBLIC_BICYCLE_PARKING_DATA_SET_ID,
   fetchUrl:
     "https://opendata.arcgis.com/api/v3/datasets/04012b0e4968447c978a6ee494d76495_2/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
   getDisplayData: (feature) => ({
