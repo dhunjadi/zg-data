@@ -1,4 +1,4 @@
-import { getDataSetConfig } from "@/constants/dataSets";
+import { CATEGORIES } from "@/constants/categories";
 import { useFetchGeoJson } from "@/hooks/useFetchGeoJson";
 import {
   Feature,
@@ -32,9 +32,11 @@ const MapScreen = () => {
     fetchUrl?: string;
   }>();
 
-  const selectedDatasetId = Array.isArray(datasetId) ? datasetId[0] : datasetId;
-  const geoJsonUrl = Array.isArray(fetchUrl) ? fetchUrl[0] : fetchUrl;
-  const dataSet = getDataSetConfig(selectedDatasetId);
+  const flatDataSets = CATEGORIES.flatMap((category) =>
+    category.dataSets.map((dataSet) => dataSet),
+  );
+
+  const selectedDataSet = flatDataSets.find((set) => set.id === datasetId);
 
   const mapViewRef = useRef<MapView | null>(null);
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -45,7 +47,7 @@ const MapScreen = () => {
   > | null>(null);
 
   const { data: geoData } = useFetchGeoJson<Record<string, unknown>>(
-    dataSet?.fetchUrl ?? geoJsonUrl ?? "",
+    fetchUrl || "",
   );
 
   const visibleFeatures = useMemo(() => {
@@ -78,8 +80,8 @@ const MapScreen = () => {
   }, [geoData, region]);
 
   const selectedFeatureData =
-    selectedFeature && dataSet
-      ? dataSet.getDisplayData(selectedFeature)
+    selectedDataSet && selectedFeature
+      ? selectedDataSet.getDisplayData(selectedFeature)
       : undefined;
 
   const snapPoints = useMemo(() => ["25%", "50%", "70%"], []);
@@ -106,14 +108,6 @@ const MapScreen = () => {
         longitude: lng,
       })),
     );
-  };
-
-  const getPolygonZIndex = (feature: Feature<Record<string, unknown>>) => {
-    if (feature.properties.Naziv === "I. ZONA") return 30;
-    if (feature.properties.Naziv === "II. ZONA") return 20;
-    if (feature.properties.Naziv === "III. ZONA") return 10;
-
-    return 0;
   };
 
   return (

@@ -64,19 +64,19 @@ export type AnyDataSetConfig = {
 
 // Data specific properties
 
-export type StudentRestaurantProperties = {
+export type StudentRestaurant = {
   gc: string;
   izvor: string;
   izradio: string;
 };
 
-export type StudentDormProperties = {
+export type StudentDorm = {
   gc: string;
   izvor: string;
   izradio: string;
 };
 
-export type CulturalInstitutionProperties = {
+export type CulturalInstitution = {
   telefon: string;
   fax: string;
   radno_vrijeme: string;
@@ -85,7 +85,7 @@ export type CulturalInstitutionProperties = {
   ustanove: string;
 };
 
-export type ElementarySchoolProperties = {
+export type ElementarySchool = {
   telefon: string;
   fax: string;
   maticna_podrucna: string;
@@ -109,7 +109,7 @@ export type ElementarySchoolProperties = {
   GRAD_CETVRT: string;
 };
 
-export type OdmorkoProperties = {
+export type Odmorko = {
   lokacija: string;
   sport: string;
   tel: string;
@@ -125,7 +125,7 @@ export type OdmorkoProperties = {
   Školska_godina: string;
 };
 
-export type PublicPlaygroundProperties = {
+export type PublicPlayground = {
   rb: number;
   Gradska_cetvrt: string;
   Mjesni_odbor: string;
@@ -135,7 +135,7 @@ export type PublicPlaygroundProperties = {
   Izradio: string;
 };
 
-export type HigherEducationInstitutionProperties = {
+export type HigherEducationInstitution = {
   vrsta: string;
   telefon: string;
   fax: string;
@@ -144,7 +144,7 @@ export type HigherEducationInstitutionProperties = {
   sjediste: string;
 };
 
-export type SportFacilitiesProperties = {
+export type SportFacility = {
   telefon: string;
   fax: string;
   kategorija: string;
@@ -154,7 +154,7 @@ export type SportFacilitiesProperties = {
   opremljenost: string;
 };
 
-export type PupilDormProperties = {
+export type PupilDorm = {
   telefon: string;
   fax: string;
   vr_odg_us: string;
@@ -169,7 +169,7 @@ export type PupilDormProperties = {
   GRAD_CETVRT: string;
 };
 
-export type HighSchoolProperties = {
+export type HighSchool = {
   telefon: string;
   fax: string;
   vr_odg_us: string;
@@ -187,7 +187,7 @@ export type HighSchoolProperties = {
   GRAD_CETVRT: string;
 };
 
-export type CapitalInvestmentProperties = {
+export type CapitalInvestment = {
   Rb: string;
   Vrsta_objekta: string;
   Br_ekon_klas: number;
