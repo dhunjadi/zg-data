@@ -454,3 +454,36 @@ export type BrownFieldArea = {
   SHAPE_Length: number;
   SHAPE_Area: number;
 };
+
+// AGRICULTURE
+export type DometicAnimalKeepingBoundry = {
+  LAYER: string;
+  Nadlezan: string;
+  Izvor: string;
+  Izradio: string;
+  SHAPE_Length: number;
+  SHAPE_Area: number;
+};
+
+export type CityMarket = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  email: string;
+  web: string;
+  radno_vrijeme: string;
+  nadlezan: string;
+};
+
+export type SharedHuntingGround = {
+  STATUS: string;
+  Area_ha: number;
+  Naziv: string;
+};
+
+export type WildlifeProtectionProgram = {
+  Naziv: string;
+  Povrsina_ha: number;
+  SHAPE_Length: number;
+  SHAPE_Area: number;
+};

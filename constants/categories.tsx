@@ -3,10 +3,12 @@ import {
   Bike,
   Blocks,
   BookMarked,
+  BowArrow,
   Building,
   Bus,
   Cable,
   CarTaxiFront,
+  Cat,
   Cctv,
   Church,
   CookingPot,
@@ -23,6 +25,7 @@ import {
   LucideIcon,
   Microscope,
   PersonStanding,
+  Rabbit,
   Recycle,
   Road,
   Rose,
@@ -30,6 +33,7 @@ import {
   School,
   Sprout,
   SquareParking,
+  Store,
   TrainFront,
   TramFront,
   Trash2,
@@ -46,8 +50,10 @@ import {
   CapitalInvestment,
   CityDistrictOffice,
   CityGarden,
+  CityMarket,
   CulturalInstitution,
   DataSetDisplay,
+  DometicAnimalKeepingBoundry,
   DrinkingWaterFountain,
   ElectricChargingStation,
   Feature,
@@ -68,6 +74,7 @@ import {
   ReservedParkingZone,
   RomanCatholicParish,
   SemiUndergroundContainer,
+  SharedHuntingGround,
   SportFacility,
   StateAdministrationBody,
   StudentDorm,
@@ -75,6 +82,7 @@ import {
   SurveillanceCamera,
   TaxiStand,
   UndergroundContainer,
+  WildlifeProtectionProgram,
   ZetBusStop,
   ZetTramStop,
 } from "@/types";
@@ -722,14 +730,6 @@ export const CATEGORIES: Category[] = [
           ],
         }),
       }),
-      /* {
-        label: "categories.environment.dataSets.brownfieldAreas.label",
-        description:
-          "categories.environment.dataSets.brownfieldAreas.description",
-        icon: Blocks,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/6a86bf7404fe4cbc88a15ac86856da19_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
     ],
   },
   {
@@ -738,39 +738,76 @@ export const CATEGORIES: Category[] = [
     description: "Bibendum tristique congue maximus litora sem vulputate.",
     icon: Sprout,
     dataSets: [
-      /* {
+      dataSet({
         label:
           "categories.agriculture.dataSets.domesticAnimalKeepingBoundaries.label",
         description:
           "categories.agriculture.dataSets.domesticAnimalKeepingBoundaries.description",
         icon: Cat,
+        id: "domestic-animal-keeping-boundaries",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/7e93637c72ac4c278c69ad5260611c39_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<DometicAnimalKeepingBoundry>) => ({
+          title: "Granice dopuštenog držanja domaćih životinja",
+          details: [
+            { label: "Izvor", value: feature.properties.Izvor },
+            { label: "Izradio", value: feature.properties.Izradio },
+            { label: "Nadležan", value: feature.properties.Nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
         label: "categories.agriculture.dataSets.cityMarkets.label",
         description: "categories.agriculture.dataSets.cityMarkets.description",
         icon: Store,
+        id: "city-markets",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/55461536a14e46a69c81a0a67e56c53f_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<CityMarket>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Radno vrijeme", value: feature.properties.radno_vrijeme },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Web", value: feature.properties.web },
+            { label: "Email", value: feature.properties.email },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
         label: "categories.agriculture.dataSets.sharedHuntingGrounds.label",
         description:
           "categories.agriculture.dataSets.sharedHuntingGrounds.description",
         icon: BowArrow,
+        id: "shared-hunting-grounds",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/d87e492a5c994e04b47b1eaa7a06699d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<SharedHuntingGround>) => ({
+          title: feature.properties.Naziv,
+          details: [
+            { label: "Površina", value: feature.properties.Area_ha },
+            { label: "Status", value: feature.properties.STATUS },
+          ],
+        }),
+      }),
+
+      dataSet({
         label:
           "categories.agriculture.dataSets.wildlifeProtectionProgram.label",
         description:
           "categories.agriculture.dataSets.wildlifeProtectionProgram.description",
         icon: Rabbit,
+        id: "wildlife-protection-program",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/96a059b8909a4d70b81bbbae9d883a25_5/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+        getDisplayData: (feature: Feature<WildlifeProtectionProgram>) => ({
+          title: feature.properties.Naziv,
+          details: [
+            { label: "Površina", value: feature.properties.Povrsina_ha },
+          ],
+        }),
+      }),
     ],
   },
   {
