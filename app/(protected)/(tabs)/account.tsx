@@ -19,6 +19,7 @@ const AccountScreen = () => {
       await signOut(auth);
     } catch (error: unknown) {
       if (error instanceof FirebaseError) {
+        // eslint-disable-next-line no-console
         console.log(error);
         alert("Sign out failed: " + error.message);
       }

@@ -59,6 +59,7 @@ const LoginScreen = () => {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (error: unknown) {
       if (error instanceof FirebaseError) {
+        // eslint-disable-next-line no-console
         console.log(error.message);
         setIsLoginError(true);
       }
@@ -102,6 +103,7 @@ const LoginScreen = () => {
               onBlur={onBlur}
               autoCorrect={false}
               placeholderTextColor="#9ca3af"
+              // eslint-disable-next-line max-len
               className={`p-4 rounded-md text-base w-full mb-4 border text-neutral-700 ${!isLoginError && !errors.email ? "border-neutral-300" : "border-red-400"}`}
             />
           )}
@@ -127,6 +129,7 @@ const LoginScreen = () => {
               onBlur={onBlur}
               autoCorrect={false}
               placeholderTextColor="#9ca3af"
+              // eslint-disable-next-line max-len
               className={`p-4 rounded-md text-base w-full mb-4 border text-neutral-700 ${!isLoginError && !errors.password ? "border-neutral-300" : "border-red-400"}`}
             />
           )}

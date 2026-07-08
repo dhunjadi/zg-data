@@ -55,6 +55,7 @@ const SignUpScreen = () => {
       router.replace("/");
     } catch (error: unknown) {
       if (error instanceof FirebaseError) {
+        // eslint-disable-next-line no-console
         console.log(error.message);
         alert("Došlo je do pogreške!");
       }
@@ -87,6 +88,7 @@ const SignUpScreen = () => {
               onBlur={onBlur}
               autoCorrect={false}
               placeholderTextColor="#9ca3af"
+              // eslint-disable-next-line max-len
               className={`p-4 rounded-md text-base w-full mb-4 border text-neutral-700 ${!errors.email ? "border-neutral-300" : "border-red-400"}`}
             />
           )}
@@ -109,6 +111,7 @@ const SignUpScreen = () => {
               onBlur={onBlur}
               autoCorrect={false}
               placeholderTextColor="#9ca3af"
+              // eslint-disable-next-line max-len
               className={`p-4 rounded-md text-base w-full mb-4 border text-neutral-700 ${!errors.password ? "border-neutral-300" : "border-red-400"}`}
             />
           )}
