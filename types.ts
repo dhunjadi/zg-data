@@ -356,3 +356,101 @@ export type GasStation = {
   NAZIV: string;
   ADRESA: string;
 };
+
+// ENVIRONMENT
+export type SemiUndergroundContainer = {
+  adrese: string;
+  status: string;
+  JMS_IME: string;
+  JMS_IME_1: string;
+};
+
+export type UndergroundContainer = {
+  adrese: string;
+  status: string;
+  JMS_IME: string;
+  Spremnik: string;
+  JMS_IME_1: string;
+};
+
+export type DrinkingWaterFountain = {
+  naziv: string;
+  adresa: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+};
+
+export type CityGarden = {
+  naziv: string;
+  adresa: string;
+  grad_cetvrt: string;
+  telefon: string;
+  kontakt: string;
+  godina_otvaranja: string;
+  br_vr_parcela: number;
+  br_korisnika: number;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+  SHAPE_Length: number;
+  SHAPE_Area: number;
+};
+
+export type RecyclingYard = {
+  RBR: number;
+  VRSTA: string;
+  NAZIV: string;
+  ADRESA_LOK: string;
+  NAZIV_PUNI: string;
+  ADRESA: string;
+  TELEFON: string;
+  E_MAIL: string;
+  FAX: string;
+  WEB: string;
+  RADNO_VRIJ: string;
+  PAPIR: string;
+  PLASTIKA: string;
+  STAKLO: string;
+  METALNA_AM: string;
+  STARE_BATE?: string;
+  BIOOTPAD: string;
+  OTPAD_GUME: string;
+  OTPAD_MU: string;
+  GRADJ_OTPA: string;
+  ELEK_OTPAD: string;
+  OSTALO: string;
+  NAPOMENA: string;
+};
+
+export type AirQuality = {
+  naziv: string;
+  opis_lokac: string;
+  lokacija: string;
+  tip_podrucja: string;
+  tip_postaje: string;
+  visina_m: string;
+  dimenzija: string;
+  mjerne_tvari: string;
+  odgovorna_inst: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+};
+
+export type BrownFieldArea = {
+  Naziv: string;
+  Oznaka_planske_namjene: string;
+  Obveza_izrade_UPUa: string;
+  Nepokretna_kulturna_dobra: string;
+  Zastićeni_dijelovi_priroda: string;
+  Poveznica: string;
+  Obveza_provedbe_AUNa: string;
+  Prethodno_koristenje: string;
+  Privremeno_korištenje: string;
+  Vlasništvo: string;
+  Oznaka_na_karti: number;
+  Status_UPUa: null;
+  SHAPE_Length: number;
+  SHAPE_Area: number;
+};

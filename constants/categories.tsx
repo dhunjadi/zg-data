@@ -1,6 +1,7 @@
 import {
   Banknote,
   Bike,
+  Blocks,
   BookMarked,
   Building,
   Bus,
@@ -10,6 +11,7 @@ import {
   Church,
   CookingPot,
   Drama,
+  Droplet,
   Footprints,
   Fuel,
   Gavel,
@@ -21,24 +23,32 @@ import {
   LucideIcon,
   Microscope,
   PersonStanding,
+  Recycle,
   Road,
+  Rose,
   Rows4,
   School,
   Sprout,
   SquareParking,
   TrainFront,
   TramFront,
+  Trash2,
   TreePalm,
   TreePine,
   Volleyball,
   Wallet,
+  Wind,
 } from "lucide-react-native";
 
 import {
+  AirQuality,
+  BrownFieldArea,
   CapitalInvestment,
   CityDistrictOffice,
+  CityGarden,
   CulturalInstitution,
   DataSetDisplay,
+  DrinkingWaterFountain,
   ElectricChargingStation,
   Feature,
   GasStation,
@@ -54,14 +64,17 @@ import {
   PublicGarage,
   PublicPlayground,
   PupilDorm,
+  RecyclingYard,
   ReservedParkingZone,
   RomanCatholicParish,
+  SemiUndergroundContainer,
   SportFacility,
   StateAdministrationBody,
   StudentDorm,
   StudentRestaurant,
   SurveillanceCamera,
   TaxiStand,
+  UndergroundContainer,
   ZetBusStop,
   ZetTramStop,
 } from "@/types";
@@ -522,79 +535,193 @@ export const CATEGORIES: Category[] = [
       "Porttitor eleifend montes curabitur aptent risus ullamcorper.",
     icon: TreePine,
     dataSets: [
-      /* {
+      dataSet({
         label:
           "categories.environment.dataSets.semiUndergroundContainers.label",
         description:
           "categories.environment.dataSets.semiUndergroundContainers.description",
         icon: Trash2,
+        id: "semi-underground-containers",
         fetchUrl:
           "https://data.zagreb.hr/dataset/a48f972b-9639-4719-9470-9d398049dbf9/resource/c04a1f0c-ac8a-4156-ba1f-707b1564d2f8/download/data.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<SemiUndergroundContainer>) => ({
+          title: "Polupodzemni spremnici",
+          details: [
+            { label: "Adrese", value: feature.properties.adrese },
+            { label: "Gradska četvrt", value: feature.properties.JMS_IME },
+            { label: "Mjesni odbor", value: feature.properties.JMS_IME_1 },
+          ],
+        }),
+      }),
+      dataSet({
         label: "categories.environment.dataSets.undergroundContainers.label",
         description:
           "categories.environment.dataSets.undergroundContainers.description",
         icon: Trash2,
+        id: "underground-containers",
         fetchUrl:
           "https://data.zagreb.hr/dataset/1c02bf11-26a8-40dd-9a7d-0635dc065325/resource/980478d5-97a8-4b7d-8e92-f404bd0d3a24/download/data.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<UndergroundContainer>) => ({
+          title: feature.properties.Spremnik,
+          details: [
+            { label: "Gradska četvrt", value: feature.properties.JMS_IME_1 },
+            { label: "Mjesni odbor", value: feature.properties.JMS_IME },
+          ],
+        }),
+      }),
+      dataSet({
         label: "categories.environment.dataSets.drinkingWaterFountains.label",
         description:
           "categories.environment.dataSets.drinkingWaterFountains.description",
         icon: Droplet,
+        id: "drinking-water-fountains",
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/pitka_voda/FeatureServer/replicafilescache/pitka_voda_-1391343346496493938.geojson",
-      }, */
-      /* {
-        label:
-          "categories.environment.dataSets.topographicBaseVegetationLandTypes2018.label", // Check at geojson.io
-        description:
-          "categories.environment.dataSets.topographicBaseVegetationLandTypes2018.description",
-        icon: Map,
-        fetchUrl:
-          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Topografska_osnova_2018_Vegetacija_i_vrste_zemlji%C5%A1ta/FeatureServer/replicafilescache/Topografska_osnova_2018_Vegetacija_i_vrste_zemlji%C5%A1ta_-351063888473117085.geojson",
-      }, */
-      /* {
-        label:
-          "categories.environment.dataSets.topographicBaseWaters2018.label", // Check at geojson.io
-        description:
-          "categories.environment.dataSets.topographicBaseWaters2018.description",
-        icon: Map,
-        fetchUrl:
-          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Vodene_povrsine/FeatureServer/replicafilescache/Vodene_povrsine_-7160223387066445382.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<DrinkingWaterFountain>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
         label: "categories.environment.dataSets.cityGardens.label",
         description: "categories.environment.dataSets.cityGardens.description",
         icon: Rose,
+        id: "city-gardens",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/9858b1819a914c6ba0fedd0069f2d861_1/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
-        label: "categories.environment.dataSets.cityGardenPoints.label",
-        description:
-          "categories.environment.dataSets.cityGardenPoints.description",
-        icon: Rose,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/3df175d45719402fa2526013a897e43e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<CityGarden>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "Godina otvaranja",
+              value: feature.properties.godina_otvaranja,
+            },
+            { label: "Gradska četvrt", value: feature.properties.grad_cetvrt },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Kontakt", value: feature.properties.kontakt },
+            { label: "Broj korisnika", value: feature.properties.br_korisnika },
+          ],
+        }),
+      }),
+      dataSet({
         label: "categories.environment.dataSets.recyclingYards.label",
         description:
           "categories.environment.dataSets.recyclingYards.description",
         icon: Recycle,
+        id: "recycling-yards",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/249fa384ccf9481abf4fd2de73a822f5_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<RecyclingYard>) => ({
+          title: feature.properties.NAZIV,
+          details: [
+            { label: "Adresa", value: feature.properties.ADRESA },
+            { label: "Radno vrijeme", value: feature.properties.RADNO_VRIJ },
+            { label: "Telefon", value: feature.properties.TELEFON },
+            {
+              label: "Email",
+              value: feature.properties.E_MAIL,
+            },
+            { label: "Web", value: feature.properties.WEB },
+            { label: "Papir", value: feature.properties.PAPIR },
+            { label: "Plastika", value: feature.properties.PLASTIKA },
+            { label: "Staklo", value: feature.properties.STAKLO },
+            { label: "Metalna ambalaža", value: feature.properties.METALNA_AM },
+            { label: "Stare baterije", value: feature.properties.STARE_BATE },
+            { label: "Biootpad", value: feature.properties.BIOOTPAD },
+            { label: "Otpadne gume", value: feature.properties.OTPAD_GUME },
+            { label: "Otpad_mu", value: feature.properties.OTPAD_MU },
+            {
+              label: "Građevinski otpad",
+              value: feature.properties.GRADJ_OTPA,
+            },
+            {
+              label: "Elektronički otpad",
+              value: feature.properties.ELEK_OTPAD,
+            },
+            { label: "Ostalo", value: feature.properties.OSTALO },
+            { label: "Napomena", value: feature.properties.NAPOMENA },
+          ],
+        }),
+      }),
+
+      dataSet({
         label: "categories.environment.dataSets.airQuality.label",
         description: "categories.environment.dataSets.airQuality.description",
         icon: Wind,
+        id: "air-quality",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/ed9898e63ec94770a8fb37713c36f8ca_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+        getDisplayData: (feature: Feature<AirQuality>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Lokacija", value: feature.properties.lokacija },
+            { label: "Opis lokacije", value: feature.properties.opis_lokac },
+            { label: "Tip područja", value: feature.properties.tip_podrucja },
+            { label: "Tip postaje", value: feature.properties.tip_postaje },
+            { label: "Visina (m)", value: feature.properties.visina_m },
+            { label: "Dimenzije", value: feature.properties.dimenzija },
+            { label: "Mjerne tvari", value: feature.properties.mjerne_tvari },
+            {
+              label: "Odgovorna institucija",
+              value: feature.properties.odgovorna_inst,
+            },
+            { label: "Izvor", value: feature.properties.izvor },
+          ],
+        }),
+      }),
+
+      dataSet({
+        label: "categories.environment.dataSets.brownfieldAreas.label",
+        description:
+          "categories.environment.dataSets.brownfieldAreas.description",
+        icon: Blocks,
+        id: "brownfield-areas",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/6a86bf7404fe4cbc88a15ac86856da19_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        getDisplayData: (feature: Feature<BrownFieldArea>) => ({
+          title: feature.properties.Naziv,
+          details: [
+            {
+              label: "Oznaka planske namjene",
+              value: feature.properties.Oznaka_planske_namjene,
+            },
+            {
+              label: "Obveza izrade UPU-a",
+              value: feature.properties.Obveza_izrade_UPUa,
+            },
+            {
+              label: "Nepokretna kulturna dobra",
+              value: feature.properties.Nepokretna_kulturna_dobra,
+            },
+            {
+              label: "Zaštićeni dijelovi prirode",
+              value: feature.properties.Zastićeni_dijelovi_priroda,
+            },
+            {
+              label: "Obveza provedbe ANU-a",
+              value: feature.properties.Obveza_provedbe_AUNa,
+            },
+            {
+              label: "Prethodno korištenje",
+              value: feature.properties.Prethodno_koristenje,
+            },
+            {
+              label: "Privremeno korištenje",
+              value: feature.properties.Privremeno_korištenje,
+            },
+            {
+              label: "Status UPU-a",
+              value: feature.properties.Status_UPUa,
+            },
+            { label: "Vlasništvo", value: feature.properties.Vlasništvo },
+          ],
+        }),
+      }),
       /* {
         label: "categories.environment.dataSets.brownfieldAreas.label",
         description:
