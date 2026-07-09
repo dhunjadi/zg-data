@@ -493,3 +493,25 @@ export type WildlifeProtectionProgram = {
   SHAPE_Length: number;
   SHAPE_Area: number;
 };
+
+// JUDICIARY
+export type PoliceStation = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  web: string;
+  nadlezan: string;
+};
+
+export type Firefighter = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+  grad_cetv: string;
+};
