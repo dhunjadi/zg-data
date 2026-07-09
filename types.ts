@@ -3,6 +3,11 @@ export type PointGeometry = {
   coordinates: [number, number];
 };
 
+export type PolygonGeometry = {
+  type: "Polygon";
+  coordinates: number[][][];
+};
+
 export type MultiPolygonGeometry = {
   type: "MultiPolygon";
   coordinates: number[][][][];
@@ -14,6 +19,7 @@ export type MultiLineStringGeometry = {
 
 export type Geometry =
   | PointGeometry
+  | PolygonGeometry
   | MultiPolygonGeometry
   | MultiLineStringGeometry;
 

@@ -4,6 +4,7 @@ import {
   Feature,
   MultiLineStringGeometry,
   MultiPolygonGeometry,
+  PolygonGeometry,
 } from "@/types";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { useLocalSearchParams } from "expo-router";
@@ -86,6 +87,13 @@ const MapScreen = () => {
 
   const snapPoints = useMemo(() => ["25%", "50%", "70%"], []);
 
+  const polygonToCoordinates = (geometry: PolygonGeometry): LatLng[] => {
+    return geometry.coordinates[0].map(([lng, lat]) => ({
+      latitude: lat,
+      longitude: lng,
+    }));
+  };
+
   const multiPolygonToCoordinates = (
     geometry: MultiPolygonGeometry,
   ): LatLng[][] => {
@@ -137,6 +145,30 @@ const MapScreen = () => {
                     latitude: lat,
                     longitude: lng,
                   }}
+                  onPress={() => {
+                    setSelectedFeature(feature);
+                    bottomSheetRef.current?.snapToIndex(0);
+                  }}
+                />
+              );
+            }
+
+            if (feature.geometry.type === "Polygon") {
+              const coordinates = polygonToCoordinates(feature.geometry);
+              const isSelected = selectedFeature === feature;
+
+              return (
+                <Polygon
+                  key={`${key}`}
+                  coordinates={coordinates}
+                  fillColor={
+                    isSelected
+                      ? "rgba(0, 112, 187, 0.5)"
+                      : "rgba(0, 112, 187, 0.02)"
+                  }
+                  strokeColor="#005793"
+                  strokeWidth={2}
+                  tappable
                   onPress={() => {
                     setSelectedFeature(feature);
                     bottomSheetRef.current?.snapToIndex(0);
