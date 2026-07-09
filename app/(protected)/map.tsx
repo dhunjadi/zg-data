@@ -131,8 +131,11 @@ const MapScreen = () => {
         >
           {visibleFeatures.map((feature) => {
             // OBJECTID_1 --> Check Roman catholic parishes geojson
+            // FID --> Check Telecommunication Distribution Cabinets
             const key =
-              (feature.properties.OBJECTID || feature.properties.OBJECTID_1) ??
+              (feature.properties.OBJECTID ||
+                feature.properties.OBJECTID_1 ||
+                feature.properties.FID) ??
               feature.id;
 
             if (feature.geometry.type === "Point") {

@@ -13,6 +13,7 @@ import {
   Cctv,
   Church,
   CookingPot,
+  Cross,
   Drama,
   Droplet,
   FireExtinguisher,
@@ -45,6 +46,7 @@ import {
   Volleyball,
   Wallet,
   Wind,
+  Zap,
 } from "lucide-react-native";
 
 import {
@@ -62,6 +64,7 @@ import {
   Feature,
   Firefighter,
   GasStation,
+  HealthcareInstitution,
   HealthCareInstitution,
   HigherEducationInstitution,
   HighSchool,
@@ -69,7 +72,9 @@ import {
   LocalSelfGovernment,
   Odmorko,
   OtherPublicInstitution,
+  Pharmacy,
   PoliceStation,
+  PrimaryHealthCenter,
   PublicBicycleParking,
   PublicBicycleSystem,
   PublicGarage,
@@ -86,6 +91,7 @@ import {
   StudentRestaurant,
   SurveillanceCamera,
   TaxiStand,
+  TelecommunicationDistributionCabinet,
   UndergroundContainer,
   WildlifeProtectionProgram,
   ZetBusStop,
@@ -881,10 +887,10 @@ export const CATEGORIES: Category[] = [
     icon: Road,
     dataSets: [
       dataSet({
+        id: "zet-bus-stops",
+        icon: Bus,
         label: "categories.traffic.dataSets.zetBusStops.label",
         description: "categories.traffic.dataSets.zetBusStops.description",
-        icon: Bus,
-        id: "zet-bus-stops",
         fetchUrl:
           "https://data.zagreb.hr/dataset/cc7e45ae-4bad-4a07-bca2-25e82f1e082c/resource/3b12a182-afa3-4b07-833f-17d8bcf80ea9/download/data.geojson",
         getDisplayData: (feature: Feature<ZetBusStop>) => ({
@@ -898,10 +904,10 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
+        id: "hz-railway-stops",
+        icon: TrainFront,
         label: "categories.traffic.dataSets.hzRailwayStops.label",
         description: "categories.traffic.dataSets.hzRailwayStops.description",
-        icon: TrainFront,
-        id: "hz-railway-stops",
         fetchUrl:
           "https://data.zagreb.hr/dataset/d0886c88-cdc8-43fa-ac94-67a8d128d0c2/resource/af3dbe3e-68fd-4862-bb6a-e39790f76dce/download/data.geojson",
         getDisplayData: (feature: Feature<HzRailwayStop>) => ({
@@ -915,10 +921,10 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
+        id: "pedestrian-zones",
+        icon: Footprints,
         label: "categories.traffic.dataSets.pedestrianZone.label",
         description: "categories.traffic.dataSets.pedestrianZone.description",
-        icon: Footprints,
-        id: "pedestrian-zones",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3aabf37d1d8b497c970dcddc21ed9612_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: () => ({
@@ -927,11 +933,11 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
+        id: "reserved-parking-zones",
+        icon: SquareParking,
         label: "categories.traffic.dataSets.reservedParkingZones.label",
         description:
           "categories.traffic.dataSets.reservedParkingZones.description",
-        icon: SquareParking,
-        id: "reserved-parking-zones",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/04e3d79e90b04167a6efa8d277e5a482_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<ReservedParkingZone>) => ({
@@ -940,10 +946,10 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
+        id: "public-garages",
+        icon: Rows4,
         label: "categories.traffic.dataSets.publicGarages.label",
         description: "categories.traffic.dataSets.publicGarages.description",
-        icon: Rows4,
-        id: "public-garages",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3e3484aca5284b16b4a1c41bd6594711_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<PublicGarage>) => ({
@@ -973,11 +979,11 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
+        id: "public-bicycle-parking",
+        icon: SquareParking,
         label: "categories.traffic.dataSets.publicBicycleParking.label",
         description:
           "categories.traffic.dataSets.publicBicycleParking.description",
-        icon: SquareParking,
-        id: "public-bicycle-parking",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/04012b0e4968447c978a6ee494d76495_2/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<PublicBicycleParking>) => ({
@@ -991,11 +997,11 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
+        id: "public-bicycle-system",
+        icon: Bike,
         label: "categories.traffic.dataSets.publicBicycleSystem.label",
         description:
           "categories.traffic.dataSets.publicBicycleSystem.description",
-        icon: Bike,
-        id: "public-bicycle-system",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/95f8892f77eb45968b65469b9063f8b9_3/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<PublicBicycleSystem>) => ({
@@ -1007,10 +1013,10 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
+        id: "bicycle-lanes",
+        icon: Road,
         label: "categories.traffic.dataSets.bicycleLanes.label",
         description: "categories.traffic.dataSets.bicycleLanes.description",
-        icon: Road,
-        id: "bicycle-lanes",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/b10db2ae3a5b4e4b8dbee85a89d4b5b1_4/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: () => ({
@@ -1019,11 +1025,11 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
+        id: "surveillance-cameras",
+        icon: Cctv,
         label: "categories.traffic.dataSets.surveillanceCameras.label",
         description:
           "categories.traffic.dataSets.surveillanceCameras.description",
-        icon: Cctv,
-        id: "surveillance-cameras",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<SurveillanceCamera>) => ({
@@ -1032,10 +1038,10 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
+        id: "taxi-stands",
+        icon: CarTaxiFront,
         label: "categories.traffic.dataSets.taxiStands.label",
         description: "categories.traffic.dataSets.taxiStands.description",
-        icon: CarTaxiFront,
-        id: "taxi-stands",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/c2a3ae87380b472d9b7e72f31cd296da_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<TaxiStand>) => ({
@@ -1044,11 +1050,11 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
+        id: "electric-charging-stations",
+        icon: Cable,
         label: "categories.traffic.dataSets.electricChargingStations.label",
         description:
           "categories.traffic.dataSets.electricChargingStations.description",
-        icon: Cable,
-        id: "electric-charging-stations",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/4a4fc728724b4d319c27a9f647a0bb62_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<ElectricChargingStation>) => ({
@@ -1061,10 +1067,10 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
+        id: "zet-tram-stops",
+        icon: TramFront,
         label: "categories.traffic.dataSets.zetTramStops.label",
         description: "categories.traffic.dataSets.zetTramStops.description",
-        icon: TramFront,
-        id: "zet-tram-stops",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/8f84d42e684141eaa7ceb26d9c9b8f5a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<ZetTramStop>) => ({
@@ -1077,10 +1083,10 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
+        id: "gas-stations",
+        icon: Fuel,
         label: "categories.traffic.dataSets.gasStations.label",
         description: "categories.traffic.dataSets.gasStations.description",
-        icon: Fuel,
-        id: "gas-stations",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/05fa1c92366e415c8ce813b9e28da8c5_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<GasStation>) => ({
@@ -1294,29 +1300,81 @@ export const CATEGORIES: Category[] = [
     description: "Nascetur vehicula platea condimentum rutrum eros donec.",
     icon: HeartPulse,
     dataSets: [
-      /* {
+      dataSet({
+        id: "healthcare-institutions",
+        icon: Cross,
         label: "categories.health-care.dataSets.healthcareInstitutions.label",
         description:
           "categories.health-care.dataSets.healthcareInstitutions.description",
-        icon: Cross,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/fcadb80196684cc09f8c8a76852a4aa9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<HealthcareInstitution>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Email", value: feature.properties.email },
+            { label: "Web", value: feature.properties.web },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "primary-health-centers",
+        icon: Cross,
         label: "categories.health-care.dataSets.healthCenters.label",
         description:
           "categories.health-care.dataSets.healthCenters.description",
-        icon: Cross,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/ddc03fc26c6145e7a4a84b35a41d68d1_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<PrimaryHealthCenter>) => ({
+          title: feature.properties.Domovi_zdravlja_naziv,
+          details: [
+            {
+              label: "Adresa",
+              value: feature.properties.Domovi_zdravlja_adresa,
+            },
+            {
+              label: "Telefon",
+              value: feature.properties.Domovi_zdravlja_telefon,
+            },
+            { label: "Web", value: feature.properties.Domovi_zdravlja_web },
+            {
+              label: "Nadležan",
+              value: feature.properties.Domovi_zdravlja_nadlezan,
+            },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "pharmacies",
+        icon: Cross,
         label: "categories.health-care.dataSets.pharmacies.label",
         description: "categories.health-care.dataSets.pharmacies.description",
-        icon: Cross,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/861f84594b034965b4c0ac96cf4083b0_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+        getDisplayData: (feature: Feature<Pharmacy>) => ({
+          title: feature.properties.naziv,
+          details: [
+            {
+              label: "Adresa",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "Telefon",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "Email",
+              value: feature.properties.email,
+            },
+            { label: "Web", value: feature.properties.web },
+            {
+              label: "Nadležan",
+              value: feature.properties.nadlezan,
+            },
+          ],
+        }),
+      }),
     ],
   },
   {
@@ -1325,15 +1383,38 @@ export const CATEGORIES: Category[] = [
     description: "Sollicitudin feugiat penatibus tincidunt mauris.",
     icon: Microscope,
     dataSets: [
-      /* {
+      dataSet({
+        id: "telecommunication-distribution-cabinets",
+        icon: Zap,
         label:
           "categories.science.dataSets.telecommunicationDistributionCabinets.label",
         description:
           "categories.science.dataSets.telecommunicationDistributionCabinets.description",
-        icon: Zap,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/f72999526a9b4105b2af4f6f036a16fa_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+        getDisplayData: (
+          feature: Feature<TelecommunicationDistributionCabinet>,
+        ) => ({
+          title: feature.properties.Adresa,
+          details: [
+            { label: "Operater", value: feature.properties.Operater },
+            { label: "Tip ormara", value: feature.properties.Tip_ormara },
+            { label: "Dužina", value: feature.properties.Dužina },
+            { label: "Visina", value: feature.properties.Visina },
+            { label: "Širina", value: feature.properties.Širina },
+            { label: "Površina", value: feature.properties.Površina },
+            { label: "Tip površine", value: feature.properties.Tip_površine },
+            {
+              label: "Katastarska općina",
+              value: feature.properties.Katastarska_općina,
+            },
+            {
+              label: "Katastarska čestica",
+              value: feature.properties.Katastarska_čestica,
+            },
+          ],
+        }),
+      }),
     ],
   },
 ];

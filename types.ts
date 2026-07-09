@@ -31,6 +31,7 @@ export type BaseProperties = {
   email?: string;
   OBJECTID?: number;
   OBJECTID_1?: number; // Check Roman catholic parishes geojson
+  FID?: number; // Check Telecommunication Distribution Cabinets geojson
   GlobalID?: string;
 };
 
@@ -514,4 +515,53 @@ export type Firefighter = {
   izvor: string;
   izradio: string;
   grad_cetv: string;
+};
+
+// HEALTHCARE
+export type HealthcareInstitution = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+};
+
+export type PrimaryHealthCenter = {
+  Domovi_zdravlja_naziv: string;
+  Domovi_zdravlja_adresa: string;
+  Domovi_zdravlja_telefon: string;
+  Domovi_zdravlja_web: string;
+  Domovi_zdravlja_nadlezan: string;
+};
+
+export type Pharmacy = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  email: string;
+  web: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+};
+
+// SCIENCE
+export type TelecommunicationDistributionCabinet = {
+  Klasa_ZDG: string;
+  Klasa_GRAD: string;
+  Operater: string;
+  Tip_ormara: string;
+  Dužina: number;
+  Širina: number;
+  Visina: number;
+  Površina: number;
+  Adresa: string;
+  Katastarska_čestica: string;
+  Katastarska_općina: string;
+  Datum_izdavanja_suglasnosti: string;
+  Datum_rješenja: string;
+  Tip_površine: string;
+  Longitude: number;
+  Latitude: number;
 };
