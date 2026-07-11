@@ -31,7 +31,7 @@ const TabsLayout = () => {
         name="account"
         options={{
           title: t("tabs.account"),
-          headerShown: false,
+          headerShown: true,
           popToTopOnBlur: true,
           tabBarLabel: t("tabs.account"),
           tabBarIcon: ({ color, size }) => (

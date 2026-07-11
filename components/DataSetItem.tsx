@@ -15,6 +15,7 @@ type DataSetItemProps = {
   description: string;
   id?: string;
   fetchUrl?: string;
+  customClassName?: string;
 };
 
 const DataSetItem = ({
@@ -23,6 +24,7 @@ const DataSetItem = ({
   description,
   id,
   fetchUrl,
+  customClassName,
 }: DataSetItemProps) => {
   const handlePress = () => {
     if (!id && !fetchUrl) return;
@@ -34,8 +36,12 @@ const DataSetItem = ({
   };
 
   return (
-    <Pressable disabled={!id && !fetchUrl} onPress={handlePress}>
-      <Divider />
+    <Pressable
+      disabled={!id && !fetchUrl}
+      onPress={handlePress}
+      className={customClassName}
+    >
+      <Divider customClassName="my-6" />
       <Animated.View
         key="dataSetItem"
         entering={FadeInDown.duration(500)}

@@ -1,17 +1,15 @@
 import React from "react";
 import { Text, View } from "react-native";
-import Animated, { SlideInLeft } from "react-native-reanimated";
 
 type DividerProps = {
   text?: string;
+  customClassName?: string;
 };
 
-const Divider = ({ text }: DividerProps) => {
+const Divider = ({ text, customClassName }: DividerProps) => {
   return (
-    <Animated.View
-      key="divider"
-      entering={SlideInLeft.duration(500)}
-      className="flex-row items-center my-6 w-full"
+    <View
+      className={`flex-row items-center w-full ${customClassName ? customClassName : ""}`}
     >
       <View className="flex-1 h-[1px] bg-gray-300" />
 
@@ -27,7 +25,7 @@ const Divider = ({ text }: DividerProps) => {
       </View>
 
       <View className="flex-1 h-[1px] bg-gray-300" />
-    </Animated.View>
+    </View>
   );
 };
 

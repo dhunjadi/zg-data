@@ -6,7 +6,6 @@ import { LogOut } from "lucide-react-native";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Pressable, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const languages = ["hr", "en"];
 
@@ -27,7 +26,7 @@ const AccountScreen = () => {
   };
 
   return (
-    <SafeAreaView className="bg-white flex-1 p-4 gap-4">
+    <View className="bg-white flex-1 p-4 gap-4">
       <Divider text={t("screens.account.language")} />
       <View className="flex-row gap-2">
         {languages.map((lng) => (
@@ -62,7 +61,7 @@ const AccountScreen = () => {
         </Text>
         <LogOut color="white" />
       </Pressable>
-    </SafeAreaView>
+    </View>
   );
 };
 
