@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import {
   Accessibility,
+  Balloon,
   Banknote,
   Bike,
   Blocks,
@@ -86,6 +87,7 @@ import {
   HighSchool,
   HomelessInstitution,
   HzRailwayStop,
+  Kindergarten,
   LocalSelfGovernment,
   Odmorko,
   OtherPublicInstitution,
@@ -1398,6 +1400,32 @@ export const CATEGORIES: Category[] = [
           details: [
             { label: "Godina", value: feature.properties.godina },
             { label: "Gradska četvrt", value: feature.properties.IME_GC },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "kindergartens",
+        icon: Balloon,
+        label: "categories.society.dataSets.kindergartens.label",
+        description: "categories.society.dataSets.kindergartens.description",
+        fetchUrl:
+          "https://opendata.arcgis.com/api/v3/datasets/49bb07d4efc34bd5bacc1d330dc28a07_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        getDisplayData: (feature: Feature<Kindergarten>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Gradska četvrt", value: feature.properties.grad_cetvr },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Email", value: feature.properties.email },
+            { label: "Web", value: feature.properties.web },
+            { label: "Vrsta", value: feature.properties.vr_vrtica },
+            { label: "Tip", value: feature.properties.tip_vrtica },
+            { label: "Građevina", value: feature.properties.gradjevina },
+            { label: "Kuhinja", value: feature.properties.kuhinja },
+            { label: "Dvorana", value: feature.properties.dvorana },
+            { label: "Vdi", value: feature.properties.vdi },
+            { label: "Strani jezik", value: feature.properties.strani_jez },
             { label: "Nadležan", value: feature.properties.nadlezan },
           ],
         }),

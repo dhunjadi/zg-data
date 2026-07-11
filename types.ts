@@ -680,6 +680,24 @@ export type FreeWifiNetwork = {
   Shape_Leng: number;
 };
 
+export type Kindergarten = {
+  naziv: string;
+  adresa: string;
+  grad_cetvr: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  vr_vrtica: string;
+  tip_vrtica: string;
+  nadlezan: string;
+  gradjevina: string;
+  kuhinja: string;
+  dvorana: string;
+  vdi: string;
+  strani_jez: string;
+};
+
 export type PublicDogArea = {
   Rb: number;
   Lokacija: string;
