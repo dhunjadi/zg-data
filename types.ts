@@ -71,6 +71,7 @@ export type AnyDataSetConfig = {
 
 // Data specific properties
 
+//EDUCATION
 export type StudentRestaurant = {
   gc: string;
   izvor: string;
@@ -194,6 +195,7 @@ export type HighSchool = {
   GRAD_CETVRT: string;
 };
 
+// ECONOMY
 export type CapitalInvestment = {
   Rb: string;
   Vrsta_objekta: string;
@@ -205,6 +207,7 @@ export type CapitalInvestment = {
   Broj: number;
 };
 
+// PUBLIC SECTOR
 export type OtherPublicInstitution = {
   naziv: string;
   adresa: string;
@@ -267,235 +270,12 @@ export type StateAdministrationBody = {
   adresa: string;
 };
 
-// TRAFFIC
-export type ZetBusStop = {
-  Opis: string;
-  Linije: string;
-  Displej: string;
-  Nadstresnica: string;
-  Naziv_stajališta: string;
-};
-
-export type HzRailwayStop = {
-  Opis: string;
-  Naziv: string;
-  Peron: string;
-  Sifra: number;
-  Vrsta: string;
-  Stacionaza: string;
-};
-
-export type ReservedParkingZone = {
-  Naziv: string;
-  Opis: string;
-};
-
-export type PublicGarage = {
-  naziv: string;
-  adresa: string;
-  telefon: string;
-  kapacitet: number;
-  invalidska_mj: number;
-  punionica_za_EV: number;
-  mj_za_hibrid_voz: number;
-  parkiraliste_za_bic: number;
-  obiteljska_mj: number;
-  br_etaza: number;
-  uk_povr_m2: number;
-  preuzete_garaze_god: string;
-  korisnici: string;
-  vlasnistvo: string;
-  nadlezan: string;
-  izvor: string;
-  izradio: string;
-};
-
-export type PublicBicycleParking = {
-  vrsta: string;
-  naziv: string;
-  lokacija: string;
-  broj_stalaka: number;
-  broj_bicikala: number;
-  godina_postavljanja: number;
-  MJESNI_ODBOR: string;
-  GRADSKA_CETVRT: string;
-};
-
-export type PublicBicycleSystem = {
-  naziv: string;
-  lokacija: string;
-  broj_stalaka: number;
-};
-
-export type SurveillanceCamera = {
-  naziv: string;
-  adresa: string;
-  telefon: string;
-  fax: string;
-  email: string;
-  web: string;
-  osnivac: string;
-  nadlezan: string;
-  izvor: string;
-  izradio: string;
-};
-
-export type TaxiStand = {
-  lokacija: string;
-  nadlezan: string;
-};
-
-export type ElectricChargingStation = {
-  NAZIV: string;
-  ADRESA: string;
-  BROJ_UTICNICA: number;
-  TIP_UTICNICE: string;
-};
-
-export type ZetTramStop = {
-  Naziv_stajališta: string;
-  Linije: string;
-  Opis: string;
-  Napomena: string;
-};
-
-export type GasStation = {
-  NAZIV: string;
-  ADRESA: string;
-};
-
-// SOCIETY
-export type PublicWell = {
-  ki_vrsta: string;
-  lokacija: string;
-  naziv_gc: string;
-  odrzava_ki: string;
-  tip_zdenca: string;
-  upravitelj: string;
-  status_odrz: string;
-  aktivan_da_ne: string;
-  napomena_teren: string;
-};
-
 // ENVIRONMENT
 export type SemiUndergroundContainer = {
   adrese: string;
   status: string;
   JMS_IME: string;
   JMS_IME_1: string;
-};
-
-export type ChildrenHome = {
-  gc: string;
-  web: string;
-  email: string;
-  izvor: string;
-  naziv: string;
-  vrsta: string;
-  adresa: string;
-  izradio: string;
-  nadlezan: string;
-  podruznica: string;
-};
-
-export type Disabilityinstitution = {
-  naziv: string;
-  vrsta: string;
-  adresa: string;
-  telefon: string;
-  fax: string;
-  email: string;
-  web: string;
-  podruznica: string;
-  nadlezan: string;
-};
-
-export type CivilProtectionAssemblyPoint = {
-  gradska_ce: string;
-  zboriste: string;
-};
-
-export type EvacuationArea = {
-  NAZIV: string;
-  Tip: string;
-  G_cetvrt: string;
-  Povrsina_ha: number;
-};
-
-export type CroatianInstituteForSocialWork = {
-  naziv: string;
-  adresa: string;
-  telefon: string;
-  fax: string;
-  email: string;
-  web: string;
-  podr_nadleznosti: string;
-  osnivac: string;
-  nadlezan: string;
-  izvor: string;
-  izradio: string;
-  IME_GC: string;
-};
-
-export type SocialProtectionInstitution = {
-  naziv: string;
-  adresa: string;
-  telefon: string;
-  fax: string;
-  email: string;
-  web: string;
-  osnivac: string;
-  nadlezan: string;
-  izvor: string;
-  izradio: string;
-};
-
-export type OtherSocialWelfareActivitiy = {
-  naziv: string;
-  vrsta: string;
-  adresa: string;
-  telefon: string;
-  fax: string;
-  email: string;
-  web: string;
-  kapacitet: string;
-  podruznica: string;
-  osnivac: string;
-  nadlezan: string;
-  izvor: string;
-  izradio: string;
-  gradska_cetvrt: string;
-};
-
-export type VeteransInstitution = {
-  NAZIV: string;
-  VRSTA: string;
-  ADRESA: string;
-  TELEFON: string;
-  FAX: string;
-  EMAIL: string;
-  WEB: string;
-  NADLEZAN: string;
-  IZVOR: string;
-  IZRADIO: string;
-  gradska_cetvrt: string;
-  OSNIVAC: string;
-};
-
-export type HomelessInstitution = {
-  naziv: string;
-  vrsta: string;
-  adresa: string;
-  telefon: string;
-  fax: string;
-  email: string;
-  web: string;
-  kapacitet: number;
-  podruznica: string;
-  vlasnistvo: string;
-  nadlezan: string;
-  izvor: string;
-  izradio: string;
 };
 
 export type UndergroundContainer = {
@@ -641,6 +421,298 @@ export type Firefighter = {
   izvor: string;
   izradio: string;
   grad_cetv: string;
+};
+
+// TRAFFIC
+export type ZetBusStop = {
+  Opis: string;
+  Linije: string;
+  Displej: string;
+  Nadstresnica: string;
+  Naziv_stajališta: string;
+};
+
+export type HzRailwayStop = {
+  Opis: string;
+  Naziv: string;
+  Peron: string;
+  Sifra: number;
+  Vrsta: string;
+  Stacionaza: string;
+};
+
+export type ReservedParkingZone = {
+  Naziv: string;
+  Opis: string;
+};
+
+export type PublicGarage = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  kapacitet: number;
+  invalidska_mj: number;
+  punionica_za_EV: number;
+  mj_za_hibrid_voz: number;
+  parkiraliste_za_bic: number;
+  obiteljska_mj: number;
+  br_etaza: number;
+  uk_povr_m2: number;
+  preuzete_garaze_god: string;
+  korisnici: string;
+  vlasnistvo: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+};
+
+export type PublicBicycleParking = {
+  vrsta: string;
+  naziv: string;
+  lokacija: string;
+  broj_stalaka: number;
+  broj_bicikala: number;
+  godina_postavljanja: number;
+  MJESNI_ODBOR: string;
+  GRADSKA_CETVRT: string;
+};
+
+export type PublicBicycleSystem = {
+  naziv: string;
+  lokacija: string;
+  broj_stalaka: number;
+};
+
+export type SurveillanceCamera = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  osnivac: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+};
+
+export type TaxiStand = {
+  lokacija: string;
+  nadlezan: string;
+};
+
+export type ElectricChargingStation = {
+  NAZIV: string;
+  ADRESA: string;
+  BROJ_UTICNICA: number;
+  TIP_UTICNICE: string;
+};
+
+export type ZetTramStop = {
+  Naziv_stajališta: string;
+  Linije: string;
+  Opis: string;
+  Napomena: string;
+};
+
+export type GasStation = {
+  NAZIV: string;
+  ADRESA: string;
+};
+
+// SOCIETY
+export type PublicWell = {
+  ki_vrsta: string;
+  lokacija: string;
+  naziv_gc: string;
+  odrzava_ki: string;
+  tip_zdenca: string;
+  upravitelj: string;
+  status_odrz: string;
+  aktivan_da_ne: string;
+  napomena_teren: string;
+};
+
+export type ChildrenHome = {
+  gc: string;
+  web: string;
+  email: string;
+  izvor: string;
+  naziv: string;
+  vrsta: string;
+  adresa: string;
+  izradio: string;
+  nadlezan: string;
+  podruznica: string;
+};
+
+export type Disabilityinstitution = {
+  naziv: string;
+  vrsta: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  podruznica: string;
+  nadlezan: string;
+};
+
+export type CivilProtectionAssemblyPoint = {
+  gradska_ce: string;
+  zboriste: string;
+};
+
+export type EvacuationArea = {
+  NAZIV: string;
+  Tip: string;
+  G_cetvrt: string;
+  Povrsina_ha: number;
+};
+
+export type CroatianInstituteForSocialWork = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  podr_nadleznosti: string;
+  osnivac: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+  IME_GC: string;
+};
+
+export type SocialProtectionInstitution = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  osnivac: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+};
+
+export type OtherSocialWelfareActivitiy = {
+  naziv: string;
+  vrsta: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  kapacitet: string;
+  podruznica: string;
+  osnivac: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+  gradska_cetvrt: string;
+};
+
+export type VeteransInstitution = {
+  NAZIV: string;
+  VRSTA: string;
+  ADRESA: string;
+  TELEFON: string;
+  FAX: string;
+  EMAIL: string;
+  WEB: string;
+  NADLEZAN: string;
+  IZVOR: string;
+  IZRADIO: string;
+  gradska_cetvrt: string;
+  OSNIVAC: string;
+};
+
+export type HomelessInstitution = {
+  naziv: string;
+  vrsta: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  kapacitet: number;
+  podruznica: string;
+  vlasnistvo: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+};
+
+export type ElderlyHome = {
+  naziv: string;
+  vrsta: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  kapacitet: number;
+  podruznica: string;
+  nadlezan: string;
+  gradska_cetvrt: string;
+  osnivac: string;
+};
+
+export type PublicToilet = {
+  naziv: string;
+  adresa: string;
+  naplata: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+};
+
+export type FreeWifiNetwork = {
+  Lokacija: string;
+  godina: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+  IME_GC: string;
+  Shape_Leng: number;
+};
+
+export type PublicDogArea = {
+  Rb: number;
+  Lokacija: string;
+  Nadlezan: string;
+  Izvor: string;
+  Izradio: string;
+  Vrsta: string;
+  RbGC: number;
+  GC: string;
+};
+
+export type CompetentInstitution = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  osnivac: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+};
+
+export type ReligiousCommunity = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  email: string;
+  web: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
 };
 
 // HEALTHCARE

@@ -15,6 +15,7 @@ import {
   Church,
   CookingPot,
   Cross,
+  Dog,
   Drama,
   Droplet,
   FireExtinguisher,
@@ -25,6 +26,7 @@ import {
   HeartPulse,
   Hospital,
   Hotel,
+  House,
   HouseHeart,
   Landmark,
   LucideIcon,
@@ -42,6 +44,7 @@ import {
   Sprout,
   SquareParking,
   Store,
+  Toilet,
   TrainFront,
   TramFront,
   Trash2,
@@ -49,6 +52,7 @@ import {
   TreePine,
   Volleyball,
   Wallet,
+  Wifi,
   Wind,
   Zap,
 } from "lucide-react-native";
@@ -62,16 +66,19 @@ import {
   CityGarden,
   CityMarket,
   CivilProtectionAssemblyPoint,
+  CompetentInstitution,
   CroatianInstituteForSocialWork,
   CulturalInstitution,
   DataSetDisplay,
   Disabilityinstitution,
   DometicAnimalKeepingBoundry,
   DrinkingWaterFountain,
+  ElderlyHome,
   ElectricChargingStation,
   EvacuationArea,
   Feature,
   Firefighter,
+  FreeWifiNetwork,
   GasStation,
   HealthcareInstitution,
   HealthCareInstitution,
@@ -88,11 +95,14 @@ import {
   PrimaryHealthCenter,
   PublicBicycleParking,
   PublicBicycleSystem,
+  PublicDogArea,
   PublicGarage,
   PublicPlayground,
+  PublicToilet,
   PublicWell,
   PupilDorm,
   RecyclingYard,
+  ReligiousCommunity,
   ReservedParkingZone,
   RomanCatholicParish,
   SemiUndergroundContainer,
@@ -1335,35 +1345,65 @@ export const CATEGORIES: Category[] = [
           ],
         }),
       }),
-      /* {
-        label: "categories.society.dataSets.homelessInstitutions.label",
-        description:
-          "categories.society.dataSets.homelessInstitutions.description",
-        icon: Landmark,
-        fetchUrl:
-          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanova_za_beskucnike/FeatureServer/replicafilescache/Geoportal_ustanova_za_beskucnike_-235981892016937521.geojson",
-      }, */
-      /* {
+      dataSet({
+        id: "elderly-homes",
+        icon: House,
         label: "categories.society.dataSets.elderlyHomes.label",
         description: "categories.society.dataSets.elderlyHomes.description",
-        icon: House,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_domovi_za_starije_osobe/FeatureServer/replicafilescache/Geoportal_domovi_za_starije_osobe_8327597670917525104.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<ElderlyHome>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Vrsta", value: feature.properties.vrsta },
+            {
+              label: "Kapacitet",
+              value: feature.properties.kapacitet,
+            },
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Email", value: feature.properties.email },
+            { label: "Web", value: feature.properties.web },
+            { label: "Podružnica", value: feature.properties.podruznica },
+            { label: "Osnivač", value: feature.properties.osnivac },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "public-toilets",
+        icon: Toilet,
         label: "categories.society.dataSets.publicToilets.label",
         description: "categories.society.dataSets.publicToilets.description",
-        icon: Toilet,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/javni_wc/FeatureServer/replicafilescache/javni_wc_-4667436749754589776.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<PublicToilet>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Naplata", value: feature.properties.naplata },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "free-wifi-network",
+        icon: Wifi,
         label: "categories.society.dataSets.freeWifiNetwork.label",
         description: "categories.society.dataSets.freeWifiNetwork.description",
-        icon: Wifi,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/59efced0d006469fa858ab07764735b0_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+        getDisplayData: (feature: Feature<FreeWifiNetwork>) => ({
+          title: feature.properties.Lokacija,
+          details: [
+            { label: "Godina", value: feature.properties.godina },
+            { label: "Gradska četvrt", value: feature.properties.IME_GC },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+
+      //Missing geoJSON
       /* {
         label: "categories.society.dataSets.kindergartens.label",
         description: "categories.society.dataSets.kindergartens.description",
@@ -1371,89 +1411,179 @@ export const CATEGORIES: Category[] = [
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/49bb07d4efc34bd5bacc1d330dc28a07_0/downloads/data?format=fgdb&spatialRefId=4326&where=1%3D1",
       }, */
-      /* {
-        label: "categories.society.dataSets.cityGardens.label",
-        description: "categories.society.dataSets.cityGardens.description",
+      dataSet({
+        id: "city-gardens-society",
         icon: Rose,
+        label: "categories.environment.dataSets.cityGardens.label",
+        description: "categories.environment.dataSets.cityGardens.description",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/9858b1819a914c6ba0fedd0069f2d861_1/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
-        label: "categories.society.dataSets.cityDistrictOffices.label",
-        description:
-          "categories.society.dataSets.cityDistrictOffices.description",
+        getDisplayData: (feature: Feature<CityGarden>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "Godina otvaranja",
+              value: feature.properties.godina_otvaranja,
+            },
+            { label: "Gradska četvrt", value: feature.properties.grad_cetvrt },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Kontakt", value: feature.properties.kontakt },
+            { label: "Broj korisnika", value: feature.properties.br_korisnika },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "city-district-offices-society",
         icon: Landmark,
+        label: "categories.public-sector.dataSets.cityDistrictOffices.label",
+        description:
+          "categories.public-sector.dataSets.cityDistrictOffices.description",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3cabb747881e44b39b561626dcd8b89a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
-        label: "categories.society.dataSets.romanCatholicParishes.label",
-        description:
-          "categories.society.dataSets.romanCatholicParishes.description",
+        getDisplayData: (feature: Feature<CityDistrictOffice>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Sjedište", value: feature.properties.sjediste },
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Email", value: feature.properties.email },
+            { label: "Web", value: feature.properties.web },
+            {
+              label: "Primanje stranaka",
+              value: feature.properties.primanje_stranaka,
+            },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "roman-catholic-parishes-society",
         icon: Church,
+        label: "categories.public-sector.dataSets.romanCatholicParishes.label",
+        description:
+          "categories.public-sector.dataSets.romanCatholicParishes.description",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/97dd39a14cdf4ce38bc3cb8ef484728a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
-        label: "categories.society.dataSets.cityMarkets.label",
-        description: "categories.society.dataSets.cityMarkets.description",
+        getDisplayData: (feature: Feature<RomanCatholicParish>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Email", value: feature.properties.email },
+            { label: "Web", value: feature.properties.web },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "city-markets-society",
         icon: Store,
+        label: "categories.agriculture.dataSets.cityMarkets.label",
+        description: "categories.agriculture.dataSets.cityMarkets.description",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/55461536a14e46a69c81a0a67e56c53f_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
-        label: "categories.society.dataSets.cityGardenPoints.label",
-        description: "categories.society.dataSets.cityGardenPoints.description",
-        icon: Rose,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/3df175d45719402fa2526013a897e43e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
-        label: "categories.society.dataSets.capitalInvestments2023.label",
-        description:
-          "categories.society.dataSets.capitalInvestments2023.description",
-        icon: Banknote,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/e898521c36224b05b7bc0778632cd91d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<CityMarket>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Radno vrijeme", value: feature.properties.radno_vrijeme },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Web", value: feature.properties.web },
+            { label: "Email", value: feature.properties.email },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "public-dog-areas",
+        icon: Dog,
         label: "categories.society.dataSets.publicDogAreas.label",
         description: "categories.society.dataSets.publicDogAreas.description",
-        icon: Dog,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/78e1786ccdd544cfb8465b73051f22c9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
-        label: "categories.society.dataSets.publicSportsPlaygrounds.label",
-        description:
-          "categories.society.dataSets.publicSportsPlaygrounds.description",
+        getDisplayData: (feature: Feature<PublicDogArea>) => ({
+          title: "Javna površina za pse",
+          details: [
+            { label: "Lokacija", value: feature.properties.Lokacija },
+            { label: "Gradska četvrt", value: feature.properties.GC },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "public-playground-society",
         icon: Volleyball,
+        label: "categories.education.dataSets.publicSportsPlaygrounds.label",
+        description:
+          "categories.education.dataSets.publicSportsPlaygrounds.description",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/8e2abb22194b4595965d2056f31ff66e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<PublicPlayground>) => ({
+          title: feature.properties.lokacija,
+          details: [
+            { label: "Vrsta", value: feature.properties.Vrsta_objekta },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "competent-institution",
+        icon: Landmark,
         label: "categories.society.dataSets.competentInstitution.label",
         description:
           "categories.society.dataSets.competentInstitution.description",
-        icon: Landmark,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<CompetentInstitution>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Email", value: feature.properties.email },
+            { label: "Web", value: feature.properties.web },
+            { label: "Osnivač", value: feature.properties.osnivac },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "religious-communities",
+        icon: Church,
         label: "categories.society.dataSets.religiousCommunities.label",
         description:
           "categories.society.dataSets.religiousCommunities.description",
-        icon: Church,
         fetchUrl:
-          "hhttps://opendata.arcgis.com/api/v3/datasets/26e9553b2fb34513ac2f8e4468d6b652_0/downloads/data?format=shp&spatialRefId=4326&where=1%3D1",
-      }, */
-      /* {
-        label: "categories.society.dataSets.firefighters.label",
-        description: "categories.society.dataSets.firefighters.description",
+          "https://opendata.arcgis.com/api/v3/datasets/26e9553b2fb34513ac2f8e4468d6b652_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+        getDisplayData: (feature: Feature<ReligiousCommunity>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Email", value: feature.properties.email },
+            { label: "Web", value: feature.properties.web },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "firefighters-society",
         icon: FireExtinguisher,
+        label: "categories.judiciary.dataSets.firefighters.label",
+        description: "categories.judiciary.dataSets.firefighters.description",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/11ac9ebf240e4d2382ef7fd0b16ef9ac_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-      }, */
+        getDisplayData: (feature: Feature<Firefighter>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Gradska četvrt", value: feature.properties.grad_cetv },
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Email", value: feature.properties.email },
+            { label: "Web", value: feature.properties.web },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+            { label: "Izvor", value: feature.properties.izvor },
+          ],
+        }),
+      }),
     ],
   },
   {
