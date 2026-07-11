@@ -364,12 +364,138 @@ export type GasStation = {
   ADRESA: string;
 };
 
+// SOCIETY
+export type PublicWell = {
+  ki_vrsta: string;
+  lokacija: string;
+  naziv_gc: string;
+  odrzava_ki: string;
+  tip_zdenca: string;
+  upravitelj: string;
+  status_odrz: string;
+  aktivan_da_ne: string;
+  napomena_teren: string;
+};
+
 // ENVIRONMENT
 export type SemiUndergroundContainer = {
   adrese: string;
   status: string;
   JMS_IME: string;
   JMS_IME_1: string;
+};
+
+export type ChildrenHome = {
+  gc: string;
+  web: string;
+  email: string;
+  izvor: string;
+  naziv: string;
+  vrsta: string;
+  adresa: string;
+  izradio: string;
+  nadlezan: string;
+  podruznica: string;
+};
+
+export type Disabilityinstitution = {
+  naziv: string;
+  vrsta: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  podruznica: string;
+  nadlezan: string;
+};
+
+export type CivilProtectionAssemblyPoint = {
+  gradska_ce: string;
+  zboriste: string;
+};
+
+export type EvacuationArea = {
+  NAZIV: string;
+  Tip: string;
+  G_cetvrt: string;
+  Povrsina_ha: number;
+};
+
+export type CroatianInstituteForSocialWork = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  podr_nadleznosti: string;
+  osnivac: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+  IME_GC: string;
+};
+
+export type SocialProtectionInstitution = {
+  naziv: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  osnivac: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+};
+
+export type OtherSocialWelfareActivitiy = {
+  naziv: string;
+  vrsta: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  kapacitet: string;
+  podruznica: string;
+  osnivac: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
+  gradska_cetvrt: string;
+};
+
+export type VeteransInstitution = {
+  NAZIV: string;
+  VRSTA: string;
+  ADRESA: string;
+  TELEFON: string;
+  FAX: string;
+  EMAIL: string;
+  WEB: string;
+  NADLEZAN: string;
+  IZVOR: string;
+  IZRADIO: string;
+  gradska_cetvrt: string;
+  OSNIVAC: string;
+};
+
+export type HomelessInstitution = {
+  naziv: string;
+  vrsta: string;
+  adresa: string;
+  telefon: string;
+  fax: string;
+  email: string;
+  web: string;
+  kapacitet: number;
+  podruznica: string;
+  vlasnistvo: string;
+  nadlezan: string;
+  izvor: string;
+  izradio: string;
 };
 
 export type UndergroundContainer = {

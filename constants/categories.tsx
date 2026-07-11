@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import {
+  Accessibility,
   Banknote,
   Bike,
   Blocks,
@@ -24,8 +25,10 @@ import {
   HeartPulse,
   Hospital,
   Hotel,
+  HouseHeart,
   Landmark,
   LucideIcon,
+  Map,
   Microscope,
   PersonStanding,
   Rabbit,
@@ -34,6 +37,7 @@ import {
   Rose,
   Rows4,
   School,
+  Shield,
   Siren,
   Sprout,
   SquareParking,
@@ -53,14 +57,19 @@ import {
   AirQuality,
   BrownFieldArea,
   CapitalInvestment,
+  ChildrenHome,
   CityDistrictOffice,
   CityGarden,
   CityMarket,
+  CivilProtectionAssemblyPoint,
+  CroatianInstituteForSocialWork,
   CulturalInstitution,
   DataSetDisplay,
+  Disabilityinstitution,
   DometicAnimalKeepingBoundry,
   DrinkingWaterFountain,
   ElectricChargingStation,
+  EvacuationArea,
   Feature,
   Firefighter,
   GasStation,
@@ -68,10 +77,12 @@ import {
   HealthCareInstitution,
   HigherEducationInstitution,
   HighSchool,
+  HomelessInstitution,
   HzRailwayStop,
   LocalSelfGovernment,
   Odmorko,
   OtherPublicInstitution,
+  OtherSocialWelfareActivitiy,
   Pharmacy,
   PoliceStation,
   PrimaryHealthCenter,
@@ -79,12 +90,14 @@ import {
   PublicBicycleSystem,
   PublicGarage,
   PublicPlayground,
+  PublicWell,
   PupilDorm,
   RecyclingYard,
   ReservedParkingZone,
   RomanCatholicParish,
   SemiUndergroundContainer,
   SharedHuntingGround,
+  SocialProtectionInstitution,
   SportFacility,
   StateAdministrationBody,
   StudentDorm,
@@ -93,6 +106,7 @@ import {
   TaxiStand,
   TelecommunicationDistributionCabinet,
   UndergroundContainer,
+  VeteransInstitution,
   WildlifeProtectionProgram,
   ZetBusStop,
   ZetTramStop,
@@ -1102,77 +1116,225 @@ export const CATEGORIES: Category[] = [
     description: "Convallis sapien molestie cubilia pretium orci hendrerit.",
     icon: PersonStanding,
     dataSets: [
-      /* {
+      dataSet({
+        id: "public-wells",
+        icon: Droplet,
         label: "categories.society.dataSets.publicWells.label",
         description: "categories.society.dataSets.publicWells.description",
-        icon: Droplets,
         fetchUrl:
           "https://data.zagreb.hr/dataset/0d1c65b5-6e8f-4b6a-be90-cc9ecb6fa374/resource/2010797b-3e1e-4a43-9a5a-b1619722d2ac/download/data.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<PublicWell>) => ({
+          title: feature.properties.lokacija,
+          details: [
+            { label: "Napomena", value: feature.properties.napomena_teren },
+            { label: "Vrsta", value: feature.properties.ki_vrsta },
+            { label: "Tip zdenca", value: feature.properties.tip_zdenca },
+            { label: "Aktivan", value: feature.properties.aktivan_da_ne },
+            { label: "Gradska četvrt", value: feature.properties.naziv_gc },
+            { label: "Održava", value: feature.properties.odrzava_ki },
+            { label: "Upravitelj", value: feature.properties.upravitelj },
+            {
+              label: "Status održavanja",
+              value: feature.properties.status_odrz,
+            },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "children-homes",
+        icon: HouseHeart,
         label: "categories.society.dataSets.childrenHomes.label",
         description: "categories.society.dataSets.childrenHomes.description",
-        icon: HouseHeart,
         fetchUrl:
           "https://data.zagreb.hr/dataset/65e1cb89-9cc7-43d2-a94d-3305e2917224/resource/e0f7e07d-73e1-4c9e-a81b-30369204b201/download/data.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<ChildrenHome>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Vrsta", value: feature.properties.vrsta },
+            { label: "Podružnica", value: feature.properties.podruznica },
+            { label: "Web", value: feature.properties.web },
+            { label: "Email", value: feature.properties.email },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "disability-institutions",
+        icon: Accessibility,
         label: "categories.society.dataSets.disabilityInstitutions.label",
         description:
           "categories.society.dataSets.disabilityInstitutions.description",
-        icon: Accessibility,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanove_TUR_i_OSI/FeatureServer/replicafilescache/Geoportal_ustanove_TUR_i_OSI_-7182187914465045449.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<Disabilityinstitution>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Vrsta", value: feature.properties.vrsta },
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Web", value: feature.properties.web },
+            { label: "Email", value: feature.properties.email },
+            { label: "Podružnica", value: feature.properties.podruznica },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "civil-protection-assembly-points",
+        icon: Accessibility,
         label:
           "categories.society.dataSets.civilProtectionAssemblyPoints.label",
         description:
           "categories.society.dataSets.civilProtectionAssemblyPoints.description",
-        icon: Landmark,
         fetchUrl:
           "https://data.zagreb.hr/dataset/d736c146-6497-4915-894b-41bdf51267b0/resource/d30eb215-3ce2-48f8-88b2-6ffac82d46b5/download/zborna_mjesta_civilne_zatite_grada_zagreba-1.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<CivilProtectionAssemblyPoint>) => ({
+          title: feature.properties.zboriste,
+          details: [
+            { label: "Gradska četvrt", value: feature.properties.gradska_ce },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "evacuation-areas",
+        icon: Map,
         label: "categories.society.dataSets.evacuationAreas.label",
         description: "categories.society.dataSets.evacuationAreas.description",
-        icon: Map,
         fetchUrl:
           "https://data.zagreb.hr/dataset/b3c27d0f-b9b5-4140-b0cf-670e5cc1c19b/resource/479205c7-f75a-46a6-ac38-1499fcdca3d3/download/evakuacijske_povrsine.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<EvacuationArea>) => ({
+          title: feature.properties.NAZIV,
+          details: [
+            { label: "Gradska četvrt", value: feature.properties.G_cetvrt },
+            { label: "Tip", value: feature.properties.Tip },
+            {
+              label: "Površina",
+              value: `${feature.properties.Povrsina_ha.toFixed(2)} ha / ${(feature.properties.Povrsina_ha * 10000).toFixed(2)} m2`,
+            },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "croatian-institute-for-social-work",
+        icon: Landmark,
         label:
           "categories.society.dataSets.croatianInstituteForSocialWork.label",
         description:
           "categories.society.dataSets.croatianInstituteForSocialWork.description",
-        icon: Landmark,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_centar_za_socijalnu_skrb/FeatureServer/replicafilescache/Geoportal_centar_za_socijalnu_skrb_-2638481923376160763.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<CroatianInstituteForSocialWork>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Email", value: feature.properties.email },
+            { label: "Web", value: feature.properties.web },
+            {
+              label: "Područje nadležnosti",
+              value: feature.properties.podr_nadleznosti,
+            },
+            { label: "Osnivač", value: feature.properties.osnivac },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+            { label: "Gradska četvrt", value: feature.properties.IME_GC },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "social-protection-institutions",
+        icon: Landmark,
         label: "categories.society.dataSets.socialProtectionInstitutions.label",
         description:
           "categories.society.dataSets.socialProtectionInstitutions.description",
-        icon: Landmark,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_nadlezna_institucija/FeatureServer/replicafilescache/Geoportal_nadlezna_institucija_2079182892719747966.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<SocialProtectionInstitution>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Email", value: feature.properties.email },
+            { label: "Web", value: feature.properties.web },
+            { label: "Osnivač", value: feature.properties.osnivac },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "other-social-welfare-wctivities",
+        icon: Landmark,
         label: "categories.society.dataSets.otherSocialWelfareActivities.label",
         description:
           "categories.society.dataSets.otherSocialWelfareActivities.description",
-        icon: Landmark,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ostale_djelatnosti_socijalne_skrbi/FeatureServer/replicafilescache/Geoportal_ostale_djelatnosti_socijalne_skrbi_-2781268371483281578.geojson",
-      }, */
-      /* {
+        getDisplayData: (feature: Feature<OtherSocialWelfareActivitiy>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Vrsta", value: feature.properties.vrsta },
+            { label: "Kapacitet", value: feature.properties.kapacitet },
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Email", value: feature.properties.email },
+            { label: "Web", value: feature.properties.web },
+            { label: "Osnivač", value: feature.properties.osnivac },
+            { label: "Podružnica", value: feature.properties.podruznica },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "veterans-institutions",
+        icon: Shield,
         label: "categories.society.dataSets.veteransInstitutions.label",
         description:
           "categories.society.dataSets.veteransInstitutions.description",
-        icon: Shield,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanova_za_branitelje/FeatureServer/replicafilescache/Geoportal_ustanova_za_branitelje_-3924332151953522156.geojson",
-      }, */
+        getDisplayData: (feature: Feature<VeteransInstitution>) => ({
+          title: feature.properties.NAZIV,
+          details: [
+            { label: "Vrsta", value: feature.properties.VRSTA },
+            { label: "Adresa", value: feature.properties.ADRESA },
+            { label: "Telefon", value: feature.properties.TELEFON },
+            { label: "Email", value: feature.properties.EMAIL },
+            { label: "Web", value: feature.properties.WEB },
+            { label: "Osnivač", value: feature.properties.OSNIVAC },
+            {
+              label: "Gradska četvrt",
+              value: feature.properties.gradska_cetvrt,
+            },
+            { label: "Nadležan", value: feature.properties.NADLEZAN },
+          ],
+        }),
+      }),
+      dataSet({
+        id: "homeless-institutions",
+        icon: Landmark,
+        label: "categories.society.dataSets.homelessInstitutions.label",
+        description:
+          "categories.society.dataSets.homelessInstitutions.description",
+        fetchUrl:
+          "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanova_za_beskucnike/FeatureServer/replicafilescache/Geoportal_ustanova_za_beskucnike_-235981892016937521.geojson",
+        getDisplayData: (feature: Feature<HomelessInstitution>) => ({
+          title: feature.properties.naziv,
+          details: [
+            { label: "Vrsta", value: feature.properties.vrsta },
+            {
+              label: "Kapacitet",
+              value: feature.properties.kapacitet,
+            },
+            { label: "Adresa", value: feature.properties.adresa },
+            { label: "Telefon", value: feature.properties.telefon },
+            { label: "Email", value: feature.properties.email },
+            { label: "Web", value: feature.properties.web },
+            { label: "Podružnica", value: feature.properties.podruznica },
+            { label: "Vlasništvo", value: feature.properties.vlasnistvo },
+            { label: "Nadležan", value: feature.properties.nadlezan },
+          ],
+        }),
+      }),
       /* {
         label: "categories.society.dataSets.homelessInstitutions.label",
         description:
