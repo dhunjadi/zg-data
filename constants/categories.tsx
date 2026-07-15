@@ -1430,15 +1430,6 @@ export const CATEGORIES: Category[] = [
           ],
         }),
       }),
-
-      //Missing geoJSON
-      /* {
-        label: "categories.society.dataSets.kindergartens.label",
-        description: "categories.society.dataSets.kindergartens.description",
-        icon: Balloon,
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/49bb07d4efc34bd5bacc1d330dc28a07_0/downloads/data?format=fgdb&spatialRefId=4326&where=1%3D1",
-      }, */
       dataSet({
         id: "city-gardens-society",
         icon: Rose,

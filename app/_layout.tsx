@@ -11,7 +11,7 @@ const RootLayout = () => {
   const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
-      <StatusBar style="auto" />
+      <StatusBar style="dark" />
       <AuthProvider>
         <Stack>
           <Stack.Screen name="(protected)" options={{ headerShown: false }} />
