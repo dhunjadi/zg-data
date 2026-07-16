@@ -31,6 +31,12 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      [
+        "react-native-maps",
+        {
+          "androidGoogleMapsApiKey": "AIzaSyAmWxHW3-Eai7npr4uTtc1OLrCrV1RLbM0"
+        }
+      ],
       "expo-router",
       [
         "expo-splash-screen",
