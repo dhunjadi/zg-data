@@ -10,10 +10,7 @@ const DataSetsScreen = () => {
   const [filterText, setFilterText] = useState("");
 
   const flatDataSets = CATEGORIES.flatMap((category) =>
-    category.dataSets.map((dataSet, index) => ({
-      ...dataSet,
-      id: `${category.id}-${index}`,
-    })),
+    category.dataSets.map((dataSet) => dataSet),
   );
 
   const filteredData = flatDataSets.filter((item) =>

@@ -539,7 +539,7 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
-        id: "higher-education-institutions",
+        id: "higher-education-institutions-public-sector",
         icon: GraduationCap,
         label:
           "categories.public-sector.dataSets.higherEducationInstitutions.label",

@@ -1,3 +1,4 @@
+import Spinner from "@/components/Spinner";
 import { auth } from "@/FirebaseConfig";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { router } from "expo-router";
@@ -8,7 +9,6 @@ import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import {
-  ActivityIndicator,
   Image,
   KeyboardAvoidingView,
   Pressable,
@@ -137,7 +137,7 @@ const SignUpScreen = () => {
           disabled={isLoading}
         >
           <Text className="text-white font-bold">
-            {isLoading ? <ActivityIndicator /> : t("screens.signUp.signUp")}
+            {isLoading ? <Spinner theme="light" /> : t("screens.signUp.signUp")}
           </Text>
         </Pressable>
 

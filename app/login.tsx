@@ -1,3 +1,4 @@
+import Spinner from "@/components/Spinner";
 import { useAuth } from "@/context/AuthContext";
 import { auth } from "@/FirebaseConfig";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -9,7 +10,6 @@ import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import {
-  ActivityIndicator,
   Image,
   KeyboardAvoidingView,
   Pressable,
@@ -156,7 +156,7 @@ const LoginScreen = () => {
           disabled={isLoading}
         >
           <Text className="text-white font-bold">
-            {isLoading ? <ActivityIndicator /> : t("screens.login.signIn")}
+            {isLoading ? <Spinner theme="light" /> : t("screens.login.signIn")}
           </Text>
           <LogIn color="white" />
         </Pressable>

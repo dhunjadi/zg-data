@@ -3,7 +3,7 @@
     "login": {
       "appTitle": "Zagreb Data",
       "description": "Pristupite otvorenim podacima Grada Zagreba",
-      "emailPlaceholder": "vas@emial.hr",
+      "emailPlaceholder": "vas@email.hr",
       "passwordPlaceholder": "******",
       "signInError": "Pogrešan email ili lozinka",
       "signIn": "Prijavi se",
@@ -19,7 +19,7 @@
     "signUp": {
       "title": "Registracija",
       "description": "Napravite korisnički račun",
-      "emailPlaceholder": "vas@emial.hr",
+      "emailPlaceholder": "vas@email.hr",
       "passwordPlaceholder": "******",
       "signUp": "Registriraj se",
       "backToSignIn": "Vrati se na prijavu"

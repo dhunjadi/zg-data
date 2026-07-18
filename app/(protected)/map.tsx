@@ -1,3 +1,4 @@
+import Spinner from "@/components/Spinner";
 import { CATEGORIES } from "@/constants/categories";
 import { useFetchGeoJson } from "@/hooks/useFetchGeoJson";
 import {
@@ -9,7 +10,7 @@ import {
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { useLocalSearchParams } from "expo-router";
 import React, { useMemo, useRef, useState } from "react";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import MapView, {
   LatLng,
@@ -33,23 +34,21 @@ const MapScreen = () => {
     fetchUrl?: string;
   }>();
 
-  const flatDataSets = CATEGORIES.flatMap((category) =>
-    category.dataSets.map((dataSet) => dataSet),
-  );
-
-  const selectedDataSet = flatDataSets.find((set) => set.id === datasetId);
-
-  const mapViewRef = useRef<MapView | null>(null);
-  const bottomSheetRef = useRef<BottomSheet>(null);
+  const { data: geoData, isFetching } = useFetchGeoJson(fetchUrl || "");
 
   const [region, setRegion] = useState<Region>(INITIAL_REGION);
   const [selectedFeature, setSelectedFeature] = useState<Feature<
     Record<string, unknown>
   > | null>(null);
 
-  const { data: geoData, isFetching } = useFetchGeoJson<
-    Record<string, unknown>
-  >(fetchUrl || "");
+  const mapViewRef = useRef<MapView | null>(null);
+  const bottomSheetRef = useRef<BottomSheet>(null);
+
+  const flatDataSets = CATEGORIES.flatMap((category) =>
+    category.dataSets.map((dataSet) => dataSet),
+  );
+
+  const selectedDataSet = flatDataSets.find((set) => set.id === datasetId);
 
   const visibleFeatures = useMemo(() => {
     if (!geoData) return [];
@@ -119,7 +118,7 @@ const MapScreen = () => {
   };
 
   if (isFetching) {
-    return <ActivityIndicator size="large" />;
+    return <Spinner size="large" />;
   }
 
   return (
@@ -144,7 +143,6 @@ const MapScreen = () => {
             });
           }}
           onRegionChangeComplete={(newRegion) => {
-            /* console.log("onRegionChangeComplete"); */
             setRegion(newRegion);
           }}
           className="w-full h-full"
@@ -172,7 +170,13 @@ const MapScreen = () => {
                     setSelectedFeature(feature);
                     bottomSheetRef.current?.snapToIndex(0);
                   }}
-                />
+                >
+                  <View className="bg-primaryDark p-4 rounded-full w-10 h-10 items-center justify-center">
+                    {selectedDataSet?.icon && (
+                      <selectedDataSet.icon color="#f7f7f7" size={24} />
+                    )}
+                  </View>
+                </Marker>
               );
             }
 
