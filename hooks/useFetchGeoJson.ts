@@ -9,6 +9,7 @@ export const useFetchGeoJson = <TProperties = Record<string, unknown>>(
     queryKey: ["geo-json", url],
     queryFn: () => fetchGeoJsonData<TProperties>(url),
     enabled: Boolean(url),
-    staleTime: 1000 * 60 * 5,
+    staleTime: 0,
+    gcTime: 0,
   });
 };

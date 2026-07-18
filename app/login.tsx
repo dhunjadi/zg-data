@@ -9,6 +9,7 @@ import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import {
+  ActivityIndicator,
   Image,
   KeyboardAvoidingView,
   Pressable,
@@ -79,6 +80,7 @@ const LoginScreen = () => {
       <KeyboardAvoidingView
         className="flex-1 items-center justify-center px-4"
         behavior="padding"
+        keyboardVerticalOffset={100}
       >
         <Image source={ZagrebCoA} className="w-32 h-32 mb-8" />
         <Text className="text-3xl font-bold text-primaryDark mb-4">
@@ -96,6 +98,7 @@ const LoginScreen = () => {
             <TextInput
               placeholder={t("screens.login.emailPlaceholder")}
               value={value}
+              autoCapitalize="none"
               onChangeText={(text) => {
                 setIsLoginError(false);
                 onChange(text);
@@ -122,6 +125,7 @@ const LoginScreen = () => {
               placeholder={t("screens.login.passwordPlaceholder")}
               secureTextEntry={true}
               value={value}
+              autoCapitalize="none"
               onChangeText={(text) => {
                 setIsLoginError(false);
                 onChange(text);
@@ -149,9 +153,10 @@ const LoginScreen = () => {
         <Pressable
           onPress={handleSubmit(handleLogin)}
           className="w-full flex-row gap-2 bg-primaryDark p-4 rounded-md justify-center items-center"
+          disabled={isLoading}
         >
           <Text className="text-white font-bold">
-            {t("screens.login.signIn")}
+            {isLoading ? <ActivityIndicator /> : t("screens.login.signIn")}
           </Text>
           <LogIn color="white" />
         </Pressable>
@@ -159,6 +164,7 @@ const LoginScreen = () => {
         <Pressable
           onPress={() => router.push("/sign-up")}
           className="w-full flex-row gap-2 bg-primaryLight p-4 rounded-md justify-center items-center mt-4"
+          disabled={isLoading}
         >
           <Text className="text-white font-bold">
             {t("screens.login.signUp")}

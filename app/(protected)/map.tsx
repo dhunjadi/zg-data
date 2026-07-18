@@ -9,7 +9,7 @@ import {
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { useLocalSearchParams } from "expo-router";
 import React, { useMemo, useRef, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import MapView, {
   LatLng,
@@ -47,9 +47,9 @@ const MapScreen = () => {
     Record<string, unknown>
   > | null>(null);
 
-  const { data: geoData } = useFetchGeoJson<Record<string, unknown>>(
-    fetchUrl || "",
-  );
+  const { data: geoData, isFetching } = useFetchGeoJson<
+    Record<string, unknown>
+  >(fetchUrl || "");
 
   const visibleFeatures = useMemo(() => {
     if (!geoData) return [];
@@ -118,6 +118,10 @@ const MapScreen = () => {
     );
   };
 
+  if (isFetching) {
+    return <ActivityIndicator size="large" />;
+  }
+
   return (
     <GestureHandlerRootView className="flex-1">
       <View className="flex-1">
@@ -125,8 +129,24 @@ const MapScreen = () => {
           ref={mapViewRef}
           style={styles.map}
           provider={PROVIDER_GOOGLE}
-          region={region}
-          onRegionChangeComplete={setRegion}
+          initialRegion={INITIAL_REGION}
+          onMapReady={async () => {
+            const boundaries = await mapViewRef.current?.getMapBoundaries();
+            if (!boundaries) return;
+
+            const { northEast, southWest } = boundaries;
+
+            setRegion({
+              latitude: (northEast.latitude + southWest.latitude) / 2,
+              longitude: (northEast.longitude + southWest.longitude) / 2,
+              latitudeDelta: northEast.latitude - southWest.latitude,
+              longitudeDelta: northEast.longitude - southWest.longitude,
+            });
+          }}
+          onRegionChangeComplete={(newRegion) => {
+            /* console.log("onRegionChangeComplete"); */
+            setRegion(newRegion);
+          }}
           className="w-full h-full"
         >
           {visibleFeatures.map((feature) => {

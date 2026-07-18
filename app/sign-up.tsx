@@ -4,10 +4,11 @@ import { router } from "expo-router";
 import { FirebaseError } from "firebase/app";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ArrowLeft } from "lucide-react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import {
+  ActivityIndicator,
   Image,
   KeyboardAvoidingView,
   Pressable,
@@ -37,6 +38,8 @@ const signUpSchema = yup.object().shape({
 const SignUpScreen = () => {
   const { t } = useTranslation();
 
+  const [isLoading, setisLoading] = useState(false);
+
   const {
     control,
     handleSubmit,
@@ -51,6 +54,7 @@ const SignUpScreen = () => {
     const { email, password } = data;
 
     try {
+      setisLoading(true);
       await createUserWithEmailAndPassword(auth, email, password);
       router.replace("/");
     } catch (error: unknown) {
@@ -59,6 +63,8 @@ const SignUpScreen = () => {
         console.log(error.message);
         alert("Došlo je do pogreške!");
       }
+    } finally {
+      setisLoading(false);
     }
   };
 
@@ -67,6 +73,7 @@ const SignUpScreen = () => {
       <KeyboardAvoidingView
         className="flex-1 items-center justify-center px-4"
         behavior="padding"
+        keyboardVerticalOffset={100}
       >
         <Image source={ZagrebCoA} className="w-32 h-32 mb-8" />
         <Text className="text-3xl font-bold text-primaryDark mb-4">
@@ -84,6 +91,7 @@ const SignUpScreen = () => {
             <TextInput
               placeholder={t("screens.signUp.emailPlaceholder")}
               value={value}
+              autoCapitalize="none"
               onChangeText={onChange}
               onBlur={onBlur}
               autoCorrect={false}
@@ -107,6 +115,7 @@ const SignUpScreen = () => {
               placeholder={t("screens.signUp.passwordPlaceholder")}
               secureTextEntry={true}
               value={value}
+              autoCapitalize="none"
               onChangeText={onChange}
               onBlur={onBlur}
               autoCorrect={false}
@@ -125,15 +134,17 @@ const SignUpScreen = () => {
         <Pressable
           onPress={handleSubmit(handleSignUp)}
           className="w-full flex-row gap-2 bg-primaryDark p-4 rounded-md justify-center items-center"
+          disabled={isLoading}
         >
           <Text className="text-white font-bold">
-            {t("screens.signUp.signUp")}
+            {isLoading ? <ActivityIndicator /> : t("screens.signUp.signUp")}
           </Text>
         </Pressable>
 
         <Pressable
           onPress={() => router.push("/login")}
           className="w-full flex-row gap-2 bg-primaryLight p-4 rounded-md justify-center items-center mt-4"
+          disabled={isLoading}
         >
           <ArrowLeft color="white" />
           <Text className="text-white font-bold">

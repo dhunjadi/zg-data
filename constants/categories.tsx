@@ -169,7 +169,7 @@ export const CATEGORIES: Category[] = [
         description:
           "categories.education.dataSets.studentRestaurant.description",
         fetchUrl:
-          "https://data.zagreb.hr/dataset/cd0afdae-2ef7-44f8-96bb-b96f119aa59b/resource/306ebc37-e4ee-4715-b9e1-8f67418e36e7/download/data.geojson",
+          "https://data.zagreb.hr/dataset/8b4ab584-5b5a-4d70-9cf3-24897645ad6b/resource/e1caf1d1-ecdf-4d5c-8020-6798c45a188d/download/data.geojson",
         getDisplayData: (feature: Feature<StudentRestaurant>) => ({
           title: feature.properties.naziv,
           details: [
@@ -185,7 +185,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.education.dataSets.studentDorms.label",
         description: "categories.education.dataSets.studentDorms.description",
         fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/83db22aeb39441ec84911ee94f26e746_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
+          "https://data.zagreb.hr/dataset/cd0afdae-2ef7-44f8-96bb-b96f119aa59b/resource/306ebc37-e4ee-4715-b9e1-8f67418e36e7/download/data.geojson",
         getDisplayData: (feature: Feature<StudentDorm>) => ({
           title: feature.properties.naziv,
           details: [
