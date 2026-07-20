@@ -70,7 +70,7 @@ import {
   CompetentInstitution,
   CroatianInstituteForSocialWork,
   CulturalInstitution,
-  DataSetDisplay,
+  DataSetDisplayData,
   Disabilityinstitution,
   DometicAnimalKeepingBoundry,
   DrinkingWaterFountain,
@@ -130,7 +130,9 @@ type DataSetItem = {
   icon: LucideIcon;
   id: string;
   fetchUrl: string;
-  getDisplayData: (feature: Feature<Record<string, unknown>>) => DataSetDisplay;
+  getDisplayData: (
+    feature: Feature<Record<string, unknown>>,
+  ) => DataSetDisplayData;
 };
 
 type Category = {
@@ -148,7 +150,7 @@ const dataSet = <T,>(config: {
   icon: LucideIcon;
   id: string;
   fetchUrl: string;
-  getDisplayData: (feature: Feature<T>) => DataSetDisplay;
+  getDisplayData: (feature: Feature<T>) => DataSetDisplayData;
 }): DataSetItem => ({
   ...config,
   getDisplayData:

@@ -1,32 +1,26 @@
+import DetailsBottomSheet from "@/components/DetailsBottomSheet";
+import Map from "@/components/Map";
 import Spinner from "@/components/Spinner";
 import { CATEGORIES } from "@/constants/categories";
 import { useFetchGeoJson } from "@/hooks/useFetchGeoJson";
-import {
-  Feature,
-  MultiLineStringGeometry,
-  MultiPolygonGeometry,
-  PolygonGeometry,
-} from "@/types";
-import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
+import { Feature } from "@/types";
+import BottomSheet from "@gorhom/bottom-sheet";
 import { useLocalSearchParams } from "expo-router";
-import React, { useMemo, useRef, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useCallback, useMemo, useRef, useState } from "react";
+import { View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import MapView, {
-  LatLng,
-  Marker,
-  Polygon,
-  Polyline,
-  PROVIDER_GOOGLE,
-  Region,
-} from "react-native-maps";
+import { Region } from "react-native-maps";
 
-const INITIAL_REGION = {
+const INITIAL_REGION: Region = {
   latitude: 45.815399,
   longitude: 15.966568,
   latitudeDelta: 0.01,
   longitudeDelta: 0.01,
 };
+
+const flatDataSets = CATEGORIES.flatMap((category) =>
+  category.dataSets.map((dataSet) => dataSet),
+);
 
 const MapScreen = () => {
   const { datasetId, fetchUrl } = useLocalSearchParams<{
@@ -41,12 +35,7 @@ const MapScreen = () => {
     Record<string, unknown>
   > | null>(null);
 
-  const mapViewRef = useRef<MapView | null>(null);
   const bottomSheetRef = useRef<BottomSheet>(null);
-
-  const flatDataSets = CATEGORIES.flatMap((category) =>
-    category.dataSets.map((dataSet) => dataSet),
-  );
 
   const selectedDataSet = flatDataSets.find((set) => set.id === datasetId);
 
@@ -84,38 +73,13 @@ const MapScreen = () => {
       ? selectedDataSet.getDisplayData(selectedFeature)
       : undefined;
 
-  const snapPoints = useMemo(() => ["25%", "50%", "70%"], []);
-
-  const polygonToCoordinates = (geometry: PolygonGeometry): LatLng[] => {
-    return geometry.coordinates[0].map(([lng, lat]) => ({
-      latitude: lat,
-      longitude: lng,
-    }));
-  };
-
-  const multiPolygonToCoordinates = (
-    geometry: MultiPolygonGeometry,
-  ): LatLng[][] => {
-    return geometry.coordinates.map((polygon) => {
-      const outerRing = polygon[0];
-
-      return outerRing.map(([lng, lat]) => ({
-        latitude: lat,
-        longitude: lng,
-      }));
-    });
-  };
-
-  const multiLineToCoordinates = (
-    geometry: MultiLineStringGeometry,
-  ): LatLng[][] => {
-    return geometry.coordinates.map((line) =>
-      line.map(([lng, lat]) => ({
-        latitude: lat,
-        longitude: lng,
-      })),
-    );
-  };
+  const handleOnPress = useCallback(
+    (feature: Feature<Record<string, unknown>>) => {
+      setSelectedFeature(feature);
+      bottomSheetRef.current?.snapToIndex(0);
+    },
+    [],
+  );
 
   if (isFetching) {
     return <Spinner size="large" />;
@@ -124,169 +88,19 @@ const MapScreen = () => {
   return (
     <GestureHandlerRootView className="flex-1">
       <View className="flex-1">
-        <MapView
-          ref={mapViewRef}
-          style={styles.map}
-          provider={PROVIDER_GOOGLE}
-          initialRegion={INITIAL_REGION}
-          onMapReady={async () => {
-            const boundaries = await mapViewRef.current?.getMapBoundaries();
-            if (!boundaries) return;
-
-            const { northEast, southWest } = boundaries;
-
-            setRegion({
-              latitude: (northEast.latitude + southWest.latitude) / 2,
-              longitude: (northEast.longitude + southWest.longitude) / 2,
-              latitudeDelta: northEast.latitude - southWest.latitude,
-              longitudeDelta: northEast.longitude - southWest.longitude,
-            });
-          }}
-          onRegionChangeComplete={(newRegion) => {
-            setRegion(newRegion);
-          }}
-          className="w-full h-full"
-        >
-          {visibleFeatures.map((feature) => {
-            // OBJECTID_1 --> Check Roman catholic parishes geojson
-            // FID --> Check Telecommunication Distribution Cabinets
-            const key =
-              (feature.properties.OBJECTID ||
-                feature.properties.OBJECTID_1 ||
-                feature.properties.FID) ??
-              feature.id;
-
-            if (feature.geometry.type === "Point") {
-              const [lng, lat] = feature.geometry.coordinates;
-
-              return (
-                <Marker
-                  key={key}
-                  coordinate={{
-                    latitude: lat,
-                    longitude: lng,
-                  }}
-                  onPress={() => {
-                    setSelectedFeature(feature);
-                    bottomSheetRef.current?.snapToIndex(0);
-                  }}
-                >
-                  <View className="bg-primaryDark p-4 rounded-full w-10 h-10 items-center justify-center">
-                    {selectedDataSet?.icon && (
-                      <selectedDataSet.icon color="#f7f7f7" size={24} />
-                    )}
-                  </View>
-                </Marker>
-              );
-            }
-
-            if (feature.geometry.type === "Polygon") {
-              const coordinates = polygonToCoordinates(feature.geometry);
-              const isSelected = selectedFeature === feature;
-
-              return (
-                <Polygon
-                  key={`${key}`}
-                  coordinates={coordinates}
-                  fillColor={
-                    isSelected
-                      ? "rgba(0, 112, 187, 0.5)"
-                      : "rgba(0, 112, 187, 0.02)"
-                  }
-                  strokeColor="#005793"
-                  strokeWidth={2}
-                  tappable
-                  onPress={() => {
-                    setSelectedFeature(feature);
-                    bottomSheetRef.current?.snapToIndex(0);
-                  }}
-                />
-              );
-            }
-
-            if (feature.geometry.type === "MultiPolygon") {
-              const polygons = multiPolygonToCoordinates(feature.geometry);
-              const isSelected = selectedFeature === feature;
-              const isInnerZone =
-                feature.properties.Naziv === "I. ZONA" ||
-                feature.properties.Naziv === "II. ZONA";
-
-              return polygons.map((coordinates, index) => (
-                <Polygon
-                  key={`${key}-${index}`}
-                  coordinates={coordinates}
-                  fillColor={
-                    isSelected
-                      ? "rgba(0, 112, 187, 0.5)"
-                      : "rgba(0, 112, 187, 0.02)"
-                  }
-                  strokeColor="#005793"
-                  strokeWidth={2}
-                  tappable
-                  zIndex={isInnerZone ? 20 : 10}
-                  onPress={() => {
-                    setSelectedFeature(feature);
-                    bottomSheetRef.current?.snapToIndex(0);
-                  }}
-                />
-              ));
-            }
-
-            if (feature.geometry.type === "MultiLineString") {
-              const polygons = multiLineToCoordinates(feature.geometry);
-
-              return polygons.map((coordinates, index) => (
-                <Polyline
-                  key={`${key}-${index}`}
-                  coordinates={coordinates}
-                  fillColor="rgba(0, 112, 187, 0.5)"
-                  strokeColor="#005793"
-                  strokeWidth={2}
-                />
-              ));
-            }
-
-            return null;
-          })}
-        </MapView>
-        <BottomSheet
-          index={-1}
-          snapPoints={snapPoints}
+        <Map
+          visibleFeatures={visibleFeatures}
+          selectedFeature={selectedFeature}
+          onFeatureSelect={handleOnPress}
+          onRegionChange={setRegion}
+        />
+        <DetailsBottomSheet
           ref={bottomSheetRef}
-          enablePanDownToClose
-        >
-          <BottomSheetView className="p-4">
-            <Text className="text-xl font-bold text-primaryDark">
-              {selectedFeatureData?.title || ""}
-            </Text>
-
-            {selectedFeatureData?.details.map((detail) =>
-              detail.value ? (
-                <View key={detail.label} className="mt-3">
-                  <Text className="text-xs font-bold uppercase text-black">
-                    {detail.label}
-                  </Text>
-                  <Text className="text-base text-neutral-900">
-                    {detail.value}
-                  </Text>
-                </View>
-              ) : null,
-            )}
-          </BottomSheetView>
-        </BottomSheet>
+          selectedFeatureData={selectedFeatureData}
+        />
       </View>
     </GestureHandlerRootView>
   );
 };
 
 export default MapScreen;
-
-const styles = StyleSheet.create({
-  map: {
-    width: "100%",
-    height: "100%",
-  },
-  sheetContent: {
-    padding: 16,
-  },
-});

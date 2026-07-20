@@ -52,7 +52,7 @@ export type DataSetDetail = {
   value?: string | number | null;
 };
 
-export type DataSetDisplay = {
+export type DataSetDisplayData = {
   title: string;
   details: DataSetDetail[];
 };
@@ -60,13 +60,15 @@ export type DataSetDisplay = {
 export type DataSetConfig<TProperties> = {
   id: string;
   fetchUrl: string;
-  getDisplayData: (feature: Feature<TProperties>) => DataSetDisplay;
+  getDisplayData: (feature: Feature<TProperties>) => DataSetDisplayData;
 };
 
 export type AnyDataSetConfig = {
   id: string;
   fetchUrl: string;
-  getDisplayData: (feature: Feature<Record<string, unknown>>) => DataSetDisplay;
+  getDisplayData: (
+    feature: Feature<Record<string, unknown>>,
+  ) => DataSetDisplayData;
 };
 
 // Data specific properties
