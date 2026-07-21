@@ -1,5 +1,5 @@
 import { DataSetDisplayData } from "@/types";
-import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
+import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
 import React, { forwardRef, useMemo } from "react";
 import { Text, View } from "react-native";
 
@@ -8,16 +8,20 @@ type DetailsBottomSheetProps = {
 };
 const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
   ({ selectedFeatureData }, ref) => {
-    const snapPoints = useMemo(() => ["25%", "50%", "70%"], []);
+    const snapPoints = useMemo(() => ["25%", "50%"], []);
 
     return (
       <BottomSheet
         ref={ref}
         index={-1}
+        enableDynamicSizing={false}
         snapPoints={snapPoints}
         enablePanDownToClose
       >
-        <BottomSheetView className="p-4">
+        <BottomSheetScrollView
+          className="p-4"
+          contentContainerClassName="pb-10"
+        >
           <Text className="text-xl font-bold text-primaryDark">
             {selectedFeatureData?.title || ""}
           </Text>
@@ -34,7 +38,7 @@ const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
               </View>
             ) : null,
           )}
-        </BottomSheetView>
+        </BottomSheetScrollView>
       </BottomSheet>
     );
   },

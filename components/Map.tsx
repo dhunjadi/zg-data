@@ -61,7 +61,12 @@ const Map = ({
 
         if (feature.geometry.type === "Point") {
           return (
-            <MapMarker key={key} feature={feature} onPress={onFeatureSelect} />
+            <MapMarker
+              key={key}
+              feature={feature}
+              isSelected={isSelected}
+              onPress={onFeatureSelect}
+            />
           );
         }
 
