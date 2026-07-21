@@ -35,3 +35,15 @@ export const multiLineToCoordinates = (
     })),
   );
 };
+
+export const getURLLink = (value: string) => {
+  if (value.includes("@")) {
+    return `mailto:${value}`;
+  }
+
+  if (value.startsWith("http://") || value.startsWith("https://")) {
+    return value;
+  }
+
+  return `https://${value}`;
+};
