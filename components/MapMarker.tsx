@@ -23,11 +23,8 @@ const MapMarker = React.memo(
       >
         <Image
           source={isSelected ? PinSelected : PinDefault}
-          style={{
-            width: 48,
-            height: 48,
-          }}
           resizeMode="contain"
+          className="w-10 h-10"
         />
       </Marker>
     );

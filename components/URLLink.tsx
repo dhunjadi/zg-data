@@ -1,10 +1,6 @@
 import { useCallback } from "react";
 import { Alert, Linking, Pressable, Text } from "react-native";
 
-/* const supportedURL = "https://google.com";
-
-const unsupportedURL = "slack://open?team=123456"; */
-
 type OpenURLLinkProps = {
   url: string;
   label: string;

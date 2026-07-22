@@ -36,14 +36,40 @@ export const multiLineToCoordinates = (
   );
 };
 
-export const getURLLink = (value: string) => {
-  if (value.includes("@")) {
-    return `mailto:${value}`;
+type LinkType = "email" | "phone" | "url" | "text";
+
+const PHONE_PREFIXES = ["01", "091", "095", "097", "098", "099"];
+
+export const detectLinkType = (value: string): LinkType => {
+  const trimmed = value.trim();
+
+  if (trimmed.includes("@")) return "email";
+  if (
+    trimmed.startsWith("http://") ||
+    trimmed.startsWith("https://") ||
+    trimmed.startsWith("www.")
+  ) {
+    return "url";
+  }
+  if (PHONE_PREFIXES.some((prefix) => trimmed.startsWith(prefix))) {
+    return "phone";
   }
 
-  if (value.startsWith("http://") || value.startsWith("https://")) {
-    return value;
-  }
+  return "text";
+};
 
-  return `https://${value}`;
+export const getURLLink = (value: string): string => {
+  const trimmed = value.trim();
+  const type = detectLinkType(trimmed);
+
+  switch (type) {
+    case "email":
+      return `mailto:${trimmed}`;
+    case "phone":
+      return `tel:${trimmed.replace(/[^\d+]/g, "")}`;
+    case "url":
+      return trimmed.startsWith("http") ? trimmed : `https://${trimmed}`;
+    default:
+      return trimmed;
+  }
 };

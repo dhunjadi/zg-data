@@ -1,5 +1,5 @@
 import { DataSetDisplayData } from "@/types";
-import { getURLLink } from "@/utils/mapUtils";
+import { detectLinkType, getURLLink } from "@/utils/mapUtils";
 import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
 import React, { forwardRef, useMemo } from "react";
 import { Text, View } from "react-native";
@@ -29,27 +29,31 @@ const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
           </Text>
 
           {selectedFeatureData?.details.map((detail) => {
-            const isURLLink =
-              detail.value?.toString().includes("@") ||
-              detail.value?.toString().includes("http") ||
-              detail.value?.toString().includes("www");
+            if (!detail.value) return null;
 
-            const link = getURLLink(detail.value?.toString() || "");
+            const items = detail.value
+              .toString()
+              .split(",")
+              .map((item) => item.trim())
+              .filter(Boolean);
 
-            return detail.value ? (
+            return (
               <View key={detail.label} className="mt-3">
                 <Text className="text-xs font-bold uppercase text-black">
                   {detail.label}
                 </Text>
-                {isURLLink ? (
-                  <URLLink url={link} label={detail.value.toString()} />
-                ) : (
-                  <Text className="text-base text-neutral-900">
-                    {detail.value}
-                  </Text>
-                )}
+                {items.map((item, i) => {
+                  const type = detectLinkType(item);
+                  return type !== "text" ? (
+                    <URLLink key={i} url={getURLLink(item)} label={item} />
+                  ) : (
+                    <Text key={i} className="text-base text-neutral-900">
+                      {item}
+                    </Text>
+                  );
+                })}
               </View>
-            ) : null;
+            );
           })}
         </BottomSheetScrollView>
       </BottomSheet>
