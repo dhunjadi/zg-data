@@ -31,7 +31,8 @@ const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
           {selectedFeatureData?.details.map((detail) => {
             const isURLLink =
               detail.value?.toString().includes("@") ||
-              detail.value?.toString().includes("http");
+              detail.value?.toString().includes("http") ||
+              detail.value?.toString().includes("www");
 
             const link = getURLLink(detail.value?.toString() || "");
 
