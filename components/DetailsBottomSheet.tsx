@@ -2,6 +2,7 @@ import { DataSetDisplayData } from "@/types";
 import { detectLinkType, getURLLink } from "@/utils/mapUtils";
 import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
 import React, { forwardRef, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { Text, View } from "react-native";
 import URLLink from "./URLLink";
 
@@ -10,6 +11,7 @@ type DetailsBottomSheetProps = {
 };
 const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
   ({ selectedFeatureData }, ref) => {
+    const { t } = useTranslation();
     const snapPoints = useMemo(() => ["25%", "50%"], []);
 
     return (
@@ -25,7 +27,7 @@ const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
           contentContainerClassName="pb-10"
         >
           <Text className="text-xl font-bold text-primaryDark">
-            {selectedFeatureData?.title || ""}
+            {selectedFeatureData?.title ? t(selectedFeatureData.title) : ""}
           </Text>
 
           {selectedFeatureData?.details.map((detail) => {
@@ -40,7 +42,7 @@ const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
             return (
               <View key={detail.label} className="mt-3">
                 <Text className="text-xs font-bold uppercase text-black">
-                  {detail.label}
+                  {t(detail.label)}
                 </Text>
                 {items.map((item, i) => {
                   const type = detectLinkType(item);

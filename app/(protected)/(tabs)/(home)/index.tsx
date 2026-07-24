@@ -14,13 +14,6 @@ const HomeScreen = () => {
     t(item.label).toLowerCase().includes(filterText.toLowerCase()),
   );
 
-  const getCardDescription = (dataSetLenght: number) => {
-    if (dataSetLenght === 1) return `${dataSetLenght} skup podataka`;
-    if (dataSetLenght > 1 && dataSetLenght < 5)
-      return `${dataSetLenght} skupa podataka`;
-    return `${dataSetLenght} skupova podataka`;
-  };
-
   return (
     <ScrollView
       className="flex-1 bg-neutral-100 p-4"
@@ -66,7 +59,9 @@ const HomeScreen = () => {
             <GroupCard
               {...item}
               label={t(item.label)}
-              description={getCardDescription(item.dataSets?.length)}
+              description={t("screens.home.dataSetCount", {
+                count: item.dataSets.length,
+              })}
               icon={(props) => <item.icon {...props} />}
             />
           </Pressable>

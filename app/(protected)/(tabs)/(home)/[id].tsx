@@ -30,12 +30,13 @@ const DataSetGroupScreen = () => {
       ListHeaderComponent={
         <>
           <Text className="text-3xl text-primaryDark font-bold mb-2">
-            Skupovi podataka
+            {t("screens.dataSetGroup.title")}
           </Text>
 
           <Text className="text-md text-neutral-700">
-            Pregledajte dostupne skupove podataka iz kategorije:{" "}
-            {category ? t(category.label) : ""}.
+            {t("screens.dataSetGroup.description", {
+              category: category ? t(category.label) : "",
+            })}
           </Text>
         </>
       }

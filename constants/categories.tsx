@@ -175,9 +175,18 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<StudentRestaurant>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -191,9 +200,18 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<StudentDorm>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -208,10 +226,22 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<CulturalInstitution>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Radno vrijeme", value: feature.properties.radno_vrijeme },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.workingHours",
+              value: feature.properties.radno_vrijeme,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -227,10 +257,22 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<HighSchool>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -244,9 +286,18 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<Odmorko>) => ({
           title: feature.properties.lokacija,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.tel },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.tel,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -261,7 +312,10 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<PublicPlayground>) => ({
           title: feature.properties.lokacija,
           details: [
-            { label: "Vrsta", value: feature.properties.Vrsta_objekta },
+            {
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.Vrsta_objekta,
+            },
           ],
         }),
       }),
@@ -277,11 +331,26 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<HigherEducationInstitution>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Vrsta", value: feature.properties.vrsta },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.vrsta,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -296,13 +365,34 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<SportFacility>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Objekt", value: feature.properties.objekt },
-            { label: "Sportovi", value: feature.properties.sportovi },
-            { label: "Opremljenost", value: feature.properties.opremljenost },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.facility",
+              value: feature.properties.objekt,
+            },
+            {
+              label: "categories.dataSetDetails.sports",
+              value: feature.properties.sportovi,
+            },
+            {
+              label: "categories.dataSetDetails.equipment",
+              value: feature.properties.opremljenost,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -316,14 +406,38 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<PupilDorm>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Struktura", value: feature.properties.poSTRUKTURI },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
-            { label: "Broj korisnika", value: feature.properties.Broj_koris },
-            { label: "Sportski tereni", value: feature.properties.sport_tere },
-            { label: "Sportska dvorana", value: feature.properties.sport_dvor },
+            {
+              label: "categories.dataSetDetails.structure",
+              value: feature.properties.poSTRUKTURI,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.userCount",
+              value: feature.properties.Broj_koris,
+            },
+            {
+              label: "categories.dataSetDetails.sportsFields",
+              value: feature.properties.sport_tere,
+            },
+            {
+              label: "categories.dataSetDetails.sportsHall",
+              value: feature.properties.sport_dvor,
+            },
           ],
         }),
       }),
@@ -338,17 +452,41 @@ export const CATEGORIES: Category[] = [
           title: feature.properties.naziv,
           details: [
             {
-              label: "Vrsta odgojne ustanove",
+              label: "categories.dataSetDetails.educationalInstitutionType",
               value: feature.properties.vr_odg_us,
             },
-            { label: "Smjesnki rad", value: feature.properties.smjenski_r },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
-            { label: "Broj Učenika", value: feature.properties.Broj_uceni },
-            { label: "Sportski tereni", value: feature.properties.Sport_tere },
-            { label: "Sportska dvorana", value: feature.properties.sport_dvor },
+            {
+              label: "categories.dataSetDetails.shiftWork",
+              value: feature.properties.smjenski_r,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.studentCount",
+              value: feature.properties.Broj_uceni,
+            },
+            {
+              label: "categories.dataSetDetails.sportsFields",
+              value: feature.properties.Sport_tere,
+            },
+            {
+              label: "categories.dataSetDetails.sportsHall",
+              value: feature.properties.sport_dvor,
+            },
           ],
         }),
       }),
@@ -371,9 +509,18 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<CapitalInvestment>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Vrsta objekta", value: feature.properties.Vrsta_objekta },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Opis radova", value: feature.properties.Opis_radova },
+            {
+              label: "categories.dataSetDetails.facilityType",
+              value: feature.properties.Vrsta_objekta,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.workDescription",
+              value: feature.properties.Opis_radova,
+            },
           ],
         }),
       }),
@@ -388,9 +535,18 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<CapitalInvestment>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Vrsta objekta", value: feature.properties.Vrsta_objekta },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Opis radova", value: feature.properties.Opis_radova },
+            {
+              label: "categories.dataSetDetails.facilityType",
+              value: feature.properties.Vrsta_objekta,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.workDescription",
+              value: feature.properties.Opis_radova,
+            },
           ],
         }),
       }),
@@ -430,10 +586,22 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<OtherPublicInstitution>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -448,10 +616,22 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<HealthCareInstitution>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -466,13 +646,28 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<CityDistrictOffice>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Sjedište", value: feature.properties.sjediste },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
             {
-              label: "Primanje stranaka",
+              label: "categories.dataSetDetails.headquarters",
+              value: feature.properties.sjediste,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.officeHours",
               value: feature.properties.primanje_stranaka,
             },
           ],
@@ -489,12 +684,24 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<LocalSelfGovernment>) => ({
           title: feature.properties.MO,
           details: [
-            { label: "Adresa", value: feature.properties.adresa_sjedista_MO },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
             {
-              label: "Primanje stranaka",
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa_sjedista_MO,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.officeHours",
               value: feature.properties.primanje_stranaka,
             },
           ],
@@ -511,10 +718,22 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<RomanCatholicParish>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -529,12 +748,24 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<LocalSelfGovernment>) => ({
           title: feature.properties.MO,
           details: [
-            { label: "Adresa", value: feature.properties.adresa_sjedista_MO },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
             {
-              label: "Primanje stranaka",
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa_sjedista_MO,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.officeHours",
               value: feature.properties.primanje_stranaka,
             },
           ],
@@ -552,11 +783,26 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<HigherEducationInstitution>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Vrsta", value: feature.properties.vrsta },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.vrsta,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -571,7 +817,12 @@ export const CATEGORIES: Category[] = [
           "https://opendata.arcgis.com/api/v3/datasets/5c237e0b5c84441e80a4c46ffcb30522_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<StateAdministrationBody>) => ({
           title: feature.properties.tdu,
-          details: [{ label: "Adresa", value: feature.properties.adresa }],
+          details: [
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+          ],
         }),
       }),
     ],
@@ -593,11 +844,20 @@ export const CATEGORIES: Category[] = [
         fetchUrl:
           "https://data.zagreb.hr/dataset/a48f972b-9639-4719-9470-9d398049dbf9/resource/c04a1f0c-ac8a-4156-ba1f-707b1564d2f8/download/data.geojson",
         getDisplayData: (feature: Feature<SemiUndergroundContainer>) => ({
-          title: "Polupodzemni spremnici",
+          title: "categories.dataSetDetails.semiUndergroundContainersTitle",
           details: [
-            { label: "Adrese", value: feature.properties.adrese },
-            { label: "Gradska četvrt", value: feature.properties.JMS_IME },
-            { label: "Mjesni odbor", value: feature.properties.JMS_IME_1 },
+            {
+              label: "categories.dataSetDetails.addresses",
+              value: feature.properties.adrese,
+            },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.JMS_IME,
+            },
+            {
+              label: "categories.dataSetDetails.localCommittee",
+              value: feature.properties.JMS_IME_1,
+            },
           ],
         }),
       }),
@@ -612,8 +872,14 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<UndergroundContainer>) => ({
           title: feature.properties.Spremnik,
           details: [
-            { label: "Gradska četvrt", value: feature.properties.JMS_IME_1 },
-            { label: "Mjesni odbor", value: feature.properties.JMS_IME },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.JMS_IME_1,
+            },
+            {
+              label: "categories.dataSetDetails.localCommittee",
+              value: feature.properties.JMS_IME,
+            },
           ],
         }),
       }),
@@ -628,8 +894,14 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<DrinkingWaterFountain>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -643,16 +915,34 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<CityGarden>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Nadležan", value: feature.properties.nadlezan },
             {
-              label: "Godina otvaranja",
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
+            {
+              label: "categories.dataSetDetails.openingYear",
               value: feature.properties.godina_otvaranja,
             },
-            { label: "Gradska četvrt", value: feature.properties.grad_cetvrt },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Kontakt", value: feature.properties.kontakt },
-            { label: "Broj korisnika", value: feature.properties.br_korisnika },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.grad_cetvrt,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.contact",
+              value: feature.properties.kontakt,
+            },
+            {
+              label: "categories.dataSetDetails.userCount",
+              value: feature.properties.br_korisnika,
+            },
           ],
         }),
       }),
@@ -667,32 +957,74 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<RecyclingYard>) => ({
           title: feature.properties.NAZIV,
           details: [
-            { label: "Adresa", value: feature.properties.ADRESA },
-            { label: "Radno vrijeme", value: feature.properties.RADNO_VRIJ },
-            { label: "Telefon", value: feature.properties.TELEFON },
             {
-              label: "Email",
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.ADRESA,
+            },
+            {
+              label: "categories.dataSetDetails.workingHours",
+              value: feature.properties.RADNO_VRIJ,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.TELEFON,
+            },
+            {
+              label: "categories.dataSetDetails.email",
               value: feature.properties.E_MAIL,
             },
-            { label: "Web", value: feature.properties.WEB },
-            { label: "Papir", value: feature.properties.PAPIR },
-            { label: "Plastika", value: feature.properties.PLASTIKA },
-            { label: "Staklo", value: feature.properties.STAKLO },
-            { label: "Metalna ambalaža", value: feature.properties.METALNA_AM },
-            { label: "Stare baterije", value: feature.properties.STARE_BATE },
-            { label: "Biootpad", value: feature.properties.BIOOTPAD },
-            { label: "Otpadne gume", value: feature.properties.OTPAD_GUME },
-            { label: "Otpad_mu", value: feature.properties.OTPAD_MU },
             {
-              label: "Građevinski otpad",
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.WEB,
+            },
+            {
+              label: "categories.dataSetDetails.paper",
+              value: feature.properties.PAPIR,
+            },
+            {
+              label: "categories.dataSetDetails.plastic",
+              value: feature.properties.PLASTIKA,
+            },
+            {
+              label: "categories.dataSetDetails.glass",
+              value: feature.properties.STAKLO,
+            },
+            {
+              label: "categories.dataSetDetails.metalPackaging",
+              value: feature.properties.METALNA_AM,
+            },
+            {
+              label: "categories.dataSetDetails.oldBatteries",
+              value: feature.properties.STARE_BATE,
+            },
+            {
+              label: "categories.dataSetDetails.biowaste",
+              value: feature.properties.BIOOTPAD,
+            },
+            {
+              label: "categories.dataSetDetails.wasteTires",
+              value: feature.properties.OTPAD_GUME,
+            },
+            {
+              label: "categories.dataSetDetails.wasteOil",
+              value: feature.properties.OTPAD_MU,
+            },
+            {
+              label: "categories.dataSetDetails.constructionWaste",
               value: feature.properties.GRADJ_OTPA,
             },
             {
-              label: "Elektronički otpad",
+              label: "categories.dataSetDetails.electronicWaste",
               value: feature.properties.ELEK_OTPAD,
             },
-            { label: "Ostalo", value: feature.properties.OSTALO },
-            { label: "Napomena", value: feature.properties.NAPOMENA },
+            {
+              label: "categories.dataSetDetails.other",
+              value: feature.properties.OSTALO,
+            },
+            {
+              label: "categories.dataSetDetails.note",
+              value: feature.properties.NAPOMENA,
+            },
           ],
         }),
       }),
@@ -707,18 +1039,42 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<AirQuality>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Lokacija", value: feature.properties.lokacija },
-            { label: "Opis lokacije", value: feature.properties.opis_lokac },
-            { label: "Tip područja", value: feature.properties.tip_podrucja },
-            { label: "Tip postaje", value: feature.properties.tip_postaje },
-            { label: "Visina (m)", value: feature.properties.visina_m },
-            { label: "Dimenzije", value: feature.properties.dimenzija },
-            { label: "Mjerne tvari", value: feature.properties.mjerne_tvari },
             {
-              label: "Odgovorna institucija",
+              label: "categories.dataSetDetails.location",
+              value: feature.properties.lokacija,
+            },
+            {
+              label: "categories.dataSetDetails.locationDescription",
+              value: feature.properties.opis_lokac,
+            },
+            {
+              label: "categories.dataSetDetails.areaType",
+              value: feature.properties.tip_podrucja,
+            },
+            {
+              label: "categories.dataSetDetails.stationType",
+              value: feature.properties.tip_postaje,
+            },
+            {
+              label: "categories.dataSetDetails.heightMeters",
+              value: feature.properties.visina_m,
+            },
+            {
+              label: "categories.dataSetDetails.dimensions",
+              value: feature.properties.dimenzija,
+            },
+            {
+              label: "categories.dataSetDetails.measuredSubstances",
+              value: feature.properties.mjerne_tvari,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleInstitution",
               value: feature.properties.odgovorna_inst,
             },
-            { label: "Izvor", value: feature.properties.izvor },
+            {
+              label: "categories.dataSetDetails.source",
+              value: feature.properties.izvor,
+            },
           ],
         }),
       }),
@@ -735,38 +1091,41 @@ export const CATEGORIES: Category[] = [
           title: feature.properties.Naziv,
           details: [
             {
-              label: "Oznaka planske namjene",
+              label: "categories.dataSetDetails.plannedUseDesignation",
               value: feature.properties.Oznaka_planske_namjene,
             },
             {
-              label: "Obveza izrade UPU-a",
+              label: "categories.dataSetDetails.upuPreparationRequirement",
               value: feature.properties.Obveza_izrade_UPUa,
             },
             {
-              label: "Nepokretna kulturna dobra",
+              label: "categories.dataSetDetails.immovableCulturalHeritage",
               value: feature.properties.Nepokretna_kulturna_dobra,
             },
             {
-              label: "Zaštićeni dijelovi prirode",
+              label: "categories.dataSetDetails.protectedNaturalAreas",
               value: feature.properties.Zastićeni_dijelovi_priroda,
             },
             {
-              label: "Obveza provedbe ANU-a",
+              label: "categories.dataSetDetails.anuImplementationRequirement",
               value: feature.properties.Obveza_provedbe_AUNa,
             },
             {
-              label: "Prethodno korištenje",
+              label: "categories.dataSetDetails.previousUse",
               value: feature.properties.Prethodno_koristenje,
             },
             {
-              label: "Privremeno korištenje",
+              label: "categories.dataSetDetails.temporaryUse",
               value: feature.properties.Privremeno_korištenje,
             },
             {
-              label: "Status UPU-a",
+              label: "categories.dataSetDetails.upuStatus",
               value: feature.properties.Status_UPUa,
             },
-            { label: "Vlasništvo", value: feature.properties.Vlasništvo },
+            {
+              label: "categories.dataSetDetails.ownership",
+              value: feature.properties.Vlasništvo,
+            },
           ],
         }),
       }),
@@ -788,11 +1147,21 @@ export const CATEGORIES: Category[] = [
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/7e93637c72ac4c278c69ad5260611c39_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<DometicAnimalKeepingBoundry>) => ({
-          title: "Granice dopuštenog držanja domaćih životinja",
+          title:
+            "categories.dataSetDetails.domesticAnimalKeepingBoundariesTitle",
           details: [
-            { label: "Izvor", value: feature.properties.Izvor },
-            { label: "Izradio", value: feature.properties.Izradio },
-            { label: "Nadležan", value: feature.properties.Nadlezan },
+            {
+              label: "categories.dataSetDetails.source",
+              value: feature.properties.Izvor,
+            },
+            {
+              label: "categories.dataSetDetails.createdBy",
+              value: feature.properties.Izradio,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.Nadlezan,
+            },
           ],
         }),
       }),
@@ -806,12 +1175,30 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<CityMarket>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Radno vrijeme", value: feature.properties.radno_vrijeme },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Web", value: feature.properties.web },
-            { label: "Email", value: feature.properties.email },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.workingHours",
+              value: feature.properties.radno_vrijeme,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -826,8 +1213,14 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<SharedHuntingGround>) => ({
           title: feature.properties.Naziv,
           details: [
-            { label: "Površina", value: feature.properties.Area_ha },
-            { label: "Status", value: feature.properties.STATUS },
+            {
+              label: "categories.dataSetDetails.area",
+              value: feature.properties.Area_ha,
+            },
+            {
+              label: "categories.dataSetDetails.status",
+              value: feature.properties.STATUS,
+            },
           ],
         }),
       }),
@@ -844,7 +1237,10 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<WildlifeProtectionProgram>) => ({
           title: feature.properties.Naziv,
           details: [
-            { label: "Površina", value: feature.properties.Povrsina_ha },
+            {
+              label: "categories.dataSetDetails.area",
+              value: feature.properties.Povrsina_ha,
+            },
           ],
         }),
       }),
@@ -866,7 +1262,12 @@ export const CATEGORIES: Category[] = [
           "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<SurveillanceCamera>) => ({
           title: feature.properties.naziv,
-          details: [{ label: "Adresa", value: feature.properties.adresa }],
+          details: [
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+          ],
         }),
       }),
       dataSet({
@@ -879,10 +1280,22 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<PoliceStation>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Web", value: feature.properties.web },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -896,13 +1309,34 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<Firefighter>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Gradska četvrt", value: feature.properties.grad_cetv },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
-            { label: "Nadležan", value: feature.properties.nadlezan },
-            { label: "Izvor", value: feature.properties.izvor },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.grad_cetv,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
+            {
+              label: "categories.dataSetDetails.source",
+              value: feature.properties.izvor,
+            },
           ],
         }),
       }),
@@ -924,10 +1358,22 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<ZetBusStop>) => ({
           title: feature.properties.Naziv_stajališta,
           details: [
-            { label: "Opis", value: feature.properties.Opis },
-            { label: "Linije", value: feature.properties.Linije },
-            { label: "Displej", value: feature.properties.Displej },
-            { label: "Nadstrešnica", value: feature.properties.Nadstresnica },
+            {
+              label: "categories.dataSetDetails.description",
+              value: feature.properties.Opis,
+            },
+            {
+              label: "categories.dataSetDetails.lines",
+              value: feature.properties.Linije,
+            },
+            {
+              label: "categories.dataSetDetails.display",
+              value: feature.properties.Displej,
+            },
+            {
+              label: "categories.dataSetDetails.shelter",
+              value: feature.properties.Nadstresnica,
+            },
           ],
         }),
       }),
@@ -941,10 +1387,22 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<HzRailwayStop>) => ({
           title: feature.properties.Naziv,
           details: [
-            { label: "Opis", value: feature.properties.Opis },
-            { label: "Vrsta", value: feature.properties.Vrsta },
-            { label: "Peron", value: feature.properties.Peron },
-            { label: "Stacionaža", value: feature.properties.Stacionaza },
+            {
+              label: "categories.dataSetDetails.description",
+              value: feature.properties.Opis,
+            },
+            {
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.Vrsta,
+            },
+            {
+              label: "categories.dataSetDetails.platform",
+              value: feature.properties.Peron,
+            },
+            {
+              label: "categories.dataSetDetails.chainage",
+              value: feature.properties.Stacionaza,
+            },
           ],
         }),
       }),
@@ -956,7 +1414,7 @@ export const CATEGORIES: Category[] = [
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3aabf37d1d8b497c970dcddc21ed9612_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: () => ({
-          title: "Pješačke zone",
+          title: "categories.dataSetDetails.pedestrianZonesTitle",
           details: [{ label: "", value: null }],
         }),
       }),
@@ -970,7 +1428,12 @@ export const CATEGORIES: Category[] = [
           "https://opendata.arcgis.com/api/v3/datasets/04e3d79e90b04167a6efa8d277e5a482_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<ReservedParkingZone>) => ({
           title: feature.properties.Naziv,
-          details: [{ label: "Opis", value: feature.properties.Opis }],
+          details: [
+            {
+              label: "categories.dataSetDetails.description",
+              value: feature.properties.Opis,
+            },
+          ],
         }),
       }),
       dataSet({
@@ -983,26 +1446,38 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<PublicGarage>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Kapacitet", value: feature.properties.kapacitet },
             {
-              label: "Invalidska mjesta",
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.capacity",
+              value: feature.properties.kapacitet,
+            },
+            {
+              label: "categories.dataSetDetails.accessibleSpaces",
               value: feature.properties.invalidska_mj,
             },
             {
-              label: "Punionica za EV",
+              label: "categories.dataSetDetails.evChargingStation",
               value: feature.properties.punionica_za_EV,
             },
             {
-              label: "Parkirališta za bicikle",
+              label: "categories.dataSetDetails.bicycleParking",
               value: feature.properties.parkiraliste_za_bic,
             },
             {
-              label: "Obiteljska mjesta",
+              label: "categories.dataSetDetails.familySpaces",
               value: feature.properties.obiteljska_mj,
             },
-            { label: "Broj etaža", value: feature.properties.br_etaza },
+            {
+              label: "categories.dataSetDetails.levelCount",
+              value: feature.properties.br_etaza,
+            },
           ],
         }),
       }),
@@ -1017,10 +1492,22 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<PublicBicycleParking>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Lokacija", value: feature.properties.lokacija },
-            { label: "Vrsta", value: feature.properties.vrsta },
-            { label: "Broj stalaka", value: feature.properties.broj_stalaka },
-            { label: "Broj bicikala", value: feature.properties.broj_bicikala },
+            {
+              label: "categories.dataSetDetails.location",
+              value: feature.properties.lokacija,
+            },
+            {
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.vrsta,
+            },
+            {
+              label: "categories.dataSetDetails.rackCount",
+              value: feature.properties.broj_stalaka,
+            },
+            {
+              label: "categories.dataSetDetails.bicycleCount",
+              value: feature.properties.broj_bicikala,
+            },
           ],
         }),
       }),
@@ -1035,8 +1522,14 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<PublicBicycleSystem>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Lokacija", value: feature.properties.lokacija },
-            { label: "Broj stalaka", value: feature.properties.broj_stalaka },
+            {
+              label: "categories.dataSetDetails.location",
+              value: feature.properties.lokacija,
+            },
+            {
+              label: "categories.dataSetDetails.rackCount",
+              value: feature.properties.broj_stalaka,
+            },
           ],
         }),
       }),
@@ -1048,7 +1541,7 @@ export const CATEGORIES: Category[] = [
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/b10db2ae3a5b4e4b8dbee85a89d4b5b1_4/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: () => ({
-          title: "Biciklističke trake",
+          title: "categories.dataSetDetails.bicycleLanesTitle",
           details: [],
         }),
       }),
@@ -1062,7 +1555,12 @@ export const CATEGORIES: Category[] = [
           "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<SurveillanceCamera>) => ({
           title: feature.properties.naziv,
-          details: [{ label: "Adresa", value: feature.properties.adresa }],
+          details: [
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+          ],
         }),
       }),
       dataSet({
@@ -1074,7 +1572,12 @@ export const CATEGORIES: Category[] = [
           "https://opendata.arcgis.com/api/v3/datasets/c2a3ae87380b472d9b7e72f31cd296da_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<TaxiStand>) => ({
           title: feature.properties.lokacija,
-          details: [{ label: "Nadležan", value: feature.properties.nadlezan }],
+          details: [
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
+          ],
         }),
       }),
       dataSet({
@@ -1088,9 +1591,18 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<ElectricChargingStation>) => ({
           title: feature.properties.NAZIV,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Broj utičnica", value: feature.properties.BROJ_UTICNICA },
-            { label: "Tip utičnice", value: feature.properties.TIP_UTICNICE },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.socketCount",
+              value: feature.properties.BROJ_UTICNICA,
+            },
+            {
+              label: "categories.dataSetDetails.socketType",
+              value: feature.properties.TIP_UTICNICE,
+            },
           ],
         }),
       }),
@@ -1104,9 +1616,18 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<ZetTramStop>) => ({
           title: feature.properties.Naziv_stajališta,
           details: [
-            { label: "Linije", value: feature.properties.Linije },
-            { label: "Opis", value: feature.properties.Opis },
-            { label: "Napomena", value: feature.properties.Napomena },
+            {
+              label: "categories.dataSetDetails.lines",
+              value: feature.properties.Linije,
+            },
+            {
+              label: "categories.dataSetDetails.description",
+              value: feature.properties.Opis,
+            },
+            {
+              label: "categories.dataSetDetails.note",
+              value: feature.properties.Napomena,
+            },
           ],
         }),
       }),
@@ -1119,7 +1640,12 @@ export const CATEGORIES: Category[] = [
           "https://opendata.arcgis.com/api/v3/datasets/05fa1c92366e415c8ce813b9e28da8c5_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<GasStation>) => ({
           title: feature.properties.NAZIV,
-          details: [{ label: "Adresa", value: feature.properties.ADRESA }],
+          details: [
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.ADRESA,
+            },
+          ],
         }),
       }),
     ],
@@ -1140,15 +1666,36 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<PublicWell>) => ({
           title: feature.properties.lokacija,
           details: [
-            { label: "Napomena", value: feature.properties.napomena_teren },
-            { label: "Vrsta", value: feature.properties.ki_vrsta },
-            { label: "Tip zdenca", value: feature.properties.tip_zdenca },
-            { label: "Aktivan", value: feature.properties.aktivan_da_ne },
-            { label: "Gradska četvrt", value: feature.properties.naziv_gc },
-            { label: "Održava", value: feature.properties.odrzava_ki },
-            { label: "Upravitelj", value: feature.properties.upravitelj },
             {
-              label: "Status održavanja",
+              label: "categories.dataSetDetails.note",
+              value: feature.properties.napomena_teren,
+            },
+            {
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.ki_vrsta,
+            },
+            {
+              label: "categories.dataSetDetails.wellType",
+              value: feature.properties.tip_zdenca,
+            },
+            {
+              label: "categories.dataSetDetails.active",
+              value: feature.properties.aktivan_da_ne,
+            },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.naziv_gc,
+            },
+            {
+              label: "categories.dataSetDetails.maintainedBy",
+              value: feature.properties.odrzava_ki,
+            },
+            {
+              label: "categories.dataSetDetails.manager",
+              value: feature.properties.upravitelj,
+            },
+            {
+              label: "categories.dataSetDetails.maintenanceStatus",
               value: feature.properties.status_odrz,
             },
           ],
@@ -1164,12 +1711,30 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<ChildrenHome>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Vrsta", value: feature.properties.vrsta },
-            { label: "Podružnica", value: feature.properties.podruznica },
-            { label: "Web", value: feature.properties.web },
-            { label: "Email", value: feature.properties.email },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.vrsta,
+            },
+            {
+              label: "categories.dataSetDetails.branch",
+              value: feature.properties.podruznica,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1184,13 +1749,34 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<Disabilityinstitution>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Vrsta", value: feature.properties.vrsta },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Web", value: feature.properties.web },
-            { label: "Email", value: feature.properties.email },
-            { label: "Podružnica", value: feature.properties.podruznica },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.vrsta,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.branch",
+              value: feature.properties.podruznica,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1206,7 +1792,10 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<CivilProtectionAssemblyPoint>) => ({
           title: feature.properties.zboriste,
           details: [
-            { label: "Gradska četvrt", value: feature.properties.gradska_ce },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.gradska_ce,
+            },
           ],
         }),
       }),
@@ -1220,10 +1809,16 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<EvacuationArea>) => ({
           title: feature.properties.NAZIV,
           details: [
-            { label: "Gradska četvrt", value: feature.properties.G_cetvrt },
-            { label: "Tip", value: feature.properties.Tip },
             {
-              label: "Površina",
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.G_cetvrt,
+            },
+            {
+              label: "categories.dataSetDetails.type",
+              value: feature.properties.Tip,
+            },
+            {
+              label: "categories.dataSetDetails.area",
               value: `${feature.properties.Povrsina_ha.toFixed(2)} ha / ${(feature.properties.Povrsina_ha * 10000).toFixed(2)} m2`,
             },
           ],
@@ -1241,17 +1836,38 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<CroatianInstituteForSocialWork>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
             {
-              label: "Područje nadležnosti",
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.jurisdictionArea",
               value: feature.properties.podr_nadleznosti,
             },
-            { label: "Osnivač", value: feature.properties.osnivac },
-            { label: "Nadležan", value: feature.properties.nadlezan },
-            { label: "Gradska četvrt", value: feature.properties.IME_GC },
+            {
+              label: "categories.dataSetDetails.founder",
+              value: feature.properties.osnivac,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.IME_GC,
+            },
           ],
         }),
       }),
@@ -1266,12 +1882,30 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<SocialProtectionInstitution>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
-            { label: "Osnivač", value: feature.properties.osnivac },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.founder",
+              value: feature.properties.osnivac,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1286,15 +1920,42 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<OtherSocialWelfareActivitiy>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Vrsta", value: feature.properties.vrsta },
-            { label: "Kapacitet", value: feature.properties.kapacitet },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
-            { label: "Osnivač", value: feature.properties.osnivac },
-            { label: "Podružnica", value: feature.properties.podruznica },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.vrsta,
+            },
+            {
+              label: "categories.dataSetDetails.capacity",
+              value: feature.properties.kapacitet,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.founder",
+              value: feature.properties.osnivac,
+            },
+            {
+              label: "categories.dataSetDetails.branch",
+              value: feature.properties.podruznica,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1309,17 +1970,38 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<VeteransInstitution>) => ({
           title: feature.properties.NAZIV,
           details: [
-            { label: "Vrsta", value: feature.properties.VRSTA },
-            { label: "Adresa", value: feature.properties.ADRESA },
-            { label: "Telefon", value: feature.properties.TELEFON },
-            { label: "Email", value: feature.properties.EMAIL },
-            { label: "Web", value: feature.properties.WEB },
-            { label: "Osnivač", value: feature.properties.OSNIVAC },
             {
-              label: "Gradska četvrt",
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.VRSTA,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.ADRESA,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.TELEFON,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.EMAIL,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.WEB,
+            },
+            {
+              label: "categories.dataSetDetails.founder",
+              value: feature.properties.OSNIVAC,
+            },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
               value: feature.properties.gradska_cetvrt,
             },
-            { label: "Nadležan", value: feature.properties.NADLEZAN },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.NADLEZAN,
+            },
           ],
         }),
       }),
@@ -1334,18 +2016,42 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<HomelessInstitution>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Vrsta", value: feature.properties.vrsta },
             {
-              label: "Kapacitet",
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.vrsta,
+            },
+            {
+              label: "categories.dataSetDetails.capacity",
               value: feature.properties.kapacitet,
             },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
-            { label: "Podružnica", value: feature.properties.podruznica },
-            { label: "Vlasništvo", value: feature.properties.vlasnistvo },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.branch",
+              value: feature.properties.podruznica,
+            },
+            {
+              label: "categories.dataSetDetails.ownership",
+              value: feature.properties.vlasnistvo,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1359,18 +2065,42 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<ElderlyHome>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Vrsta", value: feature.properties.vrsta },
             {
-              label: "Kapacitet",
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.vrsta,
+            },
+            {
+              label: "categories.dataSetDetails.capacity",
               value: feature.properties.kapacitet,
             },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
-            { label: "Podružnica", value: feature.properties.podruznica },
-            { label: "Osnivač", value: feature.properties.osnivac },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.branch",
+              value: feature.properties.podruznica,
+            },
+            {
+              label: "categories.dataSetDetails.founder",
+              value: feature.properties.osnivac,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1384,9 +2114,18 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<PublicToilet>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Naplata", value: feature.properties.naplata },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.payment",
+              value: feature.properties.naplata,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1400,9 +2139,18 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<FreeWifiNetwork>) => ({
           title: feature.properties.Lokacija,
           details: [
-            { label: "Godina", value: feature.properties.godina },
-            { label: "Gradska četvrt", value: feature.properties.IME_GC },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.year",
+              value: feature.properties.godina,
+            },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.IME_GC,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1416,19 +2164,58 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<Kindergarten>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Gradska četvrt", value: feature.properties.grad_cetvr },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
-            { label: "Vrsta", value: feature.properties.vr_vrtica },
-            { label: "Tip", value: feature.properties.tip_vrtica },
-            { label: "Građevina", value: feature.properties.gradjevina },
-            { label: "Kuhinja", value: feature.properties.kuhinja },
-            { label: "Dvorana", value: feature.properties.dvorana },
-            { label: "Vdi", value: feature.properties.vdi },
-            { label: "Strani jezik", value: feature.properties.strani_jez },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.grad_cetvr,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.vr_vrtica,
+            },
+            {
+              label: "categories.dataSetDetails.type",
+              value: feature.properties.tip_vrtica,
+            },
+            {
+              label: "categories.dataSetDetails.building",
+              value: feature.properties.gradjevina,
+            },
+            {
+              label: "categories.dataSetDetails.kitchen",
+              value: feature.properties.kuhinja,
+            },
+            {
+              label: "categories.dataSetDetails.hall",
+              value: feature.properties.dvorana,
+            },
+            {
+              label: "categories.dataSetDetails.vdi",
+              value: feature.properties.vdi,
+            },
+            {
+              label: "categories.dataSetDetails.foreignLanguage",
+              value: feature.properties.strani_jez,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1442,16 +2229,34 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<CityGarden>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Nadležan", value: feature.properties.nadlezan },
             {
-              label: "Godina otvaranja",
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
+            {
+              label: "categories.dataSetDetails.openingYear",
               value: feature.properties.godina_otvaranja,
             },
-            { label: "Gradska četvrt", value: feature.properties.grad_cetvrt },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Kontakt", value: feature.properties.kontakt },
-            { label: "Broj korisnika", value: feature.properties.br_korisnika },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.grad_cetvrt,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.contact",
+              value: feature.properties.kontakt,
+            },
+            {
+              label: "categories.dataSetDetails.userCount",
+              value: feature.properties.br_korisnika,
+            },
           ],
         }),
       }),
@@ -1466,13 +2271,28 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<CityDistrictOffice>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Sjedište", value: feature.properties.sjediste },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
             {
-              label: "Primanje stranaka",
+              label: "categories.dataSetDetails.headquarters",
+              value: feature.properties.sjediste,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.officeHours",
               value: feature.properties.primanje_stranaka,
             },
           ],
@@ -1489,10 +2309,22 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<RomanCatholicParish>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -1506,12 +2338,30 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<CityMarket>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Radno vrijeme", value: feature.properties.radno_vrijeme },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Web", value: feature.properties.web },
-            { label: "Email", value: feature.properties.email },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.workingHours",
+              value: feature.properties.radno_vrijeme,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1523,11 +2373,20 @@ export const CATEGORIES: Category[] = [
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/78e1786ccdd544cfb8465b73051f22c9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<PublicDogArea>) => ({
-          title: "Javna površina za pse",
+          title: "categories.dataSetDetails.publicDogAreaTitle",
           details: [
-            { label: "Lokacija", value: feature.properties.Lokacija },
-            { label: "Gradska četvrt", value: feature.properties.GC },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.location",
+              value: feature.properties.Lokacija,
+            },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.GC,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1542,7 +2401,10 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<PublicPlayground>) => ({
           title: feature.properties.lokacija,
           details: [
-            { label: "Vrsta", value: feature.properties.Vrsta_objekta },
+            {
+              label: "categories.dataSetDetails.kind",
+              value: feature.properties.Vrsta_objekta,
+            },
           ],
         }),
       }),
@@ -1557,12 +2419,30 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<CompetentInstitution>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
-            { label: "Osnivač", value: feature.properties.osnivac },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.founder",
+              value: feature.properties.osnivac,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1577,11 +2457,26 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<ReligiousCommunity>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
-            { label: "Nadležan", value: feature.properties.nadlezan },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
           ],
         }),
       }),
@@ -1595,13 +2490,34 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<Firefighter>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Gradska četvrt", value: feature.properties.grad_cetv },
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
-            { label: "Nadležan", value: feature.properties.nadlezan },
-            { label: "Izvor", value: feature.properties.izvor },
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: feature.properties.grad_cetv,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
+              value: feature.properties.nadlezan,
+            },
+            {
+              label: "categories.dataSetDetails.source",
+              value: feature.properties.izvor,
+            },
           ],
         }),
       }),
@@ -1624,10 +2540,22 @@ export const CATEGORIES: Category[] = [
         getDisplayData: (feature: Feature<HealthcareInstitution>) => ({
           title: feature.properties.naziv,
           details: [
-            { label: "Adresa", value: feature.properties.adresa },
-            { label: "Telefon", value: feature.properties.telefon },
-            { label: "Email", value: feature.properties.email },
-            { label: "Web", value: feature.properties.web },
+            {
+              label: "categories.dataSetDetails.address",
+              value: feature.properties.adresa,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: feature.properties.telefon,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: feature.properties.email,
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
           ],
         }),
       }),
@@ -1643,16 +2571,19 @@ export const CATEGORIES: Category[] = [
           title: feature.properties.Domovi_zdravlja_naziv,
           details: [
             {
-              label: "Adresa",
+              label: "categories.dataSetDetails.address",
               value: feature.properties.Domovi_zdravlja_adresa,
             },
             {
-              label: "Telefon",
+              label: "categories.dataSetDetails.phone",
               value: feature.properties.Domovi_zdravlja_telefon,
             },
-            { label: "Web", value: feature.properties.Domovi_zdravlja_web },
             {
-              label: "Nadležan",
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.Domovi_zdravlja_web,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
               value: feature.properties.Domovi_zdravlja_nadlezan,
             },
           ],
@@ -1669,20 +2600,23 @@ export const CATEGORIES: Category[] = [
           title: feature.properties.naziv,
           details: [
             {
-              label: "Adresa",
+              label: "categories.dataSetDetails.address",
               value: feature.properties.adresa,
             },
             {
-              label: "Telefon",
+              label: "categories.dataSetDetails.phone",
               value: feature.properties.telefon,
             },
             {
-              label: "Email",
+              label: "categories.dataSetDetails.email",
               value: feature.properties.email,
             },
-            { label: "Web", value: feature.properties.web },
             {
-              label: "Nadležan",
+              label: "categories.dataSetDetails.web",
+              value: feature.properties.web,
+            },
+            {
+              label: "categories.dataSetDetails.responsibleAuthority",
               value: feature.properties.nadlezan,
             },
           ],
@@ -1710,19 +2644,40 @@ export const CATEGORIES: Category[] = [
         ) => ({
           title: feature.properties.Adresa,
           details: [
-            { label: "Operater", value: feature.properties.Operater },
-            { label: "Tip ormara", value: feature.properties.Tip_ormara },
-            { label: "Dužina", value: feature.properties.Dužina },
-            { label: "Visina", value: feature.properties.Visina },
-            { label: "Širina", value: feature.properties.Širina },
-            { label: "Površina", value: feature.properties.Površina },
-            { label: "Tip površine", value: feature.properties.Tip_površine },
             {
-              label: "Katastarska općina",
+              label: "categories.dataSetDetails.operator",
+              value: feature.properties.Operater,
+            },
+            {
+              label: "categories.dataSetDetails.cabinetType",
+              value: feature.properties.Tip_ormara,
+            },
+            {
+              label: "categories.dataSetDetails.length",
+              value: feature.properties.Dužina,
+            },
+            {
+              label: "categories.dataSetDetails.height",
+              value: feature.properties.Visina,
+            },
+            {
+              label: "categories.dataSetDetails.width",
+              value: feature.properties.Širina,
+            },
+            {
+              label: "categories.dataSetDetails.area",
+              value: feature.properties.Površina,
+            },
+            {
+              label: "categories.dataSetDetails.surfaceType",
+              value: feature.properties.Tip_površine,
+            },
+            {
+              label: "categories.dataSetDetails.cadastralMunicipality",
               value: feature.properties.Katastarska_općina,
             },
             {
-              label: "Katastarska čestica",
+              label: "categories.dataSetDetails.cadastralParcel",
               value: feature.properties.Katastarska_čestica,
             },
           ],

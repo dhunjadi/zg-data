@@ -34,17 +34,17 @@ const DataSetsScreen = () => {
       ListHeaderComponent={
         <>
           <Text className="text-3xl text-primaryDark font-bold mb-2">
-            Skupovi podataka
+            {t("screens.dataSets.title")}
           </Text>
 
           <Text className="text-md text-neutral-700 mb-4">
-            Pregledajte dostupne skupove podataka Grada Zagreba.
+            {t("screens.dataSets.description")}
           </Text>
 
           <View className="flex-row items-center bg-white border border-neutral-300 rounded-md px-3">
             <Search size={20} color="#737373" />
             <TextInput
-              placeholder="Pretraži skupove podataka"
+              placeholder={t("screens.dataSets.searchInputPlaceholder")}
               value={filterText}
               onChangeText={(val) => setFilterText(val)}
               autoCorrect={false}
