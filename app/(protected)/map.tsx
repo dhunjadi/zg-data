@@ -37,15 +37,24 @@ const MapScreen = () => {
 
   const bottomSheetRef = useRef<BottomSheet>(null);
 
-  const selectedDataSet = flatDataSets.find((set) => set.id === datasetId);
+  const selectedDataSet = useMemo(
+    () => flatDataSets.find((set) => set.id === datasetId),
+    [datasetId],
+  );
+
+  const viewport = useMemo(() => {
+    return {
+      minLat: region.latitude - region.latitudeDelta / 2,
+      maxLat: region.latitude + region.latitudeDelta / 2,
+      minLng: region.longitude - region.longitudeDelta / 2,
+      maxLng: region.longitude + region.longitudeDelta / 2,
+    };
+  }, [region]);
 
   const visibleFeatures = useMemo(() => {
     if (!geoData) return [];
 
-    const minLat = region.latitude - region.latitudeDelta / 2;
-    const maxLat = region.latitude + region.latitudeDelta / 2;
-    const minLng = region.longitude - region.longitudeDelta / 2;
-    const maxLng = region.longitude + region.longitudeDelta / 2;
+    const { minLat, maxLat, minLng, maxLng } = viewport;
 
     return geoData.features.filter((feature) => {
       if (!feature.geometry) return false;
@@ -66,12 +75,13 @@ const MapScreen = () => {
 
       return true;
     });
-  }, [geoData, region]);
+  }, [geoData, viewport]);
 
-  const selectedFeatureData =
-    selectedDataSet && selectedFeature
+  const selectedFeatureData = useMemo(() => {
+    return selectedDataSet && selectedFeature
       ? selectedDataSet.getDisplayData(selectedFeature)
       : undefined;
+  }, [selectedDataSet, selectedFeature]);
 
   const handleOnPress = useCallback(
     (feature: Feature<Record<string, unknown>>) => {
