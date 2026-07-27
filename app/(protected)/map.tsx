@@ -107,6 +107,11 @@ const MapScreen = () => {
         <DetailsBottomSheet
           ref={bottomSheetRef}
           selectedFeatureData={selectedFeatureData}
+          selectedFeatureCoordinates={
+            selectedFeature?.geometry.type === "Point"
+              ? selectedFeature.geometry.coordinates
+              : undefined
+          }
         />
       </View>
     </GestureHandlerRootView>
