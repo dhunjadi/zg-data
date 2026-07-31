@@ -124,7 +124,7 @@ import {
   ZetTramStop,
 } from "@/types";
 
-type DataSetItem = {
+export type DataSetItem = {
   label: string;
   description: string;
   icon: LucideIcon;

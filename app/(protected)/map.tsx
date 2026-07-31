@@ -59,11 +59,6 @@ const MapScreen = () => {
     return geoData.features.filter((feature) => {
       if (!feature.geometry) return false;
 
-      if (feature.geometry.type === "Point") {
-        const [lng, lat] = feature.geometry.coordinates;
-        return lat >= minLat && lat <= maxLat && lng >= minLng && lng <= maxLng;
-      }
-
       if (feature.geometry.type === "MultiLineString") {
         return feature.geometry.coordinates.some((line) =>
           line.some(
@@ -76,12 +71,6 @@ const MapScreen = () => {
       return true;
     });
   }, [geoData, viewport]);
-
-  const selectedFeatureData = useMemo(() => {
-    return selectedDataSet && selectedFeature
-      ? selectedDataSet.getDisplayData(selectedFeature)
-      : undefined;
-  }, [selectedDataSet, selectedFeature]);
 
   const handleOnPress = useCallback(
     (feature: Feature<Record<string, unknown>>) => {
@@ -105,13 +94,9 @@ const MapScreen = () => {
           onRegionChange={setRegion}
         />
         <DetailsBottomSheet
+          selectedDataSet={selectedDataSet}
+          selectedFeature={selectedFeature}
           ref={bottomSheetRef}
-          selectedFeatureData={selectedFeatureData}
-          selectedFeatureCoordinates={
-            selectedFeature?.geometry.type === "Point"
-              ? selectedFeature.geometry.coordinates
-              : undefined
-          }
         />
       </View>
     </GestureHandlerRootView>

@@ -130,7 +130,7 @@ const Map = ({
       provider={PROVIDER_GOOGLE}
       initialRegion={INITIAL_REGION}
       onRegionChangeComplete={onRegionChange}
-      minPoints={10}
+      minPoints={5}
       radius={100}
       renderCluster={renderCluster}
       onMapReady={async () => {

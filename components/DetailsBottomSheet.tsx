@@ -1,4 +1,5 @@
-import { DataSetDisplayData } from "@/types";
+import { DataSetItem } from "@/constants/categories";
+import { Feature } from "@/types";
 import { detectLinkType, getURLLink } from "@/utils/mapUtils";
 import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet";
 import { Map } from "lucide-react-native";
@@ -9,18 +10,18 @@ import { showLocation } from "react-native-map-link";
 import URLLink from "./URLLink";
 
 type DetailsBottomSheetProps = {
-  selectedFeatureData?: DataSetDisplayData;
-  selectedFeatureCoordinates?: [number, number];
+  selectedFeature: Feature<Record<string, unknown>> | null;
+  selectedDataSet?: DataSetItem;
 };
 const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
-  ({ selectedFeatureData, selectedFeatureCoordinates }, ref) => {
+  ({ selectedFeature, selectedDataSet }, ref) => {
     const { t } = useTranslation();
     const snapPoints = useMemo(() => ["25%", "50%"], []);
 
     const handleOpenInMaps = () => {
-      if (!selectedFeatureCoordinates) return;
+      if (selectedFeature?.geometry.type !== "Point") return;
 
-      const [longitude, latitude] = selectedFeatureCoordinates;
+      const [longitude, latitude] = selectedFeature.geometry.coordinates;
 
       showLocation({
         latitude,
@@ -28,6 +29,12 @@ const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
         googleForceLatLon: true,
       });
     };
+
+    const selectedFeatureData2 = useMemo(() => {
+      return selectedDataSet && selectedFeature
+        ? selectedDataSet.getDisplayData(selectedFeature)
+        : undefined;
+    }, [selectedDataSet, selectedFeature]);
 
     return (
       <BottomSheet
@@ -43,15 +50,17 @@ const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
         >
           <View className="flex-row items-start">
             <Text className="stext-xl font-bold text-primaryDark flex-1 shrink">
-              {selectedFeatureData?.title ? t(selectedFeatureData.title) : ""}
+              {selectedFeatureData2?.title ? t(selectedFeatureData2.title) : ""}
             </Text>
 
-            <Pressable onPress={handleOpenInMaps} className="">
-              <Map size={24} color="#005793" />
-            </Pressable>
+            {selectedFeature?.geometry.type === "Point" && (
+              <Pressable onPress={handleOpenInMaps}>
+                <Map size={24} color="#005793" />
+              </Pressable>
+            )}
           </View>
 
-          {selectedFeatureData?.details.map((detail) => {
+          {selectedFeatureData2?.details.map((detail) => {
             if (!detail.value) return null;
 
             const items = detail.value
