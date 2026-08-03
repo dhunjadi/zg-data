@@ -1,3 +1,4 @@
+import { useUserLocation } from "@/hooks/useUserLocation";
 import { Feature } from "@/types";
 import React, { useCallback, useMemo, useRef } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
@@ -45,6 +46,8 @@ const Map = ({
   onFeatureSelect,
   onRegionChange,
 }: MapProps) => {
+  const { isPermissionGranted } = useUserLocation();
+
   const mapViewRef = useRef<MapViewType | null>(null);
   const renderCluster = useCallback((cluster: Cluster) => {
     const { id, geometry, onPress, properties } = cluster;
@@ -132,6 +135,7 @@ const Map = ({
       onRegionChangeComplete={onRegionChange}
       minPoints={5}
       radius={100}
+      showsUserLocation={isPermissionGranted}
       renderCluster={renderCluster}
       onMapReady={async () => {
         const boundaries = await mapViewRef.current?.getMapBoundaries();
