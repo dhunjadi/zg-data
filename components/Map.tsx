@@ -26,7 +26,6 @@ type MapProps = {
   visibleFeatures: Feature<Record<string, unknown>>[];
   selectedFeature: Feature<Record<string, unknown>> | null;
   onFeatureSelect: (feature: Feature<Record<string, unknown>>) => void;
-  onRegionChange: (region: Region) => void;
 };
 
 type Cluster = {
@@ -44,7 +43,6 @@ const Map = ({
   visibleFeatures,
   selectedFeature,
   onFeatureSelect,
-  onRegionChange,
 }: MapProps) => {
   const { isPermissionGranted } = useUserLocation();
 
@@ -132,24 +130,10 @@ const Map = ({
       style={styles.map}
       provider={PROVIDER_GOOGLE}
       initialRegion={INITIAL_REGION}
-      onRegionChangeComplete={onRegionChange}
       minPoints={5}
       radius={100}
       showsUserLocation={isPermissionGranted}
       renderCluster={renderCluster}
-      onMapReady={async () => {
-        const boundaries = await mapViewRef.current?.getMapBoundaries();
-        if (!boundaries) return;
-
-        const { northEast, southWest } = boundaries;
-
-        onRegionChange({
-          latitude: (northEast.latitude + southWest.latitude) / 2,
-          longitude: (northEast.longitude + southWest.longitude) / 2,
-          latitudeDelta: northEast.latitude - southWest.latitude,
-          longitudeDelta: northEast.longitude - southWest.longitude,
-        });
-      }}
     >
       {renderedFeatures}
     </MapView>

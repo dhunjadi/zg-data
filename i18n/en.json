@@ -27,17 +27,9 @@
       "title": "Datasets",
       "description": "Browse the available datasets from the category: {{category}}."
     },
-    "signUp": {
-      "title": "Registration",
-      "description": "Create a user account",
-      "emailPlaceholder": "your@email.com",
-      "passwordPlaceholder": "******",
-      "signUp": "Sign Up",
-      "backToSignIn": "Back to Sign In"
-    },
-    "account": {
-      "language": "Language",
-      "signOut": "Sign Out"
+
+    "settings": {
+      "language": "Language"
     },
     "map": {
       "title": "Map"
@@ -45,7 +37,7 @@
   },
   "tabs": {
     "home": "Home",
-    "account": "Account"
+    "settings": "Settings"
   },
   "categories": {
     "education": {

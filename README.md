@@ -6,23 +6,11 @@ The project uses data from the official City of Zagreb open data portal: [data.z
 
 ## Features
 
-- Firebase email/password authentication
-- Protected app routes for authenticated users
 - Dataset categories for education, traffic, public services, environment, health care, agriculture, society, and more
 - Searchable category and dataset lists
 - Map screen powered by `react-native-maps`
 - GeoJSON fetching with Axios and TanStack Query
-- Form validation with React Hook Form and Yup
 - Styling with NativeWind / Tailwind CSS
-
-## Test Account
-
-Use this account to try the authenticated part of the app:
-
-```txt
-email: test@test.hr
-password: 123456
-```
 
 ## Data Source
 
@@ -36,11 +24,8 @@ The app is built around public datasets from the City of Zagreb Open Data Portal
 - [Expo](https://expo.dev/)
 - [Expo Router](https://docs.expo.dev/router/introduction/)
 - [React Native](https://reactnative.dev/)
-- [Firebase Authentication](https://firebase.google.com/docs/auth)
 - [TanStack Query](https://tanstack.com/query/latest)
 - [Axios](https://axios-http.com/)
-- [React Hook Form](https://react-hook-form.com/)
-- [Yup](https://github.com/jquense/yup)
 - [NativeWind](https://www.nativewind.dev/)
 - [react-native-maps](https://github.com/react-native-maps/react-native-maps)
 

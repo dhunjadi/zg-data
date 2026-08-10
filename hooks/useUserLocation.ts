@@ -4,31 +4,36 @@ import { Alert } from "react-native";
 
 export const useUserLocation = () => {
   const [isPermissionGranted, setIsPermissionGranted] = useState(false);
-  const [errorMessage, setErrorMesage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [longitude, setLongitude] = useState("");
   const [latitude, setLatitude] = useState("");
 
-  const getuserLocation = async () => {
-    let { granted } = await Location.requestForegroundPermissionsAsync();
+  const getUserLocation = async () => {
+    try {
+      const { granted } = await Location.requestForegroundPermissionsAsync();
 
-    if (!granted) {
-      setErrorMesage("Location permmission not granted");
-      Alert.alert("Enable location services to see your location on the map!");
-      return;
-    }
+      if (!granted) {
+        setIsPermissionGranted(false);
+        setErrorMessage("Location permission not granted");
+        return;
+      }
 
-    setIsPermissionGranted(true);
-    let { coords } = await Location.getCurrentPositionAsync();
+      const { coords } = await Location.getCurrentPositionAsync();
 
-    if (coords) {
-      const { latitude, longitude } = coords;
-      setLatitude(latitude.toString());
-      setLongitude(longitude.toString());
+      setIsPermissionGranted(true);
+      setErrorMessage("");
+
+      setLatitude(coords.latitude.toString());
+      setLongitude(coords.longitude.toString());
+    } catch {
+      Alert.alert("Location services are disabled");
+      setIsPermissionGranted(false);
+      setErrorMessage("Location services are disabled");
     }
   };
 
   useEffect(() => {
-    getuserLocation();
+    getUserLocation();
   }, []);
 
   return { isPermissionGranted, latitude, longitude, errorMessage };

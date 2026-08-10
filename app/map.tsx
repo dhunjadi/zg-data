@@ -5,72 +5,60 @@ import { CATEGORIES } from "@/constants/categories";
 import { useFetchGeoJson } from "@/hooks/useFetchGeoJson";
 import { Feature } from "@/types";
 import BottomSheet from "@gorhom/bottom-sheet";
-import { useLocalSearchParams } from "expo-router";
-import React, { useCallback, useMemo, useRef, useState } from "react";
-import { View } from "react-native";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import { Alert, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { Region } from "react-native-maps";
-
-const INITIAL_REGION: Region = {
-  latitude: 45.815399,
-  longitude: 15.966568,
-  latitudeDelta: 0.01,
-  longitudeDelta: 0.01,
-};
 
 const flatDataSets = CATEGORIES.flatMap((category) =>
   category.dataSets.map((dataSet) => dataSet),
 );
 
 const MapScreen = () => {
+  const router = useRouter();
   const { datasetId, fetchUrl } = useLocalSearchParams<{
     datasetId?: string;
     fetchUrl?: string;
   }>();
 
-  const { data: geoData, isFetching } = useFetchGeoJson(fetchUrl || "");
+  const {
+    data: geoData,
+    isFetching,
+    isError,
+  } = useFetchGeoJson(fetchUrl || "");
 
-  const [region, setRegion] = useState<Region>(INITIAL_REGION);
   const [selectedFeature, setSelectedFeature] = useState<Feature<
     Record<string, unknown>
   > | null>(null);
 
   const bottomSheetRef = useRef<BottomSheet>(null);
 
+  useEffect(() => {
+    if (!isError) return;
+
+    Alert.alert("Something went wrong", "Try again later", [
+      {
+        text: "Go back",
+        onPress: () => router.back(),
+      },
+    ]);
+  });
+
   const selectedDataSet = useMemo(
     () => flatDataSets.find((set) => set.id === datasetId),
     [datasetId],
   );
-
-  const viewport = useMemo(() => {
-    return {
-      minLat: region.latitude - region.latitudeDelta / 2,
-      maxLat: region.latitude + region.latitudeDelta / 2,
-      minLng: region.longitude - region.longitudeDelta / 2,
-      maxLng: region.longitude + region.longitudeDelta / 2,
-    };
-  }, [region]);
-
   const visibleFeatures = useMemo(() => {
     if (!geoData) return [];
 
-    const { minLat, maxLat, minLng, maxLng } = viewport;
-
-    return geoData.features.filter((feature) => {
-      if (!feature.geometry) return false;
-
-      if (feature.geometry.type === "MultiLineString") {
-        return feature.geometry.coordinates.some((line) =>
-          line.some(
-            ([lng, lat]) =>
-              lat >= minLat && lat <= maxLat && lng >= minLng && lng <= maxLng,
-          ),
-        );
-      }
-
-      return true;
-    });
-  }, [geoData, viewport]);
+    return geoData.features;
+  }, [geoData]);
 
   const handleOnPress = useCallback(
     (feature: Feature<Record<string, unknown>>) => {
@@ -91,7 +79,6 @@ const MapScreen = () => {
           visibleFeatures={visibleFeatures}
           selectedFeature={selectedFeature}
           onFeatureSelect={handleOnPress}
-          onRegionChange={setRegion}
         />
         <DetailsBottomSheet
           selectedDataSet={selectedDataSet}

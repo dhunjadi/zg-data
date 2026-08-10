@@ -36,9 +36,8 @@
       "signUp": "Registriraj se",
       "backToSignIn": "Vrati se na prijavu"
     },
-    "account": {
-      "language": "Jezik",
-      "signOut": "Odjavi se"
+    "settings": {
+      "language": "Jezik"
     },
     "map": {
       "title": "Karta"
@@ -46,7 +45,7 @@
   },
   "tabs": {
     "home": "Početna",
-    "account": "Račun"
+    "settings": "Postavke"
   },
   "categories": {
     "education": {

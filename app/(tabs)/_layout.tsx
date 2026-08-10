@@ -1,9 +1,9 @@
 import { Tabs } from "expo-router";
-import { CircleUserRound, House } from "lucide-react-native";
+import { House, Settings } from "lucide-react-native";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Image } from "react-native";
-import ZagrebCoA from "../../../assets/images/zagreb-grb.png";
+import ZagrebCoA from "../../assets/images/zagreb-grb.png";
 
 const TabsLayout = () => {
   const { t } = useTranslation();
@@ -28,14 +28,14 @@ const TabsLayout = () => {
       />
 
       <Tabs.Screen
-        name="account"
+        name="settings"
         options={{
-          title: t("tabs.account"),
+          title: t("tabs.settings"),
           headerShown: true,
           popToTopOnBlur: true,
-          tabBarLabel: t("tabs.account"),
+          tabBarLabel: t("tabs.settings"),
           tabBarIcon: ({ color, size }) => (
-            <CircleUserRound size={size} color={color} />
+            <Settings size={size} color={color} />
           ),
         }}
       />

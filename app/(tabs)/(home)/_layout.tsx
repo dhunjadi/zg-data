@@ -3,7 +3,7 @@ import { Stack, useGlobalSearchParams } from "expo-router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Image } from "react-native";
-import ZagrebCoA from "../../../../assets/images/zagreb-grb.png";
+import ZagrebCoA from "../../../assets/images/zagreb-grb.png";
 
 const HomeLayout = () => {
   const { t } = useTranslation();
