@@ -5,6 +5,7 @@ import { CATEGORIES } from "@/constants/categories";
 import { useFetchGeoJson } from "@/hooks/useFetchGeoJson";
 import { Feature } from "@/types";
 import BottomSheet from "@gorhom/bottom-sheet";
+import { useQueryClient } from "@tanstack/react-query";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, {
   useCallback,
@@ -21,6 +22,7 @@ const flatDataSets = CATEGORIES.flatMap((category) =>
 );
 
 const MapScreen = () => {
+  const queryClient = useQueryClient();
   const router = useRouter();
   const { datasetId, fetchUrl } = useLocalSearchParams<{
     datasetId?: string;
@@ -48,7 +50,15 @@ const MapScreen = () => {
         onPress: () => router.back(),
       },
     ]);
-  });
+  }, [isError, router]);
+
+  useEffect(() => {
+    return () => {
+      queryClient.cancelQueries({
+        queryKey: ["geo-json", fetchUrl || ""],
+      });
+    };
+  }, [queryClient, fetchUrl]);
 
   const selectedDataSet = useMemo(
     () => flatDataSets.find((set) => set.id === datasetId),
