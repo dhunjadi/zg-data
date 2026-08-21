@@ -23,6 +23,8 @@ const HomeScreen = () => {
         {t("screens.home.title")}
       </Text>
 
+      <Text className="text-3xl text-primaryDark font-bold mb-2">Welcome</Text>
+
       <Text className="text-md text-neutral-700 mb-8">
         {t("screens.home.description")}
       </Text>
