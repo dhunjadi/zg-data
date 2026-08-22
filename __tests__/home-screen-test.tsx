@@ -1,10 +1,10 @@
 import HomeScreen from "@/app/(tabs)/(home)";
 import { render } from "@testing-library/react-native";
 
-describe("<HomeScreen />", () => {
-  test("Text renders correctly on HomeScreen", async () => {
+describe("HomeScreen", () => {
+  test("rendering title", async () => {
     const { getByText } = await render(<HomeScreen />);
 
-    getByText("Welcome");
+    expect(getByText("screens.home.title")).toBeTruthy();
   });
 });

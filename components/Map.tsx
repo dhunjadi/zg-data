@@ -1,7 +1,8 @@
+import { MAP_MODALS_INITIAL_STATE } from "@/constants/mapConstants";
 import { useUserLocation } from "@/hooks/useUserLocation";
 import { Feature } from "@/types";
 import React, { useCallback, useMemo, useRef } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Modal, Pressable, StyleSheet, Text, View } from "react-native";
 import MapView from "react-native-map-clustering";
 import {
   default as MapViewType,
@@ -44,7 +45,8 @@ const Map = ({
   selectedFeature,
   onFeatureSelect,
 }: MapProps) => {
-  const { isPermissionGranted } = useUserLocation();
+  const { isPermissionGranted, renderModal, setRenderModal, getUserLocation } =
+    useUserLocation();
 
   const mapViewRef = useRef<MapViewType | null>(null);
   const renderCluster = useCallback((cluster: Cluster) => {
@@ -124,19 +126,55 @@ const Map = ({
     });
   }, [visibleFeatures, selectedFeature, onFeatureSelect]);
 
+  const handleLocationServicesModalClose = async () => {
+    setRenderModal(MAP_MODALS_INITIAL_STATE);
+    await getUserLocation();
+  };
+
   return (
-    <MapView
-      ref={mapViewRef}
-      style={styles.map}
-      provider={PROVIDER_GOOGLE}
-      initialRegion={INITIAL_REGION}
-      minPoints={5}
-      radius={100}
-      showsUserLocation={isPermissionGranted}
-      renderCluster={renderCluster}
-    >
-      {renderedFeatures}
-    </MapView>
+    <>
+      <MapView
+        ref={mapViewRef}
+        style={styles.map}
+        provider={PROVIDER_GOOGLE}
+        initialRegion={INITIAL_REGION}
+        minPoints={5}
+        radius={100}
+        showsUserLocation={isPermissionGranted}
+        renderCluster={renderCluster}
+      >
+        {renderedFeatures}
+      </MapView>
+
+      <Modal
+        visible={Object.values(renderModal).some((val) => val === true)}
+        transparent
+        animationType="fade"
+        statusBarTranslucent
+        onRequestClose={handleLocationServicesModalClose}
+      >
+        <View className="flex-1 justify-center items-center bg-black/50">
+          <View className="bg-neutral-100 p-3 max-w-[90%] rounded-xl">
+            <Text className="font-bold text-primaryDark text-xl mb-4">
+              uključite usluge lokacije
+            </Text>
+            <Text>
+              Da vidite gdje se trenutno nalazite, prije nego pritisnete &apos;U
+              redu&apos;, uključite usluge lokacije!
+            </Text>
+
+            <View className="flex-row mt-4 gap-4 items-stretch justify-end">
+              <Pressable
+                onPress={handleLocationServicesModalClose}
+                className="flex-row gap-2 bg-primaryDark p-3 rounded-md justify-center items-center"
+              >
+                <Text className="text-white font-bold">U redu</Text>
+              </Pressable>
+            </View>
+          </View>
+        </View>
+      </Modal>
+    </>
   );
 };
 

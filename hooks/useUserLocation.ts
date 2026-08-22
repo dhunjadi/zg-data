@@ -1,34 +1,43 @@
+import { MAP_MODALS_INITIAL_STATE } from "@/constants/mapConstants";
 import * as Location from "expo-location";
 import { useEffect, useState } from "react";
-import { Alert } from "react-native";
+
+// Outside of the hook to avoid asking to turn on location services
+// every time user opens the map
+let hasAskedToEnableLocationServices = false;
 
 export const useUserLocation = () => {
   const [isPermissionGranted, setIsPermissionGranted] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [longitude, setLongitude] = useState("");
-  const [latitude, setLatitude] = useState("");
+  const [renderModal, setRenderModal] = useState(MAP_MODALS_INITIAL_STATE);
 
   const getUserLocation = async () => {
     try {
+      const locationServicesEnabled = await Location.hasServicesEnabledAsync();
+
+      if (!locationServicesEnabled) {
+        setIsPermissionGranted(false);
+
+        if (!hasAskedToEnableLocationServices) {
+          hasAskedToEnableLocationServices = true;
+          setRenderModal((prev) => ({ ...prev, locationServices: true }));
+        }
+        return;
+      }
+
       const { granted } = await Location.requestForegroundPermissionsAsync();
 
       if (!granted) {
         setIsPermissionGranted(false);
-        setErrorMessage("Location permission not granted");
         return;
       }
 
-      const { coords } = await Location.getCurrentPositionAsync();
-
       setIsPermissionGranted(true);
-      setErrorMessage("");
-
-      setLatitude(coords.latitude.toString());
-      setLongitude(coords.longitude.toString());
     } catch {
-      Alert.alert("Location services are disabled");
       setIsPermissionGranted(false);
-      setErrorMessage("Location services are disabled");
+
+      if (!hasAskedToEnableLocationServices) {
+        hasAskedToEnableLocationServices = true;
+      }
     }
   };
 
@@ -36,5 +45,10 @@ export const useUserLocation = () => {
     getUserLocation();
   }, []);
 
-  return { isPermissionGranted, latitude, longitude, errorMessage };
+  return {
+    isPermissionGranted,
+    setRenderModal,
+    renderModal,
+    getUserLocation,
+  };
 };
