@@ -2,6 +2,7 @@ import { MAP_MODALS_INITIAL_STATE } from "@/constants/mapConstants";
 import { useUserLocation } from "@/hooks/useUserLocation";
 import { Feature } from "@/types";
 import React, { useCallback, useMemo, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Image, Modal, Pressable, StyleSheet, Text, View } from "react-native";
 import MapView from "react-native-map-clustering";
 import {
@@ -47,6 +48,7 @@ const Map = ({
 }: MapProps) => {
   const { isPermissionGranted, renderModal, setRenderModal, getUserLocation } =
     useUserLocation();
+  const { t } = useTranslation();
 
   const mapViewRef = useRef<MapViewType | null>(null);
   const renderCluster = useCallback((cluster: Cluster) => {
@@ -156,19 +158,18 @@ const Map = ({
         <View className="flex-1 justify-center items-center bg-black/50">
           <View className="bg-neutral-100 p-3 max-w-[90%] rounded-xl">
             <Text className="font-bold text-primaryDark text-xl mb-4">
-              uključite usluge lokacije
+              {t("screens.map.modalTitle")}
             </Text>
-            <Text>
-              Da vidite gdje se trenutno nalazite, prije nego pritisnete &apos;U
-              redu&apos;, uključite usluge lokacije!
-            </Text>
+            <Text>{t("screens.map.modalText")}</Text>
 
             <View className="flex-row mt-4 gap-4 items-stretch justify-end">
               <Pressable
                 onPress={handleLocationServicesModalClose}
                 className="flex-row gap-2 bg-primaryDark p-3 rounded-md justify-center items-center"
               >
-                <Text className="text-white font-bold">U redu</Text>
+                <Text className="text-white font-bold">
+                  {t("screens.map.modalButton")}
+                </Text>
               </Pressable>
             </View>
           </View>

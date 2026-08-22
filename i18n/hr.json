@@ -40,7 +40,10 @@
       "language": "Jezik"
     },
     "map": {
-      "title": "Karta"
+      "title": "Karta",
+      "modalTitle": "Uključite usluge lokacije",
+      "modalText": "Da vidite gdje se trenutno nalazite, prije nego pritisnete \"U redu\", uključite usluge lokacije!",
+      "modalButton": "U redu"
     }
   },
   "tabs": {

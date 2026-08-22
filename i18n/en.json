@@ -32,7 +32,10 @@
       "language": "Language"
     },
     "map": {
-      "title": "Map"
+      "title": "Map",
+      "modalTitle": "Turn on location services",
+      "modalText": "To see your current location, before you select \"Okay\", turn on location services!",
+      "modalButton": "Okay"
     }
   },
   "tabs": {
