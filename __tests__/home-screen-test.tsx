@@ -1,23 +1,25 @@
 import HomeScreen from "@/app/(tabs)/(home)";
 import { CATEGORIES } from "@/constants/categories";
-import { render, userEvent } from "@testing-library/react-native";
+import { render, screen, userEvent } from "@testing-library/react-native";
 
 describe("HomeScreen", () => {
   const user = userEvent.setup();
   it("is rendering title and description", async () => {
-    const { getByText } = await render(<HomeScreen />);
+    await render(<HomeScreen />);
 
-    const title = getByText("screens.home.title");
-    const description = getByText("screens.home.description");
+    const title = screen.getByText("screens.home.title");
+    const description = screen.getByText("screens.home.description");
 
     expect(title).toBeOnTheScreen();
     expect(description).toBeOnTheScreen();
   });
 
   it("has a working text input", async () => {
-    const { getByPlaceholderText } = await render(<HomeScreen />);
+    await render(<HomeScreen />);
 
-    const input = getByPlaceholderText("screens.home.searchInputPlaceholder");
+    const input = screen.getByPlaceholderText(
+      "screens.home.searchInputPlaceholder",
+    );
     expect(input).toBeOnTheScreen();
 
     await user.type(input, "abc");
@@ -26,21 +28,21 @@ describe("HomeScreen", () => {
   });
 
   it("renders GroupCards for each category", async () => {
-    const { getByText } = await render(<HomeScreen />);
+    await render(<HomeScreen />);
 
     CATEGORIES.forEach((category) => {
-      expect(getByText(category.label)).toBeOnTheScreen();
+      expect(screen.getByText(category.label)).toBeOnTheScreen();
     });
   });
 
   it("only renders GroupCards whose labels contain the search text", async () => {
     const FILTERING_TEXT = "a";
 
-    const { getByPlaceholderText, getByText, queryByText } = await render(
-      <HomeScreen />,
-    );
+    await render(<HomeScreen />);
 
-    const input = getByPlaceholderText("screens.home.searchInputPlaceholder");
+    const input = screen.getByPlaceholderText(
+      "screens.home.searchInputPlaceholder",
+    );
 
     await user.type(input, FILTERING_TEXT);
 
@@ -53,11 +55,11 @@ describe("HomeScreen", () => {
     );
 
     matchingCategories.forEach((item) => {
-      expect(getByText(item.label)).toBeOnTheScreen();
+      expect(screen.getByText(item.label)).toBeOnTheScreen();
     });
 
     nonMatchingCategories.forEach((item) => {
-      expect(queryByText(item.label)).not.toBeOnTheScreen();
+      expect(screen.queryByText(item.label)).not.toBeOnTheScreen();
     });
   });
 });
