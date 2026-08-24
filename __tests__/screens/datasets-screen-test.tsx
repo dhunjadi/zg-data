@@ -1,14 +1,6 @@
 import DataSetsScreen from "@/app/dataSets";
 import { CATEGORIES } from "@/constants/categories";
 import { render, screen, userEvent } from "@testing-library/react-native";
-jest.mock("@/components/DataSetItem", () => {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { Text } = require("react-native");
-
-  return function MockDataSetItem({ label }: { label: string }) {
-    return <Text testID="dataset-item">{label}</Text>;
-  };
-});
 
 describe("DataSetsScreen", () => {
   const user = userEvent.setup();

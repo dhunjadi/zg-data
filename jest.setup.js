@@ -1,3 +1,6 @@
+// jest.setup.ts
+import "./i18n/i18n";
+
 jest.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key, options) => {
