@@ -7,7 +7,6 @@
     "icon": "./assets/images/icon.png",
     "scheme": "zgdata",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.dhunjadi.zgdata",
@@ -20,7 +19,6 @@
         "backgroundColor": "#005793",
         "foregroundImage": "./assets/images/android-icon-foreground-3.png"
       },
-      "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "package": "com.dhunjadi.zgdata",
       "config": {
