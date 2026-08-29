@@ -134,6 +134,7 @@ const Map = ({
       radius={100}
       showsUserLocation={isPermissionGranted}
       renderCluster={renderCluster}
+      userInterfaceStyle="light"
     >
       {renderedFeatures}
     </MapView>
