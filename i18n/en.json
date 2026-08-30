@@ -1,14 +1,5 @@
 {
   "screens": {
-    "login": {
-      "appTitle": "Zagreb Data",
-      "description": "Access open data from the City of Zagreb",
-      "emailPlaceholder": "your@email.com",
-      "passwordPlaceholder": "******",
-      "signInError": "Wrong email or password",
-      "signIn": "Sign In",
-      "signUp": "Sign Up"
-    },
     "home": {
       "headerTitle": "Zagreb Open Data",
       "title": "Open Data of the City of Zagreb",
@@ -16,7 +7,8 @@
       "searchInputPlaceholder": "Search categories",
       "showAllDatasets": "Show all datasets",
       "dataSetCount_one": "{{count}} dataset",
-      "dataSetCount_other": "{{count}} datasets"
+      "dataSetCount_other": "{{count}} datasets",
+      "noInternet": "No internet connection"
     },
     "dataSets": {
       "title": "Datasets",

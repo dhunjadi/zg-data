@@ -1,14 +1,5 @@
 {
   "screens": {
-    "login": {
-      "appTitle": "Zagreb Data",
-      "description": "Pristupite otvorenim podacima Grada Zagreba",
-      "emailPlaceholder": "vas@email.hr",
-      "passwordPlaceholder": "******",
-      "signInError": "Pogrešan email ili lozinka",
-      "signIn": "Prijavi se",
-      "signUp": "Registriraj se"
-    },
     "home": {
       "headerTitle": "Otvoreni podaci Zagreb",
       "title": "Otvoreni podaci Grada Zagreba",
@@ -17,7 +8,8 @@
       "showAllDatasets": "Prikaži sve skupove podataka",
       "dataSetCount_one": "{{count}} skup podataka",
       "dataSetCount_few": "{{count}} skupa podataka",
-      "dataSetCount_other": "{{count}} skupova podataka"
+      "dataSetCount_other": "{{count}} skupova podataka",
+      "noInternet": "Niste povezani na internet"
     },
     "dataSets": {
       "title": "Skupovi podataka",
