@@ -1,4 +1,4 @@
-// jest.setup.ts
+require("react-native-reanimated/mock");
 import "./i18n/i18n";
 
 jest.mock("react-i18next", () => ({
