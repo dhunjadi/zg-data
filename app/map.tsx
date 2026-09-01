@@ -7,13 +7,7 @@ import { Feature } from "@/types";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { useQueryClient } from "@tanstack/react-query";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Alert, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
@@ -65,9 +59,7 @@ const MapScreen = () => {
     [datasetId],
   );
   const visibleFeatures = useMemo(() => {
-    if (!geoData) return [];
-
-    return geoData.features;
+    return geoData?.features ?? [];
   }, [geoData]);
 
   const handleOnPress = useCallback(

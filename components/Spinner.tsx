@@ -1,4 +1,3 @@
-import React from "react";
 import { ActivityIndicator, ActivityIndicatorProps, View } from "react-native";
 
 type SpinnerProps = {
@@ -12,6 +11,7 @@ const Spinner = ({ size = "small", theme = "dark" }: SpinnerProps) => {
       <ActivityIndicator
         size={size}
         color={theme === "dark" ? "#005793" : "#f7f7f7"}
+        testID="loading-spinner"
       />
     </View>
   );

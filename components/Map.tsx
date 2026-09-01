@@ -40,7 +40,7 @@ type Cluster = {
 };
 
 const Map = ({
-  visibleFeatures,
+  visibleFeatures = [],
   selectedFeature,
   onFeatureSelect,
 }: MapProps) => {
