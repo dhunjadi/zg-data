@@ -6,7 +6,7 @@ import { useFetchGeoJson } from "@/hooks/useFetchGeoJson";
 import { Feature } from "@/types";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { useQueryClient } from "@tanstack/react-query";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { useLocalSearchParams, useNavigation, useRouter } from "expo-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Alert, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -16,11 +16,13 @@ const flatDataSets = CATEGORIES.flatMap((category) =>
 );
 
 const MapScreen = () => {
+  const navigation = useNavigation();
   const queryClient = useQueryClient();
   const router = useRouter();
-  const { datasetId, fetchUrl } = useLocalSearchParams<{
+  const { datasetId, fetchUrl, label } = useLocalSearchParams<{
     datasetId?: string;
     fetchUrl?: string;
+    label?: string;
   }>();
 
   const {
@@ -34,6 +36,12 @@ const MapScreen = () => {
   > | null>(null);
 
   const bottomSheetRef = useRef<BottomSheet>(null);
+
+  useEffect(() => {
+    navigation.setOptions({
+      title: label,
+    });
+  }, [label, navigation]);
 
   useEffect(() => {
     if (!isError) return;

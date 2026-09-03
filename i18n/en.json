@@ -7,13 +7,16 @@
       "searchInputPlaceholder": "Search categories",
       "showAllDatasets": "Show all datasets",
       "dataSetCount_one": "{{count}} dataset",
+      "dataSetCount_few": "{{count}} datasets",
       "dataSetCount_other": "{{count}} datasets",
-      "noInternet": "No internet connection"
+      "noInternet": "No internet connection",
+      "categoryNotFound": "Category not found"
     },
     "dataSets": {
       "title": "Datasets",
       "description": "Browse the available datasets of the City of Zagreb.",
-      "searchInputPlaceholder": "Search datasets"
+      "searchInputPlaceholder": "Search datasets",
+      "datasetNotFound": "Dataset not found"
     },
     "dataSetGroup": {
       "title": "Datasets",

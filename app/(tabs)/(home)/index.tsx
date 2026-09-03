@@ -2,7 +2,7 @@ import GroupCard from "@/components/GroupCard";
 import { CATEGORIES } from "@/constants/categories";
 import { Link } from "expo-router";
 import { ArrowRight, Search } from "lucide-react-native";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 
@@ -48,25 +48,31 @@ const HomeScreen = () => {
         </Pressable>
       </Link>
 
-      {filteredData.map((item, i) => (
-        <Link
-          key={item.id}
-          href={`/(home)/${item.id}`}
-          asChild
-          className={filteredData.length === i + 1 ? "pb-4" : ""}
-        >
-          <Pressable>
-            <GroupCard
-              {...item}
-              label={t(item.label)}
-              description={t("screens.home.dataSetCount", {
-                count: item.dataSets.length,
-              })}
-              icon={(props) => <item.icon {...props} />}
-            />
-          </Pressable>
-        </Link>
-      ))}
+      {filteredData.length > 0 ? (
+        filteredData.map((item, i) => (
+          <Link
+            key={item.id}
+            href={`/(home)/${item.id}`}
+            asChild
+            className={filteredData.length === i + 1 ? "pb-4" : ""}
+          >
+            <Pressable>
+              <GroupCard
+                {...item}
+                label={t(item.label)}
+                description={t("screens.home.dataSetCount", {
+                  count: item.dataSets.length,
+                })}
+                icon={(props) => <item.icon {...props} />}
+              />
+            </Pressable>
+          </Link>
+        ))
+      ) : (
+        <View className="flex flex-1 items-center justify-center">
+          <Text>{t("screens.home.categoryNotFound")}</Text>
+        </View>
+      )}
     </ScrollView>
   );
 };

@@ -9,12 +9,14 @@
       "dataSetCount_one": "{{count}} skup podataka",
       "dataSetCount_few": "{{count}} skupa podataka",
       "dataSetCount_other": "{{count}} skupova podataka",
-      "noInternet": "Niste povezani na internet"
+      "noInternet": "Niste povezani na internet",
+      "categoryNotFound": "Tražena kategorija nije pronađena"
     },
     "dataSets": {
       "title": "Skupovi podataka",
       "description": "Pregledajte dostupne skupove podataka Grada Zagreba.",
-      "searchInputPlaceholder": "Pretraži skupove podataka"
+      "searchInputPlaceholder": "Pretraži skupove podataka",
+      "datasetNotFound": "Skup podataka nije pronađen"
     },
     "dataSetGroup": {
       "title": "Skupovi podataka",

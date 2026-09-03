@@ -1,7 +1,7 @@
 import DataSetItem from "@/components/DataSetItem";
 import { CATEGORIES } from "@/constants/categories";
 import { Search } from "lucide-react-native";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FlatList, Text, TextInput, View } from "react-native";
 
@@ -22,6 +22,11 @@ const DataSetsScreen = () => {
       data={filteredData}
       keyExtractor={(item) => item.id}
       contentContainerClassName="p-4"
+      ListEmptyComponent={
+        <View className="flex flex-1 items-center justify-center">
+          <Text className="mt-4">{t("screens.dataSets.datasetNotFound")}</Text>
+        </View>
+      }
       renderItem={({ item, index }) => (
         <DataSetItem
           {...item}

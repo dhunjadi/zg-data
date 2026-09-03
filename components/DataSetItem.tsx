@@ -31,7 +31,7 @@ const DataSetItem = ({
 
     router.push({
       pathname: "/map",
-      params: { datasetId: id, fetchUrl },
+      params: { datasetId: id, fetchUrl, label },
     });
   };
 
