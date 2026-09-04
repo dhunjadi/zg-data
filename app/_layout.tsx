@@ -4,7 +4,7 @@ import * as Network from "expo-network";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { GlobeOff } from "lucide-react-native";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Text, View } from "react-native";
 import "react-native-reanimated";
@@ -13,18 +13,10 @@ import "../global.css";
 const RootLayout = () => {
   const { t } = useTranslation();
   const [queryClient] = useState(() => new QueryClient());
-  const [isOffline, setIsOffline] = useState(false);
 
   const networkState = Network.useNetworkState();
 
-  // Switching between apps would cause the no internet message to appear
-  // even though the phone was connected to the internet
-  useEffect(() => {
-    if (networkState.isInternetReachable !== false) return;
-
-    const timer = setTimeout(() => setIsOffline(true), 3000);
-    return () => clearTimeout(timer);
-  }, [networkState.isInternetReachable]);
+  const isOffline = networkState.isInternetReachable === false;
 
   return (
     <QueryClientProvider client={queryClient}>
