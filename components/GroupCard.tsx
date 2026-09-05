@@ -22,9 +22,9 @@ const GroupCard = ({ icon, label, description }: GroupCardProps) => {
       key="groupCard"
       entering={FadeInDown.duration(500)}
       // eslint-disable-next-line max-len
-      className={`relative w-full p-8 flex-col gap-2 ${isDarkTheme ? "bg-elementBgDark" : "bg-primaryLight"} rounded-xl overflow-hidden mb-4 ${isDarkTheme ? "border border-borderDark" : undefined}`}
+      className={`relative w-full p-8 flex-col gap-2 ${isDarkTheme ? "bg-elementBgDark" : "bg-primaryLight"} rounded-xl overflow-hidden mb-4`}
     >
-      {icon({ size: 48, color: isDarkTheme ? "#a3d0ff" : "white" })}
+      {icon({ size: 48, color: isDarkTheme ? "#f5f5f5" : "#f5f5f5" })}
       <Text className="text-neutral-100 font-bold text-xl">{label}</Text>
       <Text className="text-neutral-100 text-xl">{description}</Text>
     </Animated.View>

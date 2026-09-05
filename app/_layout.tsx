@@ -12,15 +12,15 @@ import "../global.css";
 
 const RootLayout = () => {
   const { t } = useTranslation();
-  const [queryClient] = useState(() => new QueryClient());
 
+  const [queryClient] = useState(() => new QueryClient());
   const networkState = Network.useNetworkState();
 
   const isOffline = networkState.isInternetReachable === false;
 
   return (
     <QueryClientProvider client={queryClient}>
-      <StatusBar style="dark" />
+      <StatusBar style="auto" />
 
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" />

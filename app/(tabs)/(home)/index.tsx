@@ -35,31 +35,33 @@ const HomeScreen = () => {
       </Text>
 
       <Text
-        className={`text-md ${isDarkTheme ? "text-neutral-300" : "text-neutral-700"} mb-8`}
+        className={`text-md ${isDarkTheme ? "text-textDarkPimary" : "text-neutral-700"} mb-8`}
       >
         {t("screens.home.description")}
       </Text>
 
-      <View className="flex-row items-center bg-elementBgDark border border-neutral-300 rounded-md px-3 mb-6">
-        <Search size={20} color="#737373" />
+      <View
+        className={`flex-row items-center ${isDarkTheme ? "bg-elementBgDark" : "bg-white"} rounded-md px-3 mb-6`}
+      >
+        <Search size={20} color={`${isDarkTheme ? "#8baedd" : "#737373"}`} />
         <TextInput
           placeholder={t("screens.home.searchInputPlaceholder")}
           value={filterText}
           onChangeText={(val) => setFilterText(val)}
           autoCorrect={false}
-          placeholderTextColor="#9ca3af"
-          className="flex-1 p-4 text-base text-neutral-700"
+          placeholderTextColor="#8baedd"
+          className="flex-1 p-4 text-base text-neutral-700 "
         />
       </View>
 
       <Link href="../dataSets" className="mb-4" asChild>
         <Pressable className="flex-row items-center justify-end ">
           <Text
-            className={`"text-lg ${isDarkTheme ? "text-textDarkPimary" : "text-primaryDark"} font-bold`}
+            className={`"text-lg ${isDarkTheme ? "text-highlight" : "text-primaryDark"} font-bold`}
           >
             {t("screens.home.showAllDatasets")}
           </Text>
-          <ArrowRight color="#a3d0ff" />
+          <ArrowRight color={`${isDarkTheme ? "#e8b74b" : "#005793"}`} />
         </Pressable>
       </Link>
 

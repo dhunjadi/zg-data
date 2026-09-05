@@ -11,7 +11,7 @@ const TabsLayout = () => {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#a3d0ff",
+        tabBarActiveTintColor: isDarkTheme ? "#e8b74b" : "#005793",
         tabBarInactiveTintColor: isDarkTheme ? "#3d444e" : undefined,
         headerRight: () => (
           <Image source={ZagrebCoA} className="w-8 h-8 right-5" />
@@ -26,7 +26,7 @@ const TabsLayout = () => {
           headerShown: false,
           tabBarLabel: t("tabs.home"),
           tabBarIcon: ({ color, size }) => <House size={size} color={color} />,
-          tabBarStyle: { backgroundColor: isDarkTheme ? "#0f172a" : undefined },
+          tabBarStyle: { backgroundColor: isDarkTheme ? "#0f172a" : "#f5f5f5" },
         }}
       />
 

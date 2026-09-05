@@ -8,9 +8,9 @@
     --color-primary-light: #0070bb;
 
     /* Dark theme colors */
-    --color-screen-bg-dark: "#0f172a";
-    --color-element-bg-dark: "#171f33";
-    --color-text-dark-primary: "#a3d0ff";
-    --color-border-dark: "#3d444e";
+    --color-screen-bg-dark: "#0b1829";
+    --color-element-bg-dark: "#17284d";
+    --color-text-dark-primary: "#8baedd";
+    --color-highlight: "#e8b74b";
   }
 }

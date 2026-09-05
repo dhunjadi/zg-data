@@ -1,5 +1,4 @@
 import Divider from "@/components/Divider";
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { Pressable, Text, View } from "react-native";
 
@@ -10,7 +9,7 @@ const SettingsScreen = () => {
   const currentLanguage = i18n.language.startsWith("en") ? "en" : "hr";
 
   return (
-    <View className="bg-white flex-1 p-4 gap-4">
+    <View className="bg-neutral-100 flex-1 p-4 gap-4">
       <Divider text={t("screens.settings.language")} />
       <View className="flex-row gap-2">
         {languages.map((lng) => (
@@ -20,12 +19,14 @@ const SettingsScreen = () => {
             className={`flex-1 p-4 rounded-md items-center border ${
               currentLanguage === lng
                 ? "bg-primaryDark border-primaryDark"
-                : "bg-white border-gray-300"
+                : "bg-neutral-100 border-gray-300"
             }`}
           >
             <Text
               className={`font-bold ${
-                currentLanguage === lng ? "text-white" : "text-primaryDark"
+                currentLanguage === lng
+                  ? "text-neutral-100"
+                  : "text-primaryDark"
               }`}
             >
               {lng.toUpperCase()}

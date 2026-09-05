@@ -46,7 +46,7 @@ const DataSetsScreen = () => {
             {t("screens.dataSets.description")}
           </Text>
 
-          <View className="flex-row items-center bg-white border border-neutral-300 rounded-md px-3">
+          <View className="flex-row items-center bg-neutral-100 border border-neutral-300 rounded-md px-3">
             <Search size={20} color="#737373" />
             <TextInput
               placeholder={t("screens.dataSets.searchInputPlaceholder")}

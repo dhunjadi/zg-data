@@ -16,7 +16,7 @@ module.exports = {
         screenBgDark: "var(--color-screen-bg-dark)",
         elementBgDark: "var(--color-element-bg-dark)",
         textDarkPimary: "var(--color-text-dark-primary)",
-        borderDark: "var(--color-border-dark)",
+        highlight: "var(--color-highlight)",
       },
     },
   },
