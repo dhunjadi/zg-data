@@ -1,16 +1,18 @@
 import { Tabs } from "expo-router";
 import { House, Settings } from "lucide-react-native";
-import React from "react";
 import { useTranslation } from "react-i18next";
-import { Image } from "react-native";
+import { Image, useColorScheme } from "react-native";
 import ZagrebCoA from "../../assets/images/zagreb-grb.png";
 
 const TabsLayout = () => {
   const { t } = useTranslation();
+  const colorScheme = useColorScheme();
+  const isDarkTheme = colorScheme === "dark";
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#005793",
+        tabBarActiveTintColor: "#a3d0ff",
+        tabBarInactiveTintColor: isDarkTheme ? "#3d444e" : undefined,
         headerRight: () => (
           <Image source={ZagrebCoA} className="w-8 h-8 right-5" />
         ),
@@ -24,6 +26,7 @@ const TabsLayout = () => {
           headerShown: false,
           tabBarLabel: t("tabs.home"),
           tabBarIcon: ({ color, size }) => <House size={size} color={color} />,
+          tabBarStyle: { backgroundColor: isDarkTheme ? "#0f172a" : undefined },
         }}
       />
 

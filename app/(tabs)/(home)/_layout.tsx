@@ -1,6 +1,5 @@
 import { CATEGORIES } from "@/constants/categories";
 import { Stack, useGlobalSearchParams } from "expo-router";
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { Image } from "react-native";
 import ZagrebCoA from "../../../assets/images/zagreb-grb.png";
@@ -16,6 +15,11 @@ const HomeLayout = () => {
         options={{
           headerShown: true, // Show it ONLY on the index
           title: t("screens.home.headerTitle"),
+          headerTintColor: "#a3d0ff",
+          headerStyle: {
+            backgroundColor: "#0f172a",
+          },
+
           headerRight: () => (
             <Image
               source={ZagrebCoA}

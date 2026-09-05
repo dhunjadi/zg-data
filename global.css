@@ -6,5 +6,11 @@
   :root {
     --color-primary-dark: #005793;
     --color-primary-light: #0070bb;
+
+    /* Dark theme colors */
+    --color-screen-bg-dark: "#0f172a";
+    --color-element-bg-dark: "#171f33";
+    --color-text-dark-primary: "#a3d0ff";
+    --color-border-dark: "#3d444e";
   }
 }

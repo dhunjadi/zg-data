@@ -4,11 +4,20 @@ import { Link } from "expo-router";
 import { ArrowRight, Search } from "lucide-react-native";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
+import {
+  Pressable,
+  ScrollView,
+  Text,
+  TextInput,
+  useColorScheme,
+  View,
+} from "react-native";
 
 const HomeScreen = () => {
   const { t } = useTranslation();
   const [filterText, setFilterText] = useState("");
+  const colorScheme = useColorScheme();
+  const isDarkTheme = colorScheme === "dark";
 
   const filteredData = CATEGORIES.filter((item) =>
     t(item.label).toLowerCase().includes(filterText.toLowerCase()),
@@ -16,18 +25,22 @@ const HomeScreen = () => {
 
   return (
     <ScrollView
-      className="flex-1 bg-neutral-100 p-4"
+      className={`flex-1 ${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"} p-4`}
       showsVerticalScrollIndicator={false}
     >
-      <Text className="text-3xl text-primaryDark font-bold mb-2">
+      <Text
+        className={`text-3xl ${isDarkTheme ? "text-textDarkPimary" : "text-primaryDark"} font-bold mb-2`}
+      >
         {t("screens.home.title")}
       </Text>
 
-      <Text className="text-md text-neutral-700 mb-8">
+      <Text
+        className={`text-md ${isDarkTheme ? "text-neutral-300" : "text-neutral-700"} mb-8`}
+      >
         {t("screens.home.description")}
       </Text>
 
-      <View className="flex-row items-center bg-white border border-neutral-300 rounded-md px-3 mb-6">
+      <View className="flex-row items-center bg-elementBgDark border border-neutral-300 rounded-md px-3 mb-6">
         <Search size={20} color="#737373" />
         <TextInput
           placeholder={t("screens.home.searchInputPlaceholder")}
@@ -41,10 +54,12 @@ const HomeScreen = () => {
 
       <Link href="../dataSets" className="mb-4" asChild>
         <Pressable className="flex-row items-center justify-end ">
-          <Text className="text-lg text-primaryDark font-bold">
+          <Text
+            className={`"text-lg ${isDarkTheme ? "text-textDarkPimary" : "text-primaryDark"} font-bold`}
+          >
             {t("screens.home.showAllDatasets")}
           </Text>
-          <ArrowRight className="" color="#005793" />
+          <ArrowRight color="#a3d0ff" />
         </Pressable>
       </Link>
 
