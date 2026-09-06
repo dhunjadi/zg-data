@@ -49,8 +49,8 @@ const HomeScreen = () => {
           value={filterText}
           onChangeText={(val) => setFilterText(val)}
           autoCorrect={false}
-          placeholderTextColor="#8baedd"
-          className="flex-1 p-4 text-base text-neutral-700 "
+          placeholderTextColor={`${isDarkTheme ? "#8baedd" : "#9ca3af"}`}
+          className="flex-1 p-4 text-base text-neutral-700"
         />
       </View>
 

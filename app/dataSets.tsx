@@ -3,10 +3,13 @@ import { CATEGORIES } from "@/constants/categories";
 import { Search } from "lucide-react-native";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { FlatList, Text, TextInput, View } from "react-native";
+import { FlatList, Text, TextInput, useColorScheme, View } from "react-native";
 
 const DataSetsScreen = () => {
   const { t } = useTranslation();
+  const colorScheme = useColorScheme();
+  const isDarkTheme = colorScheme === "dark";
+
   const [filterText, setFilterText] = useState("");
 
   const flatDataSets = CATEGORIES.flatMap((category) =>
@@ -21,7 +24,7 @@ const DataSetsScreen = () => {
     <FlatList
       data={filteredData}
       keyExtractor={(item) => item.id}
-      contentContainerClassName="p-4"
+      contentContainerClassName={`flex-1 ${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"} p-4`}
       ListEmptyComponent={
         <View className="flex flex-1 items-center justify-center">
           <Text className="mt-4">{t("screens.dataSets.datasetNotFound")}</Text>
@@ -38,22 +41,31 @@ const DataSetsScreen = () => {
       )}
       ListHeaderComponent={
         <>
-          <Text className="text-3xl text-primaryDark font-bold mb-2">
+          <Text
+            className={`text-3xl ${isDarkTheme ? "text-textDarkPimary" : "text-primaryDark"} font-bold mb-2`}
+          >
             {t("screens.dataSets.title")}
           </Text>
 
-          <Text className="text-md text-neutral-700 mb-4">
+          <Text
+            className={`text-md ${isDarkTheme ? "text-textDarkPimary" : "text-neutral-700"} mb-4`}
+          >
             {t("screens.dataSets.description")}
           </Text>
 
-          <View className="flex-row items-center bg-neutral-100 border border-neutral-300 rounded-md px-3">
-            <Search size={20} color="#737373" />
+          <View
+            className={`flex-row items-center ${isDarkTheme ? "bg-elementBgDark" : "bg-white"} rounded-md px-3`}
+          >
+            <Search
+              size={20}
+              color={`${isDarkTheme ? "#8baedd" : "#737373"}`}
+            />
             <TextInput
               placeholder={t("screens.dataSets.searchInputPlaceholder")}
               value={filterText}
               onChangeText={(val) => setFilterText(val)}
               autoCorrect={false}
-              placeholderTextColor="#9ca3af"
+              placeholderTextColor={`${isDarkTheme ? "#8baedd" : "#9ca3af"}`}
               className="flex-1 p-4 text-base text-neutral-700"
             />
           </View>

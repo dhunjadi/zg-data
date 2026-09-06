@@ -6,11 +6,14 @@ import { StatusBar } from "expo-status-bar";
 import { GlobeOff } from "lucide-react-native";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Text, View } from "react-native";
+import { Text, useColorScheme, View } from "react-native";
 import "react-native-reanimated";
 import "../global.css";
 
 const RootLayout = () => {
+  const colorScheme = useColorScheme();
+  const isDarkTheme = colorScheme === "dark";
+
   const { t } = useTranslation();
 
   const [queryClient] = useState(() => new QueryClient());
@@ -38,6 +41,10 @@ const RootLayout = () => {
           options={{
             headerShown: true,
             title: t("screens.dataSets.title"),
+            headerTintColor: isDarkTheme ? "#e8ebef" : undefined,
+            headerStyle: {
+              backgroundColor: isDarkTheme ? "#0f172a" : undefined,
+            },
           }}
         />
       </Stack>

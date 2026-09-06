@@ -1,5 +1,4 @@
-import React from "react";
-import { Text, View } from "react-native";
+import { Text, useColorScheme, View } from "react-native";
 
 type DividerProps = {
   text?: string;
@@ -7,11 +6,16 @@ type DividerProps = {
 };
 
 const Divider = ({ text, customClassName }: DividerProps) => {
+  const colorScheme = useColorScheme();
+  const isDarkTheme = colorScheme === "dark";
+
   return (
     <View
       className={`flex-row items-center w-full ${customClassName ? customClassName : ""}`}
     >
-      <View className="flex-1 h-[1px] bg-gray-300" />
+      <View
+        className={`flex-1 h-[1px] ${isDarkTheme ? "bg-textDarkPimary" : "bg-gray-300"}`}
+      />
 
       <View className="max-w-[75%]">
         {text && (
@@ -24,7 +28,9 @@ const Divider = ({ text, customClassName }: DividerProps) => {
         )}
       </View>
 
-      <View className="flex-1 h-[1px] bg-gray-300" />
+      <View
+        className={`flex-1 h-[1px] ${isDarkTheme ? "bg-textDarkPimary" : "bg-gray-300"}`}
+      />
     </View>
   );
 };
