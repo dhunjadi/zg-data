@@ -1,7 +1,7 @@
 import { useUserLocation } from "@/hooks/useUserLocation";
 import { Feature } from "@/types";
 import React, { useCallback, useMemo, useRef } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, useColorScheme, View } from "react-native";
 import MapView from "react-native-map-clustering";
 import {
   default as MapViewType,
@@ -44,6 +44,9 @@ const Map = ({
   selectedFeature,
   onFeatureSelect,
 }: MapProps) => {
+  const colorScheme = useColorScheme();
+  const isDarkTheme = colorScheme === "dark";
+
   const { isPermissionGranted } = useUserLocation();
 
   const mapViewRef = useRef<MapViewType | null>(null);
@@ -134,7 +137,7 @@ const Map = ({
       radius={100}
       showsUserLocation={isPermissionGranted}
       renderCluster={renderCluster}
-      userInterfaceStyle="light"
+      userInterfaceStyle={isDarkTheme ? "dark" : "light"}
     >
       {renderedFeatures}
     </MapView>

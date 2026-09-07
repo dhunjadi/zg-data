@@ -33,6 +33,10 @@ const RootLayout = () => {
           options={{
             headerShown: true,
             title: t("screens.map.title"),
+            headerTintColor: isDarkTheme ? "#e8ebef" : undefined,
+            headerStyle: {
+              backgroundColor: isDarkTheme ? "#0f172a" : undefined,
+            },
           }}
         />
 

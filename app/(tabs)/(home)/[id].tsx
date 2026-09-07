@@ -1,9 +1,8 @@
 import DataSetItem from "@/components/DataSetItem";
 import { CATEGORIES } from "@/constants/categories";
 import { useLocalSearchParams } from "expo-router";
-import React from "react";
 import { useTranslation } from "react-i18next";
-import { FlatList, Text } from "react-native";
+import { FlatList, Text, useColorScheme } from "react-native";
 
 const DataSetGroupScreen = () => {
   const { t } = useTranslation();
@@ -11,11 +10,14 @@ const DataSetGroupScreen = () => {
 
   const category = CATEGORIES.find((item) => item.id === id);
 
+  const colorScheme = useColorScheme();
+  const isDarkTheme = colorScheme === "dark";
+
   return (
     <FlatList
       data={category?.dataSets}
       keyExtractor={(item) => item.label}
-      contentContainerClassName="p-4"
+      contentContainerClassName={`flex-1 ${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"} p-4`}
       renderItem={({ item, index }) => (
         <DataSetItem
           {...item}
@@ -29,11 +31,15 @@ const DataSetGroupScreen = () => {
       )}
       ListHeaderComponent={
         <>
-          <Text className="text-3xl text-primaryDark font-bold mb-2">
+          <Text
+            className={`text-3xl ${isDarkTheme ? "text-textDarkPimary" : "text-primaryDark"} font-bold mb-2`}
+          >
             {t("screens.dataSetGroup.title")}
           </Text>
 
-          <Text className="text-md text-neutral-700">
+          <Text
+            className={`text-md ${isDarkTheme ? "text-textDarkPimary" : "text-neutral-700"}`}
+          >
             {t("screens.dataSetGroup.description", {
               category: category ? t(category.label) : "",
             })}

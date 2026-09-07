@@ -26,8 +26,12 @@ const DataSetsScreen = () => {
       keyExtractor={(item) => item.id}
       contentContainerClassName={`flex-1 ${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"} p-4`}
       ListEmptyComponent={
-        <View className="flex flex-1 items-center justify-center">
-          <Text className="mt-4">{t("screens.dataSets.datasetNotFound")}</Text>
+        <View className="flex items-center justify-center">
+          <Text
+            className={`${isDarkTheme ? "text-textDarkPimary" : "text-primaryDark"} mt-4`}
+          >
+            {t("screens.dataSets.datasetNotFound")}
+          </Text>
         </View>
       }
       renderItem={({ item, index }) => (
@@ -66,7 +70,7 @@ const DataSetsScreen = () => {
               onChangeText={(val) => setFilterText(val)}
               autoCorrect={false}
               placeholderTextColor={`${isDarkTheme ? "#8baedd" : "#9ca3af"}`}
-              className="flex-1 p-4 text-base text-neutral-700"
+              className={`flex-1 p-4 text-base ${isDarkTheme ? "text-textDarkPimary" : "text-neutral-700"}`}
             />
           </View>
         </>

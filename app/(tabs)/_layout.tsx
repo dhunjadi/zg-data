@@ -40,6 +40,11 @@ const TabsLayout = () => {
           tabBarIcon: ({ color, size }) => (
             <Settings size={size} color={color} />
           ),
+          tabBarStyle: { backgroundColor: isDarkTheme ? "#0f172a" : "#f5f5f5" },
+          headerTintColor: isDarkTheme ? "#e8ebef" : undefined,
+          headerStyle: {
+            backgroundColor: isDarkTheme ? "#0f172a" : undefined,
+          },
         }}
       />
     </Tabs>

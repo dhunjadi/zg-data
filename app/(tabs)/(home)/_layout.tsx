@@ -37,7 +37,10 @@ const HomeLayout = () => {
         options={{
           title: groupTitle ? t(groupTitle) : "",
           headerShown: true,
-          headerBackTitle: "Natrag",
+          headerTintColor: isDarkTheme ? "#e8ebef" : undefined,
+          headerStyle: {
+            backgroundColor: isDarkTheme ? "#0f172a" : undefined,
+          },
         }}
       />
     </Stack>
