@@ -1,5 +1,4 @@
 import Divider from "@/components/Divider";
-import { settingsPressableStyles } from "@/constants/settingsConstants";
 import { Moon, Sun } from "lucide-react-native";
 import { useTranslation } from "react-i18next";
 import {
@@ -16,6 +15,33 @@ const themes = [
   { icon: Sun, value: "light" },
   { icon: Moon, value: "dark" },
 ];
+
+const settingsPressableStyles = {
+  dark: {
+    selected: {
+      button: "bg-highlight border-primaryDark",
+      text: "text-screenBgDark",
+      icon: "#0b1829",
+    },
+    unselected: {
+      button: "bg-screenBgDark border-highlight",
+      text: "text-highlight",
+      icon: "#f5f5f5",
+    },
+  },
+  light: {
+    selected: {
+      button: "bg-primaryDark border-primaryDark",
+      text: "text-neutral-100",
+      icon: "#f5f5f5",
+    },
+    unselected: {
+      button: "bg-white border-gray-300",
+      text: "text-primaryDark",
+      icon: "#0b1829",
+    },
+  },
+};
 
 const getPressableStyles = (isDarkTheme: boolean, isSelected: boolean) =>
   settingsPressableStyles[isDarkTheme ? "dark" : "light"][
