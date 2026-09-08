@@ -31,7 +31,8 @@
       "backToSignIn": "Vrati se na prijavu"
     },
     "settings": {
-      "language": "Jezik"
+      "language": "Jezik",
+      "theme": "Tema"
     },
     "map": {
       "title": "Karta",

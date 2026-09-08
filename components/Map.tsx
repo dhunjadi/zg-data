@@ -9,6 +9,7 @@ import {
   PROVIDER_GOOGLE,
   Region,
 } from "react-native-maps";
+import PinSelectedDark from "../assets/images/pin-selected-dark.png";
 import PinSelected from "../assets/images/pin-selected.png";
 import PinDefault from "../assets/images/pin.png";
 import MapMultiLine from "./MapMultiLine";
@@ -89,7 +90,13 @@ const Map = ({
             anchor={{ x: 0.5, y: 1 }}
           >
             <Image
-              source={isSelected ? PinSelected : PinDefault}
+              source={
+                isSelected
+                  ? isDarkTheme
+                    ? PinSelectedDark
+                    : PinSelected
+                  : PinDefault
+              }
               resizeMode="contain"
               className="w-10 h-10"
             />
@@ -125,7 +132,7 @@ const Map = ({
 
       return null;
     });
-  }, [visibleFeatures, selectedFeature, onFeatureSelect]);
+  }, [visibleFeatures, selectedFeature, isDarkTheme, onFeatureSelect]);
 
   return (
     <MapView

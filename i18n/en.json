@@ -24,7 +24,8 @@
     },
 
     "settings": {
-      "language": "Language"
+      "language": "Language",
+      "theme": "Theme"
     },
     "map": {
       "title": "Map",
