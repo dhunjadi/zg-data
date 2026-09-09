@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { Alert, Linking, Pressable, Text } from "react-native";
+import { Alert, Linking, Pressable, Text, useColorScheme } from "react-native";
 
 type OpenURLLinkProps = {
   url: string;
@@ -7,6 +7,9 @@ type OpenURLLinkProps = {
 };
 
 const URLLink = ({ url, label }: OpenURLLinkProps) => {
+  const colorScheme = useColorScheme();
+  const isDarkTheme = colorScheme === "dark";
+
   const handlePress = useCallback(async () => {
     try {
       await Linking.openURL(url);
@@ -17,7 +20,9 @@ const URLLink = ({ url, label }: OpenURLLinkProps) => {
 
   return (
     <Pressable onPress={handlePress}>
-      <Text className="text-base text-primaryDark underline">
+      <Text
+        className={`text-base ${isDarkTheme ? "text-highlight" : "text-primaryDark"} underline`}
+      >
         {label ?? url}
       </Text>
     </Pressable>

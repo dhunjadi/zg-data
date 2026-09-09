@@ -42,7 +42,7 @@ const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
     return (
       <BottomSheet
         ref={ref}
-        index={1}
+        index={-1}
         enableDynamicSizing={false}
         snapPoints={snapPoints}
         enablePanDownToClose
@@ -58,7 +58,7 @@ const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
         >
           <View className="flex-row items-start">
             <Text
-              className={`"stext-xl font-bold ${isDarkTheme ? "text-highlight" : "text-primaryDark"} flex-1 shrink"`}
+              className={`stext-xl font-bold ${isDarkTheme ? "text-highlight" : "text-primaryDark"} flex-1 shrink`}
             >
               {selectedFeatureData?.title ? t(selectedFeatureData.title) : ""}
             </Text>
@@ -82,7 +82,7 @@ const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
             return (
               <View key={detail.label} className="mt-3">
                 <Text
-                  className={`"text-xs font-bold uppercase ${isDarkTheme ? "text-highlight" : "text-black"}"`}
+                  className={`text-xs font-bold uppercase ${isDarkTheme ? "text-highlight" : "text-black"}`}
                 >
                   {t(detail.label)}
                 </Text>
@@ -94,7 +94,7 @@ const DetailsBottomSheet = forwardRef<BottomSheet, DetailsBottomSheetProps>(
                   ) : (
                     <Text
                       key={i}
-                      className={`"text-base ${isDarkTheme ? "text-highlight" : "text-neutral-900"}"`}
+                      className={`text-base ${isDarkTheme ? "text-highlight" : "text-neutral-900"}`}
                     >
                       {item}
                     </Text>

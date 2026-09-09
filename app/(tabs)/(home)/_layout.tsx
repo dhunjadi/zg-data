@@ -2,7 +2,7 @@ import { CATEGORIES } from "@/constants/categories";
 import { Stack, useGlobalSearchParams } from "expo-router";
 import { useTranslation } from "react-i18next";
 import { Image, useColorScheme } from "react-native";
-import ZagrebCoA from "../../../assets/images/zagreb-grb.png";
+import ZagrebCoA from "../../../assets/images/zagreb-coat-of-arms-transparent-bg.png";
 
 const HomeLayout = () => {
   const { t } = useTranslation();
@@ -26,7 +26,8 @@ const HomeLayout = () => {
           headerRight: () => (
             <Image
               source={ZagrebCoA}
-              style={{ width: 30, height: 30, marginRight: 15 }}
+              className="w-8 h-8 right-5"
+              resizeMode="contain"
             />
           ),
         }}
