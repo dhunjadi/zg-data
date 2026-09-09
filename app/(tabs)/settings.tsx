@@ -26,7 +26,7 @@ const settingsPressableStyles = {
     unselected: {
       button: "bg-screenBgDark border-highlight",
       text: "text-highlight",
-      icon: "#f5f5f5",
+      icon: "#e8b74b",
     },
   },
   light: {
