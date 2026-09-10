@@ -17,7 +17,7 @@ const DataSetGroupScreen = () => {
     <FlatList
       data={category?.dataSets}
       keyExtractor={(item) => item.label}
-      contentContainerClassName={`flex-1 ${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"} p-4`}
+      contentContainerClassName={`${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"} p-4`}
       renderItem={({ item, index }) => (
         <DataSetItem
           {...item}

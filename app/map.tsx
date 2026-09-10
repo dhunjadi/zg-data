@@ -8,7 +8,7 @@ import BottomSheet from "@gorhom/bottom-sheet";
 import { useQueryClient } from "@tanstack/react-query";
 import { useLocalSearchParams, useNavigation, useRouter } from "expo-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Alert, View } from "react-native";
+import { Alert, useColorScheme, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const flatDataSets = CATEGORIES.flatMap((category) =>
@@ -16,9 +16,12 @@ const flatDataSets = CATEGORIES.flatMap((category) =>
 );
 
 const MapScreen = () => {
+  const colorScheme = useColorScheme();
+  const isDarkTheme = colorScheme === "dark";
   const navigation = useNavigation();
   const queryClient = useQueryClient();
   const router = useRouter();
+
   const { datasetId, fetchUrl, label } = useLocalSearchParams<{
     datasetId?: string;
     fetchUrl?: string;
@@ -79,7 +82,13 @@ const MapScreen = () => {
   );
 
   if (isFetching) {
-    return <Spinner size="large" />;
+    return (
+      <View
+        className={`flex-1 ${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"}`}
+      >
+        <Spinner size="large" />
+      </View>
+    );
   }
 
   return (

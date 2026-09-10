@@ -54,10 +54,14 @@ const RootLayout = () => {
       </Stack>
 
       {isOffline && (
-        <View className="absolute inset-0 items-center justify-center bg-neutral-100">
-          <GlobeOff size={100} color="#005793" />
+        <View
+          className={`absolute inset-0 items-center justify-center ${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"}`}
+        >
+          <GlobeOff size={100} color={isDarkTheme ? "#e8b74b" : "#005793"} />
 
-          <Text className="text-xl text-primaryDark mt-4 font-bold">
+          <Text
+            className={`text-xl ${isDarkTheme ? "text-highlight" : "text-primaryDark"} mt-4 font-bold`}
+          >
             {t("screens.home.noInternet")}
           </Text>
         </View>

@@ -24,7 +24,7 @@ const DataSetsScreen = () => {
     <FlatList
       data={filteredData}
       keyExtractor={(item) => item.id}
-      contentContainerClassName={`flex-1 ${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"} p-4`}
+      contentContainerClassName={`${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"} p-4`}
       ListEmptyComponent={
         <View className="flex items-center justify-center">
           <Text
