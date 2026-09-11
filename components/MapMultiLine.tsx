@@ -1,7 +1,13 @@
-import { SELECTED_FILL, STROKE_COLOR } from "@/constants/mapConstants";
+import {
+  SELECTED_FILL_DARK,
+  SELECTED_FILL_LIGHT,
+  STROKE_COLOR_DARK,
+  STROKE_COLOR_LIGHT,
+} from "@/constants/mapConstants";
 import { Feature, MultiLineStringGeometry } from "@/types";
 import { multiLineToCoordinates } from "@/utils/mapUtils";
 import React from "react";
+import { useColorScheme } from "react-native";
 import { Polyline } from "react-native-maps";
 
 interface MapMultiLineProps {
@@ -9,6 +15,9 @@ interface MapMultiLineProps {
 }
 
 const MapMultiLine = React.memo(({ feature }: MapMultiLineProps) => {
+  const colorScheme = useColorScheme();
+  const isDarkTheme = colorScheme === "dark";
+
   const lines = multiLineToCoordinates(
     feature.geometry as MultiLineStringGeometry,
   );
@@ -19,8 +28,8 @@ const MapMultiLine = React.memo(({ feature }: MapMultiLineProps) => {
         <Polyline
           key={index}
           coordinates={coordinates}
-          fillColor={SELECTED_FILL}
-          strokeColor={STROKE_COLOR}
+          fillColor={isDarkTheme ? SELECTED_FILL_DARK : SELECTED_FILL_LIGHT}
+          strokeColor={isDarkTheme ? STROKE_COLOR_DARK : STROKE_COLOR_LIGHT}
           strokeWidth={2}
         />
       ))}

@@ -46,6 +46,9 @@ const RootLayout = () => {
             headerShown: true,
             title: t("screens.dataSets.title"),
             headerTintColor: isDarkTheme ? "#e8ebef" : undefined,
+            contentStyle: {
+              backgroundColor: isDarkTheme ? "#0f172a" : undefined,
+            },
             headerStyle: {
               backgroundColor: isDarkTheme ? "#0f172a" : undefined,
             },

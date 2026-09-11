@@ -39,6 +39,10 @@ const HomeLayout = () => {
           title: groupTitle ? t(groupTitle) : "",
           headerShown: true,
           headerTintColor: isDarkTheme ? "#e8ebef" : undefined,
+
+          contentStyle: {
+            backgroundColor: isDarkTheme ? "#0f172a" : undefined,
+          },
           headerStyle: {
             backgroundColor: isDarkTheme ? "#0f172a" : undefined,
           },
