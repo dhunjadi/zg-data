@@ -1,11 +1,15 @@
 import {
-  DEFAULT_FILL,
-  SELECTED_FILL,
-  STROKE_COLOR,
+  DEFAULT_FILL_DARK,
+  DEFAULT_FILL_LIGHT,
+  SELECTED_FILL_DARK,
+  SELECTED_FILL_LIGHT,
+  STROKE_COLOR_DARK,
+  STROKE_COLOR_LIGHT,
 } from "@/constants/mapConstants";
 import { Feature, PolygonGeometry } from "@/types";
 import { polygonToCoordinates } from "@/utils/mapUtils";
 import React from "react";
+import { useColorScheme } from "react-native";
 import { Polygon } from "react-native-maps";
 
 type MapPolygonProps = {
@@ -16,15 +20,26 @@ type MapPolygonProps = {
 
 const MapPolygon = React.memo(
   ({ feature, isSelected, onPress }: MapPolygonProps) => {
+    const colorScheme = useColorScheme();
+    const isDarkTheme = colorScheme === "dark";
+
     const coordinates = polygonToCoordinates(
       feature.geometry as PolygonGeometry,
     );
 
+    const fillColor = isSelected
+      ? isDarkTheme
+        ? SELECTED_FILL_DARK
+        : SELECTED_FILL_LIGHT
+      : isDarkTheme
+        ? DEFAULT_FILL_DARK
+        : DEFAULT_FILL_LIGHT;
+
     return (
       <Polygon
         coordinates={coordinates}
-        fillColor={isSelected ? SELECTED_FILL : DEFAULT_FILL}
-        strokeColor={STROKE_COLOR}
+        fillColor={fillColor}
+        strokeColor={isDarkTheme ? STROKE_COLOR_DARK : STROKE_COLOR_LIGHT}
         strokeWidth={2}
         tappable
         onPress={() => onPress(feature)}
