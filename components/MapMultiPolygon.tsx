@@ -3,6 +3,7 @@ import {
   DEFAULT_FILL_LIGHT,
   SELECTED_FILL_DARK,
   SELECTED_FILL_LIGHT,
+  STROKE_COLOR_DARK,
   STROKE_COLOR_LIGHT,
 } from "@/constants/mapConstants";
 import { Feature, MultiPolygonGeometry } from "@/types";
@@ -46,7 +47,7 @@ const MapMultiPolygon = React.memo(
             key={index}
             coordinates={coordinates}
             fillColor={fillColor}
-            strokeColor={STROKE_COLOR_LIGHT}
+            strokeColor={isDarkTheme ? STROKE_COLOR_DARK : STROKE_COLOR_LIGHT}
             strokeWidth={2}
             tappable
             zIndex={isInnerZone ? 20 : 10}
