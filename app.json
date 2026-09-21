@@ -12,6 +12,11 @@
       "bundleIdentifier": "com.dhunjadi.zgdata",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBE5e5fOz0ht0QduENI1_Z849mOu9w8Gqo"
+        }
       }
     },
     "android": {
