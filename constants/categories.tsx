@@ -772,41 +772,6 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
-        id: "higher-education-institutions-public-sector",
-        icon: GraduationCap,
-        label:
-          "categories.public-sector.dataSets.higherEducationInstitutions.label",
-        description:
-          "categories.public-sector.dataSets.higherEducationInstitutions.description",
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/3f6954c6679f4b299f738304542a4837_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-        getDisplayData: (feature: Feature<HigherEducationInstitution>) => ({
-          title: feature.properties.naziv,
-          details: [
-            {
-              label: "categories.dataSetDetails.kind",
-              value: feature.properties.vrsta,
-            },
-            {
-              label: "categories.dataSetDetails.address",
-              value: feature.properties.adresa,
-            },
-            {
-              label: "categories.dataSetDetails.phone",
-              value: feature.properties.telefon,
-            },
-            {
-              label: "categories.dataSetDetails.email",
-              value: feature.properties.email,
-            },
-            {
-              label: "categories.dataSetDetails.web",
-              value: feature.properties.web,
-            },
-          ],
-        }),
-      }),
-      dataSet({
         id: "state-administartion-bodies",
         icon: Landmark,
         label:
@@ -1910,7 +1875,7 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
-        id: "other-social-welfare-wctivities",
+        id: "other-social-welfare-activities",
         icon: Landmark,
         label: "categories.society.dataSets.otherSocialWelfareActivities.label",
         description:
@@ -2220,47 +2185,6 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
-        id: "city-gardens-society",
-        icon: Rose,
-        label: "categories.environment.dataSets.cityGardens.label",
-        description: "categories.environment.dataSets.cityGardens.description",
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/9858b1819a914c6ba0fedd0069f2d861_1/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-        getDisplayData: (feature: Feature<CityGarden>) => ({
-          title: feature.properties.naziv,
-          details: [
-            {
-              label: "categories.dataSetDetails.address",
-              value: feature.properties.adresa,
-            },
-            {
-              label: "categories.dataSetDetails.responsibleAuthority",
-              value: feature.properties.nadlezan,
-            },
-            {
-              label: "categories.dataSetDetails.openingYear",
-              value: feature.properties.godina_otvaranja,
-            },
-            {
-              label: "categories.dataSetDetails.cityDistrict",
-              value: feature.properties.grad_cetvrt,
-            },
-            {
-              label: "categories.dataSetDetails.phone",
-              value: feature.properties.telefon,
-            },
-            {
-              label: "categories.dataSetDetails.contact",
-              value: feature.properties.kontakt,
-            },
-            {
-              label: "categories.dataSetDetails.userCount",
-              value: feature.properties.br_korisnika,
-            },
-          ],
-        }),
-      }),
-      dataSet({
         id: "city-district-offices-society",
         icon: Landmark,
         label: "categories.public-sector.dataSets.cityDistrictOffices.label",
@@ -2294,36 +2218,6 @@ export const CATEGORIES: Category[] = [
             {
               label: "categories.dataSetDetails.officeHours",
               value: feature.properties.primanje_stranaka,
-            },
-          ],
-        }),
-      }),
-      dataSet({
-        id: "roman-catholic-parishes-society",
-        icon: Church,
-        label: "categories.public-sector.dataSets.romanCatholicParishes.label",
-        description:
-          "categories.public-sector.dataSets.romanCatholicParishes.description",
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/97dd39a14cdf4ce38bc3cb8ef484728a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-        getDisplayData: (feature: Feature<RomanCatholicParish>) => ({
-          title: feature.properties.naziv,
-          details: [
-            {
-              label: "categories.dataSetDetails.address",
-              value: feature.properties.adresa,
-            },
-            {
-              label: "categories.dataSetDetails.phone",
-              value: feature.properties.telefon,
-            },
-            {
-              label: "categories.dataSetDetails.email",
-              value: feature.properties.email,
-            },
-            {
-              label: "categories.dataSetDetails.web",
-              value: feature.properties.web,
             },
           ],
         }),
