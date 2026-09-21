@@ -19,9 +19,8 @@ jest.mock("@gorhom/bottom-sheet", () => {
   return {
     __esModule: true,
     default: MockBottomSheet,
-    BottomSheetScrollView: (props: {
-      children?: import("react").ReactNode;
-    }) => React.createElement(React.Fragment, null, props.children),
+    BottomSheetScrollView: (props: { children?: import("react").ReactNode }) =>
+      React.createElement(React.Fragment, null, props.children),
   };
 });
 
@@ -41,6 +40,21 @@ describe("DetailsBottomSheet", () => {
     geometry: {
       type: "Point",
       coordinates: [15.9819, 45.815],
+    },
+  };
+
+  const polygonFeature: Feature<Record<string, unknown>> = {
+    ...selectedFeature,
+    geometry: {
+      type: "Polygon",
+      coordinates: [
+        [
+          [15.9819, 45.815],
+          [15.9829, 45.815],
+          [15.9829, 45.816],
+          [15.9819, 45.815],
+        ],
+      ],
     },
   };
 
@@ -78,5 +92,54 @@ describe("DetailsBottomSheet", () => {
     expect(screen.getByText("Test address value")).toBeOnTheScreen();
     expect(screen.getByText("Working hours")).toBeOnTheScreen();
     expect(screen.getByText("Monday to Friday")).toBeOnTheScreen();
+  });
+
+  it("does not render selected feature data without selected feature", async () => {
+    await render(
+      <DetailsBottomSheet
+        selectedFeature={null}
+        selectedDataSet={selectedDataSet}
+      />,
+    );
+
+    expect(screen.queryByText("Test place title")).not.toBeOnTheScreen();
+    expect(screen.queryByText("Test address value")).not.toBeOnTheScreen();
+  });
+
+  it("renders comma-separated detail values as separate text items", async () => {
+    const dataSetWithCommaSeparatedDetails: DataSetItem = {
+      ...selectedDataSet,
+      getDisplayData: () => ({
+        title: "Comma separated title",
+        details: [
+          {
+            label: "Available days",
+            value: "Monday, Tuesday, Friday",
+          },
+        ],
+      }),
+    };
+
+    await render(
+      <DetailsBottomSheet
+        selectedFeature={selectedFeature}
+        selectedDataSet={dataSetWithCommaSeparatedDetails}
+      />,
+    );
+
+    expect(screen.getByText("Monday")).toBeOnTheScreen();
+    expect(screen.getByText("Tuesday")).toBeOnTheScreen();
+    expect(screen.getByText("Friday")).toBeOnTheScreen();
+  });
+
+  it("does not render map action for non-point feature", async () => {
+    await render(
+      <DetailsBottomSheet
+        selectedFeature={polygonFeature}
+        selectedDataSet={selectedDataSet}
+      />,
+    );
+
+    expect(screen.queryByTestId("icon-Map")).not.toBeOnTheScreen();
   });
 });
