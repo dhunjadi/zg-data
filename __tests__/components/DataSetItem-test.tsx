@@ -43,6 +43,7 @@ describe("DataSetItem", () => {
       params: {
         datasetId: "high-schools",
         fetchUrl: "https://www.test-url.hr",
+        label: "High Schools",
       },
     });
   });

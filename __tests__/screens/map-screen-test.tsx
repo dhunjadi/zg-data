@@ -8,6 +8,23 @@ jest.mock("@tanstack/react-query", () => ({
   useQuery: jest.fn(),
 }));
 
+jest.mock("expo-router", () => ({
+  ...jest.requireActual("expo-router"),
+  useNavigation: jest.fn(() => ({
+    setOptions: jest.fn(),
+  })),
+}));
+
+jest.mock("@/components/DetailsBottomSheet", () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { View } = require("react-native");
+
+  return {
+    __esModule: true,
+    default: () => <View testID="details-bottom-sheet" />,
+  };
+});
+
 describe("MapScreen", () => {
   it("shows spinner while fetching data", async () => {
     (useQuery as jest.Mock).mockReturnValue({
@@ -22,7 +39,7 @@ describe("MapScreen", () => {
     expect(screen.getByTestId("loading-spinner")).toBeOnTheScreen();
   });
 
-  /* it("hides spinner once data has loaded", async () => {
+  it("hides spinner once data has loaded", async () => {
     (useQuery as jest.Mock).mockReturnValue({
       data: [],
       isFetching: false,
@@ -33,5 +50,5 @@ describe("MapScreen", () => {
     await renderWithQueryClient(<MapScreen />);
 
     expect(screen.queryByTestId("loading-spinner")).not.toBeOnTheScreen();
-  }); */
+  });
 });
