@@ -1,4 +1,3 @@
-import { useUserLocation } from "@/hooks/useUserLocation";
 import { Feature } from "@/types";
 import React, { useCallback, useMemo, useRef } from "react";
 import { Image, StyleSheet, Text, useColorScheme, View } from "react-native";
@@ -47,8 +46,6 @@ const Map = ({
 }: MapProps) => {
   const colorScheme = useColorScheme();
   const isDarkTheme = colorScheme === "dark";
-
-  const { isPermissionGranted } = useUserLocation();
 
   const mapViewRef = useRef<MapViewType | null>(null);
   const renderCluster = useCallback((cluster: Cluster) => {
@@ -145,7 +142,6 @@ const Map = ({
       initialRegion={INITIAL_REGION}
       minPoints={5}
       radius={100}
-      showsUserLocation={isPermissionGranted}
       renderCluster={renderCluster}
       userInterfaceStyle={isDarkTheme ? "dark" : "light"}
     >
