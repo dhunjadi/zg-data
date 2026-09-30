@@ -71,67 +71,70 @@ const Map = ({
   }, []);
 
   const renderedFeatures = useMemo(() => {
-    return visibleFeatures.map((feature) => {
-      const key =
-        (feature.properties.OBJECTID ||
-          feature.properties.OBJECTID_1 ||
-          feature.properties.FID) ??
-        feature.id;
+    return visibleFeatures
+      .filter((feature) => feature?.geometry)
+      .map((feature) => {
+        const key =
+          (feature.properties.OBJECTID ||
+            feature.properties.OBJECTID_1 ||
+            feature.properties.FID) ??
+          feature.id;
 
-      const isSelected = selectedFeature === feature;
+        const isSelected = selectedFeature === feature;
+        const geometry = feature.geometry;
 
-      if (feature.geometry.type === "Point") {
-        const [lng, lat] = feature.geometry.coordinates;
-        return (
-          <Marker
-            key={key}
-            coordinate={{ latitude: lat, longitude: lng }}
-            onPress={() => onFeatureSelect(feature)}
-            anchor={{ x: 0.5, y: 1 }}
-          >
-            <Image
-              source={
-                isSelected
-                  ? isDarkTheme
-                    ? PinSelectedDark
-                    : PinSelected
-                  : PinDefault
-              }
-              resizeMode="contain"
-              className="w-10 h-10"
+        if (geometry.type === "Point") {
+          const [lng, lat] = geometry.coordinates;
+          return (
+            <Marker
+              key={key}
+              coordinate={{ latitude: lat, longitude: lng }}
+              onPress={() => onFeatureSelect(feature)}
+              anchor={{ x: 0.5, y: 1 }}
+            >
+              <Image
+                source={
+                  isSelected
+                    ? isDarkTheme
+                      ? PinSelectedDark
+                      : PinSelected
+                    : PinDefault
+                }
+                resizeMode="contain"
+                className="w-10 h-10"
+              />
+            </Marker>
+          );
+        }
+
+        if (geometry.type === "Polygon") {
+          return (
+            <MapPolygon
+              key={key}
+              feature={feature}
+              isSelected={isSelected}
+              onPress={onFeatureSelect}
             />
-          </Marker>
-        );
-      }
+          );
+        }
 
-      if (feature.geometry.type === "Polygon") {
-        return (
-          <MapPolygon
-            key={key}
-            feature={feature}
-            isSelected={isSelected}
-            onPress={onFeatureSelect}
-          />
-        );
-      }
+        if (geometry.type === "MultiPolygon") {
+          return (
+            <MapMultiPolygon
+              key={key}
+              feature={feature}
+              isSelected={isSelected}
+              onPress={onFeatureSelect}
+            />
+          );
+        }
 
-      if (feature.geometry.type === "MultiPolygon") {
-        return (
-          <MapMultiPolygon
-            key={key}
-            feature={feature}
-            isSelected={isSelected}
-            onPress={onFeatureSelect}
-          />
-        );
-      }
+        if (geometry.type === "MultiLineString") {
+          return <MapMultiLine key={key} feature={feature} />;
+        }
 
-      if (feature.geometry.type === "MultiLineString") {
-        return <MapMultiLine key={key} feature={feature} />;
-      }
-
-      return null;
-    });
+        return <></>;
+      });
   }, [visibleFeatures, selectedFeature, isDarkTheme, onFeatureSelect]);
 
   return (
