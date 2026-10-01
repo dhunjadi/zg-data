@@ -37,13 +37,6 @@ export default {
       favicon: "./assets/images/favicon.png",
     },
     plugins: [
-      [
-        "expo-location",
-        {
-          locationAlwaysAndWhenInUsePermission:
-            "Allow Zagreb Data to use your location.",
-        },
-      ],
       "expo-router",
       [
         "expo-splash-screen",
