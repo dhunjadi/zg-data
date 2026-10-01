@@ -1,8 +1,7 @@
 import { Tabs } from "expo-router";
 import { House, Settings } from "lucide-react-native";
 import { useTranslation } from "react-i18next";
-import { Image, useColorScheme } from "react-native";
-import ZagrebCoA from "../../assets/images/zagreb-coat-of-arms-transparent-bg.png";
+import { useColorScheme } from "react-native";
 
 const TabsLayout = () => {
   const { t } = useTranslation();
@@ -13,13 +12,6 @@ const TabsLayout = () => {
       screenOptions={{
         tabBarActiveTintColor: isDarkTheme ? "#e8b74b" : "#005793",
         tabBarInactiveTintColor: isDarkTheme ? "#3d444e" : undefined,
-        headerRight: () => (
-          <Image
-            source={ZagrebCoA}
-            className="w-8 h-8 right-5"
-            resizeMode="contain"
-          />
-        ),
       }}
       backBehavior="order"
     >

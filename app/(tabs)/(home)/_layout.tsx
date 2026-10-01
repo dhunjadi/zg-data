@@ -1,8 +1,7 @@
 import { CATEGORIES } from "@/constants/categories";
 import { Stack, useGlobalSearchParams } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { Image, useColorScheme } from "react-native";
-import ZagrebCoA from "../../../assets/images/zagreb-coat-of-arms-transparent-bg.png";
+import { useColorScheme } from "react-native";
 
 const HomeLayout = () => {
   const { t } = useTranslation();
@@ -22,14 +21,6 @@ const HomeLayout = () => {
           headerStyle: {
             backgroundColor: isDarkTheme ? "#0f172a" : undefined,
           },
-
-          headerRight: () => (
-            <Image
-              source={ZagrebCoA}
-              className="w-8 h-8 right-5"
-              resizeMode="contain"
-            />
-          ),
         }}
       />
 
