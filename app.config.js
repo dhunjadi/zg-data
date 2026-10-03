@@ -22,7 +22,7 @@ export default {
     android: {
       adaptiveIcon: {
         backgroundColor: "#f7f7f7",
-        foregroundImage: "./assets/images/android-icon-foreground-4.png",
+        foregroundImage: "./assets/images/icon-light.png",
       },
       predictiveBackGestureEnabled: false,
       package: "com.dhunjadi.zgdata",
@@ -41,7 +41,11 @@ export default {
       [
         "expo-splash-screen",
         {
-          image: "./assets/images/android-icon-foreground-4.png",
+          image: "./assets/images/icon-light.png",
+          dark: {
+            image: "./assets/images/icon-dark.png",
+            backgroundColor: "#0f172a",
+          },
           imageWidth: 200,
           resizeMode: "contain",
           backgroundColor: "#ffffff",
