@@ -35,7 +35,7 @@ const RootLayout = () => {
             title: t("screens.map.title"),
             headerTintColor: isDarkTheme ? "#e8ebef" : undefined,
             headerStyle: {
-              backgroundColor: isDarkTheme ? "#0f172a" : undefined,
+              backgroundColor: isDarkTheme ? "#0f172a" : "#f5f5f5",
             },
           }}
         />
@@ -47,10 +47,10 @@ const RootLayout = () => {
             title: t("screens.dataSets.title"),
             headerTintColor: isDarkTheme ? "#e8ebef" : undefined,
             contentStyle: {
-              backgroundColor: isDarkTheme ? "#0f172a" : undefined,
+              backgroundColor: isDarkTheme ? "#0f172a" : "#f5f5f5",
             },
             headerStyle: {
-              backgroundColor: isDarkTheme ? "#0f172a" : undefined,
+              backgroundColor: isDarkTheme ? "#0f172a" : "#f5f5f5",
             },
           }}
         />

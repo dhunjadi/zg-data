@@ -88,6 +88,7 @@ import {
   HomelessInstitution,
   HzRailwayStop,
   Kindergarten,
+  LocalOffice,
   LocalSelfGovernment,
   Odmorko,
   OtherPublicInstitution,
@@ -745,20 +746,16 @@ export const CATEGORIES: Category[] = [
           "categories.public-sector.dataSets.localOffices.description",
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/ab488f0b14b54acaaa0b29d35c9af626_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-        getDisplayData: (feature: Feature<LocalSelfGovernment>) => ({
-          title: feature.properties.MO,
+        getDisplayData: (feature: Feature<LocalOffice>) => ({
+          title: feature.properties.naziv,
           details: [
             {
               label: "categories.dataSetDetails.address",
-              value: feature.properties.adresa_sjedista_MO,
+              value: feature.properties.adresa,
             },
             {
               label: "categories.dataSetDetails.phone",
               value: feature.properties.telefon,
-            },
-            {
-              label: "categories.dataSetDetails.email",
-              value: feature.properties.email,
             },
             {
               label: "categories.dataSetDetails.web",
@@ -766,7 +763,7 @@ export const CATEGORIES: Category[] = [
             },
             {
               label: "categories.dataSetDetails.officeHours",
-              value: feature.properties.primanje_stranaka,
+              value: feature.properties.radno_vrijeme,
             },
           ],
         }),
@@ -1126,43 +1123,6 @@ export const CATEGORIES: Category[] = [
             {
               label: "categories.dataSetDetails.responsibleAuthority",
               value: feature.properties.Nadlezan,
-            },
-          ],
-        }),
-      }),
-      dataSet({
-        id: "city-markets",
-        icon: Store,
-        label: "categories.agriculture.dataSets.cityMarkets.label",
-        description: "categories.agriculture.dataSets.cityMarkets.description",
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/55461536a14e46a69c81a0a67e56c53f_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-        getDisplayData: (feature: Feature<CityMarket>) => ({
-          title: feature.properties.naziv,
-          details: [
-            {
-              label: "categories.dataSetDetails.address",
-              value: feature.properties.adresa,
-            },
-            {
-              label: "categories.dataSetDetails.workingHours",
-              value: feature.properties.radno_vrijeme,
-            },
-            {
-              label: "categories.dataSetDetails.phone",
-              value: feature.properties.telefon,
-            },
-            {
-              label: "categories.dataSetDetails.web",
-              value: feature.properties.web,
-            },
-            {
-              label: "categories.dataSetDetails.email",
-              value: feature.properties.email,
-            },
-            {
-              label: "categories.dataSetDetails.responsibleAuthority",
-              value: feature.properties.nadlezan,
             },
           ],
         }),
@@ -2223,7 +2183,7 @@ export const CATEGORIES: Category[] = [
         }),
       }),
       dataSet({
-        id: "city-markets-society",
+        id: "city-markets",
         icon: Store,
         label: "categories.agriculture.dataSets.cityMarkets.label",
         description: "categories.agriculture.dataSets.cityMarkets.description",
@@ -2284,24 +2244,7 @@ export const CATEGORIES: Category[] = [
           ],
         }),
       }),
-      dataSet({
-        id: "public-playground-society",
-        icon: Volleyball,
-        label: "categories.education.dataSets.publicSportsPlaygrounds.label",
-        description:
-          "categories.education.dataSets.publicSportsPlaygrounds.description",
-        fetchUrl:
-          "https://opendata.arcgis.com/api/v3/datasets/8e2abb22194b4595965d2056f31ff66e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
-        getDisplayData: (feature: Feature<PublicPlayground>) => ({
-          title: feature.properties.lokacija,
-          details: [
-            {
-              label: "categories.dataSetDetails.kind",
-              value: feature.properties.Vrsta_objekta,
-            },
-          ],
-        }),
-      }),
+
       dataSet({
         id: "competent-institution",
         icon: Landmark,
