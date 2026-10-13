@@ -37,6 +37,20 @@ Install dependencies:
 npm install
 ```
 
+Create the .env file in the root of the project and add
+
+```bash
+GOOGLE_MAPS_ANDROID_KEY="YOUR_API_KEY"
+```
+
+and
+
+```bash
+GOOGLE_MAPS_IOS_KEY="YOUR_API_KEY"
+```
+
+Instructions on how to generate your API keys can be found [here](https://docs.expo.dev/versions/latest/sdk/map-view/)
+
 Start the Expo development server:
 
 ```bash
