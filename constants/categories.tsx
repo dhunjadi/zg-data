@@ -130,6 +130,7 @@ export type DataSetItem = {
   description: string;
   icon: LucideIcon;
   id: string;
+  isMapView: boolean;
   fetchUrl: string;
   getDisplayData: (
     feature: Feature<Record<string, unknown>>,
@@ -150,6 +151,7 @@ const dataSet = <T,>(config: {
   description: string;
   icon: LucideIcon;
   id: string;
+  isMapView: boolean;
   fetchUrl: string;
   getDisplayData: (feature: Feature<T>) => DataSetDisplayData;
 }): DataSetItem => ({
@@ -171,6 +173,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.education.dataSets.studentRestaurant.label",
         description:
           "categories.education.dataSets.studentRestaurant.description",
+        isMapView: true,
         fetchUrl:
           "https://data.zagreb.hr/dataset/8b4ab584-5b5a-4d70-9cf3-24897645ad6b/resource/e1caf1d1-ecdf-4d5c-8020-6798c45a188d/download/data.geojson",
         getDisplayData: (feature: Feature<StudentRestaurant>) => ({
@@ -196,6 +199,7 @@ export const CATEGORIES: Category[] = [
         icon: Hotel,
         label: "categories.education.dataSets.studentDorms.label",
         description: "categories.education.dataSets.studentDorms.description",
+        isMapView: true,
         fetchUrl:
           "https://data.zagreb.hr/dataset/cd0afdae-2ef7-44f8-96bb-b96f119aa59b/resource/306ebc37-e4ee-4715-b9e1-8f67418e36e7/download/data.geojson",
         getDisplayData: (feature: Feature<StudentDorm>) => ({
@@ -222,6 +226,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.education.dataSets.culturalInstitutions.label",
         description:
           "categories.education.dataSets.culturalInstitutions.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/83db22aeb39441ec84911ee94f26e746_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<CulturalInstitution>) => ({
@@ -253,6 +258,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.education.dataSets.elementarySchools.label",
         description:
           "categories.education.dataSets.elementarySchools.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/08ff18612cea48a1b1bdb921a83974bc_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<HighSchool>) => ({
@@ -282,6 +288,7 @@ export const CATEGORIES: Category[] = [
         icon: TreePalm,
         label: "categories.education.dataSets.odmorko.label",
         description: "categories.education.dataSets.odmorko.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/0a671e4943634d42930ba9c0648a9ddb_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<Odmorko>) => ({
@@ -308,6 +315,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.education.dataSets.publicSportsPlaygrounds.label",
         description:
           "categories.education.dataSets.publicSportsPlaygrounds.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/8e2abb22194b4595965d2056f31ff66e_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<PublicPlayground>) => ({
@@ -327,6 +335,7 @@ export const CATEGORIES: Category[] = [
           "categories.education.dataSets.higherEducationInstitutions.label",
         description:
           "categories.education.dataSets.higherEducationInstitutions.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3f6954c6679f4b299f738304542a4837_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<HigherEducationInstitution>) => ({
@@ -361,6 +370,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.education.dataSets.sportsFacilities.label",
         description:
           "categories.education.dataSets.sportsFacilities.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/c2dd015f24f84bdb9e367b7eafce6762_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<SportFacility>) => ({
@@ -402,6 +412,7 @@ export const CATEGORIES: Category[] = [
         icon: Building,
         label: "categories.education.dataSets.pupilDorms.label",
         description: "categories.education.dataSets.pupilDorms.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/25bdb57e84e443b38ecf47a912b5c2d1_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<PupilDorm>) => ({
@@ -447,6 +458,7 @@ export const CATEGORIES: Category[] = [
         icon: School,
         label: "categories.education.dataSets.highSchools.label",
         description: "categories.education.dataSets.highSchools.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/1095aeca947440bda0317834daa48c6a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<HighSchool>) => ({
@@ -505,6 +517,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.economy.dataSets.capitalInvestments2024.label",
         description:
           "categories.economy.dataSets.capitalInvestments2024.description",
+        isMapView: true,
         fetchUrl:
           "https://hub.arcgis.com/api/v3/datasets/f1871e3fd952438e99dcccd63d37e81b_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<CapitalInvestment>) => ({
@@ -531,6 +544,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.economy.dataSets.capitalInvestments2023.label",
         description:
           "categories.economy.dataSets.capitalInvestments2023.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/e898521c36224b05b7bc0778632cd91d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<CapitalInvestment>) => ({
@@ -582,6 +596,7 @@ export const CATEGORIES: Category[] = [
           "categories.public-sector.dataSets.otherPublicInstitutions.label",
         description:
           "categories.public-sector.dataSets.otherPublicInstitutions.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/29edc0bf8d604e759bc641fcfd9fec3a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<OtherPublicInstitution>) => ({
@@ -612,6 +627,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.public-sector.dataSets.healthcareInstitutions.label",
         description:
           "categories.public-sector.dataSets.healthcareInstitutions.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/fcadb80196684cc09f8c8a76852a4aa9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<HealthCareInstitution>) => ({
@@ -642,6 +658,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.public-sector.dataSets.cityDistrictOffices.label",
         description:
           "categories.public-sector.dataSets.cityDistrictOffices.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3cabb747881e44b39b561626dcd8b89a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<CityDistrictOffice>) => ({
@@ -680,6 +697,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.public-sector.dataSets.localSelfGovernment.label",
         description:
           "categories.public-sector.dataSets.localSelfGovernment.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/f8f6eaeae11b408eaadf20474809a1b3_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<LocalSelfGovernment>) => ({
@@ -714,6 +732,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.public-sector.dataSets.romanCatholicParishes.label",
         description:
           "categories.public-sector.dataSets.romanCatholicParishes.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/97dd39a14cdf4ce38bc3cb8ef484728a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<RomanCatholicParish>) => ({
@@ -744,6 +763,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.public-sector.dataSets.localOffices.label",
         description:
           "categories.public-sector.dataSets.localOffices.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/ab488f0b14b54acaaa0b29d35c9af626_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<LocalOffice>) => ({
@@ -775,6 +795,7 @@ export const CATEGORIES: Category[] = [
           "categories.public-sector.dataSets.stateAdministrationBodies.label",
         description:
           "categories.public-sector.dataSets.stateAdministrationBodies.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/5c237e0b5c84441e80a4c46ffcb30522_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<StateAdministrationBody>) => ({
@@ -803,6 +824,7 @@ export const CATEGORIES: Category[] = [
           "categories.environment.dataSets.semiUndergroundContainers.label",
         description:
           "categories.environment.dataSets.semiUndergroundContainers.description",
+        isMapView: true,
         fetchUrl:
           "https://data.zagreb.hr/dataset/a48f972b-9639-4719-9470-9d398049dbf9/resource/c04a1f0c-ac8a-4156-ba1f-707b1564d2f8/download/data.geojson",
         getDisplayData: (feature: Feature<SemiUndergroundContainer>) => ({
@@ -829,6 +851,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.environment.dataSets.undergroundContainers.label",
         description:
           "categories.environment.dataSets.undergroundContainers.description",
+        isMapView: true,
         fetchUrl:
           "https://data.zagreb.hr/dataset/1c02bf11-26a8-40dd-9a7d-0635dc065325/resource/980478d5-97a8-4b7d-8e92-f404bd0d3a24/download/data.geojson",
         getDisplayData: (feature: Feature<UndergroundContainer>) => ({
@@ -851,6 +874,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.environment.dataSets.drinkingWaterFountains.label",
         description:
           "categories.environment.dataSets.drinkingWaterFountains.description",
+        isMapView: true,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/pitka_voda/FeatureServer/replicafilescache/pitka_voda_-1391343346496493938.geojson",
         getDisplayData: (feature: Feature<DrinkingWaterFountain>) => ({
@@ -872,6 +896,7 @@ export const CATEGORIES: Category[] = [
         icon: Rose,
         label: "categories.environment.dataSets.cityGardens.label",
         description: "categories.environment.dataSets.cityGardens.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/9858b1819a914c6ba0fedd0069f2d861_1/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<CityGarden>) => ({
@@ -914,6 +939,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.environment.dataSets.recyclingYards.label",
         description:
           "categories.environment.dataSets.recyclingYards.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/249fa384ccf9481abf4fd2de73a822f5_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<RecyclingYard>) => ({
@@ -996,6 +1022,7 @@ export const CATEGORIES: Category[] = [
         icon: Wind,
         label: "categories.environment.dataSets.airQuality.label",
         description: "categories.environment.dataSets.airQuality.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/ed9898e63ec94770a8fb37713c36f8ca_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<AirQuality>) => ({
@@ -1047,6 +1074,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.environment.dataSets.brownfieldAreas.label",
         description:
           "categories.environment.dataSets.brownfieldAreas.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/6a86bf7404fe4cbc88a15ac86856da19_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<BrownFieldArea>) => ({
@@ -1106,6 +1134,7 @@ export const CATEGORIES: Category[] = [
           "categories.agriculture.dataSets.domesticAnimalKeepingBoundaries.label",
         description:
           "categories.agriculture.dataSets.domesticAnimalKeepingBoundaries.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/7e93637c72ac4c278c69ad5260611c39_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<DometicAnimalKeepingBoundry>) => ({
@@ -1133,6 +1162,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.agriculture.dataSets.sharedHuntingGrounds.label",
         description:
           "categories.agriculture.dataSets.sharedHuntingGrounds.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/d87e492a5c994e04b47b1eaa7a06699d_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<SharedHuntingGround>) => ({
@@ -1157,6 +1187,7 @@ export const CATEGORIES: Category[] = [
           "categories.agriculture.dataSets.wildlifeProtectionProgram.label",
         description:
           "categories.agriculture.dataSets.wildlifeProtectionProgram.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/96a059b8909a4d70b81bbbae9d883a25_5/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<WildlifeProtectionProgram>) => ({
@@ -1183,6 +1214,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.judiciary.dataSets.surveillanceCameras.label",
         description:
           "categories.judiciary.dataSets.surveillanceCameras.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<SurveillanceCamera>) => ({
@@ -1200,6 +1232,7 @@ export const CATEGORIES: Category[] = [
         icon: Siren,
         label: "categories.judiciary.dataSets.police.label",
         description: "categories.judiciary.dataSets.police.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/30d4d80d445a46d99f2f802814d70833_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<PoliceStation>) => ({
@@ -1229,6 +1262,7 @@ export const CATEGORIES: Category[] = [
         icon: FireExtinguisher,
         label: "categories.judiciary.dataSets.firefighters.label",
         description: "categories.judiciary.dataSets.firefighters.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/11ac9ebf240e4d2382ef7fd0b16ef9ac_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<Firefighter>) => ({
@@ -1278,6 +1312,7 @@ export const CATEGORIES: Category[] = [
         icon: Bus,
         label: "categories.traffic.dataSets.zetBusStops.label",
         description: "categories.traffic.dataSets.zetBusStops.description",
+        isMapView: true,
         fetchUrl:
           "https://data.zagreb.hr/dataset/cc7e45ae-4bad-4a07-bca2-25e82f1e082c/resource/3b12a182-afa3-4b07-833f-17d8bcf80ea9/download/data.geojson",
         getDisplayData: (feature: Feature<ZetBusStop>) => ({
@@ -1307,6 +1342,7 @@ export const CATEGORIES: Category[] = [
         icon: TrainFront,
         label: "categories.traffic.dataSets.hzRailwayStops.label",
         description: "categories.traffic.dataSets.hzRailwayStops.description",
+        isMapView: true,
         fetchUrl:
           "https://data.zagreb.hr/dataset/d0886c88-cdc8-43fa-ac94-67a8d128d0c2/resource/af3dbe3e-68fd-4862-bb6a-e39790f76dce/download/data.geojson",
         getDisplayData: (feature: Feature<HzRailwayStop>) => ({
@@ -1336,6 +1372,7 @@ export const CATEGORIES: Category[] = [
         icon: Footprints,
         label: "categories.traffic.dataSets.pedestrianZone.label",
         description: "categories.traffic.dataSets.pedestrianZone.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3aabf37d1d8b497c970dcddc21ed9612_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: () => ({
@@ -1349,6 +1386,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.traffic.dataSets.reservedParkingZones.label",
         description:
           "categories.traffic.dataSets.reservedParkingZones.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/04e3d79e90b04167a6efa8d277e5a482_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<ReservedParkingZone>) => ({
@@ -1366,6 +1404,7 @@ export const CATEGORIES: Category[] = [
         icon: Rows4,
         label: "categories.traffic.dataSets.publicGarages.label",
         description: "categories.traffic.dataSets.publicGarages.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3e3484aca5284b16b4a1c41bd6594711_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<PublicGarage>) => ({
@@ -1412,6 +1451,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.traffic.dataSets.publicBicycleParking.label",
         description:
           "categories.traffic.dataSets.publicBicycleParking.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/04012b0e4968447c978a6ee494d76495_2/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<PublicBicycleParking>) => ({
@@ -1442,6 +1482,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.traffic.dataSets.publicBicycleSystem.label",
         description:
           "categories.traffic.dataSets.publicBicycleSystem.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/95f8892f77eb45968b65469b9063f8b9_3/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<PublicBicycleSystem>) => ({
@@ -1463,6 +1504,7 @@ export const CATEGORIES: Category[] = [
         icon: Road,
         label: "categories.traffic.dataSets.bicycleLanes.label",
         description: "categories.traffic.dataSets.bicycleLanes.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/b10db2ae3a5b4e4b8dbee85a89d4b5b1_4/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: () => ({
@@ -1476,6 +1518,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.traffic.dataSets.surveillanceCameras.label",
         description:
           "categories.traffic.dataSets.surveillanceCameras.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<SurveillanceCamera>) => ({
@@ -1493,6 +1536,7 @@ export const CATEGORIES: Category[] = [
         icon: CarTaxiFront,
         label: "categories.traffic.dataSets.taxiStands.label",
         description: "categories.traffic.dataSets.taxiStands.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/c2a3ae87380b472d9b7e72f31cd296da_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<TaxiStand>) => ({
@@ -1511,6 +1555,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.traffic.dataSets.electricChargingStations.label",
         description:
           "categories.traffic.dataSets.electricChargingStations.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/4a4fc728724b4d319c27a9f647a0bb62_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<ElectricChargingStation>) => ({
@@ -1536,6 +1581,7 @@ export const CATEGORIES: Category[] = [
         icon: TramFront,
         label: "categories.traffic.dataSets.zetTramStops.label",
         description: "categories.traffic.dataSets.zetTramStops.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/8f84d42e684141eaa7ceb26d9c9b8f5a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<ZetTramStop>) => ({
@@ -1561,6 +1607,7 @@ export const CATEGORIES: Category[] = [
         icon: Fuel,
         label: "categories.traffic.dataSets.gasStations.label",
         description: "categories.traffic.dataSets.gasStations.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/05fa1c92366e415c8ce813b9e28da8c5_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<GasStation>) => ({
@@ -1586,6 +1633,7 @@ export const CATEGORIES: Category[] = [
         icon: Droplet,
         label: "categories.society.dataSets.publicWells.label",
         description: "categories.society.dataSets.publicWells.description",
+        isMapView: true,
         fetchUrl:
           "https://data.zagreb.hr/dataset/0d1c65b5-6e8f-4b6a-be90-cc9ecb6fa374/resource/2010797b-3e1e-4a43-9a5a-b1619722d2ac/download/data.geojson",
         getDisplayData: (feature: Feature<PublicWell>) => ({
@@ -1631,6 +1679,7 @@ export const CATEGORIES: Category[] = [
         icon: HouseHeart,
         label: "categories.society.dataSets.childrenHomes.label",
         description: "categories.society.dataSets.childrenHomes.description",
+        isMapView: true,
         fetchUrl:
           "https://data.zagreb.hr/dataset/65e1cb89-9cc7-43d2-a94d-3305e2917224/resource/e0f7e07d-73e1-4c9e-a81b-30369204b201/download/data.geojson",
         getDisplayData: (feature: Feature<ChildrenHome>) => ({
@@ -1669,6 +1718,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.society.dataSets.disabilityInstitutions.label",
         description:
           "categories.society.dataSets.disabilityInstitutions.description",
+        isMapView: true,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanove_TUR_i_OSI/FeatureServer/replicafilescache/Geoportal_ustanove_TUR_i_OSI_-7182187914465045449.geojson",
         getDisplayData: (feature: Feature<Disabilityinstitution>) => ({
@@ -1712,6 +1762,7 @@ export const CATEGORIES: Category[] = [
           "categories.society.dataSets.civilProtectionAssemblyPoints.label",
         description:
           "categories.society.dataSets.civilProtectionAssemblyPoints.description",
+        isMapView: true,
         fetchUrl:
           "https://data.zagreb.hr/dataset/d736c146-6497-4915-894b-41bdf51267b0/resource/d30eb215-3ce2-48f8-88b2-6ffac82d46b5/download/zborna_mjesta_civilne_zatite_grada_zagreba-1.geojson",
         getDisplayData: (feature: Feature<CivilProtectionAssemblyPoint>) => ({
@@ -1729,6 +1780,7 @@ export const CATEGORIES: Category[] = [
         icon: Map,
         label: "categories.society.dataSets.evacuationAreas.label",
         description: "categories.society.dataSets.evacuationAreas.description",
+        isMapView: true,
         fetchUrl:
           "https://data.zagreb.hr/dataset/b3c27d0f-b9b5-4140-b0cf-670e5cc1c19b/resource/479205c7-f75a-46a6-ac38-1499fcdca3d3/download/evakuacijske_povrsine.geojson",
         getDisplayData: (feature: Feature<EvacuationArea>) => ({
@@ -1756,6 +1808,7 @@ export const CATEGORIES: Category[] = [
           "categories.society.dataSets.croatianInstituteForSocialWork.label",
         description:
           "categories.society.dataSets.croatianInstituteForSocialWork.description",
+        isMapView: true,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_centar_za_socijalnu_skrb/FeatureServer/replicafilescache/Geoportal_centar_za_socijalnu_skrb_-2638481923376160763.geojson",
         getDisplayData: (feature: Feature<CroatianInstituteForSocialWork>) => ({
@@ -1802,6 +1855,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.society.dataSets.socialProtectionInstitutions.label",
         description:
           "categories.society.dataSets.socialProtectionInstitutions.description",
+        isMapView: true,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_nadlezna_institucija/FeatureServer/replicafilescache/Geoportal_nadlezna_institucija_2079182892719747966.geojson",
         getDisplayData: (feature: Feature<SocialProtectionInstitution>) => ({
@@ -1840,6 +1894,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.society.dataSets.otherSocialWelfareActivities.label",
         description:
           "categories.society.dataSets.otherSocialWelfareActivities.description",
+        isMapView: true,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ostale_djelatnosti_socijalne_skrbi/FeatureServer/replicafilescache/Geoportal_ostale_djelatnosti_socijalne_skrbi_-2781268371483281578.geojson",
         getDisplayData: (feature: Feature<OtherSocialWelfareActivitiy>) => ({
@@ -1890,6 +1945,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.society.dataSets.veteransInstitutions.label",
         description:
           "categories.society.dataSets.veteransInstitutions.description",
+        isMapView: true,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanova_za_branitelje/FeatureServer/replicafilescache/Geoportal_ustanova_za_branitelje_-3924332151953522156.geojson",
         getDisplayData: (feature: Feature<VeteransInstitution>) => ({
@@ -1936,6 +1992,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.society.dataSets.homelessInstitutions.label",
         description:
           "categories.society.dataSets.homelessInstitutions.description",
+        isMapView: true,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_ustanova_za_beskucnike/FeatureServer/replicafilescache/Geoportal_ustanova_za_beskucnike_-235981892016937521.geojson",
         getDisplayData: (feature: Feature<HomelessInstitution>) => ({
@@ -1985,6 +2042,7 @@ export const CATEGORIES: Category[] = [
         icon: House,
         label: "categories.society.dataSets.elderlyHomes.label",
         description: "categories.society.dataSets.elderlyHomes.description",
+        isMapView: true,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/Geoportal_domovi_za_starije_osobe/FeatureServer/replicafilescache/Geoportal_domovi_za_starije_osobe_8327597670917525104.geojson",
         getDisplayData: (feature: Feature<ElderlyHome>) => ({
@@ -2034,6 +2092,7 @@ export const CATEGORIES: Category[] = [
         icon: Toilet,
         label: "categories.society.dataSets.publicToilets.label",
         description: "categories.society.dataSets.publicToilets.description",
+        isMapView: true,
         fetchUrl:
           "https://services8.arcgis.com/Usi0jGQwMmBUpFjr/arcgis/rest/services/javni_wc/FeatureServer/replicafilescache/javni_wc_-4667436749754589776.geojson",
         getDisplayData: (feature: Feature<PublicToilet>) => ({
@@ -2059,6 +2118,7 @@ export const CATEGORIES: Category[] = [
         icon: Wifi,
         label: "categories.society.dataSets.freeWifiNetwork.label",
         description: "categories.society.dataSets.freeWifiNetwork.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/59efced0d006469fa858ab07764735b0_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<FreeWifiNetwork>) => ({
@@ -2084,6 +2144,7 @@ export const CATEGORIES: Category[] = [
         icon: Balloon,
         label: "categories.society.dataSets.kindergartens.label",
         description: "categories.society.dataSets.kindergartens.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/49bb07d4efc34bd5bacc1d330dc28a07_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<Kindergarten>) => ({
@@ -2150,6 +2211,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.public-sector.dataSets.cityDistrictOffices.label",
         description:
           "categories.public-sector.dataSets.cityDistrictOffices.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/3cabb747881e44b39b561626dcd8b89a_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<CityDistrictOffice>) => ({
@@ -2187,6 +2249,7 @@ export const CATEGORIES: Category[] = [
         icon: Store,
         label: "categories.agriculture.dataSets.cityMarkets.label",
         description: "categories.agriculture.dataSets.cityMarkets.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/55461536a14e46a69c81a0a67e56c53f_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<CityMarket>) => ({
@@ -2224,6 +2287,7 @@ export const CATEGORIES: Category[] = [
         icon: Dog,
         label: "categories.society.dataSets.publicDogAreas.label",
         description: "categories.society.dataSets.publicDogAreas.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/78e1786ccdd544cfb8465b73051f22c9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<PublicDogArea>) => ({
@@ -2251,6 +2315,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.society.dataSets.competentInstitution.label",
         description:
           "categories.society.dataSets.competentInstitution.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/81ae155978074414a306970b07fcde95_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<CompetentInstitution>) => ({
@@ -2289,6 +2354,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.society.dataSets.religiousCommunities.label",
         description:
           "categories.society.dataSets.religiousCommunities.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/26e9553b2fb34513ac2f8e4468d6b652_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<ReligiousCommunity>) => ({
@@ -2322,6 +2388,7 @@ export const CATEGORIES: Category[] = [
         icon: FireExtinguisher,
         label: "categories.judiciary.dataSets.firefighters.label",
         description: "categories.judiciary.dataSets.firefighters.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/11ac9ebf240e4d2382ef7fd0b16ef9ac_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<Firefighter>) => ({
@@ -2372,6 +2439,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.health-care.dataSets.healthcareInstitutions.label",
         description:
           "categories.health-care.dataSets.healthcareInstitutions.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/fcadb80196684cc09f8c8a76852a4aa9_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<HealthcareInstitution>) => ({
@@ -2402,6 +2470,7 @@ export const CATEGORIES: Category[] = [
         label: "categories.health-care.dataSets.healthCenters.label",
         description:
           "categories.health-care.dataSets.healthCenters.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/ddc03fc26c6145e7a4a84b35a41d68d1_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<PrimaryHealthCenter>) => ({
@@ -2431,6 +2500,7 @@ export const CATEGORIES: Category[] = [
         icon: Cross,
         label: "categories.health-care.dataSets.pharmacies.label",
         description: "categories.health-care.dataSets.pharmacies.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/861f84594b034965b4c0ac96cf4083b0_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (feature: Feature<Pharmacy>) => ({
@@ -2474,6 +2544,7 @@ export const CATEGORIES: Category[] = [
           "categories.science.dataSets.telecommunicationDistributionCabinets.label",
         description:
           "categories.science.dataSets.telecommunicationDistributionCabinets.description",
+        isMapView: true,
         fetchUrl:
           "https://opendata.arcgis.com/api/v3/datasets/f72999526a9b4105b2af4f6f036a16fa_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1",
         getDisplayData: (
