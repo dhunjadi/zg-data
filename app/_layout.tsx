@@ -54,6 +54,21 @@ const RootLayout = () => {
             },
           }}
         />
+
+        <Stack.Screen
+          name="dataSetDetails"
+          options={{
+            headerShown: true,
+            title: t("screens.dataSets.title"),
+            headerTintColor: isDarkTheme ? "#e8ebef" : undefined,
+            contentStyle: {
+              backgroundColor: isDarkTheme ? "#0f172a" : "#f5f5f5",
+            },
+            headerStyle: {
+              backgroundColor: isDarkTheme ? "#0f172a" : "#f5f5f5",
+            },
+          }}
+        />
       </Stack>
 
       {isOffline && (

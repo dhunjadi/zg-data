@@ -57,18 +57,41 @@ export type DataSetDisplayData = {
   details: DataSetDetail[];
 };
 
-export type DataSetConfig<TProperties> = {
+export type DataSetConfig<TItem> = {
   id: string;
   fetchUrl: string;
-  getDisplayData: (feature: Feature<TProperties>) => DataSetDisplayData;
+  getDisplayData: (item: TItem) => DataSetDisplayData;
 };
 
-export type AnyDataSetConfig = {
+export type CKANDataSetConfig<TRecord> = {
   id: string;
-  fetchUrl: string;
-  getDisplayData: (
-    feature: Feature<Record<string, unknown>>,
-  ) => DataSetDisplayData;
+  getCKANDisplayData: (record: TRecord) => DataSetDisplayData;
+};
+
+export type AnyDataSetConfig = DataSetConfig<Record<string, unknown>>;
+
+export type CKANRecordResponse<TCKANRecord> = {
+  help: string;
+  success: boolean;
+  result: {
+    include_total: boolean;
+    limit: number;
+    records_format: string;
+    resource_id: string;
+    total_estimation_threshold: unknown;
+    records: (TCKANRecord & { _id?: string | number })[];
+  };
+};
+
+export type Gallery = {
+  Name: string;
+  Description: string;
+  Longitude: string;
+  Latitude: string;
+  Web: string;
+  "E-mail": string;
+  Tel: string;
+  "Navigiraj do": string;
 };
 
 // Data specific properties

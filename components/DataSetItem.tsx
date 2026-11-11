@@ -72,9 +72,11 @@ const DataSetItem = ({
             {description}
           </Text>
         </View>
-        <View className="justify-center">
-          <Map size={24} color={isDarkTheme ? "#8baedd" : "#0070bb"} />
-        </View>
+        {isMapView && (
+          <View className="justify-center">
+            <Map size={24} color={isDarkTheme ? "#8baedd" : "#0070bb"} />
+          </View>
+        )}
       </Animated.View>
     </Pressable>
   );

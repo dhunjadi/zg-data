@@ -67,6 +67,7 @@ import {
   CityGarden,
   CityMarket,
   CivilProtectionAssemblyPoint,
+  CKANDataSetConfig,
   CompetentInstitution,
   CroatianInstituteForSocialWork,
   CulturalInstitution,
@@ -80,6 +81,7 @@ import {
   Feature,
   Firefighter,
   FreeWifiNetwork,
+  Gallery,
   GasStation,
   HealthcareInstitution,
   HealthCareInstitution,
@@ -135,6 +137,7 @@ export type DataSetItem = {
   getDisplayData: (
     feature: Feature<Record<string, unknown>>,
   ) => DataSetDisplayData;
+  getCKANDisplayData?: (record: unknown) => DataSetDisplayData;
 };
 
 type Category = {
@@ -160,6 +163,23 @@ const dataSet = <T,>(config: {
     config.getDisplayData as unknown as DataSetItem["getDisplayData"],
 });
 
+// eslint-disable-next-line comma-spacing
+const ckanDataSet = <T,>(
+  config: {
+    label: string;
+    description: string;
+    icon: LucideIcon;
+    id: string;
+    isMapView: false;
+    fetchUrl: string;
+  } & CKANDataSetConfig<T>,
+): DataSetItem => ({
+  ...config,
+  getDisplayData: () => ({ title: "", details: [] }),
+  getCKANDisplayData:
+    config.getCKANDisplayData as unknown as DataSetItem["getCKANDisplayData"],
+});
+
 export const CATEGORIES: Category[] = [
   {
     id: "education",
@@ -167,6 +187,32 @@ export const CATEGORIES: Category[] = [
     description: "Velit cursus magna fringilla natoque.",
     icon: GraduationCap,
     dataSets: [
+      ckanDataSet({
+        id: "galerije",
+        icon: CookingPot,
+        label: "galerije naslov",
+        description: "galerije opis",
+        isMapView: false,
+        fetchUrl:
+          "https://data.zagreb.hr/api/3/action/datastore_search?resource_id=5df44c07-ba5e-43ca-b279-b1fed3f07606",
+        getCKANDisplayData: (record: Gallery) => ({
+          title: record.Name,
+          details: [
+            {
+              label: "Description",
+              value: record.Description,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: record["E-mail"],
+            },
+            {
+              label: "categories.dataSetDetails.web",
+              value: record.Web,
+            },
+          ],
+        }),
+      }),
       dataSet({
         id: "student-restaurants",
         icon: CookingPot,
