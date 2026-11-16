@@ -2,13 +2,21 @@ import DetailsBottomSheet from "@/components/DetailsBottomSheet";
 import Map from "@/components/Map";
 import Spinner from "@/components/Spinner";
 import { CATEGORIES } from "@/constants/categories";
+import { useErrorAlert } from "@/hooks/useErrorAlert";
 import { useFetchGeoJson } from "@/hooks/useFetchGeoJson";
 import { Feature } from "@/types";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { useQueryClient } from "@tanstack/react-query";
-import { useLocalSearchParams, useNavigation, useRouter } from "expo-router";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Alert, useColorScheme, View } from "react-native";
+import { useLocalSearchParams, useNavigation } from "expo-router";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import { useColorScheme, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const flatDataSets = CATEGORIES.flatMap((category) =>
@@ -20,7 +28,6 @@ const MapScreen = () => {
   const isDarkTheme = colorScheme === "dark";
   const navigation = useNavigation();
   const queryClient = useQueryClient();
-  const router = useRouter();
 
   const { datasetId, fetchUrl, label } = useLocalSearchParams<{
     datasetId?: string;
@@ -34,28 +41,19 @@ const MapScreen = () => {
     isError,
   } = useFetchGeoJson(fetchUrl || "");
 
+  useErrorAlert(isError);
+
   const [selectedFeature, setSelectedFeature] = useState<Feature<
     Record<string, unknown>
   > | null>(null);
 
   const bottomSheetRef = useRef<BottomSheet>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     navigation.setOptions({
       title: label,
     });
   }, [label, navigation]);
-
-  useEffect(() => {
-    if (!isError) return;
-
-    Alert.alert("Something went wrong", "Try again later", [
-      {
-        text: "Go back",
-        onPress: () => router.back(),
-      },
-    ]);
-  }, [isError, router]);
 
   useEffect(() => {
     return () => {

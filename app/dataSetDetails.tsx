@@ -1,8 +1,10 @@
 import Spinner from "@/components/Spinner";
 import { CATEGORIES } from "@/constants/categories";
+import { useErrorAlert } from "@/hooks/useErrorAlert";
 import { useFetchCKAN } from "@/hooks/useFetchCKAN";
 import { useLocalSearchParams, useNavigation } from "expo-router";
-import { useEffect, useMemo } from "react";
+import { useLayoutEffect, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { Text, useColorScheme, View } from "react-native";
 
 const flatDataSets = CATEGORIES.flatMap((category) =>
@@ -13,6 +15,7 @@ const DataSetDetailsScreen = () => {
   const colorScheme = useColorScheme();
   const isDarkTheme = colorScheme === "dark";
   const navigation = useNavigation();
+  const { t } = useTranslation();
 
   const { datasetId, fetchUrl, label } = useLocalSearchParams<{
     datasetId?: string;
@@ -20,21 +23,23 @@ const DataSetDetailsScreen = () => {
     label?: string;
   }>();
 
-  const { data: ckanData, isFetching } = useFetchCKAN(fetchUrl || "");
+  const { data: ckanData, isFetching, isError } = useFetchCKAN(fetchUrl || "");
+  useErrorAlert(isError);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: label,
+    });
+  }, [label, navigation]);
 
   const selectedDataSet = useMemo(
     () => flatDataSets.find((set) => set.id === datasetId),
     [datasetId],
   );
 
-  // eslint-disable-next-line no-console
-  console.log(ckanData?.result.records);
-
-  useEffect(() => {
-    navigation.setOptions({
-      title: label,
-    });
-  }, [label, navigation]);
+  const displayItems = ckanData?.result.records.map((record) =>
+    selectedDataSet?.getCKANDisplayData?.(record),
+  );
 
   if (isFetching) {
     return (
@@ -50,11 +55,23 @@ const DataSetDetailsScreen = () => {
     <View
       className={`flex-1 p-4 ${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"}`}
     >
-      <Text
-        className={`mb-4 text-xl ${isDarkTheme ? "text-highlight" : "text-neutral-900"}`}
-      >
-        {selectedDataSet?.description}
-      </Text>
+      {displayItems?.map((item) => (
+        <View key={item?.title} className="mb-5">
+          <Text
+            className={`mb-4 text-xl ${isDarkTheme ? "text-highlight" : "text-neutral-900"} font-bold`}
+          >
+            {item?.title}
+          </Text>
+          {item?.details.map((detail) => (
+            <Text
+              key={detail.label}
+              className={`mb-4 text-xl ${isDarkTheme ? "text-highlight" : "text-neutral-900"}`}
+            >
+              {t(detail.label)}: {detail.value}
+            </Text>
+          ))}
+        </View>
+      ))}
     </View>
   );
 };

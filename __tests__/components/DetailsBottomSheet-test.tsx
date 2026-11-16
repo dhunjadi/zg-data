@@ -64,6 +64,7 @@ describe("DetailsBottomSheet", () => {
     description: "Test description",
     icon: Map,
     fetchUrl: "https://example.com/data.geojson",
+    isMapView: false,
     getDisplayData: () => ({
       title: "Test place title",
       details: [

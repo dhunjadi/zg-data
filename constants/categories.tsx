@@ -199,7 +199,7 @@ export const CATEGORIES: Category[] = [
           title: record.Name,
           details: [
             {
-              label: "Description",
+              label: "categories.dataSetDetails.address",
               value: record.Description,
             },
             {
