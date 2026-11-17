@@ -5,7 +5,7 @@ import { useFetchCKAN } from "@/hooks/useFetchCKAN";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import { useLayoutEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { Text, useColorScheme, View } from "react-native";
+import { FlatList, Text, useColorScheme, View } from "react-native";
 
 const flatDataSets = CATEGORIES.flatMap((category) =>
   category.dataSets.map((dataSet) => dataSet),
@@ -55,23 +55,36 @@ const DataSetDetailsScreen = () => {
     <View
       className={`flex-1 p-4 ${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"}`}
     >
-      {displayItems?.map((item) => (
-        <View key={item?.title} className="mb-5">
-          <Text
-            className={`mb-4 text-xl ${isDarkTheme ? "text-highlight" : "text-neutral-900"} font-bold`}
-          >
-            {item?.title}
-          </Text>
-          {item?.details.map((detail) => (
+      <FlatList
+        data={displayItems}
+        contentContainerClassName={`${isDarkTheme ? "bg-screenBgDark" : "bg-neutral-100"} p-4`}
+        ListEmptyComponent={
+          <View className="flex items-center justify-center">
             <Text
-              key={detail.label}
-              className={`mb-4 text-xl ${isDarkTheme ? "text-highlight" : "text-neutral-900"}`}
+              className={`${isDarkTheme ? "text-textDarkPimary" : "text-primaryDark"} mt-4`}
             >
-              {t(detail.label)}: {detail.value}
+              No data!
             </Text>
-          ))}
-        </View>
-      ))}
+          </View>
+        }
+        renderItem={({ item }) => (
+          <View key={item?.title} className="mb-5">
+            <Text
+              className={`mb-4 text-xl ${isDarkTheme ? "text-highlight" : "text-primaryDark"} font-bold`}
+            >
+              {item?.title}
+            </Text>
+            {item?.details.map((detail) => (
+              <Text
+                key={detail.label}
+                className={`mb-4 text-xl ${isDarkTheme ? "text-highlight" : "text-primaryLight"}`}
+              >
+                {t(detail.label)}: {detail.value}
+              </Text>
+            ))}
+          </View>
+        )}
+      />
     </View>
   );
 };

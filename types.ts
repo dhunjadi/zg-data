@@ -94,6 +94,16 @@ export type Gallery = {
   "Navigiraj do": string;
 };
 
+export type OngoingEUProject = {
+  "Redni broj": number;
+  "Naziv projekta": string;
+  "Nadlezni ured/zavod/sluzba/ustanova/trgovacko drustvo": string;
+  "Naziv programa": string;
+  "Godina pocetka projekta": number;
+  "Ukupan iznos proracuna projekta EUR": string;
+  "Ukupan iznos bespovratnih sredstava projekta EUR": string;
+};
+
 // Data specific properties
 
 //EDUCATION

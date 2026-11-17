@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import {
   Accessibility,
+  Amphora,
   Balloon,
   Banknote,
   Bike,
@@ -14,6 +15,7 @@ import {
   Cat,
   Cctv,
   Church,
+  CircleEuro,
   CookingPot,
   Cross,
   Dog,
@@ -93,6 +95,7 @@ import {
   LocalOffice,
   LocalSelfGovernment,
   Odmorko,
+  OngoingEUProject,
   OtherPublicInstitution,
   OtherSocialWelfareActivitiy,
   Pharmacy,
@@ -189,7 +192,7 @@ export const CATEGORIES: Category[] = [
     dataSets: [
       ckanDataSet({
         id: "galerije",
-        icon: CookingPot,
+        icon: Amphora,
         label: "galerije naslov",
         description: "galerije opis",
         isMapView: false,
@@ -557,6 +560,41 @@ export const CATEGORIES: Category[] = [
     description: "Quisque himenaeos tempor pharetra.",
     icon: Wallet,
     dataSets: [
+      ckanDataSet({
+        id: "ongoing-eu-projects",
+        icon: CircleEuro,
+        label: "EU projekti u provedbi",
+        description: "opis",
+        isMapView: false,
+        fetchUrl:
+          "https://data.zagreb.hr/api/3/action/datastore_search?resource_id=a93d3111-cc8f-45fc-80ab-ffbdd0d25e8f",
+        getCKANDisplayData: (record: OngoingEUProject) => ({
+          title: record["Naziv projekta"],
+          details: [
+            {
+              label: "Nadležni ured",
+              value:
+                record["Nadlezni ured/zavod/sluzba/ustanova/trgovacko drustvo"],
+            },
+            {
+              label: "Naziv programa",
+              value: record["Naziv programa"],
+            },
+            {
+              label: "Godina početka projekta",
+              value: record["Godina pocetka projekta"],
+            },
+            {
+              label: "Ukupan iznos proračuna projekta",
+              value: record["Ukupan iznos proracuna projekta EUR"],
+            },
+            {
+              label: "Ukupan iznos bespovratnih sredstava projekta",
+              value: record["Ukupan iznos bespovratnih sredstava projekta EUR"],
+            },
+          ],
+        }),
+      }),
       dataSet({
         id: "capital-investments-2024",
         icon: Banknote,
