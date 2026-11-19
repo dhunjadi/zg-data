@@ -68,7 +68,10 @@ const DataSetDetailsScreen = () => {
           </View>
         }
         renderItem={({ item }) => (
-          <View key={item?.title} className="mb-5">
+          <View
+            key={item?.title}
+            className="mb-4 bg-elementBgDark p-4 rounded-md"
+          >
             <Text
               className={`mb-4 text-xl ${isDarkTheme ? "text-highlight" : "text-primaryDark"} font-bold`}
             >
@@ -77,7 +80,7 @@ const DataSetDetailsScreen = () => {
             {item?.details.map((detail) => (
               <Text
                 key={detail.label}
-                className={`mb-4 text-xl ${isDarkTheme ? "text-highlight" : "text-primaryLight"}`}
+                className={`mb-4 text-xl ${isDarkTheme ? "text-textDarkPimary" : "text-primaryLight"}`}
               >
                 {t(detail.label)}: {detail.value}
               </Text>

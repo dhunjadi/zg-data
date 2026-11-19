@@ -49,6 +49,10 @@
     "education": {
       "label": "Obrazovanje, kultura i sport",
       "dataSets": {
+        "galleries": {
+          "label": "Galerije Grada Zagreba",
+          "description": "Adresa, web stranica, e-mail, telefon."
+        },
         "studentRestaurant": {
           "label": "Studentski restoran",
           "description": "Geolokacije studentskih restorana."
@@ -296,6 +300,14 @@
     "society": {
       "label": "Stanovništvo i društvo",
       "dataSets": {
+        "cityAwardWinners": {
+          "label": "Dobitnici nagrade Grada Zagreba",
+          "description": "Podaci o dobitnicima nagrade Grada Zagreba"
+        },
+        "cityDistrictOfficePresidents2025": {
+          "label": "Predsjednici gradskih četvrti 2025 - 2029",
+          "description": "Popis predsjednika Gradskih četvrti sa kontakt podacima"
+        },
         "publicWells": {
           "label": "Javni zdenci",
           "description": "Javni zdenci Grada Zagreba."
@@ -528,7 +540,9 @@
       "domesticAnimalKeepingBoundariesTitle": "Granice dopuštenog držanja domaćih životinja",
       "publicDogAreaTitle": "Javna površina za pse",
       "pedestrianZonesTitle": "Pješačke zone",
-      "semiUndergroundContainersTitle": "Polupodzemni spremnici"
+      "semiUndergroundContainersTitle": "Polupodzemni spremnici",
+      "districtEmail": "Područni e-mail",
+      "awardYear": "Godina dodjele nagrade"
     }
   }
 }

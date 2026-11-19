@@ -94,6 +94,21 @@ export type Gallery = {
   "Navigiraj do": string;
 };
 
+export type CityAwardWinner = {
+  "Dobitnici Nagrade Grada Zagreba": string;
+  "Godina dodjele Nagrade": string;
+};
+
+export type CityAwardDistrictOfficePresident = {
+  Id: number;
+  Email: string;
+  Adresa: string;
+  Telefon: number;
+  Predsjednik: string;
+  EmailPodrucni: string;
+  GradskaCetvrt: string;
+};
+
 export type OngoingEUProject = {
   "Redni broj": number;
   "Naziv projekta": string;

@@ -42,6 +42,10 @@
     "education": {
       "label": "Education, Culture and Sport",
       "dataSets": {
+        "galleries": {
+          "label": "Galleries of the City of Zagreb",
+          "description": "Address, website, email, phone number."
+        },
         "studentRestaurant": {
           "label": "Student restaurant",
           "description": "Geolocations of student restaurants."
@@ -289,6 +293,14 @@
     "society": {
       "label": "Population and Society",
       "dataSets": {
+        "cityAwardWinners": {
+          "label": "Recipients of the City of Zagreb Award",
+          "description": "Information about recipients of the City of Zagreb Award."
+        },
+        "cityDistrictOfficePresidents2025": {
+          "label": "City District Presidents 2025–2029",
+          "description": "List of City District Presidents with contact information."
+        },
         "publicWells": {
           "label": "Public wells",
           "description": "Public wells of the City of Zagreb."
@@ -521,7 +533,9 @@
       "domesticAnimalKeepingBoundariesTitle": "Permitted areas for keeping domestic animals",
       "publicDogAreaTitle": "Public dog area",
       "pedestrianZonesTitle": "Pedestrian zones",
-      "semiUndergroundContainersTitle": "Semi-underground containers"
+      "semiUndergroundContainersTitle": "Semi-underground containers",
+      "districtEmail": "District e-mail",
+      "awardYear": "Award year"
     }
   }
 }

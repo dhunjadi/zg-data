@@ -2,6 +2,7 @@
 import {
   Accessibility,
   Amphora,
+  Award,
   Balloon,
   Banknote,
   Bike,
@@ -65,6 +66,8 @@ import {
   BrownFieldArea,
   CapitalInvestment,
   ChildrenHome,
+  CityAwardDistrictOfficePresident,
+  CityAwardWinner,
   CityDistrictOffice,
   CityGarden,
   CityMarket,
@@ -191,10 +194,10 @@ export const CATEGORIES: Category[] = [
     icon: GraduationCap,
     dataSets: [
       ckanDataSet({
-        id: "galerije",
+        id: "galleries",
         icon: Amphora,
-        label: "galerije naslov",
-        description: "galerije opis",
+        label: "categories.education.dataSets.galleries.label",
+        description: "categories.education.dataSets.galleries.description",
         isMapView: false,
         fetchUrl:
           "https://data.zagreb.hr/api/3/action/datastore_search?resource_id=5df44c07-ba5e-43ca-b279-b1fed3f07606",
@@ -204,6 +207,10 @@ export const CATEGORIES: Category[] = [
             {
               label: "categories.dataSetDetails.address",
               value: record.Description,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: record.Tel,
             },
             {
               label: "categories.dataSetDetails.email",
@@ -1712,6 +1719,60 @@ export const CATEGORIES: Category[] = [
     description: "Convallis sapien molestie cubilia pretium orci hendrerit.",
     icon: PersonStanding,
     dataSets: [
+      ckanDataSet({
+        id: "city-award-winner",
+        icon: Award,
+        label: "categories.society.dataSets.cityAwardWinners.label",
+        description: "categories.society.dataSets.cityAwardWinners.description",
+        isMapView: false,
+        fetchUrl:
+          "https://data.zagreb.hr/api/3/action/datastore_search?resource_id=077328a3-bc0a-4b97-99b9-a39725593c98",
+        getCKANDisplayData: (record: CityAwardWinner) => ({
+          title: record["Dobitnici Nagrade Grada Zagreba"],
+          details: [
+            {
+              label: "categories.dataSetDetails.awardYear",
+              value: record["Godina dodjele Nagrade"],
+            },
+          ],
+        }),
+      }),
+      ckanDataSet({
+        id: "city-district-office-presidents-2025",
+        icon: Landmark,
+        label:
+          "categories.society.dataSets.cityDistrictOfficePresidents2025.label",
+        description:
+          "categories.society.dataSets.cityDistrictOfficePresidents2025.description",
+        isMapView: false,
+        fetchUrl:
+          "https://data.zagreb.hr/api/3/action/datastore_search?resource_id=f74b0c73-f6fa-4f0d-ac66-8cfd12c46444",
+        getCKANDisplayData: (record: CityAwardDistrictOfficePresident) => ({
+          title: record.Predsjednik,
+          details: [
+            {
+              label: "categories.dataSetDetails.cityDistrict",
+              value: record.GradskaCetvrt,
+            },
+            {
+              label: "categories.dataSetDetails.address",
+              value: record.Adresa,
+            },
+            {
+              label: "categories.dataSetDetails.email",
+              value: record.Email,
+            },
+            {
+              label: "categories.dataSetDetails.districtEmail",
+              value: record.EmailPodrucni,
+            },
+            {
+              label: "categories.dataSetDetails.phone",
+              value: record.Telefon,
+            },
+          ],
+        }),
+      }),
       dataSet({
         id: "public-wells",
         icon: Droplet,
